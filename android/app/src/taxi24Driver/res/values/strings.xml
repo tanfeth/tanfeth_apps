@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Taxi24 driver</string>
+    <string name="facebook_app_id">368863202660923</string>
+    <string name="facebook_client_token">45dc93a382b4702f8c0326c104aaad4e</string>
+</resources>

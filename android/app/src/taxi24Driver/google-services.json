@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "708944208533",
+    "firebase_url": "https://proud-guide-380707-default-rtdb.firebaseio.com",
+    "project_id": "proud-guide-380707",
+    "storage_bucket": "proud-guide-380707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708944208533:android:07992daf4ea98a2eac319c",
+        "android_client_info": {
+          "package_name": "com.taxi24.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708944208533-a4jp22snmc6iai7b6pjq55nd87e1vu2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDh3EXuv85X-QAAh4bFxKBTc8JHxyICtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708944208533-a4jp22snmc6iai7b6pjq55nd87e1vu2t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "708944208533-1mmc7dbeudi664pktikc06qfma6t8ea9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taxi24Passenger"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708944208533:android:c26e623878a1507aac319c",
+        "android_client_info": {
+          "package_name": "com.taxi24.passenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708944208533-a4jp22snmc6iai7b6pjq55nd87e1vu2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDh3EXuv85X-QAAh4bFxKBTc8JHxyICtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708944208533-a4jp22snmc6iai7b6pjq55nd87e1vu2t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "708944208533-1mmc7dbeudi664pktikc06qfma6t8ea9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taxi24Passenger"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

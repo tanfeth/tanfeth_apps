@@ -1,0 +1,53 @@
+class OrderStatusEnum {
+  final String completed;
+  final String processing;
+  final String another;
+  final String other;
+  final String review;
+  final String hasProblem;
+  final String newOrder;
+  final String received;
+  final String expired;
+  final String inProblem;
+  final String pending;
+  final String inReview;
+  final String waiting;
+  final String newOrders;
+  final String workerAccepted;
+  final String workerOnWay;
+  final String readyToShipping;
+  final String canceled;
+  final String problematic;
+  final String accepted;
+  final String all;
+  final String vegetables;
+  final String fruits;
+  final String leafy;
+
+  const OrderStatusEnum({
+    this.completed = 'completed',
+    this.processing = 'processing',
+    this.another = 'another',
+    this.other = 'other',
+    this.review = 'review',
+    this.hasProblem = 'hasProblem',
+    this.newOrder = 'new',
+    this.received = 'received',
+    this.expired = 'expired',
+    this.inProblem = 'in_problem',
+    this.pending = 'pending',
+    this.inReview = 'in_review',
+    this.waiting = 'waiting',
+    this.newOrders = 'new_orders',
+    this.workerAccepted = 'worker_accepted',
+    this.workerOnWay = 'worker_on_way',
+    this.readyToShipping = 'ready_to_shipping',
+    this.canceled = 'canceled',
+    this.problematic = 'problematic',
+    this.accepted = 'accepted',
+    this.vegetables = 'vegetables',
+    this.fruits = 'fruits',
+    this.leafy = 'leafy',
+    this.all = 'all',
+  });
+}
