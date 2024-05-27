@@ -108,13 +108,9 @@ class AccountModel extends BaseModel {
 
   AccountModel();
 
-  factory AccountModel.fromJson(Map<String, dynamic> json) =>
-      _$AccountModelFromJson(json);
+  factory AccountModel.fromJson(Map<String, dynamic> json) => _$AccountModelFromJson(json);
 
-  static List<AccountModel> toList(dynamic jsonArray) =>
-      List<Map<String, dynamic>>.from(jsonArray)
-          .map(AccountModel.fromJson)
-          .toList();
+  static List<AccountModel> toList(dynamic jsonArray) => List<Map<String, dynamic>>.from(jsonArray).map(AccountModel.fromJson).toList();
 
   Map<String, dynamic> toJson() => _$AccountModelToJson(this);
 }

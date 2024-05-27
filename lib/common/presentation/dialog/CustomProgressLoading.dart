@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
@@ -25,13 +24,7 @@ class CustomProgressLoading {
                         padding: EdgeInsets.symmetric(
                             horizontal: MySizes.defaultPadding),
                         child: Text(LangEnum.loadingPleaseWait.tr(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle1!
-                                .copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primary))),
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.primary))),
                   ],
                 ),
               ),

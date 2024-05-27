@@ -112,7 +112,7 @@ class ModifyBottomSheetContent extends StatelessWidget {
           SizedBox(width: MySizes.defaultPadding),
           Text(title!,
               textAlign: TextAlign.start,
-              style: Theme.of(context).textTheme.subtitle1),
+              style: Theme.of(context).textTheme.titleMedium),
         ],
       ),
     );

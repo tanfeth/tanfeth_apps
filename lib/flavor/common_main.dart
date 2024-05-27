@@ -31,7 +31,6 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
     await Firebase.initializeApp(
       options: !kIsWeb ? null : DefaultFirebaseOptions.currentPlatform,
     );
-
     await FacebookAppEvents().setAdvertiserTracking(enabled: true);
     await Globals.init();
     await SharedPreferencesService.init();
