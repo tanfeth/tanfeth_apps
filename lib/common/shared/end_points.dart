@@ -1,8 +1,14 @@
 
+import 'package:tanfeth_apps/travel/taxi24_driver/shared/end_point/account/account_end_point.dart';
 import 'package:tanfeth_apps/travel/taxi24_driver/shared/end_point/auth/auth_end_point.dart';
+import 'package:tanfeth_apps/travel/taxi24_driver/shared/end_point/car/car_end_point.dart';
+
 
 class CommonEndpoints{
   AuthEndPoints authEndPoints;
+  CarEndPoints carEndPoints;
+  AccountEndPoints accountEndPoints;
+
 
   final String sendCode;
   final String driverRegister;
@@ -40,6 +46,8 @@ class CommonEndpoints{
   
   CommonEndpoints({
     this.authEndPoints = const AuthEndPoints(),
+    this.carEndPoints = const CarEndPoints(),
+    this.accountEndPoints = const AccountEndPoints(),
      this.sendCode = '',
      this.addDriverCar ='',
      this.deleteAccount = '',

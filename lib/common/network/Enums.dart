@@ -19,14 +19,12 @@ class NetworkStatusCodes extends NetworkEnum {
 
 class ContractTypes extends NetworkEnum {
   ContractTypes(value) : super(value);
-
   static final individuals = ContractTypes(230);
   static final companies = ContractTypes(231);
 }
 
 class ContractModes extends NetworkEnum {
   ContractModes(value) : super(value);
-
   static final contractMode = ContractModes(240);
 }
 
@@ -84,6 +82,5 @@ class OperationTypes extends NetworkEnum {
 
 class BranchesTypes extends NetworkEnum {
   BranchesTypes(typeId) : super(typeId);
-
   static final rentalBranch = BranchesTypes(8900);
 }

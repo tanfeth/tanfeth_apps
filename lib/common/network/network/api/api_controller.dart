@@ -31,7 +31,6 @@ import 'package:dio/src/response.dart';
 class FileMultiPart {
   final String key;
   final PlatformFile platformFile;
-
   FileMultiPart({required this.key, required this.platformFile});
 }
 
@@ -62,11 +61,8 @@ class ApiController {
     RequestTypeEnum.get: "GET",
     RequestTypeEnum.delete: "DELETE"
   };
-
   bool enableRe = true;
-
   ApiController(this.apiUrl, this.requestType);
-
   static init({
     required String baseUrl,
     required String serverErrorMessage,
@@ -100,10 +96,8 @@ class ApiController {
     }
     Map<String, String> finalQueryParams = {};
     if (authorization == null) await Auth._getDefaultAuthToken();
-    ApiController.staticHeaders["theme"] =
-        AppMode.getThemeMode().toString().replaceAll("ThemeMode.", "");
-    ApiController.staticHeaders["Authorization-Token"] =
-        authorization ?? "Not Auth";
+    ApiController.staticHeaders["theme"] = AppMode.getThemeMode().toString().replaceAll("ThemeMode.", "");
+    ApiController.staticHeaders["Authorization-Token"] = authorization ?? "Not Auth";
     if (ApiController.isCultureHeader) {
       staticHeaders["culture"] = AppMode.getLanguageMode();
     } else {
@@ -121,15 +115,11 @@ class ApiController {
       requestData = FormData({});
       if (files.isNotEmpty) {
         await Future.forEach<FileMultiPart>(files, (file) async {
-          var compressByte = kIsWeb
-              ? file.platformFile.bytes
-              : await compressFile(file.platformFile);
+          var compressByte = kIsWeb ? file.platformFile.bytes : await compressFile(file.platformFile);
           var fileName = file.platformFile.name;
           var contentType =
           MediaType(lookupMimeType(file.platformFile.name) ?? "", "");
-
-          requestData.files.add(MapEntry(
-              file.key,
+          requestData.files.add(MapEntry(file.key,
             MultipartFile.fromBytes(
                 compressByte!,
                 filename: fileName,
@@ -309,8 +299,7 @@ class ApiController {
     }
   }
 
-  void fillMultiPart(
-      dynamic requestData, String key, dynamic value, String root) {
+  void fillMultiPart(dynamic requestData, String key, dynamic value, String root) {
     if (value is Map) {
       for (var object in value.entries) {
         fillMultiPart(requestData, object.key, object.value, "$root$key.");
