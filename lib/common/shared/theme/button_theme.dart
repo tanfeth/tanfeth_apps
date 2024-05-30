@@ -65,7 +65,7 @@ class ButtonThemes {
     return TextButtonThemeData(
       style: TextButton.styleFrom(
           backgroundColor: Colors.transparent,
-          foregroundColor: colorScheme.onBackground,
+          foregroundColor: colorScheme.onSurface,
           //textButtonColor
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
           minimumSize: Size(0, _maxButtonHeight),

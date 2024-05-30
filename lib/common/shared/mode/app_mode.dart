@@ -1,32 +1,31 @@
 
-
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
+import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/storage_manager.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 
 
 class AppMode {
-  static String get themeMode => "THEME_MODE";
+  static const String THEME_MODE = "THEME_MODE";
 
   static changeThemeMode() {
     Get.changeThemeMode(Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
-    StorageManager.saveData(themeMode, !Get.isDarkMode);
+    StorageManager.saveData(THEME_MODE, !Get.isDarkMode);
   }
 
   static ThemeMode getThemeMode() {
-    var brightness = View.of(Get.context!).platformDispatcher.platformBrightness;
-   // var brightness = SchedulerBinding.instance.window.platformBrightness;
+    var brightness = SchedulerBinding.instance.window.platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
-    if (StorageManager.containData(themeMode)){
-      if (StorageManager.readData(themeMode, Get.isDarkMode)) {
-        return ThemeMode.dark;
-      } else {
-        return ThemeMode.light;
-      }
-  } else {
+    if (StorageManager.containData(THEME_MODE))
+      return StorageManager.readData(THEME_MODE, Get.isDarkMode)
+          ? ThemeMode.dark
+          : ThemeMode.light;
+    else
       return isDarkMode ? ThemeMode.dark : ThemeMode.light;
-    }
 /*
     else
     return StorageManager.readData(THEME_MODE, Get.isDarkMode)
@@ -34,28 +33,22 @@ class AppMode {
         : ThemeMode.light*/
   }
 
-  static changeLanguageMode() {
+  static changeLanguageMode({required String localeCode,
+    required WidgetRef ref}) {
     // Support AR & EN
-    var ar = "ar";
-    var en = "en";
-    if (Get.locale!.languageCode == ar) {
-      StorageManager.saveData(
-          LangEnum.language.toString(), en);
-      Get.updateLocale(Locale(en));
-    } else if (Get.locale!.languageCode == en) {
-      StorageManager.saveData(
-          LangEnum.language.toString(), ar);
-      Get.updateLocale(Locale(ar));
-    }
+    AppStorage.saveLocaleCode(localeCode);
+    Get.updateLocale(Locale(localeCode));
+    ref
+        .read(languageProvider.notifier)
+        .update(locale: localeCode);
+    Get.offAllNamed(
+        SplashRouting.config().path);
   }
 
+
   static String getLanguageMode({String initLang = "en"}) {
-    if (!StorageManager.containData(
-        LangEnum.language.toString())) {
-      StorageManager.saveData(
-          LangEnum.language.toString(), initLang);
-    }
-    return StorageManager.readData(
-        LangEnum.language.toString(), initLang);
+    if (AppStorage.getLocaleCode().isEmpty)
+      AppStorage.saveLocaleCode(initLang);
+    return AppStorage.getLocaleCode();
   }
 }

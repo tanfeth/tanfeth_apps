@@ -60,11 +60,11 @@ class _SelectAttachmentDialogState extends State<SelectAttachmentDialog> {
                                   .textButtonTheme
                                   .style
                                   ?.copyWith(
-                                    padding: MaterialStateProperty.all(
+                                    padding: WidgetStateProperty.all(
                                         EdgeInsets.zero),
-                                    backgroundColor: MaterialStateProperty.all(
+                                    backgroundColor: WidgetStateProperty.all(
                                         Colors.transparent),
-                                    elevation: MaterialStateProperty.all(0),
+                                    elevation: WidgetStateProperty.all(0),
                                   ),
                               onPressed: () {
                                 getFiles(FileType.image);
@@ -92,11 +92,11 @@ class _SelectAttachmentDialogState extends State<SelectAttachmentDialog> {
                                   .textButtonTheme
                                   .style
                                   ?.copyWith(
-                                    padding: MaterialStateProperty.all(
+                                    padding: WidgetStateProperty.all(
                                         EdgeInsets.zero),
-                                    backgroundColor: MaterialStateProperty.all(
+                                    backgroundColor: WidgetStateProperty.all(
                                         Colors.transparent),
-                                    elevation: MaterialStateProperty.all(0),
+                                    elevation: WidgetStateProperty.all(0),
                                   ),
                               onPressed: () {
                                 getFiles(FileType.video);
@@ -124,11 +124,11 @@ class _SelectAttachmentDialogState extends State<SelectAttachmentDialog> {
                                   .textButtonTheme
                                   .style!
                                   .copyWith(
-                                    padding: MaterialStateProperty.all(
+                                    padding: WidgetStateProperty.all(
                                         EdgeInsets.zero),
-                                    backgroundColor: MaterialStateProperty.all(
+                                    backgroundColor: WidgetStateProperty.all(
                                         Colors.transparent),
-                                    elevation: MaterialStateProperty.all(0),
+                                    elevation: WidgetStateProperty.all(0),
                                   ),
                               onPressed: () {
                                 getFiles(FileType.audio);
@@ -155,10 +155,10 @@ class _SelectAttachmentDialogState extends State<SelectAttachmentDialog> {
                               .style!
                               .copyWith(
                                 padding:
-                                    MaterialStateProperty.all(EdgeInsets.zero),
-                                backgroundColor: MaterialStateProperty.all(
+                                    WidgetStateProperty.all(EdgeInsets.zero),
+                                backgroundColor: WidgetStateProperty.all(
                                     Colors.transparent),
-                                elevation: MaterialStateProperty.all(0),
+                                elevation: WidgetStateProperty.all(0),
                               ),
                           onPressed: () {
                             getFiles(FileType.custom);

@@ -3,15 +3,15 @@ import 'package:tanfeth_apps/common/shared/end_points.dart';
 import 'package:tanfeth_apps/common/shared/enum.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/theme/theme.dart';
+import 'package:tanfeth_apps/travel/common/shared/end_point/common_end_points.dart';
 
 
 class FlavorConfig {
   final String secretJWT;
-  dynamic myLanguages;
+  dynamic languages;
 
-  ITheme myTheme = MyTheme();
+   ITheme myTheme = MyTheme();
   final AppNameEnum appNameEnum;
-  final String defaultCountryCode;
   final CommonEnum commonEnum;
   final Set<AppCategoryEnum> appCategoryEnum;
   final List<Locale> supportedLocales;
@@ -22,31 +22,26 @@ class FlavorConfig {
   String signalR;
 
   FlavorConfig({
-    dynamic myLanguages,
-    ITheme? myTheme,
+    MyLanguages? myLanguages,
+    ITheme? theme,
     required this.appNameEnum,
     required this.appCategoryEnum,
     required this.baseUrl,
     required this.commonEnum,
     required this.endPoints,
-    this.defaultCountryCode="EG",
     this.secretJWT = "",
     this.signalR = "https://signalr-microservices-dev.azurewebsites.net",
-    this.supportedLocales = const [
-      const Locale("ar"),
-      const Locale("en"),
-    ],
     this.fallbackLocale = const Locale("en"),
+    this.supportedLocales = const [Locale("ar"), Locale("en")],
     required this.shareUrl,
   }){
     if (myLanguages != null){
-      this.myLanguages = myLanguages;
-
+      this.languages = myLanguages;
     } else{
-      this.myLanguages = MyLanguages();
+      this.languages = MyLanguages();
     }
 
-    if (myTheme != null) this.myTheme = myTheme;
+    if (theme != null) this.myTheme = theme;
   }
 }
 

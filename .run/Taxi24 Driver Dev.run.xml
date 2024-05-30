@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Taxi24 Driver Dev" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="additionalArgs" value="--flavor taxi24Driver" />
+    <option name="filePath" value="$PROJECT_DIR$/lib/flavor/travel/taxi24_driver_main.dart" />
+    <method v="2" />
+  </configuration>
+</component>

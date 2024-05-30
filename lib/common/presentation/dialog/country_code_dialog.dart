@@ -7,7 +7,7 @@ void CountryCodeDialog(
   showCountryPicker(
     context: context,
     countryListTheme: CountryListThemeData(
-        backgroundColor: Theme.of(context).colorScheme.background),
+        backgroundColor: Theme.of(context).colorScheme.surface),
     showPhoneCode: true,
     onSelect: onSelect,
   );

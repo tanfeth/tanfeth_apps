@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/flutter_package/flutter_package.dart';
 import 'package:tanfeth_apps/common/shared/globals.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/lottie.dart';
-import 'package:tanfeth_apps/common/shared/routing/routing.dart';
-import 'package:tanfeth_apps/common/shared/signal_r/signal_r.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 
 class LoadingView extends StatelessWidget {
@@ -18,7 +18,7 @@ class LoadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     final future = [
       Globals.init(),
-      CustomSignalR.init(),
+      //CustomSignalR.init(),
       Images.initImages(),
       Lotties.initLottie(),
     ];

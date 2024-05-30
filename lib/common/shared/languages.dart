@@ -1,3 +1,4 @@
+
 import 'package:get/get.dart';
 
 extension LangEx on LangEnum {
@@ -416,7 +417,7 @@ enum LangEnum {
   orderValue,
   invaildInvoiceUrl,
   morningAppointments,
-  eveningAppointments, ok, areYouSure, edit, image, uploadError, fileTypeError, document, audio, video, somethingWrong, connectionError, info, add, yourName,
+  eveningAppointments, ok, areYouSure, edit, image, uploadError, fileTypeError, document, audio, video, somethingWrong, connectionError, info, add, yourName, start, welcomeTitle, welcomeDes,
 }
 
 class MyLanguages extends Translations {
@@ -1030,35 +1031,37 @@ class MyLanguages extends Translations {
       arValue: 'تخطي تسجيل الدخول',
     );
     addString(
-      key: LangEnum.onboardTitle3.name,
-      enValue: 'Safe and easy payment',
-      arValue: 'دفع آمن وسهل',
-    );
-    addString(
-      key: LangEnum.onboardDes3.name,
-      enValue: 'The easiest payment experience through a reliable gateway.. You are safe',
-      arValue: 'تجربة الدفع الأسهل عن طريقة بوابة موثوقة .. انت بأمان',
+      key: LangEnum.onboardTitle1.name,
+      enValue: 'Become a delegate with taxi24.',
+      arValue: 'كن مندوبًا مع سلة تاكسى24.',
     );
     addString(
       key: LangEnum.onboardTitle2.name,
-      enValue: 'List of items as you like',
-      arValue: 'قائمة أصناف على كيفك',
+      enValue: 'Easier user experience.',
+      arValue: 'تجربة المستخدم الأسهل.',
     );
     addString(
-      key: LangEnum.onboardDes2.name,
-      enValue: 'Explore the list of Kufa varieties and enjoy the wonderful taste',
-      arValue: 'استكشف قائمة أصناف كوفة واستمتع بالمذاق الرائع',
-    );
-    addString(
-      key: LangEnum.onboardTitle1.name,
-      enValue: 'We make it easy for you to order',
-      arValue: 'سهلنا عليك الطلب',
+      key: LangEnum.onboardTitle3.name,
+      enValue: 'Incentive commissions.',
+      arValue: 'عمولات محفزة.',
     );
     addString(
       key: LangEnum.onboardDes1.name,
+      arValue: 'مزايا رائعة وعمولات اضافية عندما تصبح مندوبًا مع سلة تاكسى24.',
       enValue:
-          "Don't worry about queuing and waiting, order from your mobile phone and pick up from the branch on time",
-      arValue: 'لا تشيل هم الطابور والانتظار، اطلب من جوالك واستلم من الفرع عالموعد',
+      "Great benefits and additional commissions when you become a representative with taxi24.",
+    );
+    addString(
+      key: LangEnum.onboardDes3.name,
+      enValue:
+      'Get additional incentive commissions when you complete more orders.',
+      arValue: 'احصل على عمولات إضافية محفزة عند انجازك المزيد من الطلبات.',
+    );
+    addString(
+      key: LangEnum.onboardDes2.name,
+      enValue:
+      'You can manage your orders and know your business statistics in detail and with ease.',
+      arValue: 'يمكنك إدارة طلباتك ومعرفة احصائيات عملك بالتفصيل وبكل سهولة.',
     );
     addString(
       key: LangEnum.registerNow.name,

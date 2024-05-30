@@ -27,8 +27,8 @@ class CustomProgressLoading {
                         child: Text(LangEnum.loadingPleaseWait.tr(),
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle1!
-                                .copyWith(
+                                .titleMedium
+                                ?.copyWith(
                                     color: Theme.of(context)
                                         .colorScheme
                                         .primary))),

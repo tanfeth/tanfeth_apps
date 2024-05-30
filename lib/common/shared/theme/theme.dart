@@ -20,17 +20,15 @@ class MyTheme extends ITheme {
     brightness: Brightness.light,
     primary: Color(0xFFF4B607),
     onPrimary: Color(0xFFffffff),
-    background: Color(0xFFffffff),
-    onBackground: Color(0xFF000000),
+    surface: Color(0xFFF8F8F8),
+    onSurface: Color(0xFF121112),
     primaryContainer: Color(0xFFF1F1F1),
     onPrimaryContainer: Color(0xffB4B4B4),
     secondary: Color(0xFFD03E3E),
     onSecondary: Color(0xFFffffff),
     error: Color(0xffD0021B),
-    onSurface: Color(0xFFFC9403),
     surfaceTint: Color(0xffF5ECDC),
     tertiary: Color(0xff82B936),
-    surface: Color(0xFF7D7D7D),
     inverseSurface: Color(0xff4BD12A),
     inversePrimary: Color(0xffF5A623),
     onTertiary: Color(0xff39B54A),
@@ -43,7 +41,7 @@ class MyTheme extends ITheme {
     onTertiaryContainer: Color(0xffF9E9F4),
     errorContainer: Colors.red,
     onErrorContainer: Color(0xffffffff),
-    surfaceVariant: Color(0xff9B9B9B),
+    surfaceContainerHighest: Color(0xff9B9B9B),
     onSurfaceVariant: Color(0xff8EBFE9),
     onInverseSurface: Color(0xffEAF0F4),
   );
@@ -52,8 +50,8 @@ class MyTheme extends ITheme {
     brightness: Brightness.light,
     primary: Color(0xFFF4B607),
     onPrimary: Color(0xFFffffff),
-    background: Color(0xFFF8F8F8),
-    onBackground: Color(0xFF121112),
+    surface: Color(0xFFF8F8F8),
+    onSurface: Color(0xFF121112),
     primaryContainer: Color(0xffF1F1F1),
     onPrimaryContainer: Color(0xff9093A3),
     secondary: Color(0xFFD03E3E),
@@ -69,9 +67,7 @@ class MyTheme extends ITheme {
     onTertiaryContainer: Color(0xffF9E9F4),
     errorContainer: Colors.red,
     onErrorContainer: Color(0xffffffff),
-    surface: Color(0xFF989898),
-    onSurface: Color(0xFF44362C),
-    surfaceVariant: Color(0xff9B9B9B),
+    surfaceContainerHighest: Color(0xff9B9B9B),
     onSurfaceVariant: Color(0xff8EBFE9),
     outline: Color(0xFFE4E4E4),
     onInverseSurface: Color(0xffEAF0F4),
@@ -86,27 +82,27 @@ class MyTheme extends ITheme {
     var textTheme = getTextTheme(brightness: brightness);
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
       primaryColor: colorScheme.primary,
       fontFamily: fontFamily,
       datePickerTheme: DatePickerThemeData(
-        backgroundColor: colorScheme.background,
+        backgroundColor: colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: MySizes.borderRadius),
       ),
       timePickerTheme: TimePickerThemeData(
-        backgroundColor: colorScheme.background,
-        dayPeriodTextColor: colorScheme.onBackground,
-        hourMinuteColor: MaterialStateColor.resolveWith(
+        backgroundColor: colorScheme.surface,
+        dayPeriodTextColor: colorScheme.onSurface,
+        hourMinuteColor: WidgetStateColor.resolveWith(
               (states) =>
-          states.contains(MaterialState.selected) ? colorScheme.primaryContainer : colorScheme.primaryContainer,
+          states.contains(WidgetState.selected) ? colorScheme.primaryContainer : colorScheme.primaryContainer,
         ),
-        hourMinuteTextColor: MaterialStateColor.resolveWith(
-              (states) => states.contains(MaterialState.selected) ? colorScheme.onBackground : colorScheme.onBackground,
+        hourMinuteTextColor: WidgetStateColor.resolveWith(
+              (states) => states.contains(WidgetState.selected) ? colorScheme.onSurface : colorScheme.onSurface,
         ),
         dayPeriodShape: RoundedRectangleBorder(borderRadius: MySizes.borderRadius),
         dayPeriodBorderSide: BorderSide(width: 1.5, color: colorScheme.primaryContainer),
-        dayPeriodColor: MaterialStateColor.resolveWith(
-              (states) => states.contains(MaterialState.selected) ? colorScheme.secondary : colorScheme.primaryContainer,
+        dayPeriodColor: WidgetStateColor.resolveWith(
+              (states) => states.contains(WidgetState.selected) ? colorScheme.secondary : colorScheme.primaryContainer,
         ),
         dialBackgroundColor: colorScheme.primaryContainer,
         hourMinuteTextStyle: textTheme.headlineSmall,
@@ -118,11 +114,11 @@ class MyTheme extends ITheme {
       outlinedButtonTheme: outlinedButtonThemeData(brightness: brightness),
       textButtonTheme: textButtonThemeData(brightness: brightness),
       checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStatePropertyAll(colorScheme.primary),
-        checkColor: MaterialStatePropertyAll(colorScheme.onPrimary),
+        fillColor: WidgetStatePropertyAll(colorScheme.primary),
+        checkColor: WidgetStatePropertyAll(colorScheme.onPrimary),
         side: BorderSide(width: 2, color: colorScheme.onPrimaryContainer),
       ),
-      colorScheme: colorScheme.copyWith(background: colorScheme.background),
+      colorScheme: colorScheme.copyWith(surface: colorScheme.surface),
       splashColor: colorScheme.primaryContainer.withOpacity(.5),
       highlightColor: colorScheme.primaryContainer.withOpacity(.5),
       switchTheme: switchThemeData(brightness: brightness),
@@ -176,19 +172,19 @@ class MyTheme extends ITheme {
   TextTheme getTextTheme({required Brightness brightness}) {
     var colorScheme = getCurrentColorScheme(brightness: brightness);
     return TextTheme(
-      displayLarge: TextStyle(color: colorScheme.onBackground, fontSize: 96, fontWeight: FontWeight.w400),
-      displayMedium: TextStyle(color: colorScheme.onBackground, fontSize: 60, fontWeight: FontWeight.w400),
-      displaySmall: TextStyle(color: colorScheme.onBackground, fontSize: 48, fontWeight: FontWeight.w400),
-      headlineMedium: TextStyle(color: colorScheme.onBackground, fontSize: 34, fontWeight: FontWeight.w400),
-      headlineSmall: TextStyle(color: colorScheme.onBackground, fontSize: 24, fontWeight: FontWeight.w700),
-      titleLarge: TextStyle(color: colorScheme.onBackground, fontSize: 20, fontWeight: FontWeight.w800),
-      titleMedium: TextStyle(color: colorScheme.onBackground, fontSize: 18, fontWeight: FontWeight.w700),
-      titleSmall: TextStyle(color: colorScheme.onBackground, fontSize: 16, fontWeight: FontWeight.w400),
-      bodyLarge: TextStyle(color: colorScheme.onBackground, fontSize: 15, fontWeight: FontWeight.w500),
-      bodyMedium: TextStyle(color: colorScheme.onBackground, fontSize: 14, fontWeight: FontWeight.w400),
-      labelLarge: TextStyle(color: colorScheme.onBackground, fontSize: 14, fontWeight: FontWeight.w800),
-      bodySmall: TextStyle(color: colorScheme.onBackground, fontSize: 13, fontWeight: FontWeight.w400),
-      labelSmall: TextStyle(color: colorScheme.onBackground, fontSize: 11, fontWeight: FontWeight.w400),
+      displayLarge: TextStyle(color: colorScheme.onSurface, fontSize: 96, fontWeight: FontWeight.w400),
+      displayMedium: TextStyle(color: colorScheme.onSurface, fontSize: 60, fontWeight: FontWeight.w400),
+      displaySmall: TextStyle(color: colorScheme.onSurface, fontSize: 48, fontWeight: FontWeight.w400),
+      headlineMedium: TextStyle(color: colorScheme.onSurface, fontSize: 34, fontWeight: FontWeight.w400),
+      headlineSmall: TextStyle(color: colorScheme.onSurface, fontSize: 24, fontWeight: FontWeight.w700),
+      titleLarge: TextStyle(color: colorScheme.onSurface, fontSize: 20, fontWeight: FontWeight.w800),
+      titleMedium: TextStyle(color: colorScheme.onSurface, fontSize: 18, fontWeight: FontWeight.w700),
+      titleSmall: TextStyle(color: colorScheme.onSurface, fontSize: 16, fontWeight: FontWeight.w400),
+      bodyLarge: TextStyle(color: colorScheme.onSurface, fontSize: 15, fontWeight: FontWeight.w500),
+      bodyMedium: TextStyle(color: colorScheme.onSurface, fontSize: 14, fontWeight: FontWeight.w400),
+      labelLarge: TextStyle(color: colorScheme.onSurface, fontSize: 14, fontWeight: FontWeight.w800),
+      bodySmall: TextStyle(color: colorScheme.onSurface, fontSize: 13, fontWeight: FontWeight.w400),
+      labelSmall: TextStyle(color: colorScheme.onSurface, fontSize: 11, fontWeight: FontWeight.w400),
     );
   }
 
@@ -196,7 +192,7 @@ class MyTheme extends ITheme {
     var colorScheme = getCurrentColorScheme(brightness: brightness);
     return TextButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle?>(
+        textStyle: WidgetStateProperty.all<TextStyle?>(
           getTextTheme(brightness: brightness).bodyMedium?.copyWith(
             fontFamily: fontFamily,
             fontSize: 13,
@@ -204,12 +200,12 @@ class MyTheme extends ITheme {
             fontWeight: FontWeight.w600,
           ),
         ),
-        overlayColor: MaterialStateProperty.all<Color?>(colorScheme.primaryContainer.withOpacity(.6)),
-        foregroundColor: MaterialStateProperty.all<Color?>(colorScheme.onPrimaryContainer),
-        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: MySizes.circleBorderRadius)),
-        shadowColor: MaterialStateProperty.all<Color?>(Colors.transparent),
-        elevation: MaterialStateProperty.all<double>(0),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 10, vertical: 0)),
+        overlayColor: WidgetStateProperty.all<Color?>(colorScheme.primaryContainer.withOpacity(.6)),
+        foregroundColor: WidgetStateProperty.all<Color?>(colorScheme.onPrimaryContainer),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: MySizes.circleBorderRadius)),
+        shadowColor: WidgetStateProperty.all<Color?>(Colors.transparent),
+        elevation: WidgetStateProperty.all<double>(0),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 10, vertical: 0)),
       ),
     );
   }
@@ -218,25 +214,25 @@ class MyTheme extends ITheme {
     var colorScheme = getCurrentColorScheme(brightness: brightness);
     return OutlinedButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle?>(
+        textStyle: WidgetStateProperty.all<TextStyle?>(
           getTextTheme(brightness: brightness).labelLarge?.copyWith(
             fontFamily: fontFamily,
             height: 2.3,
           ),
         ),
-        foregroundColor: MaterialStateProperty.all<Color?>(colorScheme.primary),
-        backgroundColor: MaterialStateProperty.all<Color?>(colorScheme.onPrimary),
-        overlayColor: MaterialStateProperty.all<Color?>(colorScheme.onPrimaryContainer.withOpacity(.07)),
-        shadowColor: MaterialStateProperty.all<Color?>(Colors.transparent),
-        elevation: MaterialStateProperty.all<double>(0),
-        minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, MySizes.buttonHeight)),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        foregroundColor: WidgetStateProperty.all<Color?>(colorScheme.primary),
+        backgroundColor: WidgetStateProperty.all<Color?>(colorScheme.onPrimary),
+        overlayColor: WidgetStateProperty.all<Color?>(colorScheme.onPrimaryContainer.withOpacity(.07)),
+        shadowColor: WidgetStateProperty.all<Color?>(Colors.transparent),
+        elevation: WidgetStateProperty.all<double>(0),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(double.infinity, MySizes.buttonHeight)),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding),
         ),
-        shape: MaterialStateProperty.all<OutlinedBorder>(
+        shape: WidgetStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(borderRadius: MySizes.circleBorderRadius),
         ),
-        side: MaterialStateProperty.all<BorderSide>(BorderSide(color: colorScheme.primary, width: 2)),
+        side: WidgetStateProperty.all<BorderSide>(BorderSide(color: colorScheme.primary, width: 2)),
       ),
     );
   }
@@ -285,27 +281,27 @@ class MyTheme extends ITheme {
     var colorScheme = getCurrentColorScheme(brightness: brightness);
     return ElevatedButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all<TextStyle?>(
+        textStyle: WidgetStateProperty.all<TextStyle?>(
           getTextTheme(brightness: brightness).labelLarge?.copyWith(
             fontFamily: fontFamily,
             height: 1.8,
           ),
         ),
-        backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.disabled)) {
             return colorScheme.primary.withOpacity(.5);
           } else {
             return colorScheme.primary;
           }
         }),
-        foregroundColor: MaterialStateProperty.all<Color?>(colorScheme.onPrimary),
-        elevation: MaterialStateProperty.all<double>(0),
-        shadowColor: MaterialStateProperty.all<Color?>(Colors.transparent),
-        minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, MySizes.buttonHeight)),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        foregroundColor: WidgetStateProperty.all<Color?>(colorScheme.onPrimary),
+        elevation: WidgetStateProperty.all<double>(0),
+        shadowColor: WidgetStateProperty.all<Color?>(Colors.transparent),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(double.infinity, MySizes.buttonHeight)),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding),
         ),
-        shape: MaterialStateProperty.all<OutlinedBorder>(
+        shape: WidgetStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(borderRadius: MySizes.circleBorderRadius),
         ),
       ),
@@ -315,22 +311,22 @@ class MyTheme extends ITheme {
   SwitchThemeData switchThemeData({required Brightness brightness}) {
     var colorScheme = getCurrentColorScheme(brightness: brightness);
     return SwitchThemeData(
-      thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
+      thumbColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
           return colorScheme.onPrimary;
         } else {
           return colorScheme.onPrimaryContainer;
         }
       }),
-      trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
+      trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
           return colorScheme.secondary;
         } else {
           return Colors.transparent;
         }
       }),
-      trackOutlineColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
+      trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
           return Colors.transparent;
         } else {
           return colorScheme.onPrimaryContainer;
