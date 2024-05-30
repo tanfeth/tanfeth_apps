@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';

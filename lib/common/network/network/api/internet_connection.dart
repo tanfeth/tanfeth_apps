@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,28 +10,15 @@ void internetConnectionListener() {
     var state = event == InternetConnectionStatus.disconnected;
     if (state != ApiController.isDisconnect) {
       ApiController.isDisconnect = state;
-      if ((await InternetConnectionChecker().hasConnection) !=
-          ApiController.isDisconnect) {
+      if ((await InternetConnectionChecker().hasConnection) != ApiController.isDisconnect) {
         if (ApiController.isDisconnect) {
-          Get.snackbar(
-            LangEnum.hintInternetConnection
-                .toString()
-                .tr,
-            ApiController.isDisconnect
-                ? LangEnum.noInternetConnection
-                .toString()
-                .tr
-                : LangEnum.yesInternetConnection
-                .toString()
-                .tr,
-            backgroundColor:
-            ApiController.isDisconnect ? Colors.red : Colors.green,
-            colorText: ApiController.isDisconnect
-                ? Colors.white
-                : Colors.white,);
+          Get.snackbar(LangEnum.hintInternetConnection.toString().tr,
+            ApiController.isDisconnect ? LangEnum.noInternetConnection.toString().tr : LangEnum.yesInternetConnection.toString().tr,
+            backgroundColor: ApiController.isDisconnect ? Colors.red : Colors.green,
+            colorText: ApiController.isDisconnect ? Colors.white : Colors.white,
+          );
         }
       }
-
     }
   });
 }

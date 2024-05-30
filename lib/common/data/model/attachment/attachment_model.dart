@@ -7,10 +7,11 @@ class AttachmentModel {
   final int? id;
   final PlatformFile? file;
 
-  AttachmentModel(
-      {required this.path,
+  AttachmentModel({
+    required this.path,
       required this.isImage,
       required this.isLocal,
       this.id,
-      this.file});
+      this.file
+  });
 }
