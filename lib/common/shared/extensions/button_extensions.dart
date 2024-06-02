@@ -55,6 +55,24 @@ extension OutlinedButtonEx on ButtonStyle {
       side: WidgetStateProperty.all<BorderSide>(BorderSide(color: context.color.outline, width: 2)),
     );
   }
+
+  ButtonStyle? OnBackOutlinedButton(BuildContext context) {
+    return copyWith(
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onPrimaryContainer),
+      backgroundColor: WidgetStateProperty.all<Color?>(context.color.onPrimary),
+     // side: WidgetStateProperty.all<BorderSide>(BorderSide(color: context.color.outline, width: 2)),
+    );
+  }
+
+  ButtonStyle? DarkTextButton(BuildContext context) {
+    return copyWith(
+      foregroundColor: MaterialStateProperty.all<Color?>(context.color.onBackground),
+      overlayColor: MaterialStateProperty.all<Color?>(context.color.onPrimaryContainer.withOpacity(.05)),
+    );
+  }
+
+
+
 }
 
 extension TextButtonEx on ButtonStyle {

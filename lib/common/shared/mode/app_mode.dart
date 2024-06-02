@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
@@ -18,7 +17,7 @@ class AppMode {
   }
 
   static ThemeMode getThemeMode() {
-    var brightness = SchedulerBinding.instance.window.platformBrightness;
+    var brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     if (StorageManager.containData(THEME_MODE))
       return StorageManager.readData(THEME_MODE, Get.isDarkMode)

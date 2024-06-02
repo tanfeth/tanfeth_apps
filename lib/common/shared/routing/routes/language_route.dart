@@ -11,12 +11,12 @@ class LanguageRouting  {
 
   static const String _path = '/Language/';
 
-  static ScreenConfig config() {
+  static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return ScreenConfig(path: _path, widget: const LanguageView());
+        return RoutingConfig(path: _path, widget: const LanguageView());
       default:
-        return ScreenConfig(path: _path, widget: const LanguageView());
+        return RoutingConfig(path: _path, widget: const LanguageView());
     }
   }
 }

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
 import 'package:tanfeth_apps/common/shared/grid_helper.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -58,7 +59,9 @@ class taxi24DriverMain {
       );
     Get.put(flavor, permanent: true);
     customAppFlavor = flavor;
-
+    screenPages.addAll([
+      HomeRouting.config().page
+    ]);
 
     mainCommon(
       flavor,

@@ -19,7 +19,3 @@ class Taxi24DriverProjectsFilterEnum {
   static const String idDesc = "id desc";
 }
 
-enum WorkplaceProfileTabsEnum {
-  overview,
-  team,
-}

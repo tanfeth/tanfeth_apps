@@ -1,20 +1,24 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:store_redirect/store_redirect.dart';
 import 'dart:typed_data';
 import 'package:uni_links/uni_links.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+
+
+void openKeyboard({required BuildContext context,
+  required FocusNode focusNode}){
+  FocusScope.of(context).requestFocus(focusNode);
+}
 
 
 void closeKeyBoard() {

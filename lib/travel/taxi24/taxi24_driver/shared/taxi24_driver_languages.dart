@@ -58,14 +58,76 @@ class Taxi24DriverLanguages extends MyLanguages {
 
     addString(
       key: LangEnum.welcomeDes.name,
-      enValue: 'Work at any time you want and make as much money as you want',
-      arValue: 'اعمل في أي وقت تريده واكسب المال الذي تريده',
+      enValue: 'Join us and enjoy total freedom and control over your time and earnings.',
+      arValue: 'انضم إلينا واستمتع بالحرية الكاملة والتحكم في وقتك وأرباحك.',
     );
 
     addString(
-        key: LangEnum.yourName.name, enValue: 'Your Name', arValue: 'اسمك');
+        key: LangEnum.enterMobileNum.name,
+        enValue: 'Enter your mobile number',
+        arValue: 'أدخل رقم هاتفك المحمول');
 
 
+    addString(
+        key: LangEnum.enterMobileNumDes.name,
+        enValue: 'We’ll text you a code to verify your number',
+        arValue: 'سنرسل إليك رمزًا للتحقق من رقمك');
+
+    addString(
+      key: LangEnum.numPhone.name,
+      enValue: 'Mobile number',
+      arValue: 'رقم الجوال',
+    );
+
+
+    addString(
+      key: LangEnum.continueWord.name,
+      enValue: 'Continue',
+      arValue: 'استمر',
+    );
+
+    addString(
+      key: LangEnum.send.name,
+      enValue: 'Send',
+      arValue: 'ارسال',
+    );
+    addString(
+      key: LangEnum.enterCode.name,
+      enValue: 'Enter the activation code',
+      arValue: 'ادخل كود التفعيل',
+    );
+    addString(
+      key: LangEnum.codeDesReset.name,
+      enValue:
+      'Enter the verification code sent to your mobile number to be able to complete the password reset process',
+      arValue: 'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال عملية إعادة تعيين كلمة المرور',
+    );
+    addString(
+      key: LangEnum.sure.name,
+      enValue: 'sure',
+      arValue: 'تأكيد',
+    );
+
+
+    addString(
+      key: LangEnum.codeDesRegister.name,
+      enValue: 'Enter the verification code sent to your mobile number to be able to complete  process',
+      arValue: 'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال العملية ',
+    );
+
+
+    addString(
+      key: LangEnum.resendCodeDesc.name,
+      enValue: 'Didn\'t you receive the message?',
+      arValue: 'لم تصلك الرسالة؟',
+    );
+    addString(
+      key: LangEnum.resendCodeBtn.name,
+      enValue: 'Resend code',
+      arValue: ' إعادة الإرسال',
+    );
+    
+    
     return {MyLanguages.arKey: arStrings, MyLanguages.enKey: enStrings};
   }
 }

@@ -417,7 +417,11 @@ enum LangEnum {
   orderValue,
   invaildInvoiceUrl,
   morningAppointments,
-  eveningAppointments, ok, areYouSure, edit, image, uploadError, fileTypeError, document, audio, video, somethingWrong, connectionError, info, add, yourName, start, welcomeTitle, welcomeDes,
+  eveningAppointments, ok, areYouSure, edit, image,
+  uploadError, fileTypeError, document, audio, video,
+  somethingWrong, connectionError, info, add, yourName,
+  start,
+  welcomeTitle, welcomeDes, enterMobileNumDes, enterMobileNum, numPhone, continueWord, enterCode, codeDesReset, sure, codeDesRegister, resendCodeDesc, resendCodeBtn,
 }
 
 class MyLanguages extends Translations {
@@ -1463,8 +1467,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.validatePhoneValidator.name,
-      enValue: 'Mobile number must not be greater than 9.',
-      arValue: 'رقم الجوال يجب الا يكون اكبر من  9.',
+      enValue: 'Mobile number must  be  9 numbers',
+      arValue: 'رقم الجوال يجب أن يكون 9 أرقام',
     );
     addString(
       key: LangEnum.validatePassEmpty.name,

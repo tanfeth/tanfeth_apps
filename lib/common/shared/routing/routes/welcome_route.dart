@@ -11,14 +11,14 @@ class WelcomeRouting   {
 
   static const String _path = '/welcome/';
 
-  static ScreenConfig config() {
+  static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return ScreenConfig(path: _path,
+        return RoutingConfig(path: _path,
             widget: const WelcomeView());
 
       default:
-        return ScreenConfig(path: _path,
+        return RoutingConfig(path: _path,
             widget: const WelcomeView());
     }
   }

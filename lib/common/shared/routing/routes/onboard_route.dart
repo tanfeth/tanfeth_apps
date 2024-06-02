@@ -10,14 +10,14 @@ class OnBoardingRouting   {
 
   static const String _path = '/OnBoarding/';
 
-  static ScreenConfig config() {
+  static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return ScreenConfig(path: _path,
+        return RoutingConfig(path: _path,
             widget: const OnBoardingView());
 
       default:
-        return ScreenConfig(path: _path,
+        return RoutingConfig(path: _path,
             widget: const OnBoardingView());
     }
   }

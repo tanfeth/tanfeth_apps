@@ -7,7 +7,6 @@ import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
@@ -29,23 +28,8 @@ class _OnBoardingViewState extends ConsumerState<OnBoardingView> {
 
   @override
   void initState() {
-    onboardList = [
-      OnBoardModel(
-        title: LangEnum.onboardTitle1.tr(),
-        description: LangEnum.onboardDes1.tr(),
-        image: Images.onboard1,
-      ),
-      OnBoardModel(
-        title: LangEnum.onboardTitle2.tr(),
-        description: LangEnum.onboardDes2.tr(),
-        image: Images.onboard2,
-      ),
-      OnBoardModel(
-        title: LangEnum.onboardTitle3.tr(),
-        description: LangEnum.onboardDes3.tr(),
-        image: Images.onboard3,
-      ),
-    ];
+    handleOnBoardList();
+
     super.initState();
   }
 
@@ -69,7 +53,7 @@ class _OnBoardingViewState extends ConsumerState<OnBoardingView> {
                         ? TextButton(
                             onPressed: () {
                               AppStorage.saveOnBoardStatus(true);
-                              Get.offAllNamed(LoginRouting.config().path);
+                              Get.offAllNamed(WelcomeRouting.config().path);
                             },
                             child: Text(LangEnum.skip.tr()),
                           )
@@ -131,6 +115,30 @@ class _OnBoardingViewState extends ConsumerState<OnBoardingView> {
           ],
         ).hPadding(MySizes.largePadding),
       ),
+    );
+  }
+
+
+  void handleOnBoardList() {
+    onboardList.clear();
+    onboardList.addAll(
+        onboardList = [
+          OnBoardModel(
+            title: LangEnum.onboardTitle1.tr(),
+            description: LangEnum.onboardDes1.tr(),
+            image: Images.onboard1,
+          ),
+          OnBoardModel(
+            title: LangEnum.onboardTitle2.tr(),
+            description: LangEnum.onboardDes2.tr(),
+            image: Images.onboard2,
+          ),
+          OnBoardModel(
+            title: LangEnum.onboardTitle3.tr(),
+            description: LangEnum.onboardDes3.tr(),
+            image: Images.onboard3,
+          ),
+        ]
     );
   }
 }

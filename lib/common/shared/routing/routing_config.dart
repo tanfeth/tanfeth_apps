@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ScreenConfig {
+class RoutingConfig {
   String path;
   Widget widget;
   String key;
 
-  ScreenConfig({
+  RoutingConfig({
     this.path = '',
     this.widget = const SizedBox(),
     this.key = "",
-    ScreenConfig? config,
+    RoutingConfig? config,
   }) {
     if (config != null) {
       path = config.path;

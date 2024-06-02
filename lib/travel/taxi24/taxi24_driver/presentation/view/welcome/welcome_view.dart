@@ -1,8 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
@@ -11,77 +12,103 @@ import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_rou
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 
-class WelcomeView extends ConsumerWidget{
-   const WelcomeView();
+class WelcomeView extends ConsumerWidget {
+  const WelcomeView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: WebWidth(
-        child: SafeArea(
-          child: Container(
-            decoration:  BoxDecoration(
-                gradient: LinearGradient(colors: [
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: context.color.primary.withOpacity(0.4),
+      ),
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        body: WebWidth(
+          child: SafeArea(
+            child: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
                     context.color.primary,
-                  context.color.primary.withOpacity(0.2),
-                ])),
-            child: Column(
-              children: [
-
-                Center(
-                  child: SvgPicture.asset(
-                    Images.appLogoSVG,
-                    height: MySizes.defaultPadding * 5,
-                    width: MySizes.defaultPadding * 5,
-                  ),
-                ),
-
-                20.ph,
-
-                Center(
-                  child: SvgPicture.asset(
-                    Images.welcomeGroup14SVG,
-                    height: MySizes.defaultPadding * 5,
-                    width: MySizes.defaultPadding * 5,
-                  ),
-                ),
-
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        LangEnum.welcomeTitle.tr(),
-                        style:context.text.bodyMedium,
+                    context.color.primary.withOpacity(0.4),
+                  ])),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: SvgPicture.asset(
+                                Images.appLogoSVG,
+                                height: 170,
+                                width: 170,
+                              ),
+                            ),
+                            50.ph,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SvgPicture.asset(
+                                  Images.welcomeGroup10SVG,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 100),
+                                  child: SvgPicture.asset(
+                                    Images.welcomeGroup14SVG,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            20.ph,
+                          ],
+                        ),
                       ),
-
-                      20.ph,
-                      Text(
-                        LangEnum.welcomeDes.tr(),
-                        style:context.text.bodySmall,
-                      ),
-
-                      20.ph,
-
-                      ElevatedButton(
-                        onPressed: () {
-                          Get.offAllNamed(LoginRouting.config().path);
-                        },
-                        child: Text(LangEnum.start.tr()),
-                      ),
-
-                    ],
+                    ),
                   ),
-                ),
-
-
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          LangEnum.welcomeTitle.tr(),
+                          style: context.text.titleMedium,
+                        ),
+                        5.ph,
+                        Text(
+                          LangEnum.welcomeDes.tr(),
+                          style: context.text.bodySmall,
+                        ),
+                        50.ph,
+                        ElevatedButton(
+                          style:
+                              const ButtonStyle().OnBackOutlinedButton(context),
+                          onPressed: () {
+                            Get.toNamed(LoginRouting.config().path);
+                          },
+                          child: Text(
+                            LangEnum.start.tr(),
+                            style: TextStyle(color: context.color.onSurface),
+                          ),
+                        ),
+                        20.ph,
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
   }
-
 }

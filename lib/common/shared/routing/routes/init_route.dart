@@ -7,7 +7,7 @@ import 'package:tanfeth_apps/common/shared/routing/routing_config.dart';
 class InitRouting {
   const InitRouting();
 
-  static  ScreenConfig config() => ScreenConfig(
+  static  RoutingConfig config() => RoutingConfig(
     path: "/init",
     widget: LoadingView(),
   );
