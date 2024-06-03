@@ -10,7 +10,7 @@ final pinPutTheme = PinTheme(
   height: MySizes.largePadding * 2,
   textStyle: Get.theme.textTheme.titleLarge?.copyWith(
     color: Get.theme.colorScheme.primary,
-    height: 4.4,
+    height: 3,
   ),
   decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(10),
@@ -22,7 +22,7 @@ final pinPutTheme = PinTheme(
 final focusedPinTheme = pinPutTheme.copyWith(
   textStyle: Get.theme.textTheme.titleLarge?.copyWith(
     color: Get.theme.colorScheme.primary,
-    height: 3.4,
+    height: 3,
   ),
   decoration: pinPutTheme.decoration?.copyWith(
     color: Get.theme.colorScheme.surface,

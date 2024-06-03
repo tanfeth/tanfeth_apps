@@ -421,7 +421,7 @@ enum LangEnum {
   uploadError, fileTypeError, document, audio, video,
   somethingWrong, connectionError, info, add, yourName,
   start,
-  welcomeTitle, welcomeDes, enterMobileNumDes, enterMobileNum, numPhone, continueWord, enterCode, codeDesReset, sure, codeDesRegister, resendCodeDesc, resendCodeBtn,
+  welcomeTitle, welcomeDes, enterMobileNumDes, enterMobileNum, numPhone, continueWord, enterCode, codeDesReset, sure, codeDesRegister, resendCodeDesc, resendCodeBtn, enable, navigate, profile, completedTrips, lowCompletionRate, today, close, compilationRate, acceptanceRate, about, logout, myCars, wallet, earnings, personalInfo,
 }
 
 class MyLanguages extends Translations {

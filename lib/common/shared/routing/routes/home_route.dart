@@ -16,9 +16,9 @@ class HomeRouting extends RoutingConfig {
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return RoutingConfig(path: _path, widget: const HomeView());
+        return RoutingConfig(path: _path, widget: const TaxiDriverHomeView());
       default:
-        return RoutingConfig(path: _path, widget: const HomeView());
+        return RoutingConfig(path: _path, widget: const TaxiDriverHomeView());
     }
   }
 }

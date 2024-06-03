@@ -9,6 +9,7 @@ import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extensio
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/vm/verify_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
@@ -46,62 +47,65 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
     return Scaffold(
       appBar: const MainAppBar(leadingWidget: BackButtonWidget()),
       body: WebWidth(
-        child: SingleChildScrollView(
-          padding: 30.toAll,
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(LangEnum.enterCode.tr(), style: context.text.titleMedium),
-              10.ph,
-              Text(LangEnum.codeDesReset.tr()),
-              15.ph,
-              Center(
-                child: Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Pinput(
-                    length: 4,
-                    showCursor: true,
-                    defaultPinTheme: pinPutTheme,
-                    focusedPinTheme: focusedPinTheme,
-                    submittedPinTheme: submittedPinTheme,
-                    onChanged: (val) {
-                      if(val.length == 4){
-                        closeKeyBoard();
-                      }
-                    },
-                    onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                  ),
-                ),
-              ),
-              20.ph,
-              ElevatedButton(
-                onPressed: () async {
-
-                  // try {} catch (e) {
-                  //   showToast(e.toString());
-                  // }
-                },
-                child: Text(LangEnum.sure.tr()),
-              ),
-              15.ph,
-              timerState
-                  ? TimerWidget(onEnd: () {
-                      verifyVM.updateTimer(currentStatus: false);
-                    })
-                  : AuthLinkedMsg(
-                      message: LangEnum.resendCodeDesc.tr(),
-                      linkTitle: LangEnum.resendCodeBtn.tr(),
-                      onPressed: () async {
-                        verifyVM.updateTimer(currentStatus: true);
-                        try {
-                          //  await vm.resendCode();
-                        } catch (e) {
-                          showToast(e.toString());
+        child: Container(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            padding: 30.toAll,
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(LangEnum.enterCode.tr(), style: context.text.titleMedium),
+                10.ph,
+                Text(LangEnum.codeDesReset.tr()),
+                15.ph,
+                Center(
+                  child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Pinput(
+                      length: 4,
+                      showCursor: true,
+                      defaultPinTheme: pinPutTheme,
+                      focusedPinTheme: focusedPinTheme,
+                      submittedPinTheme: submittedPinTheme,
+                      onChanged: (val) {
+                        if(val.length == 4){
+                          closeKeyBoard();
                         }
                       },
+                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
                     ),
-            ],
+                  ),
+                ),
+                20.ph,
+                ElevatedButton(
+                  onPressed: () async {
+                    Get.offAllNamed(HomeRouting.config().path);
+                    // try {} catch (e) {
+                    //   showToast(e.toString());
+                    // }
+                  },
+                  child: Text(LangEnum.sure.tr()),
+                ),
+                15.ph,
+                timerState
+                    ? TimerWidget(onEnd: () {
+                        verifyVM.updateTimer(currentStatus: false);
+                      })
+                    : AuthLinkedMsg(
+                        message: LangEnum.resendCodeDesc.tr(),
+                        linkTitle: LangEnum.resendCodeBtn.tr(),
+                        onPressed: () async {
+                          verifyVM.updateTimer(currentStatus: true);
+                          try {
+                            //  await vm.resendCode();
+                          } catch (e) {
+                            showToast(e.toString());
+                          }
+                        },
+                      ),
+              ],
+            ),
           ),
         ),
       ),

@@ -19,3 +19,9 @@ class Taxi24DriverProjectsFilterEnum {
   static const String idDesc = "id desc";
 }
 
+enum SlideDirection {
+  UP,
+  DOWN,
+}
+
+enum PanelState { OPEN, CLOSED }

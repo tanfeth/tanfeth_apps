@@ -126,8 +126,102 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Resend code',
       arValue: ' إعادة الإرسال',
     );
-    
-    
+
+
+    addString(
+      key: LangEnum.enable.name,
+      enValue: 'Enable',
+      arValue: 'تمكين',
+    );
+
+    addString(
+      key: LangEnum.navigate.name,
+      enValue: 'Navigate',
+      arValue: 'انتقل',
+    );
+
+    addString(
+      key: LangEnum.profile.name,
+      enValue: 'Profile',
+      arValue: 'الملف الشخصي',
+    );
+
+    addString(
+      key: LangEnum.completedTrips.name,
+      enValue: 'The percentage of your completed trips in the last 30 days',
+      arValue: 'النسبة المئوية لرحلاتك المكتملة في آخر 30 يومًا',
+    );
+
+
+
+    addString(
+      key: LangEnum.lowCompletionRate .name,
+      enValue: 'Your completion rate is low, Try to complete more trips so you can rank high in the drivers',
+      arValue: 'معدل إكمالك منخفض، حاول إكمال المزيد من الرحلات حتى تتمكن من الحصول على مرتبة عالية في برامج التشغيل',
+    );
+
+    addString(
+      key: LangEnum.today.name,
+      enValue: 'Today',
+      arValue: 'اليوم',
+    );
+
+
+    addString(
+      key: LangEnum.close.name,
+      enValue: 'Close',
+      arValue: 'إغلاق',
+    );
+
+    addString(
+      key: LangEnum.compilationRate.name,
+      enValue: 'Compilation Rate',
+      arValue: 'معدل التجميع',
+    );
+
+    addString(
+      key: LangEnum.acceptanceRate.name,
+      enValue: 'Acceptance rate',
+      arValue: 'معدل القبول',
+    );
+
+
+
+    addString(
+      key: LangEnum.personalInfo.name,
+      enValue: 'Personal info',
+      arValue: 'معلومات شخصية',
+    );
+
+    addString(
+      key: LangEnum.earnings.name,
+      enValue: 'Earnings',
+      arValue: 'الأرباح',
+    );
+
+    addString(
+      key: LangEnum.wallet.name,
+      enValue: 'Wallet',
+      arValue: 'المحفظة',
+    );
+
+    addString(
+      key: LangEnum.myCars.name,
+      enValue: 'My cars',
+      arValue: 'سياراتي',
+    );
+
+    addString(
+      key: LangEnum.logout.name,
+      enValue: 'Logout',
+      arValue: 'تسجيل خروج',
+    );
+
+    addString(
+      key: LangEnum.about.name,
+      enValue: 'About',
+      arValue: 'عن',
+    );
     return {MyLanguages.arKey: arStrings, MyLanguages.enKey: enStrings};
   }
 }
