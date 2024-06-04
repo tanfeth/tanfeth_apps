@@ -6,17 +6,20 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 
 class ProfileItemWidget extends ConsumerWidget {
-  const ProfileItemWidget({Key? key,
-      required this.title,
-      required this.icon,
-      required this.function}) : super(key: key);
   final String icon;
   final String title;
   final VoidCallback function;
+  final Widget? imageWidget;
+
+  const ProfileItemWidget({Key? key,
+      required this.title,
+       this.icon = '',
+      required this.function,
+     this.imageWidget}) : super(key: key);
 
   @override
   Widget build(BuildContext context,ref) {
-    return GestureDetector(
+   return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: function,
       child: SizedBox(
@@ -26,15 +29,24 @@ class ProfileItemWidget extends ConsumerWidget {
             Expanded(
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    icon,
-                    width: 48,
-                    height: 48,
-                  ),
-                  SizedBox(width: 12,),
-                  Text(
-                    title,
-                    style: context.text.titleSmall,
+                    if(imageWidget != null)...[
+                      imageWidget??const SizedBox.shrink()
+                    ]else ...[
+                      icon.isNotEmpty?
+                      SvgPicture.asset(
+                        icon,
+                        width: 48,
+                        height: 48,
+                      ):const SizedBox.shrink(),
+                    ],
+
+                  SizedBox(width: 10,),
+
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: context.text.titleSmall,
+                    ),
                   ),
                 ],
               ),

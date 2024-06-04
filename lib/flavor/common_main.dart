@@ -16,9 +16,13 @@ import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_ro
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/onboard_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/report_problem_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/shareprefrances.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
@@ -75,6 +79,10 @@ class CommonMain extends ConsumerWidget {
       VerifyRouting.config().page,
       LayoutRouting.config().page,
       ProfileRouting.config().page,
+      WebViewRouting.config().page,
+      SendMessageRouting.config().page,
+      ReportProblemRouting.config().page,
+      NotificationsRouting.config().page,
     ]);
   }
 

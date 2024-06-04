@@ -21,10 +21,10 @@ class ProfileRate extends StatelessWidget {
                     context: context,
                     hasWarning: false,
                     rateTitle: LangEnum.compilationRate.tr(),
-                    sheetValue: 5);
+                    sheetValue: 50);
               },
               child: ProfileDataWidget(
-                percentNumber: 10,
+                percentNumber: 50,
                 title: LangEnum.compilationRate.tr(),)),
         ),
 
@@ -37,10 +37,10 @@ class ProfileRate extends StatelessWidget {
                     context: context,
                     hasWarning: false,
                     rateTitle: LangEnum.acceptanceRate.tr(),
-                    sheetValue:  5);
+                    sheetValue:  50);
               },
               child: ProfileDataWidget(
-                percentNumber: 10,
+                percentNumber: 50,
                 title: LangEnum.acceptanceRate.tr(),
               )),
         ),

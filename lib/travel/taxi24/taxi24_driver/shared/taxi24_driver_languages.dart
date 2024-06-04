@@ -10,7 +10,7 @@ class Taxi24DriverLanguages extends MyLanguages {
     addString(key: LangEnum.add.name, enValue: "add more", arValue: "اضافة");
     addString(
       key: LangEnum.start.name,
-      enValue: 'start now',
+      enValue: 'Start now',
       arValue: 'ابدأ الآن',
     );
 
@@ -222,6 +222,91 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'About',
       arValue: 'عن',
     );
+
+    addString(
+      key: LangEnum.copyright.name,
+      enValue: 'Taxi 2024 ©, all rights reserved',
+      arValue: 'تاكسى 2024 ©، جميع الحقوق محفوظة',
+    );
+
+
+    addString(
+      key: LangEnum.aboutAppName.name,
+      enValue: 'About Taxi24',
+      arValue: 'عن تاكسى24',
+    );
+
+
+    addString(
+      key: LangEnum.verifyValidate.name,
+      enValue: 'Code length must  be  4 numbers',
+      arValue: 'يجب أن يكون طول الرمز 4 أرقام',
+    );
+
+    addString(
+      key: LangEnum.paymentAndPricing.name,
+      enValue: 'Payments & pricing',
+      arValue: 'المدفوعات والتسعير',
+    );
+
+    addString(
+      key: LangEnum.sendMessage.name,
+      enValue: 'Send message',
+      arValue: 'إرسال رسالة',
+    );
+
+
+
+    addString(
+      key: LangEnum.captainProblem.name,
+      enValue: 'Captain caused ride charges to increase',
+      arValue: 'تسبب الكابتن في زيادة رسوم الركوب',
+    );
+
+
+
+    addString(
+      key: LangEnum.walletProblem.name,
+      enValue: 'I paid the captain extra but the amount is not visible in my wallet',
+      arValue: 'لقد دفعت للكابتن مبلغًا إضافيًا ولكن المبلغ غير ظاهر في محفظتي',
+    );
+
+
+    addString(
+      key: LangEnum.itemProblem.name,
+      enValue: 'I lost an item',
+      arValue: 'لقد فقدت عنصرا',
+    );
+
+
+
+    addString(
+      key: LangEnum.other.name,
+      enValue: 'Other',
+      arValue: 'أخرى',
+    );
+
+
+    addString(
+      key: LangEnum.upload3Pic.name,
+      enValue: 'You can upload up to 3 pictures',
+      arValue: 'يمكنك تحميل ما يصل إلى 3 صور',
+    );
+
+    addString(
+        key: LangEnum.enterATextAtLeast.name,
+        enValue: 'Enter a text description of at least 250 characters',
+        arValue: 'ادخل وصف نصي لا يقل عن 250 حرف');
+
+
+    addString(
+      key: LangEnum.describeProblem.name,
+      enValue: 'Describe the problem',
+      arValue: 'صف المشكلة',
+    );
+
+
+
     return {MyLanguages.arKey: arStrings, MyLanguages.enKey: enStrings};
   }
 }

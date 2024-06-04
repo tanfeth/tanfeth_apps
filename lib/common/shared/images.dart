@@ -108,7 +108,10 @@ class Images {
   static String onboard1 = "";
   static String onboard2 = "";
   static String onboard3 = "";
-
+  static String close = "";
+  static String startGif = "";
+  static String shareGif = "";
+  static String notification = "";
 
 
   static Future<void> initImages() async {
@@ -218,6 +221,10 @@ class Images {
      onboard1 = await checkImage('onboard1.png');
      onboard2 = await checkImage('onboard2.png');
      onboard3 = await checkImage('onboard3.png');
+     close = await checkImage('close.svg');
+     startGif = await checkImage('star.gif');
+     shareGif = await checkImage('share.gif');
+     notification = await checkImage('notification.png');
 
   }
 

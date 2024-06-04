@@ -29,10 +29,15 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
   late VerifyVM verifyVM;
   bool timerState = false;
 
+  GlobalKey<FormState> pinKey =  GlobalKey<FormState>();
+
   @override
   void initState() {
     verifyVM = ref.read(verifyProvider.notifier);
-    verifyVM.updateTimer(currentStatus: true);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      verifyVM.updateTimer(currentStatus: true);
+    });
+
     super.initState();
   }
 
@@ -62,25 +67,41 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                 Center(
                   child: Directionality(
                     textDirection: TextDirection.ltr,
-                    child: Pinput(
-                      length: 4,
-                      showCursor: true,
-                      defaultPinTheme: pinPutTheme,
-                      focusedPinTheme: focusedPinTheme,
-                      submittedPinTheme: submittedPinTheme,
-                      onChanged: (val) {
-                        if(val.length == 4){
-                          closeKeyBoard();
-                        }
-                      },
-                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                    child: Form(
+                      key: pinKey,
+                      child: Pinput(
+                        length: 4,
+                        showCursor: true,
+                        defaultPinTheme: pinPutTheme,
+                        focusedPinTheme: focusedPinTheme,
+                        submittedPinTheme: submittedPinTheme,
+                        autofocus: true,
+                        validator: (val){
+                          if((val??'').length != 4){
+                            return LangEnum.verifyValidate.tr();
+                          }else{
+                            return null;
+                          }
+
+                        },
+                        pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+                        onChanged: (val) {
+                          if(val.length == 4){
+                            closeKeyBoard();
+                          }
+                        },
+                        onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                      ),
                     ),
                   ),
                 ),
                 20.ph,
                 ElevatedButton(
                   onPressed: () async {
-                    Get.offAllNamed(HomeRouting.config().path);
+                    if (pinKey.currentState!.validate()) {
+                      Get.offAllNamed(HomeRouting.config().path);
+                    }
+
                     // try {} catch (e) {
                     //   showToast(e.toString());
                     // }
