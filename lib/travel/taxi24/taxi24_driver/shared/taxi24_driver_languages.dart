@@ -1,4 +1,3 @@
-
 import 'package:tanfeth_apps/common/shared/languages.dart';
 
 class Taxi24DriverLanguages extends MyLanguages {
@@ -13,7 +12,6 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Start now',
       arValue: 'ابدأ الآن',
     );
-
 
     addString(
       key: LangEnum.onboardTitle1.name,
@@ -34,18 +32,18 @@ class Taxi24DriverLanguages extends MyLanguages {
       key: LangEnum.onboardDes1.name,
       arValue: 'مزايا رائعة وعمولات اضافية عندما تصبح مندوبًا مع  تاكسى24.',
       enValue:
-      "Great benefits and additional commissions when you become a representative with taxi24",
+          "Great benefits and additional commissions when you become a representative with taxi24",
     );
     addString(
       key: LangEnum.onboardDes3.name,
       enValue:
-      'Get additional incentive commissions when you complete more orders',
+          'Get additional incentive commissions when you complete more orders',
       arValue: 'احصل على عمولات إضافية محفزة عند انجازك المزيد من الطلبات',
     );
     addString(
       key: LangEnum.onboardDes2.name,
       enValue:
-      'You can manage your orders and know your business statistics in detail and with ease',
+          'You can manage your orders and know your business statistics in detail and with ease',
       arValue: 'يمكنك إدارة طلباتك ومعرفة احصائيات عملك بالتفصيل وبكل سهولة',
     );
 
@@ -55,10 +53,10 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'مرحبا بكم في سائق تاكسى 24/7',
     );
 
-
     addString(
       key: LangEnum.welcomeDes.name,
-      enValue: 'Join us and enjoy total freedom and control over your time and earnings.',
+      enValue:
+          'Join us and enjoy total freedom and control over your time and earnings.',
       arValue: 'انضم إلينا واستمتع بالحرية الكاملة والتحكم في وقتك وأرباحك.',
     );
 
@@ -66,7 +64,6 @@ class Taxi24DriverLanguages extends MyLanguages {
         key: LangEnum.enterMobileNum.name,
         enValue: 'Enter your mobile number',
         arValue: 'أدخل رقم هاتفك المحمول');
-
 
     addString(
         key: LangEnum.enterMobileNumDes.name,
@@ -78,7 +75,6 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Mobile number',
       arValue: 'رقم الجوال',
     );
-
 
     addString(
       key: LangEnum.continueWord.name,
@@ -99,8 +95,9 @@ class Taxi24DriverLanguages extends MyLanguages {
     addString(
       key: LangEnum.codeDesReset.name,
       enValue:
-      'Enter the verification code sent to your mobile number to be able to complete the password reset process',
-      arValue: 'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال عملية إعادة تعيين كلمة المرور',
+          'Enter the verification code sent to your mobile number to be able to complete the password reset process',
+      arValue:
+          'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال عملية إعادة تعيين كلمة المرور',
     );
     addString(
       key: LangEnum.sure.name,
@@ -108,13 +105,13 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'تأكيد',
     );
 
-
     addString(
       key: LangEnum.codeDesRegister.name,
-      enValue: 'Enter the verification code sent to your mobile number to be able to complete  process',
-      arValue: 'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال العملية ',
+      enValue:
+          'Enter the verification code sent to your mobile number to be able to complete  process',
+      arValue:
+          'قم بإدخال كود التحقق المرسل على رقم جوالك لتتمكن من إستكمال العملية ',
     );
-
 
     addString(
       key: LangEnum.resendCodeDesc.name,
@@ -126,7 +123,6 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Resend code',
       arValue: ' إعادة الإرسال',
     );
-
 
     addString(
       key: LangEnum.enable.name,
@@ -152,12 +148,12 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'النسبة المئوية لرحلاتك المكتملة في آخر 30 يومًا',
     );
 
-
-
     addString(
-      key: LangEnum.lowCompletionRate .name,
-      enValue: 'Your completion rate is low, Try to complete more trips so you can rank high in the drivers',
-      arValue: 'معدل إكمالك منخفض، حاول إكمال المزيد من الرحلات حتى تتمكن من الحصول على مرتبة عالية في برامج التشغيل',
+      key: LangEnum.lowCompletionRate.name,
+      enValue:
+          'Your completion rate is low, Try to complete more trips so you can rank high in the drivers',
+      arValue:
+          'معدل إكمالك منخفض، حاول إكمال المزيد من الرحلات حتى تتمكن من الحصول على مرتبة عالية في برامج التشغيل',
     );
 
     addString(
@@ -165,7 +161,6 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Today',
       arValue: 'اليوم',
     );
-
 
     addString(
       key: LangEnum.close.name,
@@ -184,8 +179,6 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'Acceptance rate',
       arValue: 'معدل القبول',
     );
-
-
 
     addString(
       key: LangEnum.personalInfo.name,
@@ -229,13 +222,11 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'تاكسى 2024 ©، جميع الحقوق محفوظة',
     );
 
-
     addString(
       key: LangEnum.aboutAppName.name,
       enValue: 'About Taxi24',
       arValue: 'عن تاكسى24',
     );
-
 
     addString(
       key: LangEnum.verifyValidate.name,
@@ -255,22 +246,18 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'إرسال رسالة',
     );
 
-
-
     addString(
       key: LangEnum.captainProblem.name,
       enValue: 'Captain caused ride charges to increase',
       arValue: 'تسبب الكابتن في زيادة رسوم الركوب',
     );
 
-
-
     addString(
       key: LangEnum.walletProblem.name,
-      enValue: 'I paid the captain extra but the amount is not visible in my wallet',
+      enValue:
+          'I paid the captain extra but the amount is not visible in my wallet',
       arValue: 'لقد دفعت للكابتن مبلغًا إضافيًا ولكن المبلغ غير ظاهر في محفظتي',
     );
-
 
     addString(
       key: LangEnum.itemProblem.name,
@@ -278,14 +265,11 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'لقد فقدت عنصرا',
     );
 
-
-
     addString(
       key: LangEnum.other.name,
       enValue: 'Other',
       arValue: 'أخرى',
     );
-
 
     addString(
       key: LangEnum.upload3Pic.name,
@@ -298,12 +282,93 @@ class Taxi24DriverLanguages extends MyLanguages {
         enValue: 'Enter a text description of at least 250 characters',
         arValue: 'ادخل وصف نصي لا يقل عن 250 حرف');
 
-
     addString(
       key: LangEnum.describeProblem.name,
       enValue: 'Describe the problem',
       arValue: 'صف المشكلة',
     );
+
+    addString(
+      key: LangEnum.saudiID.name,
+      enValue: 'Iqama / Saudi ID',
+      arValue: 'الإقامة / الهوية السعودية',
+    );
+
+    addString(
+      key: LangEnum.drivingLicense.name,
+      enValue: 'Driving License',
+      arValue: 'رخصة قيادة',
+    );
+
+    addString(
+      key: LangEnum.resubmit.name,
+      enValue: 'Resubmit',
+      arValue: 'إعادة الإرسال',
+    );
+
+    addString(
+      key: LangEnum.completed.name,
+      enValue: 'Completed',
+      arValue: 'مكتمل',
+    );
+
+    addString(
+      key: LangEnum.addCar.name,
+      enValue: 'Add car',
+      arValue: 'أضف سيارة',
+    );
+
+    addString(
+      key: LangEnum.active.name,
+      enValue: 'Active',
+      arValue: 'نشيط',
+    );
+
+    addString(
+      key: LangEnum.removeCar.name,
+      enValue: 'Remove car',
+      arValue: 'إزالة السيارة',
+    );
+
+    addString(
+      key: LangEnum.sureRemove.name,
+      enValue: 'Are you sure you want to remove',
+      arValue: 'هل أنت متأكد من أنك تريد إزالة',
+    );
+
+    addString(
+      key: LangEnum.willNotAbleCar.name,
+      enValue: 'You won’t be able to use this car.',
+      arValue: 'لن تتمكن من استخدام هذه السيارة.',
+    );
+
+
+
+    addString(
+      key: LangEnum.setActive.name,
+      enValue: 'Set as Active',
+      arValue: 'تعيين كنشط',
+    );
+
+
+    addString(
+      key: LangEnum.viewDocuments.name,
+      enValue: 'View documents',
+      arValue: 'عرض المستندات',
+    );
+
+    addString(
+      key: LangEnum.active.name,
+      enValue: 'Active',
+      arValue: 'نشيط',
+    );
+
+    addString(
+      key: LangEnum.active.name,
+      enValue: 'Active',
+      arValue: 'نشط',
+    );
+
 
 
 

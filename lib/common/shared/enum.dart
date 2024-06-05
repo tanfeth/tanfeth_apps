@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:tanfeth_apps/common/shared/enums/language_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/login_way_enum.dart';
+import 'package:tanfeth_apps/travel/common/shared/enum/driver_state_enum.dart';
 import 'enums/app_store_enum.dart';
 import 'enums/entity_type_enum.dart';
 import 'enums/follow_enum.dart';
@@ -48,6 +49,7 @@ class CommonEnum {
   EntityTypeEnum entityTypeEnum;
   UserStatusEnum userStatusEnum;
   GenderEnum genderEnum;
+  DriverStateEnum driverStateEnum;
 
   CommonEnum({
     this.loginWayEnum = const LoginWayEnum(),
@@ -73,6 +75,7 @@ class CommonEnum {
     this.entityTypeEnum = const EntityTypeEnum(),
     this.userStatusEnum = const UserStatusEnum(),
     this.genderEnum = const GenderEnum(),
+    this.driverStateEnum = const DriverStateEnum(),
   });
 }
 

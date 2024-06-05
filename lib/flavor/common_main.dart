@@ -13,6 +13,7 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
@@ -78,6 +79,7 @@ class CommonMain extends ConsumerWidget {
       LoginRouting.config().page,
       VerifyRouting.config().page,
       LayoutRouting.config().page,
+      HomeRouting.config().page,
       ProfileRouting.config().page,
       WebViewRouting.config().page,
       SendMessageRouting.config().page,

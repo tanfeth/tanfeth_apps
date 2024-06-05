@@ -10,7 +10,7 @@ CustomNotificationExtraModel _$CustomNotificationExtraModelFromJson(
         Map<String, dynamic> json) =>
     CustomNotificationExtraModel()
       ..OpenType = json['OpenType'] as String?
-      ..NotificationId = json['NotificationId'] as int?
+      ..NotificationId = (json['NotificationId'] as num?)?.toInt()
       ..OpenValue = json['OpenValue'] as String?
       ..ImgUrl = json['ImgUrl'] as String?
       ..LogoUrl = json['LogoUrl'] as String?;

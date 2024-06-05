@@ -1,6 +1,7 @@
 
 import 'package:tanfeth_apps/common/shared/enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/app_store_enum.dart';
+import 'package:tanfeth_apps/travel/common/shared/enum/driver_state_enum.dart';
 
 class Taxi24DriverEnum extends CommonEnum {
   Taxi24DriverEnum() : super(){
@@ -9,6 +10,12 @@ class Taxi24DriverEnum extends CommonEnum {
       androidUrl: 'https://play.google.com/store/apps/details?id=com.taxi24.driver&hl=ar',
       iosID: '6466298399',
       iosUrl: 'https://apps.apple.com/sa/app/taxi-24-driver/id6466298399'
+    );
+
+    driverStateEnum = DriverStateEnum(
+      approved: 'approved',
+      pending: 'pending',
+      rejected: 'rejected'
     );
   }
 

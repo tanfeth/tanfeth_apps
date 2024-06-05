@@ -35,7 +35,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                ProfileItemWidget(
+                ProfileCell(
                     title: LangEnum.captainProblem.tr(),
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,
@@ -46,7 +46,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
                     }),
                 const SmallDivider(),
 
-                ProfileItemWidget(
+                ProfileCell(
                     title: LangEnum.walletProblem.tr(),
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,
@@ -58,7 +58,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
                 const SmallDivider(),
 
 
-                ProfileItemWidget(
+                ProfileCell(
                     title: LangEnum.itemProblem.tr(),
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,
@@ -70,7 +70,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
                 const SmallDivider(),
 
 
-                ProfileItemWidget(
+                ProfileCell(
                     title: LangEnum.other.tr(),
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,

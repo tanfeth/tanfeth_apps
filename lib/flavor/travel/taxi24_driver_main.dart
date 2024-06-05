@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
 import 'package:tanfeth_apps/common/shared/grid_helper.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/document_details_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/end_points.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_languages.dart';
@@ -60,7 +62,9 @@ class taxi24DriverMain {
     Get.put(flavor, permanent: true);
     customAppFlavor = flavor;
     screenPages.addAll([
-      HomeRouting.config().page
+      DocumentRouting.config().page,
+      DocumentDetailsRouting.config().page,
+      CarsRouting.config().page,
     ]);
 
     mainCommon(

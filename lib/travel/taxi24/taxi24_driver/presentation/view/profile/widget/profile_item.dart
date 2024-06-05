@@ -5,13 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 
-class ProfileItemWidget extends ConsumerWidget {
+class ProfileCell extends ConsumerWidget {
   final String icon;
   final String title;
   final VoidCallback function;
   final Widget? imageWidget;
 
-  const ProfileItemWidget({Key? key,
+  const ProfileCell({Key? key,
       required this.title,
        this.icon = '',
       required this.function,
