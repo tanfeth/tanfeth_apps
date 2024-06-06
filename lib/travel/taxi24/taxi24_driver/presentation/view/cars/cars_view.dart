@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_car_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/CarModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/cars/widget/car_cell.dart';
@@ -28,7 +28,7 @@ class _CarsView extends ConsumerState<TaxiDriverCarsView>{
 
   @override
   void initState() {
-    carModel.isDefault = true;
+    carModel.isDefault = false;
     carModel.carType ="تويوتا";
     carModel.carModel ="كورولا";
     carModel.carYear =2018;
@@ -81,7 +81,7 @@ class _CarsView extends ConsumerState<TaxiDriverCarsView>{
 
                 ElevatedButton(
                   onPressed: () async {
-                   // Get.toNamed(AddCarRouting.config().path);
+                    Get.toNamed(AddCarRouting.config().path);
                   },
                   child: Text(LangEnum.addCar.tr()),
                 ),

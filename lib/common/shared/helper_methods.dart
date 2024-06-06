@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -123,6 +124,37 @@ Future<void> initURIHandler() async {
 }
 
 
+
+Future<bool?> checkCameraPermission() async {
+  if (Platform.isAndroid) {
+    Map<Permission, PermissionStatus> statues =
+    await [Permission.camera, Permission.photos].request();
+    PermissionStatus? statusCamera = statues[Permission.camera];
+    PermissionStatus? statusPhotos = statues[Permission.photos];
+    bool isGranted = statusCamera == PermissionStatus.granted || statusPhotos == PermissionStatus.granted;
+    if (isGranted) {
+      return true;
+    } else {
+      openAppSettings();
+    }
+  } else {
+    Map<Permission, PermissionStatus> statues = await [
+      Permission.camera,
+      Permission.storage,
+      Permission.photos
+    ].request();
+    PermissionStatus? statusCamera = statues[Permission.camera];
+    PermissionStatus? statusStorage = statues[Permission.storage];
+    PermissionStatus? statusPhotos = statues[Permission.photos];
+    bool isGranted = statusCamera == PermissionStatus.granted && statusStorage == PermissionStatus.granted && statusPhotos == PermissionStatus.granted;
+    if (isGranted) {
+      return true;
+    } else {
+      openAppSettings();
+    }
+  }
+  return null;
+}
 
 
 

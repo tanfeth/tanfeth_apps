@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 
 extension LangEx on LangEnum {
@@ -417,11 +416,93 @@ enum LangEnum {
   orderValue,
   invaildInvoiceUrl,
   morningAppointments,
-  eveningAppointments, ok, areYouSure, edit, image,
-  uploadError, fileTypeError, document, audio, video,
-  somethingWrong, connectionError, info, add, yourName,
+  eveningAppointments,
+  ok,
+  areYouSure,
+  edit,
+  image,
+  uploadError,
+  fileTypeError,
+  document,
+  audio,
+  video,
+  somethingWrong,
+  connectionError,
+  info,
+  add,
+  yourName,
   start,
-  welcomeTitle, welcomeDes, enterMobileNumDes, enterMobileNum, numPhone, continueWord, enterCode, codeDesReset, sure, codeDesRegister, resendCodeDesc, resendCodeBtn, enable, navigate, profile, completedTrips, lowCompletionRate, today, close, compilationRate, acceptanceRate, about, logout, myCars, wallet, earnings, personalInfo, copyright, verifyValidate, paymentAndPricing, sendMessage, other, itemProblem, walletProblem, captainProblem, upload3Pic, enterATextAtLeast, describeProblem, saudiID, drivingLicense, resubmit, completed, addCar, active, removeCar, sureRemove, willNotAbleCar, setActive, viewDocuments,
+  welcomeTitle,
+  welcomeDes,
+  enterMobileNumDes,
+  enterMobileNum,
+  numPhone,
+  continueWord,
+  enterCode,
+  codeDesReset,
+  sure,
+  codeDesRegister,
+  resendCodeDesc,
+  resendCodeBtn,
+  enable,
+  navigate,
+  profile,
+  completedTrips,
+  lowCompletionRate,
+  today,
+  close,
+  compilationRate,
+  acceptanceRate,
+  about,
+  logout,
+  myCars,
+  wallet,
+  earnings,
+  personalInfo,
+  copyright,
+  verifyValidate,
+  paymentAndPricing,
+  sendMessage,
+  other,
+  itemProblem,
+  walletProblem,
+  captainProblem,
+  upload3Pic,
+  enterATextAtLeast,
+  describeProblem,
+  saudiID,
+  drivingLicense,
+  resubmit,
+  completed,
+  addCar,
+  active,
+  removeCar,
+  sureRemove,
+  willNotAbleCar,
+  setActive,
+  viewDocuments,
+  addNewCar,
+  carDetails,
+  vehicleRegistration,
+  vehicleInsurance,
+  carType,
+  searchCarType,
+  selectCarType,
+  carModel,
+  selectCarTypeValidator,
+  modelYear,
+  selectCarYearModel,
+  selectCarModelValidator,
+  uploadFrontAndBackCar,
+  carPhotos,
+  color,
+  sequenceNumber,
+  letterRight,
+  letterLeft,
+  middleLetter,
+  plateNumber,
+  carClassification,
+  selectCarClassification, uploadPhoto, chooseFromGallery, photoTakenGoodLight, photoBlurry, registerVehicle, acceptDocumentType, makeSureTo, confirmPhoto, useDateWarn, makeSurePhotoDetails,
 }
 
 class MyLanguages extends Translations {
@@ -433,7 +514,6 @@ class MyLanguages extends Translations {
 
   @override
   Map<String, Map<String, String>> get keys {
-
     addString(
         key: LangEnum.noInternetConnection.toString(),
         arValue: 'لا يوجد اتصال بالانترنت...',
@@ -449,13 +529,26 @@ class MyLanguages extends Translations {
         arValue: 'حالة الاتصال',
         enValue: 'Connection State');
 
-
-    addString(key: LangEnum.received.name, enValue: "Received", arValue: 'تم الاستلام');
-    addString(key: LangEnum.orderValue.name, enValue: "Order Value", arValue: 'قيمة الطلب');
-    addString(key: LangEnum.searchResults.name, enValue: "Search Results", arValue: 'نتائج البحث');
-    addString(key: LangEnum.latestOrders.name, enValue: "Latest orders in addition", arValue: 'آخر الطلبات بالإضافة');
-    addString(key: LangEnum.toDate.name, enValue: "To Date", arValue: 'إلي تاريخ');
-    addString(key: LangEnum.fromDate.name, enValue: "From Date", arValue: 'من تاريخ');
+    addString(
+        key: LangEnum.received.name,
+        enValue: "Received",
+        arValue: 'تم الاستلام');
+    addString(
+        key: LangEnum.orderValue.name,
+        enValue: "Order Value",
+        arValue: 'قيمة الطلب');
+    addString(
+        key: LangEnum.searchResults.name,
+        enValue: "Search Results",
+        arValue: 'نتائج البحث');
+    addString(
+        key: LangEnum.latestOrders.name,
+        enValue: "Latest orders in addition",
+        arValue: 'آخر الطلبات بالإضافة');
+    addString(
+        key: LangEnum.toDate.name, enValue: "To Date", arValue: 'إلي تاريخ');
+    addString(
+        key: LangEnum.fromDate.name, enValue: "From Date", arValue: 'من تاريخ');
     addString(
       key: LangEnum.mustWriteAddress.name,
       enValue: "You must write your address in detail",
@@ -471,9 +564,18 @@ class MyLanguages extends Translations {
       enValue: "Not Available In This Hour",
       arValue: 'الصنف غير متاح فى هذه الساعة',
     );
-    addString(key: LangEnum.deliveryPeriod.name, enValue: "Delivery Period", arValue: 'فتره التوصيل');
-    addString(key: LangEnum.immediateDelivery.name, enValue: "Immediate delivery", arValue: 'التوصيل الفوري');
-    addString(key: LangEnum.others.name, enValue: "other value", arValue: 'قيمة اخري');
+    addString(
+        key: LangEnum.deliveryPeriod.name,
+        enValue: "Delivery Period",
+        arValue: 'فتره التوصيل');
+    addString(
+        key: LangEnum.immediateDelivery.name,
+        enValue: "Immediate delivery",
+        arValue: 'التوصيل الفوري');
+    addString(
+        key: LangEnum.others.name,
+        enValue: "other value",
+        arValue: 'قيمة اخري');
     addString(
       key: LangEnum.ageOfSacrifice.name,
       enValue: "Age of the sacrifice",
@@ -491,7 +593,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.noServicesCurrently.name,
-      enValue: "We apologize, the service is currently not available at the specified address",
+      enValue:
+          "We apologize, the service is currently not available at the specified address",
       arValue: 'نعتذر , لا تتوفر الخدمة حاليا في العنوان المحدد',
     );
     addString(
@@ -504,15 +607,25 @@ class MyLanguages extends Translations {
       enValue: "Expected time to receive the order",
       arValue: 'المده المتوقعه لاستلام الطلب',
     );
-    addString(key: LangEnum.lowestPrice.name, enValue: "Lowest price", arValue: 'الاقل سعر');
-    addString(key: LangEnum.highestPrice.name, enValue: "highest price", arValue: 'الاعلي سعرا');
+    addString(
+        key: LangEnum.lowestPrice.name,
+        enValue: "Lowest price",
+        arValue: 'الاقل سعر');
+    addString(
+        key: LangEnum.highestPrice.name,
+        enValue: "highest price",
+        arValue: 'الاعلي سعرا');
     addString(
       key: LangEnum.thereIsNoTimeAvailable.name,
-      enValue: "Sorry, there is no time available on this day. Please choose another day",
+      enValue:
+          "Sorry, there is no time available on this day. Please choose another day",
       arValue: 'عذرا لا يوجد وقت متاح في هذا اليوم من فضلك اختر يوم اخر',
     );
     addString(key: LangEnum.all.name, enValue: "all", arValue: 'الكل');
-    addString(key: LangEnum.paidDate.name, enValue: "Paid Date", arValue: 'تاريخ الدفع');
+    addString(
+        key: LangEnum.paidDate.name,
+        enValue: "Paid Date",
+        arValue: 'تاريخ الدفع');
     addString(key: LangEnum.to.name, enValue: "to", arValue: 'الي');
     addString(key: LangEnum.from.name, enValue: "from", arValue: 'من');
     addString(
@@ -546,7 +659,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.noBranchesInThisAreaDesc.name,
-      enValue: "You can choose another address for delivery or collection from the branch",
+      enValue:
+          "You can choose another address for delivery or collection from the branch",
       arValue: 'يمكنك اختيار عنوان اخر للتوصيل او الاستلام من الفرع',
     );
     addString(
@@ -574,10 +688,16 @@ class MyLanguages extends Translations {
       enValue: "You must specify the rating",
       arValue: 'يجب عليك تحديد التقييم',
     );
-    addString(key: LangEnum.products.name, enValue: "products", arValue: 'المنتجات');
-    addString(key: LangEnum.facility.name, enValue: "facility", arValue: 'منشأه');
-    addString(key: LangEnum.individual.name, enValue: "individual", arValue: 'فرد');
-    addString(key: LangEnum.requiredText.name, enValue: "required", arValue: 'مطلوبة');
+    addString(
+        key: LangEnum.products.name, enValue: "products", arValue: 'المنتجات');
+    addString(
+        key: LangEnum.facility.name, enValue: "facility", arValue: 'منشأه');
+    addString(
+        key: LangEnum.individual.name, enValue: "individual", arValue: 'فرد');
+    addString(
+        key: LangEnum.requiredText.name,
+        enValue: "required",
+        arValue: 'مطلوبة');
     addString(
       key: LangEnum.thereAreRequiredOptions.name,
       enValue: "There are required options, select one of them",
@@ -608,7 +728,10 @@ class MyLanguages extends Translations {
       enValue: "Visa",
       arValue: 'فيزا',
     );
-    addString(key: LangEnum.addedToCart.name, enValue: "Added To Cart", arValue: 'تم الاضافة للسلة');
+    addString(
+        key: LangEnum.addedToCart.name,
+        enValue: "Added To Cart",
+        arValue: 'تم الاضافة للسلة');
     addString(
       key: LangEnum.emptyCartSuggest.name,
       enValue: "Let us suggest you kofah varieties",
@@ -686,7 +809,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.receivedAndPreparing.name,
-      enValue: "The request has been received successfully and is being processed",
+      enValue:
+          "The request has been received successfully and is being processed",
       arValue: 'تم استلام الطلب بنجاح وجاري التجهيز',
     );
     addString(
@@ -732,7 +856,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.paymentCompletedSuccessfullyDesc.name,
-      enValue: "You can view the order details by going to the My Orders screen",
+      enValue:
+          "You can view the order details by going to the My Orders screen",
       arValue: 'يمكنك الإطلاع على تفاصيل الطلب عن طريق الذهاب إلى شاشة طلباتي',
     );
     addString(
@@ -750,14 +875,35 @@ class MyLanguages extends Translations {
       enValue: "Suitable Date For Delivery",
       arValue: 'التاريخ المناسب للتوصيل',
     );
-    addString(key: LangEnum.changeAddress.name, enValue: "Change Address", arValue: 'تغيير العنوان');
-    addString(key: LangEnum.homeDelivery.name, enValue: "Home Delivery", arValue: 'توصيل للمنزل');
-    addString(key: LangEnum.receiptFromBranch.name, enValue: "Pickup", arValue: 'استلام من الفرع');
-    addString(key: LangEnum.deliveryMethod.name, enValue: "Delivery Method", arValue: 'طريقة التوصيل');
-    addString(key: LangEnum.addMore.name, enValue: "Add More", arValue: 'إضافة المزيد');
+    addString(
+        key: LangEnum.changeAddress.name,
+        enValue: "Change Address",
+        arValue: 'تغيير العنوان');
+    addString(
+        key: LangEnum.homeDelivery.name,
+        enValue: "Home Delivery",
+        arValue: 'توصيل للمنزل');
+    addString(
+        key: LangEnum.receiptFromBranch.name,
+        enValue: "Pickup",
+        arValue: 'استلام من الفرع');
+    addString(
+        key: LangEnum.deliveryMethod.name,
+        enValue: "Delivery Method",
+        arValue: 'طريقة التوصيل');
+    addString(
+        key: LangEnum.addMore.name,
+        enValue: "Add More",
+        arValue: 'إضافة المزيد');
     addString(key: LangEnum.total.name, enValue: "Total", arValue: 'الاجمالي');
-    addString(key: LangEnum.continueShopping.name, enValue: "Continue Shopping", arValue: 'متابعة التسوق');
-    addString(key: LangEnum.viewCart.name, enValue: "View Cart", arValue: 'معاينة السلة');
+    addString(
+        key: LangEnum.continueShopping.name,
+        enValue: "Continue Shopping",
+        arValue: 'متابعة التسوق');
+    addString(
+        key: LangEnum.viewCart.name,
+        enValue: "View Cart",
+        arValue: 'معاينة السلة');
     addString(
       key: LangEnum.toCartSuccessfully.name,
       enValue: "to your shopping cart successfully",
@@ -766,25 +912,63 @@ class MyLanguages extends Translations {
     addString(key: LangEnum.added.name, enValue: "Added", arValue: 'تم اضافة');
     addString(key: LangEnum.hours.name, enValue: "Hours", arValue: 'ساعات');
     addString(key: LangEnum.gram.name, enValue: "Gram", arValue: 'جرام');
-    addString(key: LangEnum.averageSize.name, enValue: "Average Size", arValue: 'متوسط الحجم');
-    addString(key: LangEnum.processingTime.name, enValue: "Processing Time", arValue: 'مدة التجهيز');
-    addString(key: LangEnum.productCode.name, enValue: "Product Code", arValue: 'كود المنتج');
-    addString(key: LangEnum.oldestToNewest.name, enValue: "From oldest to newest", arValue: 'من الأقدم إلى الأحدث');
-    addString(key: LangEnum.newestToOldest.name, enValue: "From newest to oldest", arValue: 'من الأحدث إلى الأقدم');
-    addString(key: LangEnum.sortBy.name, enValue: "Sort By", arValue: 'الترتيب حسب');
+    addString(
+        key: LangEnum.averageSize.name,
+        enValue: "Average Size",
+        arValue: 'متوسط الحجم');
+    addString(
+        key: LangEnum.processingTime.name,
+        enValue: "Processing Time",
+        arValue: 'مدة التجهيز');
+    addString(
+        key: LangEnum.productCode.name,
+        enValue: "Product Code",
+        arValue: 'كود المنتج');
+    addString(
+        key: LangEnum.oldestToNewest.name,
+        enValue: "From oldest to newest",
+        arValue: 'من الأقدم إلى الأحدث');
+    addString(
+        key: LangEnum.newestToOldest.name,
+        enValue: "From newest to oldest",
+        arValue: 'من الأحدث إلى الأقدم');
+    addString(
+        key: LangEnum.sortBy.name, enValue: "Sort By", arValue: 'الترتيب حسب');
     addString(key: LangEnum.search.name, enValue: "Search", arValue: 'البحث');
-    addString(key: LangEnum.customerReviews.name, enValue: "Customer Reviews", arValue: 'أراء العملاء');
-    addString(key: LangEnum.mostWanted.name, enValue: "Most Wanted", arValue: 'الأكثر طلبًا');
-    addString(key: LangEnum.showMore.name, enValue: "Show More", arValue: 'عرض المزيد');
-    addString(key: LangEnum.latestOffers.name, enValue: "Latest Offers", arValue: 'آخر العروض');
-    addString(key: LangEnum.causeOfProblem.name, enValue: "Cause of problem", arValue: 'سبب المشكلة');
-    addString(key: LangEnum.reasonForCancellation.name, enValue: "Reason for cancellation", arValue: 'سبب الإلغاء');
+    addString(
+        key: LangEnum.customerReviews.name,
+        enValue: "Customer Reviews",
+        arValue: 'أراء العملاء');
+    addString(
+        key: LangEnum.mostWanted.name,
+        enValue: "Most Wanted",
+        arValue: 'الأكثر طلبًا');
+    addString(
+        key: LangEnum.showMore.name,
+        enValue: "Show More",
+        arValue: 'عرض المزيد');
+    addString(
+        key: LangEnum.latestOffers.name,
+        enValue: "Latest Offers",
+        arValue: 'آخر العروض');
+    addString(
+        key: LangEnum.causeOfProblem.name,
+        enValue: "Cause of problem",
+        arValue: 'سبب المشكلة');
+    addString(
+        key: LangEnum.reasonForCancellation.name,
+        enValue: "Reason for cancellation",
+        arValue: 'سبب الإلغاء');
     addString(
       key: LangEnum.anotherReasonDesc.name,
-      enValue: "Enter a text description for the report of at least 250 characters",
+      enValue:
+          "Enter a text description for the report of at least 250 characters",
       arValue: 'ادخل وصف نصي للبلاغ لا يقل عن 250 حرف',
     );
-    addString(key: LangEnum.reportProblem.name, enValue: "Report a problem", arValue: 'الإبلاغ عن مشكلة');
+    addString(
+        key: LangEnum.reportProblem.name,
+        enValue: "Report a problem",
+        arValue: 'الإبلاغ عن مشكلة');
     addString(
       key: LangEnum.rateOrderDescription.name,
       enValue: "Your rating always helps us improve our service level",
@@ -800,20 +984,58 @@ class MyLanguages extends Translations {
       enValue: "Cash on delivery fees",
       arValue: 'رسوم الدفع عند الإستلام',
     );
-    addString(key: LangEnum.download.name, enValue: "Download", arValue: 'تحميل');
-    addString(key: LangEnum.taxInvoice.name, enValue: "Tax Invoice", arValue: 'الفاتورة الضريبية');
-    addString(key: LangEnum.paymentDateTime.name, enValue: "Payment DateTime", arValue: 'تاريخ ووقت الدفع');
-    addString(key: LangEnum.amountPaid.name, enValue: "Amount paid", arValue: 'المبلغ المدفوع');
-    addString(key: LangEnum.paymentDetails.name, enValue: "Payment Details", arValue: 'تفاصيل الدفع');
-    addString(key: LangEnum.showOnMap.name, enValue: "Show On Map", arValue: 'عرض علي الخريطة');
-    addString(key: LangEnum.geolocation.name, enValue: "Geolocation", arValue: 'الموقع الجغرافي');
-    addString(key: LangEnum.deliveryDetails.name, enValue: "Delivery Details", arValue: 'تفاصيل التوصيل');
-    addString(key: LangEnum.downloadInvoice.name, enValue: "Download Invoice", arValue: 'تحميل الفاتورة');
-    addString(key: LangEnum.addressDescription.name, enValue: "Address Description", arValue: 'وصف العنوان');
-    addString(key: LangEnum.recipientName.name, enValue: "Name of recipient", arValue: 'اسم المستلم');
-    addString(key: LangEnum.addressName.name, enValue: "Address Name", arValue: 'اسم العنوان');
-    addString(key: LangEnum.paymentHistory.name, enValue: "Payment History", arValue: 'سجل المدفوعات');
-    addString(key: LangEnum.favorites.name, enValue: "Favorites", arValue: 'المفضلة');
+    addString(
+        key: LangEnum.download.name, enValue: "Download", arValue: 'تحميل');
+    addString(
+        key: LangEnum.taxInvoice.name,
+        enValue: "Tax Invoice",
+        arValue: 'الفاتورة الضريبية');
+    addString(
+        key: LangEnum.paymentDateTime.name,
+        enValue: "Payment DateTime",
+        arValue: 'تاريخ ووقت الدفع');
+    addString(
+        key: LangEnum.amountPaid.name,
+        enValue: "Amount paid",
+        arValue: 'المبلغ المدفوع');
+    addString(
+        key: LangEnum.paymentDetails.name,
+        enValue: "Payment Details",
+        arValue: 'تفاصيل الدفع');
+    addString(
+        key: LangEnum.showOnMap.name,
+        enValue: "Show On Map",
+        arValue: 'عرض علي الخريطة');
+    addString(
+        key: LangEnum.geolocation.name,
+        enValue: "Geolocation",
+        arValue: 'الموقع الجغرافي');
+    addString(
+        key: LangEnum.deliveryDetails.name,
+        enValue: "Delivery Details",
+        arValue: 'تفاصيل التوصيل');
+    addString(
+        key: LangEnum.downloadInvoice.name,
+        enValue: "Download Invoice",
+        arValue: 'تحميل الفاتورة');
+    addString(
+        key: LangEnum.addressDescription.name,
+        enValue: "Address Description",
+        arValue: 'وصف العنوان');
+    addString(
+        key: LangEnum.recipientName.name,
+        enValue: "Name of recipient",
+        arValue: 'اسم المستلم');
+    addString(
+        key: LangEnum.addressName.name,
+        enValue: "Address Name",
+        arValue: 'اسم العنوان');
+    addString(
+        key: LangEnum.paymentHistory.name,
+        enValue: "Payment History",
+        arValue: 'سجل المدفوعات');
+    addString(
+        key: LangEnum.favorites.name, enValue: "Favorites", arValue: 'المفضلة');
     addString(
       key: LangEnum.commercialRegistrationImg.name,
       enValue: "A copy of the commercial register",
@@ -824,9 +1046,18 @@ class MyLanguages extends Translations {
       enValue: "Commercial Registration No",
       arValue: 'رقم السجل التجاري',
     );
-    addString(key: LangEnum.accountType.name, enValue: "Account Type", arValue: 'نوع الحساب');
-    addString(key: LangEnum.newRegister.name, enValue: "Register New Account", arValue: 'تسجيل جديد');
-    addString(key: LangEnum.loginAsGuest.name, enValue: "Login As Guest", arValue: 'الدخول كزائر');
+    addString(
+        key: LangEnum.accountType.name,
+        enValue: "Account Type",
+        arValue: 'نوع الحساب');
+    addString(
+        key: LangEnum.newRegister.name,
+        enValue: "Register New Account",
+        arValue: 'تسجيل جديد');
+    addString(
+        key: LangEnum.loginAsGuest.name,
+        enValue: "Login As Guest",
+        arValue: 'الدخول كزائر');
     addString(key: LangEnum.done.name, enValue: "Done", arValue: 'تم');
     addString(
       key: LangEnum.notificationAlertDes.name,
@@ -878,30 +1109,53 @@ class MyLanguages extends Translations {
       enValue: "Today's Statistics",
       arValue: 'احصائيات اليوم',
     );
-    addString(key: LangEnum.saturday.name, enValue: 'Saturday', arValue: 'السبت');
+    addString(
+        key: LangEnum.saturday.name, enValue: 'Saturday', arValue: 'السبت');
     addString(key: LangEnum.friday.name, enValue: 'Friday', arValue: 'الجمعة');
-    addString(key: LangEnum.thursday.name, enValue: 'Thursday', arValue: 'الخميس');
-    addString(key: LangEnum.wednesday.name, enValue: 'Wednesday', arValue: 'الأربعاء');
-    addString(key: LangEnum.tuesday.name, enValue: 'Tuesday', arValue: 'الثلاثاء');
+    addString(
+        key: LangEnum.thursday.name, enValue: 'Thursday', arValue: 'الخميس');
+    addString(
+        key: LangEnum.wednesday.name,
+        enValue: 'Wednesday',
+        arValue: 'الأربعاء');
+    addString(
+        key: LangEnum.tuesday.name, enValue: 'Tuesday', arValue: 'الثلاثاء');
     addString(key: LangEnum.monday.name, enValue: 'Monday', arValue: 'الأثنين');
     addString(key: LangEnum.sunday.name, enValue: 'Sunday', arValue: 'الأحد');
-    addString(key: LangEnum.workTime.name, enValue: 'Work Time', arValue: 'مواقيت العمل');
-    addString(key: LangEnum.reports.name, enValue: 'Reports', arValue: 'التقارير');
-    addString(key: LangEnum.administration.name, enValue: 'Administration', arValue: 'الإدارة');
-    addString(key: LangEnum.peakTime.name, enValue: 'Peak time', arValue: 'وقت الذروة');
-    addString(key: LangEnum.deliveryLogin.name, enValue: 'Login', arValue: 'دخول');
+    addString(
+        key: LangEnum.workTime.name,
+        enValue: 'Work Time',
+        arValue: 'مواقيت العمل');
+    addString(
+        key: LangEnum.reports.name, enValue: 'Reports', arValue: 'التقارير');
+    addString(
+        key: LangEnum.administration.name,
+        enValue: 'Administration',
+        arValue: 'الإدارة');
+    addString(
+        key: LangEnum.peakTime.name,
+        enValue: 'Peak time',
+        arValue: 'وقت الذروة');
+    addString(
+        key: LangEnum.deliveryLogin.name, enValue: 'Login', arValue: 'دخول');
     addString(
       key: LangEnum.maintenanceStatus.name,
       enValue: 'Maintenance status of the branch',
       arValue: 'حالة الصيانة للفرع',
     );
-    addString(key: LangEnum.orderMore.name, enValue: 'Order More', arValue: 'اطلب المزيد');
+    addString(
+        key: LangEnum.orderMore.name,
+        enValue: 'Order More',
+        arValue: 'اطلب المزيد');
     addString(
       key: LangEnum.confirmOrderAndPay.name,
       enValue: 'confirm order and pay',
       arValue: 'تأكيد الطلب والدفع',
     );
-    addString(key: LangEnum.ifAvailable.name, enValue: '(if Available)', arValue: '(ان وجدت)');
+    addString(
+        key: LangEnum.ifAvailable.name,
+        enValue: '(if Available)',
+        arValue: '(ان وجدت)');
     addString(key: LangEnum.inHome.name, enValue: 'Takeaway', arValue: 'سفري');
     addString(key: LangEnum.inShop.name, enValue: 'Dining', arValue: 'محلي');
     addString(
@@ -914,16 +1168,25 @@ class MyLanguages extends Translations {
       enValue: 'Add your comments about the service',
       arValue: 'اضف ملاحظاتك على الخدمة',
     );
-    addString(key: LangEnum.excellent.name, enValue: 'excellent', arValue: 'ممتاز');
+    addString(
+        key: LangEnum.excellent.name, enValue: 'excellent', arValue: 'ممتاز');
     addString(key: LangEnum.good.name, enValue: 'good', arValue: 'جيد');
-    addString(key: LangEnum.acceptable.name, enValue: 'acceptable', arValue: 'مقبول');
-    addString(key: LangEnum.notSatisfied.name, enValue: 'not satisfied', arValue: 'غير راضي');
+    addString(
+        key: LangEnum.acceptable.name, enValue: 'acceptable', arValue: 'مقبول');
+    addString(
+        key: LangEnum.notSatisfied.name,
+        enValue: 'not satisfied',
+        arValue: 'غير راضي');
     addString(
       key: LangEnum.distinguishedCustomerDes.name,
-      enValue: 'As a distinguished customer, your opinion matters to us to improve the quality of service',
+      enValue:
+          'As a distinguished customer, your opinion matters to us to improve the quality of service',
       arValue: 'كونك من العملاء المميزين فرأيك يهمنا لتحسين جودة الخدمة',
     );
-    addString(key: LangEnum.orderAgain.name, enValue: 'Order Again', arValue: 'طلب مرة اخرى');
+    addString(
+        key: LangEnum.orderAgain.name,
+        enValue: 'Order Again',
+        arValue: 'طلب مرة اخرى');
     addString(
       key: LangEnum.completePayment.name,
       enValue: 'Complete the payment process',
@@ -934,8 +1197,14 @@ class MyLanguages extends Translations {
       enValue: 'change order status',
       arValue: 'تغيير حالة الطلب',
     );
-    addString(key: LangEnum.clientNotes.name, enValue: 'Client Notes', arValue: 'ملاحظات العميل');
-    addString(key: LangEnum.orderItems.name, enValue: 'Order items', arValue: 'عناصر الطلب');
+    addString(
+        key: LangEnum.clientNotes.name,
+        enValue: 'Client Notes',
+        arValue: 'ملاحظات العميل');
+    addString(
+        key: LangEnum.orderItems.name,
+        enValue: 'Order items',
+        arValue: 'عناصر الطلب');
     addString(
       key: LangEnum.commentsSuggestions.name,
       enValue: 'Comments or suggestions',
@@ -966,9 +1235,18 @@ class MyLanguages extends Translations {
       enValue: 'Expected processing time',
       arValue: 'الوقت المتوقع للتجهيز',
     );
-    addString(key: LangEnum.clientName.name, enValue: 'Client Name', arValue: 'اسم العميل');
-    addString(key: LangEnum.deliveryAddress.name, enValue: 'Delivery Address', arValue: 'عنوان التوصيل');
-    addString(key: LangEnum.deliveryCharge.name, enValue: 'Delivery', arValue: 'قيمة التوصيل');
+    addString(
+        key: LangEnum.clientName.name,
+        enValue: 'Client Name',
+        arValue: 'اسم العميل');
+    addString(
+        key: LangEnum.deliveryAddress.name,
+        enValue: 'Delivery Address',
+        arValue: 'عنوان التوصيل');
+    addString(
+        key: LangEnum.deliveryCharge.name,
+        enValue: 'Delivery',
+        arValue: 'قيمة التوصيل');
     addString(
       key: LangEnum.orderInformation.name,
       enValue: 'Order Information',
@@ -976,7 +1254,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.acceptedOrderDes.name,
-      enValue: 'Your request has been successfully accepted. Please complete the payment',
+      enValue:
+          'Your request has been successfully accepted. Please complete the payment',
       arValue: 'تم قبول طلبكم بنجاح يرجي استكمال الدفع',
     );
     addString(
@@ -996,7 +1275,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.followOrder.name,
-      enValue: 'You can follow up on order confirmation through the My Orders screen',
+      enValue:
+          'You can follow up on order confirmation through the My Orders screen',
       arValue: 'يمكنكم متابعة تأكيد الطلب من خلال شاشة طلباتي',
     );
     addString(
@@ -1053,18 +1333,18 @@ class MyLanguages extends Translations {
       key: LangEnum.onboardDes1.name,
       arValue: 'مزايا رائعة وعمولات اضافية عندما تصبح مندوبًا مع سلة تاكسى24.',
       enValue:
-      "Great benefits and additional commissions when you become a representative with taxi24.",
+          "Great benefits and additional commissions when you become a representative with taxi24.",
     );
     addString(
       key: LangEnum.onboardDes3.name,
       enValue:
-      'Get additional incentive commissions when you complete more orders.',
+          'Get additional incentive commissions when you complete more orders.',
       arValue: 'احصل على عمولات إضافية محفزة عند انجازك المزيد من الطلبات.',
     );
     addString(
       key: LangEnum.onboardDes2.name,
       enValue:
-      'You can manage your orders and know your business statistics in detail and with ease.',
+          'You can manage your orders and know your business statistics in detail and with ease.',
       arValue: 'يمكنك إدارة طلباتك ومعرفة احصائيات عملك بالتفصيل وبكل سهولة.',
     );
     addString(
@@ -1072,43 +1352,93 @@ class MyLanguages extends Translations {
       enValue: 'Register Now',
       arValue: 'سجل الآن',
     );
-    addString(key: LangEnum.addresses.name, enValue: 'Addresses', arValue: 'عناويني');
-    addString(key: LangEnum.shareApp.name, enValue: 'Share App', arValue: 'شارك التطبيق');
-    addString(key: LangEnum.rateApp.name, enValue: 'Rate App', arValue: 'قيم التطبيق على المتجر');
-    addString(key: LangEnum.aboutAppName.name, enValue: 'About Kufa', arValue: 'عن كوفه');
-    addString(key: LangEnum.neighborhood.name, enValue: 'Neighborhood', arValue: 'الحي');
-    addString(key: LangEnum.street.name, enValue: 'Street', arValue: 'اسم الشارع');
-    addString(key: LangEnum.buildingNumber.name, enValue: 'Building number', arValue: 'رقم البناية');
-    addString(key: LangEnum.floorNumber.name, enValue: 'Floor number', arValue: 'رقم الطابق');
-    addString(key: LangEnum.delegateNotes.name, enValue: 'Delegate notes', arValue: 'ملاحظات للمندوب');
+    addString(
+        key: LangEnum.addresses.name, enValue: 'Addresses', arValue: 'عناويني');
+    addString(
+        key: LangEnum.shareApp.name,
+        enValue: 'Share App',
+        arValue: 'شارك التطبيق');
+    addString(
+        key: LangEnum.rateApp.name,
+        enValue: 'Rate App',
+        arValue: 'قيم التطبيق على المتجر');
+    addString(
+        key: LangEnum.aboutAppName.name,
+        enValue: 'About Kufa',
+        arValue: 'عن كوفه');
+    addString(
+        key: LangEnum.neighborhood.name,
+        enValue: 'Neighborhood',
+        arValue: 'الحي');
+    addString(
+        key: LangEnum.street.name, enValue: 'Street', arValue: 'اسم الشارع');
+    addString(
+        key: LangEnum.buildingNumber.name,
+        enValue: 'Building number',
+        arValue: 'رقم البناية');
+    addString(
+        key: LangEnum.floorNumber.name,
+        enValue: 'Floor number',
+        arValue: 'رقم الطابق');
+    addString(
+        key: LangEnum.delegateNotes.name,
+        enValue: 'Delegate notes',
+        arValue: 'ملاحظات للمندوب');
     addString(
       key: LangEnum.contactInformation.name,
       enValue: 'Contact information',
       arValue: 'تواصل معنا عبر',
     );
-    addString(key: LangEnum.followUsOnSocialS.name, enValue: 'Follow us', arValue: 'تابعنا على');
+    addString(
+        key: LangEnum.followUsOnSocialS.name,
+        enValue: 'Follow us',
+        arValue: 'تابعنا على');
     addString(key: LangEnum.digits.name, enValue: "digits", arValue: 'رقم');
-    addString(key: LangEnum.mustContain.name, enValue: "It must consist of", arValue: 'يجب ان يتكون من');
+    addString(
+        key: LangEnum.mustContain.name,
+        enValue: "It must consist of",
+        arValue: 'يجب ان يتكون من');
     addString(
       key: LangEnum.paymentStatus.name,
       enValue: "Payment Status",
       arValue: 'حاله الدفع',
     );
     addString(key: LangEnum.file.name, enValue: "File", arValue: 'ملف');
-    addString(key: LangEnum.attached.name, enValue: "Attached", arValue: 'تم ارفاقها');
-    addString(key: LangEnum.attachFile.name, enValue: "Attach File", arValue: 'إرفاق ملف');
+    addString(
+        key: LangEnum.attached.name,
+        enValue: "Attached",
+        arValue: 'تم ارفاقها');
+    addString(
+        key: LangEnum.attachFile.name,
+        enValue: "Attach File",
+        arValue: 'إرفاق ملف');
     addString(key: LangEnum.saudi.name, enValue: 'Saudi', arValue: 'سعودي');
     addString(key: LangEnum.minute.name, enValue: 'Minute', arValue: 'دقيقة');
     addString(key: LangEnum.female.name, enValue: 'Female', arValue: 'أنثي');
     addString(key: LangEnum.male.name, enValue: 'Male', arValue: 'ذكر');
-    addString(key: LangEnum.receivingMethod.name, enValue: 'Receiving method', arValue: 'طريقة الاستلام');
-    addString(key: LangEnum.receiving.name, enValue: 'Delivery  ', arValue: ' توصيل');
-    addString(key: LangEnum.fromBranch.name, enValue: 'Pickup', arValue: 'استلام من الفرع');
-    addString(key: LangEnum.itemComponents.name, enValue: 'Item components', arValue: 'مكونات الصنف');
-    addString(key: LangEnum.mealType.name, enValue: 'Meal type', arValue: 'نوع الوجبة');
-    addString(key: LangEnum.required.name, enValue: 'Required', arValue: 'اجباري');
+    addString(
+        key: LangEnum.receivingMethod.name,
+        enValue: 'Receiving method',
+        arValue: 'طريقة الاستلام');
+    addString(
+        key: LangEnum.receiving.name, enValue: 'Delivery  ', arValue: ' توصيل');
+    addString(
+        key: LangEnum.fromBranch.name,
+        enValue: 'Pickup',
+        arValue: 'استلام من الفرع');
+    addString(
+        key: LangEnum.itemComponents.name,
+        enValue: 'Item components',
+        arValue: 'مكونات الصنف');
+    addString(
+        key: LangEnum.mealType.name,
+        enValue: 'Meal type',
+        arValue: 'نوع الوجبة');
+    addString(
+        key: LangEnum.required.name, enValue: 'Required', arValue: 'اجباري');
     addString(key: LangEnum.hot.name, enValue: 'Hot', arValue: 'حار');
-    addString(key: LangEnum.cold.name, enValue: 'Cold', arValue: 'Normal - بارد');
+    addString(
+        key: LangEnum.cold.name, enValue: 'Cold', arValue: 'Normal - بارد');
     addString(
       key: LangEnum.addIngredient.name,
       enValue: 'Add   ingredient',
@@ -1119,7 +1449,10 @@ class MyLanguages extends Translations {
       enValue: 'Choose the branch closest to you from the list',
       arValue: 'اختر الفرع الأقرب إليك من القائمة',
     );
-    addString(key: LangEnum.exploreMenu.name, enValue: 'Explore the menu', arValue: 'استكشف القائمة');
+    addString(
+        key: LangEnum.exploreMenu.name,
+        enValue: 'Explore the menu',
+        arValue: 'استكشف القائمة');
     addString(
       key: LangEnum.paymentCompletedSuccessfully.name,
       enValue: 'Payment completed successfully',
@@ -1145,7 +1478,10 @@ class MyLanguages extends Translations {
       enValue: "Shopping Cart",
       arValue: 'سلة الشراء',
     );
-    addString(key: LangEnum.finishOrder.name, enValue: "Finish Order", arValue: 'انهاء الطلب');
+    addString(
+        key: LangEnum.finishOrder.name,
+        enValue: "Finish Order",
+        arValue: 'انهاء الطلب');
     addString(
       key: LangEnum.uploadFromGallery.name,
       enValue: "Upload From Gallery",
@@ -1156,10 +1492,17 @@ class MyLanguages extends Translations {
       enValue: "Take Photo by Camera",
       arValue: 'إلتقاط صورة بواسطة الكاميرا',
     );
-    addString(key: LangEnum.deleteAccount.name, enValue: "Delete Account", arValue: 'حذف الحساب');
+    addString(
+        key: LangEnum.deleteAccount.name,
+        enValue: "Delete Account",
+        arValue: 'حذف الحساب');
     addString(key: LangEnum.delete.name, enValue: "Delete", arValue: 'حذف ');
-    addString(key: LangEnum.signOut.name, enValue: "Sign Out", arValue: 'تسجيل خروج');
-    addString(key: LangEnum.totalProducts.name, enValue: "Total Products", arValue: 'إجمالي المنتجات');
+    addString(
+        key: LangEnum.signOut.name, enValue: "Sign Out", arValue: 'تسجيل خروج');
+    addString(
+        key: LangEnum.totalProducts.name,
+        enValue: "Total Products",
+        arValue: 'إجمالي المنتجات');
     addString(
       key: LangEnum.orderDetails.name,
       enValue: 'order details',
@@ -1180,13 +1523,17 @@ class MyLanguages extends Translations {
       enValue: 'Log in to use your registered addresses',
       arValue: ' سجل دخول لإستخدام عناوينك المسجلة ',
     );
-    addString(key: LangEnum.address.name, enValue: 'Address', arValue: 'العنوان');
+    addString(
+        key: LangEnum.address.name, enValue: 'Address', arValue: 'العنوان');
     addString(
       key: LangEnum.pressAgainToExit.name,
       enValue: 'Press again to exit app',
       arValue: 'إضغط مرة أخري للخروج من التطبيق',
     );
-    addString(key: LangEnum.searchHint.name, enValue: 'Search...', arValue: 'ابحث...');
+    addString(
+        key: LangEnum.searchHint.name,
+        enValue: 'Search...',
+        arValue: 'ابحث...');
     addString(
       key: LangEnum.searchResultsFor.name,
       enValue: 'Search results for:',
@@ -1197,20 +1544,44 @@ class MyLanguages extends Translations {
       enValue: 'Search For Location ',
       arValue: 'البحث عن الموقع',
     );
-    addString(key: LangEnum.mobileHint.name, enValue: '5xxxxxxxx', arValue: '5xxxxxxxx');
-    addString(key: LangEnum.totalDue.name, enValue: 'total due', arValue: 'الإجمالي المستحق');
+    addString(
+        key: LangEnum.mobileHint.name,
+        enValue: '5xxxxxxxx',
+        arValue: '5xxxxxxxx');
+    addString(
+        key: LangEnum.totalDue.name,
+        enValue: 'total due',
+        arValue: 'الإجمالي المستحق');
     addString(
       key: LangEnum.valueAddedTax.name,
       enValue: 'Value added tax',
       arValue: 'ضريبة القيمة المضافة',
     );
-    addString(key: LangEnum.orderCost.name, enValue: 'order cost', arValue: 'تكلفة الطلب');
-    addString(key: LangEnum.paymentMethod.name, enValue: 'payment method', arValue: 'طريقة الدفع');
-    addString(key: LangEnum.completeOrder.name, enValue: 'Complete Order', arValue: 'اتمام الطلب');
+    addString(
+        key: LangEnum.orderCost.name,
+        enValue: 'order cost',
+        arValue: 'تكلفة الطلب');
+    addString(
+        key: LangEnum.paymentMethod.name,
+        enValue: 'payment method',
+        arValue: 'طريقة الدفع');
+    addString(
+        key: LangEnum.completeOrder.name,
+        enValue: 'Complete Order',
+        arValue: 'اتمام الطلب');
     addString(key: LangEnum.welcome.name, enValue: 'Welcome', arValue: 'أهلاً');
-    addString(key: LangEnum.categories.name, enValue: 'Categories', arValue: 'الأقسام');
-    addString(key: LangEnum.loginNow.name, enValue: 'Login Now', arValue: 'سجل دخول الآن');
-    addString(key: LangEnum.haveAnAccount.name, enValue: 'Have an account', arValue: 'لديك حساب');
+    addString(
+        key: LangEnum.categories.name,
+        enValue: 'Categories',
+        arValue: 'الأقسام');
+    addString(
+        key: LangEnum.loginNow.name,
+        enValue: 'Login Now',
+        arValue: 'سجل دخول الآن');
+    addString(
+        key: LangEnum.haveAnAccount.name,
+        enValue: 'Have an account',
+        arValue: 'لديك حساب');
     addString(
         key: LangEnum.toastAddFavMessage.name,
         enValue: 'Added to favorites list',
@@ -1238,33 +1609,68 @@ class MyLanguages extends Translations {
       enValue: 'Do not hesitate to contact us, we are here to serve you',
       arValue: 'لا تتردد في الاتصال بنا، نحن هنا في خدمتك',
     );
-    addString(key: LangEnum.message.name, enValue: 'Message', arValue: '  نص الرسالة');
+    addString(
+        key: LangEnum.message.name,
+        enValue: 'Message',
+        arValue: '  نص الرسالة');
     addString(key: LangEnum.name.name, enValue: 'Name', arValue: 'الاسم ');
-    addString(key: LangEnum.addToCart.name, enValue: 'Add To Cart', arValue: 'اضف إلى السلة');
+    addString(
+        key: LangEnum.addToCart.name,
+        enValue: 'Add To Cart',
+        arValue: 'اضف إلى السلة');
     addString(key: LangEnum.riyal.name, enValue: 'Riyal', arValue: 'ريال');
     addString(key: LangEnum.discount.name, enValue: 'discount', arValue: 'خصم');
-    addString(key: LangEnum.viewAll.name, enValue: 'view all', arValue: 'عرض الكل');
+    addString(
+        key: LangEnum.viewAll.name, enValue: 'view all', arValue: 'عرض الكل');
     addString(
       key: LangEnum.copyRight.name,
       enValue: '© Abdulaziz Al-Dhafer Al-Omari Law Firm 2023',
       arValue: '© شركة عبدالعزيز الظافر العمري للمحاماة 2023',
     );
-    addString(key: LangEnum.contactUs.name, enValue: 'Contact Us', arValue: 'اتصل بنا');
-    addString(key: LangEnum.privacyPolicy.name, enValue: 'Privacy Policy', arValue: 'سياسة الخصوصية');
-    addString(key: LangEnum.faq.name, enValue: 'FAQ', arValue: 'الأسئلة الشائعة');
-    addString(key: LangEnum.faqNoResults.name, enValue: 'No Results Found', arValue: 'لا توجد أسئلة ');
-    addString(key: LangEnum.orderNumber.name, enValue: 'Order number', arValue: 'رقم الطلب');
-    addString(key: LangEnum.orderStatus.name, enValue: 'Order status', arValue: 'حالة الطلب');
-    addString(key: LangEnum.orderDateTime.name, enValue: 'Order date and time', arValue: 'تاريخ ووقت الطلب');
-    addString(key: LangEnum.downloading.name, enValue: 'Downloading...', arValue: 'جاري التحميل...');
-    addString(key: LangEnum.failed.name, enValue: 'Download Faild', arValue: 'فشل في التحميل');
+    addString(
+        key: LangEnum.contactUs.name,
+        enValue: 'Contact Us',
+        arValue: 'اتصل بنا');
+    addString(
+        key: LangEnum.privacyPolicy.name,
+        enValue: 'Privacy Policy',
+        arValue: 'سياسة الخصوصية');
+    addString(
+        key: LangEnum.faq.name, enValue: 'FAQ', arValue: 'الأسئلة الشائعة');
+    addString(
+        key: LangEnum.faqNoResults.name,
+        enValue: 'No Results Found',
+        arValue: 'لا توجد أسئلة ');
+    addString(
+        key: LangEnum.orderNumber.name,
+        enValue: 'Order number',
+        arValue: 'رقم الطلب');
+    addString(
+        key: LangEnum.orderStatus.name,
+        enValue: 'Order status',
+        arValue: 'حالة الطلب');
+    addString(
+        key: LangEnum.orderDateTime.name,
+        enValue: 'Order date and time',
+        arValue: 'تاريخ ووقت الطلب');
+    addString(
+        key: LangEnum.downloading.name,
+        enValue: 'Downloading...',
+        arValue: 'جاري التحميل...');
+    addString(
+        key: LangEnum.failed.name,
+        enValue: 'Download Faild',
+        arValue: 'فشل في التحميل');
     addString(
       key: LangEnum.priceWithTax.name,
       enValue: 'Price with tax',
       arValue: ' السعر شامل ضريبة القيمة المضافة',
     );
     addString(key: LangEnum.notes.name, enValue: 'Notes', arValue: 'ملاحظات');
-    addString(key: LangEnum.orderTotal.name, enValue: 'Order total', arValue: 'اجمالي الطلب');
+    addString(
+        key: LangEnum.orderTotal.name,
+        enValue: 'Order total',
+        arValue: 'اجمالي الطلب');
     addString(
       key: LangEnum.locationOnMap.name,
       enValue: 'Location on the map',
@@ -1276,18 +1682,31 @@ class MyLanguages extends Translations {
       arValue: 'الموقع على الخريطة',
     );
     addString(key: LangEnum.help.name, enValue: 'Help', arValue: 'المساعدة');
-    addString(key: LangEnum.language.name, enValue: 'Language', arValue: 'اللغة');
-    addString(key: LangEnum.settings.name, enValue: 'Settings', arValue: 'الإعدادات');
-    addString(key: LangEnum.notifications.name, enValue: 'Notifications', arValue: 'الإشعارات');
-    addString(key: LangEnum.myOrders.name, enValue: 'My Orders', arValue: 'طلباتي');
-    addString(key: LangEnum.editProfile.name, enValue: 'Edit Profile', arValue: 'تعديل بيانات الحساب');
-    addString(key: LangEnum.myAccount.name, enValue: 'My Account', arValue: 'حسابي');
+    addString(
+        key: LangEnum.language.name, enValue: 'Language', arValue: 'اللغة');
+    addString(
+        key: LangEnum.settings.name, enValue: 'Settings', arValue: 'الإعدادات');
+    addString(
+        key: LangEnum.notifications.name,
+        enValue: 'Notifications',
+        arValue: 'الإشعارات');
+    addString(
+        key: LangEnum.myOrders.name, enValue: 'My Orders', arValue: 'طلباتي');
+    addString(
+        key: LangEnum.editProfile.name,
+        enValue: 'Edit Profile',
+        arValue: 'تعديل بيانات الحساب');
+    addString(
+        key: LangEnum.myAccount.name, enValue: 'My Account', arValue: 'حسابي');
     addString(
       key: LangEnum.appName.name,
       enValue: 'Abdulaziz Al-Dhafer Al-Omari Law Firm',
       arValue: 'شركة عبدالعزيز الظافر العمري للمحاماة',
     );
-    addString(key: LangEnum.addNewAddress.name, enValue: 'Add New Address', arValue: 'إضافة عنوان جديد');
+    addString(
+        key: LangEnum.addNewAddress.name,
+        enValue: 'Add New Address',
+        arValue: 'إضافة عنوان جديد');
     addString(key: LangEnum.save.name, enValue: 'Save', arValue: 'حفظ');
     addString(key: LangEnum.yes.name, enValue: 'Yes', arValue: 'نعم');
     addString(key: LangEnum.no.name, enValue: 'No', arValue: 'لا');
@@ -1307,8 +1726,12 @@ class MyLanguages extends Translations {
       enValue: 'Click here to select your location',
       arValue: 'اضغط هنا لتحديد الموقع',
     );
-    addString(key: LangEnum.contactMobile.name, enValue: 'Contact Mobile', arValue: 'رقم التواصل');
-    addString(key: LangEnum.address.name, enValue: 'Address', arValue: 'العنوان');
+    addString(
+        key: LangEnum.contactMobile.name,
+        enValue: 'Contact Mobile',
+        arValue: 'رقم التواصل');
+    addString(
+        key: LangEnum.address.name, enValue: 'Address', arValue: 'العنوان');
     addString(key: LangEnum.change.name, enValue: 'Change', arValue: 'تغيير');
     addString(key: LangEnum.home.name, enValue: 'Home', arValue: 'الرئيسية');
     addString(key: LangEnum.cart.name, enValue: 'Cart', arValue: 'السلة');
@@ -1323,30 +1746,54 @@ class MyLanguages extends Translations {
       enValue: 'Terms & Conditions',
       arValue: 'الشروط والأحكام',
     );
-    addString(key: LangEnum.createAccount.name, enValue: 'Create Account', arValue: 'إنشاء حساب');
-    addString(key: LangEnum.chooseFromList.name, enValue: 'Choose', arValue: 'اختر من القائمة');
-    addString(key: LangEnum.confirmPassword.name, enValue: 'Confirm Password', arValue: 'تأكيد كلمة المرور');
+    addString(
+        key: LangEnum.createAccount.name,
+        enValue: 'Create Account',
+        arValue: 'إنشاء حساب');
+    addString(
+        key: LangEnum.chooseFromList.name,
+        enValue: 'Choose',
+        arValue: 'اختر من القائمة');
+    addString(
+        key: LangEnum.confirmPassword.name,
+        enValue: 'Confirm Password',
+        arValue: 'تأكيد كلمة المرور');
     addString(key: LangEnum.city.name, enValue: 'City', arValue: 'المدينة');
-    addString(key: LangEnum.zone.name, enValue: 'Zone', arValue: 'المنطقة / المدينة ');
+    addString(
+        key: LangEnum.zone.name,
+        enValue: 'Zone',
+        arValue: 'المنطقة / المدينة ');
     addString(key: LangEnum.gender.name, enValue: 'Gender', arValue: 'الجنس');
-    addString(key: LangEnum.email.name, enValue: 'E-Mail', arValue: 'البريد الإلكتروني');
+    addString(
+        key: LangEnum.email.name,
+        enValue: 'E-Mail',
+        arValue: 'البريد الإلكتروني');
     addString(
       key: LangEnum.confirmNewPassword.name,
       enValue: 'Confirm New Password',
       arValue: 'تأكيد كلمة المرور الجديدة',
     );
-    addString(key: LangEnum.newPassword.name, enValue: 'New Password', arValue: 'كلمة المرور الجديدة');
-    addString(key: LangEnum.reset.name, enValue: 'Reset', arValue: 'اعادة تعيين');
+    addString(
+        key: LangEnum.newPassword.name,
+        enValue: 'New Password',
+        arValue: 'كلمة المرور الجديدة');
+    addString(
+        key: LangEnum.reset.name, enValue: 'Reset', arValue: 'اعادة تعيين');
     addString(
       key: LangEnum.resetPassword.name,
       enValue: 'Reset Password',
       arValue: 'اعادة تعيين كلمة المرور',
     );
-    addString(key: LangEnum.resendCode.name, enValue: 'Resend Code', arValue: 'إعادة إرسال الكود');
+    addString(
+        key: LangEnum.resendCode.name,
+        enValue: 'Resend Code',
+        arValue: 'إعادة إرسال الكود');
     addString(
       key: LangEnum.verifyDesc.name,
-      enValue: 'Enter the activation code sent to your mobile number to be able to reset the password',
-      arValue: 'قم بإدخال كود التفعيل المرسل على رقم جوالك لتتمكن من إعادة تعيين كلمة المرور',
+      enValue:
+          'Enter the activation code sent to your mobile number to be able to reset the password',
+      arValue:
+          'قم بإدخال كود التفعيل المرسل على رقم جوالك لتتمكن من إعادة تعيين كلمة المرور',
     );
     addString(
       key: LangEnum.verifyMobileNumber.name,
@@ -1354,11 +1801,14 @@ class MyLanguages extends Translations {
       arValue: 'التحقق من رقم الجوال',
     );
     addString(key: LangEnum.send.name, enValue: 'Send', arValue: 'إرسال');
-    addString(key: LangEnum.mobile.name, enValue: 'Mobile', arValue: 'رقم الجوال');
+    addString(
+        key: LangEnum.mobile.name, enValue: 'Mobile', arValue: 'رقم الجوال');
     addString(
       key: LangEnum.forgetPassDesc.name,
-      enValue: 'Please enter your mobile number and an activation code will be sent to reset your password',
-      arValue: 'فضلا قم بادخال رقم جوالك وسيتم إرسال كود التفعيل لإعادة تعيين كلمة المرور',
+      enValue:
+          'Please enter your mobile number and an activation code will be sent to reset your password',
+      arValue:
+          'فضلا قم بادخال رقم جوالك وسيتم إرسال كود التفعيل لإعادة تعيين كلمة المرور',
     );
     addString(key: LangEnum.loginBtn.name, enValue: 'Login', arValue: 'دخول');
     addString(
@@ -1396,33 +1846,76 @@ class MyLanguages extends Translations {
       enValue: 'Save Changes',
       arValue: 'حفظ التغييرات',
     );
-    addString(key: LangEnum.password.name, enValue: 'Password', arValue: 'كلمة المرور');
-    addString(key: LangEnum.registerNow.name, enValue: 'Register Now', arValue: 'سجل الآن');
+    addString(
+        key: LangEnum.password.name,
+        enValue: 'Password',
+        arValue: 'كلمة المرور');
+    addString(
+        key: LangEnum.registerNow.name,
+        enValue: 'Register Now',
+        arValue: 'سجل الآن');
     addString(
       key: LangEnum.doNotHaveAccount.name,
       enValue: 'Don\'t have account?',
       arValue: 'ليس لديك حساب؟',
     );
-    addString(key: LangEnum.startNow.name, enValue: 'Start Now', arValue: 'إبدأ الآن');
+    addString(
+        key: LangEnum.startNow.name,
+        enValue: 'Start Now',
+        arValue: 'إبدأ الآن');
     addString(key: LangEnum.skip.name, enValue: 'Skip', arValue: 'تخطي');
-    addString(key: LangEnum.english.name, enValue: 'English', arValue: 'English');
-    addString(key: LangEnum.arabic.name, enValue: 'العربية', arValue: 'العربية');
-    addString(key: LangEnum.optional.name, enValue: 'Optional', arValue: 'اختياري');
-    addString(key: LangEnum.options.name, enValue: 'Options', arValue: 'الخيارات');
-    addString(key: LangEnum.mustLogin.name, enValue: 'Must Login', arValue: 'يجب تسجيل الدخول');
-    addString(key: LangEnum.login.name, enValue: 'Login', arValue: 'تسجيل دخول');
-    addString(key: LangEnum.termsOfUse.name, enValue: 'Terms Of Use', arValue: 'شروط الاستخدام');
+    addString(
+        key: LangEnum.english.name, enValue: 'English', arValue: 'English');
+    addString(
+        key: LangEnum.arabic.name, enValue: 'العربية', arValue: 'العربية');
+    addString(
+        key: LangEnum.optional.name, enValue: 'Optional', arValue: 'اختياري');
+    addString(
+        key: LangEnum.options.name, enValue: 'Options', arValue: 'الخيارات');
+    addString(
+        key: LangEnum.mustLogin.name,
+        enValue: 'Must Login',
+        arValue: 'يجب تسجيل الدخول');
+    addString(
+        key: LangEnum.login.name, enValue: 'Login', arValue: 'تسجيل دخول');
+    addString(
+        key: LangEnum.termsOfUse.name,
+        enValue: 'Terms Of Use',
+        arValue: 'شروط الاستخدام');
     addString(key: LangEnum.cancel.name, enValue: 'Cancel', arValue: 'إلغاء');
     addString(key: LangEnum.confirm.name, enValue: 'Confirm', arValue: 'تأكيد');
-    addString(key: LangEnum.favourite.name, enValue: 'Favourite', arValue: 'المفضلة');
-    addString(key: LangEnum.appVersion.name, enValue: 'App version', arValue: 'اصدار التطبيق');
-    addString(key: LangEnum.confirmLocation.name, enValue: 'Confirm location', arValue: 'تأكيد الموقع');
-    addString(key: LangEnum.calories.name, enValue: 'Calories', arValue: 'السعرات الحرارية');
-    addString(key: LangEnum.calorie.name, enValue: 'Calorie', arValue: 'سعر حراري');
-    addString(key: LangEnum.allergens.name, enValue: 'Allergens', arValue: 'مسببات الحساسية');
-    addString(key: LangEnum.orderNow.name, enValue: 'Order now', arValue: 'اطلب الآن');
-    addString(key: LangEnum.noResults.name, enValue: 'No results', arValue: 'لاتوجد نتائج');
-    addString(key: LangEnum.noBranches.name, enValue: 'No branches found', arValue: 'لاتوجد فروع');
+    addString(
+        key: LangEnum.favourite.name, enValue: 'Favourite', arValue: 'المفضلة');
+    addString(
+        key: LangEnum.appVersion.name,
+        enValue: 'App version',
+        arValue: 'اصدار التطبيق');
+    addString(
+        key: LangEnum.confirmLocation.name,
+        enValue: 'Confirm location',
+        arValue: 'تأكيد الموقع');
+    addString(
+        key: LangEnum.calories.name,
+        enValue: 'Calories',
+        arValue: 'السعرات الحرارية');
+    addString(
+        key: LangEnum.calorie.name, enValue: 'Calorie', arValue: 'سعر حراري');
+    addString(
+        key: LangEnum.allergens.name,
+        enValue: 'Allergens',
+        arValue: 'مسببات الحساسية');
+    addString(
+        key: LangEnum.orderNow.name,
+        enValue: 'Order now',
+        arValue: 'اطلب الآن');
+    addString(
+        key: LangEnum.noResults.name,
+        enValue: 'No results',
+        arValue: 'لاتوجد نتائج');
+    addString(
+        key: LangEnum.noBranches.name,
+        enValue: 'No branches found',
+        arValue: 'لاتوجد فروع');
     addString(
       key: LangEnum.notificationAlert.name,
       enValue: 'Do you want to delete notifications?',
@@ -1440,7 +1933,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.outOfBusiness.name,
-      enValue: 'Sorry, we are currently out of business hours and cannot accept your orders.',
+      enValue:
+          'Sorry, we are currently out of business hours and cannot accept your orders.',
       arValue: 'نأسف، نحن الآن خارج أوقات العمل ولا يمكننا استقبال طلباتكم.',
     );
     addString(
@@ -1454,7 +1948,10 @@ class MyLanguages extends Translations {
       arValue: 'تأكد من أن اتصالك يعمل لتحميل البيانات',
     );
 
-    addString(key: LangEnum.myFatoorah.name, enValue: 'My Fatoorah', arValue: 'ماي فاتورة');
+    addString(
+        key: LangEnum.myFatoorah.name,
+        enValue: 'My Fatoorah',
+        arValue: 'ماي فاتورة');
     addString(
       key: LangEnum.validatePhoneEmpty.name,
       enValue: 'Mobile is required.',
@@ -1477,7 +1974,8 @@ class MyLanguages extends Translations {
     );
     addString(
       key: LangEnum.validatePassRegExp.name,
-      enValue: "It must contain at least one uppercase and lowercase letter and a symbol. Example: 12345@Ma",
+      enValue:
+          "It must contain at least one uppercase and lowercase letter and a symbol. Example: 12345@Ma",
       arValue: 'يجب ان تحتوي علي حرف كبير وصغير ورمز علي الأقل مثال: 12345@Ma',
     );
     addString(
@@ -1611,14 +2109,15 @@ class MyLanguages extends Translations {
 
     addString(key: LangEnum.video.name, enValue: 'Video', arValue: 'فيديو');
 
-    addString(key: LangEnum.somethingWrong.name,
+    addString(
+        key: LangEnum.somethingWrong.name,
         enValue: 'Something Wrong',
         arValue: 'شيء خاطئ');
 
-    addString(key: LangEnum.connectionError.name,
+    addString(
+        key: LangEnum.connectionError.name,
         enValue: 'Connection Error',
         arValue: 'خطأ في الإتصال');
-
 
     return {arKey: arStrings, enKey: enStrings};
   }

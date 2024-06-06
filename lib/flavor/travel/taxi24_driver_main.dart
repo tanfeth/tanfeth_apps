@@ -11,6 +11,9 @@ import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_car_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/end_points.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
@@ -65,6 +68,9 @@ class taxi24DriverMain {
       DocumentRouting.config().page,
       DocumentDetailsRouting.config().page,
       CarsRouting.config().page,
+      AddCarRouting.config().page,
+      CarDetailsRouting.config().page,
+      CarIstimaraRouting.config().page,
     ]);
 
     mainCommon(

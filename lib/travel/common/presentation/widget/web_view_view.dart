@@ -96,7 +96,10 @@ class _WebViewScreenState extends State<WebViewScreen> {
       ),
       body: pageLoading?
           Center(child: const CircularProgressIndicator(),):
-      WebViewWidget(controller: webViewController),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: WebViewWidget(controller: webViewController),
+      ),
     );
   }
 }

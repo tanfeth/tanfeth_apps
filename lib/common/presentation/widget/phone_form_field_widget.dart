@@ -76,6 +76,10 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
         maxLines: widget.maxLine ?? 1,
         decoration: InputDecoration(
           hintText: widget.hintText,
+          label: Text(widget.hintText),
+          labelStyle: context.text.bodySmall?.copyWith(
+              color: context.color.onSurface.withOpacity(0.3)
+          ),
           prefixIcon: widget.hidePrefixIcon == null
               ? Container(
                   width: MySizes.buttonHeight,

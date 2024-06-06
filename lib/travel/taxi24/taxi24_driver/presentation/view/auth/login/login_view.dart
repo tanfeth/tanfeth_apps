@@ -65,7 +65,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     },
                     child: Text(LangEnum.continueWord.tr()),
                   ),
-                  30.ph,
+                  20.ph,
                 ],
               ),
             ),

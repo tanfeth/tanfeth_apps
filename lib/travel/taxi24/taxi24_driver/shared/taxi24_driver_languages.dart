@@ -358,16 +358,234 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.active.name,
-      enValue: 'Active',
-      arValue: 'نشيط',
+      key: LangEnum.addNewCar.name,
+      enValue: 'Add new car',
+      arValue: 'إضافة سيارة جديدة',
     );
 
     addString(
-      key: LangEnum.active.name,
-      enValue: 'Active',
-      arValue: 'نشط',
+      key: LangEnum.carDetails.name,
+      enValue: 'Car details',
+      arValue: 'تفاصيل السيارة',
     );
+
+
+    addString(
+      key: LangEnum.vehicleRegistration.name,
+      enValue: 'Vehicle Registration / Istimara',
+      arValue: 'تسجيل المركبات / استمارة',
+    );
+
+
+    addString(
+      key: LangEnum.vehicleInsurance.name,
+      enValue: 'Vehicle Insurance',
+      arValue: 'تأمين المركبات',
+    );
+
+
+    addString(
+      key: LangEnum.carType.name,
+      enValue: 'Car type',
+      arValue: 'نوع السيارة',
+    );
+
+
+
+    addString(
+      key: LangEnum.searchCarType.name,
+      enValue: 'Search car type',
+      arValue: 'بحث عن نوع السيارة',
+    );
+
+
+    addString(
+      key: LangEnum.selectCarType.name,
+      enValue: 'Please select Car Typ',
+      arValue: 'الرجاء تحديد نوع السيارة',
+    );
+
+    addString(
+      key: LangEnum.carModel.name,
+      enValue: 'Car model',
+      arValue: 'طراز السيارة',
+    );
+
+    addString(
+      key: LangEnum.selectCarTypeValidator.name,
+      enValue: 'You need to select car type first',
+      arValue: 'تحتاج إلى تحديد نوع السيارة أولاً',
+    );
+
+    addString(
+      key: LangEnum.modelYear.name,
+      enValue: 'Model year',
+      arValue: 'سنة الصنع',
+    );
+
+
+
+    addString(
+      key: LangEnum.selectCarYearModel.name,
+      enValue: 'Please select Car Year Model',
+      arValue: 'الرجاء تحديد طراز سنة السيارة',
+    );
+
+
+    addString(
+      key: LangEnum.selectCarModelValidator.name,
+      enValue: 'You need to select car model first',
+      arValue: 'تحتاج إلى تحديد طراز السيارة أولاً',
+    );
+
+
+    addString(
+      key: LangEnum.uploadFrontAndBackCar.name,
+      enValue: 'Please upload the front and back of your car',
+      arValue: 'يرجى تحميل الجزء الأمامي والخلفي من سيارتك',
+    );
+
+    addString(
+      key: LangEnum.carPhotos.name,
+      enValue: 'Car photos (optional)',
+      arValue: 'صور السيارة (اختياري)',
+    );
+
+
+    addString(
+      key: LangEnum.color.name,
+      enValue: 'Color',
+      arValue: 'اللون',
+    );
+
+
+    addString(
+      key: LangEnum.sequenceNumber.name,
+      enValue: 'Sequence number',
+      arValue: 'رقم التسلسل',
+    );
+
+
+    addString(
+      key: LangEnum.letterRight.name,
+      enValue: 'Right Letter',
+      arValue: 'حرف الايمن',
+    );
+
+
+    addString(
+      key: LangEnum.letterLeft.name,
+      enValue: 'Left Letter',
+      arValue: 'حرف اليسار',
+    );
+
+
+    addString(
+      key: LangEnum.middleLetter.name,
+      enValue: 'Middle Letter',
+      arValue: 'حرف الأوسط',
+    );
+
+
+    addString(
+      key: LangEnum.plateNumber.name,
+      enValue: 'Plate number',
+      arValue: 'رقم لوحة',
+    );
+
+
+    addString(
+      key: LangEnum.carClassification.name,
+      enValue: 'Car Classification',
+      arValue: 'تصنيف السيارات',
+    );
+
+
+
+
+    addString(
+      key: LangEnum.selectCarClassification.name,
+      enValue: 'Please select Car Classification',
+      arValue: 'الرجاء تحديد تصنيف السيارة',
+    );
+
+
+
+    addString(
+      key: LangEnum.uploadPhoto.name,
+      enValue: 'Upload Photo',
+      arValue: 'رفع الصورة',
+    );
+
+    addString(
+      key: LangEnum.chooseFromGallery.name,
+      enValue: 'Choose from gallery',
+      arValue: 'اختر من المعرض',
+    );
+
+    addString(
+      key: LangEnum.photoTakenGoodLight.name,
+      enValue: 'The photo is taken in good light',
+      arValue: 'تم التقاط الصورة في ضوء جيد',
+    );
+
+    addString(
+      key: LangEnum.photoBlurry.name,
+      enValue: 'The photo is not blurry and all information is readable',
+      arValue: 'الصورة ليست ضبابية وجميع المعلومات قابلة للقراءة',
+    );
+
+    addString(
+      key: LangEnum.registerVehicle.name,
+      enValue: 'You can only register a vehicle that you are the owner of or a vehicle that you financed through a loan from one of the financing agencies authorized'
+          ' by the Saudi Arabian Monetary Agency',
+      arValue: 'يمكنك فقط تسجيل المركبة التي تمتلكها أو المركبة التي قمت بتمويلها عن طريق قرض من إحدى جهات التمويل المعتمدة من مؤسسة النقد العربي السعودي',
+    );
+
+
+
+
+    addString(
+      key: LangEnum.acceptDocumentType.name,
+      enValue: 'We accept any document type (Original, Digital or a screenshot from the website or Absher app)',
+      arValue: 'نقبل أي نوع من المستندات (أصلية أو رقمية أو لقطة شاشة من الموقع الإلكتروني أو تطبيق أبشر)',
+    );
+
+
+    addString(
+      key: LangEnum.makeSureTo.name,
+      enValue: 'Please make sure to',
+      arValue: 'يرجى التأكد من ذلك',
+    );
+
+    addString(
+      key: LangEnum.confirmPhoto.name,
+      enValue: 'Confirm Photo',
+      arValue: 'تأكيد الصورة',
+    );
+
+    addString(
+      key: LangEnum.useDateWarn.name,
+      enValue: 'We use this date to warn you when the document is close to expiry',
+      arValue: 'نستخدم هذا التاريخ لتحذيرك عندما تكون الوثيقة قريبة من انتهاء الصلاحية',
+    );
+
+    addString(
+      key: LangEnum.makeSurePhotoDetails.name,
+      enValue: 'Make sure your photo details are clear to read',
+      arValue: 'تأكد من أن تفاصيل صورتك واضحة للقراءة',
+    );
+
+
+
+
+
+
+
+
+
+
+
 
 
 

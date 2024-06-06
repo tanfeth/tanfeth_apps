@@ -52,7 +52,7 @@ class SingleIconNavItemWidget extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: context.text.titleMedium?.copyWith(
+                    style: context.text.titleSmall?.copyWith(
                       color: context.color.onSurface
                     ),
                   ),

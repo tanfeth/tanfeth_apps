@@ -1,6 +1,7 @@
 
 import 'package:tanfeth_apps/common/shared/enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/app_store_enum.dart';
+import 'package:tanfeth_apps/travel/common/shared/enum/app_data_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/driver_state_enum.dart';
 
 class Taxi24DriverEnum extends CommonEnum {
@@ -16,6 +17,12 @@ class Taxi24DriverEnum extends CommonEnum {
       approved: 'approved',
       pending: 'pending',
       rejected: 'rejected'
+    );
+
+    appDataEnum = AppDataEnum(
+      aboutApp: 'https://taxi24.app/app-features/?lang=',
+      termsAndCondition: 'https://taxi24.app/terms-and-conditions/?lang=',
+      policy: 'https://taxi24.app/privacy-policy/?lang='
     );
   }
 
@@ -40,5 +47,12 @@ enum SlideDirection {
   UP,
   DOWN,
 }
+
+
+enum CarDetailsPageType {
+  DriverData,
+  AddNewCar,
+}
+
 
 enum PanelState { OPEN, CLOSED }

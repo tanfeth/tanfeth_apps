@@ -10,16 +10,22 @@ class ProfileCell extends ConsumerWidget {
   final String title;
   final VoidCallback function;
   final Widget? imageWidget;
+  final double? iconHeight;
+  final double? iconWidth;
 
-  const ProfileCell({Key? key,
+  const ProfileCell(
+      {Key? key,
       required this.title,
-       this.icon = '',
+      this.icon = '',
       required this.function,
-     this.imageWidget}) : super(key: key);
+      this.imageWidget,
+      this.iconHeight,
+      this.iconWidth})
+      : super(key: key);
 
   @override
-  Widget build(BuildContext context,ref) {
-   return GestureDetector(
+  Widget build(BuildContext context, ref) {
+    return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: function,
       child: SizedBox(
@@ -29,19 +35,20 @@ class ProfileCell extends ConsumerWidget {
             Expanded(
               child: Row(
                 children: [
-                    if(imageWidget != null)...[
-                      imageWidget??const SizedBox.shrink()
-                    ]else ...[
-                      icon.isNotEmpty?
-                      SvgPicture.asset(
-                        icon,
-                        width: 48,
-                        height: 48,
-                      ):const SizedBox.shrink(),
-                    ],
-
-                  SizedBox(width: 10,),
-
+                  if (imageWidget != null) ...[
+                    imageWidget ?? const SizedBox.shrink()
+                  ] else ...[
+                    icon.isNotEmpty
+                        ? SvgPicture.asset(
+                            icon,
+                            width: iconWidth??48,
+                            height: iconHeight??48,
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                  SizedBox(
+                    width: 10,
+                  ),
                   Expanded(
                     child: Text(
                       title,
@@ -51,10 +58,10 @@ class ProfileCell extends ConsumerWidget {
                 ],
               ),
             ),
-
             SvgPicture.asset(
-              ref.watch(languageProvider) == 'en'?
-              Images.arrowSVG:Images.arrowLeftSVG,
+              ref.watch(languageProvider) == 'en'
+                  ? Images.arrowSVG
+                  : Images.arrowLeftSVG,
               width: 24,
               height: 24,
             )
