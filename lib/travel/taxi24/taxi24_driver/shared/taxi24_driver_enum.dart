@@ -55,4 +55,11 @@ enum CarDetailsPageType {
 }
 
 
+class CarIstimaraPageType {
+  static const String registration = "Registration";
+  static const String insurance = "Insurance";
+}
+
+
+
 enum PanelState { OPEN, CLOSED }

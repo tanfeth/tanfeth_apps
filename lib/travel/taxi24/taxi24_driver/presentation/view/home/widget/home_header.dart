@@ -15,8 +15,9 @@ class _HomerHeader extends ConsumerState<HomeHeader>{
   Widget build(BuildContext context) {
     
    return  Row(
-     mainAxisAlignment: MainAxisAlignment.start,
+     crossAxisAlignment: CrossAxisAlignment.start,
      children: [
+       
        GestureDetector(
          behavior: HitTestBehavior.translucent,
          onTap: () {
@@ -42,32 +43,37 @@ class _HomerHeader extends ConsumerState<HomeHeader>{
            ),
          ),
        ),
-       71.pw,
-       GestureDetector(
-         behavior: HitTestBehavior.translucent,
-         onTap: (){},
-         child: Container(
-             alignment: Alignment.center,
-             height: 48,
-             width: 113,
-             decoration: BoxDecoration(
-                 color: context.color.onSurface,
-                 borderRadius: BorderRadius.circular(40),
-                 boxShadow: [
-                   BoxShadow(
-                     color: context.color.surface.withOpacity(0.4),
-                     blurRadius: 24,
-                     offset: const Offset(
-                         0, 4), // changes position of shadow
+
+       Expanded(
+         child: Padding(
+           padding: EdgeInsets.symmetric(horizontal: 100),
+           child: GestureDetector(
+             behavior: HitTestBehavior.translucent,
+             onTap: (){},
+             child: Container(
+                 alignment: Alignment.center,
+                 height: 48,
+                 decoration: BoxDecoration(
+                     color: context.color.onSurface,
+                     borderRadius: BorderRadius.circular(40),
+                     boxShadow: [
+                       BoxShadow(
+                         color: context.color.surface.withOpacity(0.4),
+                         blurRadius: 24,
+                         offset: const Offset(
+                             0, 4), // changes position of shadow
+                       ),
+                     ]),
+                 child: Text(
+                   '0.0 SAR',
+                   style: context.text.bodyLarge?.copyWith(
+                     color: context.color.surface
                    ),
-                 ]),
-             child: Text(
-               '0.0 SAR',
-               style: context.text.bodyLarge?.copyWith(
-                 color: context.color.surface
-               ),
-             )),
+                 )),
+           ),
+         ),
        ),
+
      ],
    );
   }

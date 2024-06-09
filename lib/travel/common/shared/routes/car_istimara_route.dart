@@ -13,6 +13,8 @@ class CarIstimaraRouting extends RoutingConfig {
   CarIstimaraRouting();
 
   static const String _path = '/CarIstimara/';
+  static const String pageType = '/pageType/';
+
 
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {

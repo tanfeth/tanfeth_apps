@@ -577,6 +577,212 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
 
+    addString(
+      key: LangEnum.addExpiryDate.name,
+      enValue: 'Add Expiry Date',
+      arValue: 'أضف تاريخ انتهاء الصلاحية',
+    );
+
+
+
+    addString(
+      key: LangEnum.reTakePhoto.name,
+      enValue: 'Retake photo',
+      arValue: 'إعادة التقاط الصورة',
+    );
+
+
+    addString(
+      key: LangEnum.uploadVehicleInsurance.name,
+      enValue: 'Upload a photo of your Vehicle Insurance',
+      arValue: 'قم بتحميل صورة لتأمين سيارتك',
+    );
+
+
+    addString(
+      key: LangEnum.sar.name,
+      enValue: 'SAR',
+      arValue: 'ريال سعودي',
+    );
+
+
+    addString(
+      key: LangEnum.availableBalance.name,
+      enValue: 'Available Balance',
+      arValue: 'الرصيد المتوفر',
+    );
+
+
+    addString(
+      key: LangEnum.payTaxi.name,
+      enValue: 'Pay to taxi',
+      arValue: 'الدفع لسيارة الأجرة',
+    );
+
+
+    addString(
+      key: LangEnum.cashOut.name,
+      enValue: 'Cash out',
+      arValue: 'المصروفات',
+    );
+
+    addString(
+      key: LangEnum.choosePaymentMethod.name,
+      enValue: 'Choose Payment method',
+      arValue: 'اختر وسيلة الدفع',
+    );
+
+
+    addString(
+      key: LangEnum.minimumBalanceRequestCash.name,
+      enValue: 'Minimum balance to request cash out is 50 SAR',
+      arValue: 'الحد الأدنى للرصيد لطلب السحب النقدي هو 50 ريال سعودي',
+    );
+
+
+    addString(
+      key: LangEnum.addCreditDebitCard.name,
+      enValue: 'Add credit/debit card',
+      arValue: 'إضافة بطاقة الائتمان/الخصم',
+    );
+
+
+    addString(
+      key: LangEnum.defaultWord.name,
+      enValue: 'Default',
+      arValue: 'إفتراضي',
+    );
+
+
+    addString(
+      key: LangEnum.setDefault.name,
+      enValue: 'Set As Default',
+      arValue: 'تعيين كافتراضي',
+    );
+
+
+    addString(
+      key: LangEnum.bankAccount.name,
+      enValue: 'Bank account',
+      arValue: 'حساب البنك',
+    );
+
+
+    addString(
+      key: LangEnum.addBankAccount.name,
+      enValue: 'Add bank account',
+      arValue: 'إضافة حساب مصرفي',
+    );
+
+
+    addString(
+      key: LangEnum.usedReceiveMoney.name,
+      enValue: 'Used to receive your money',
+      arValue: 'تستخدم لتلقي أموالك',
+    );
+
+
+    addString(
+      key: LangEnum.myTrips.name,
+      enValue: 'My Trips',
+      arValue: 'رحلاتي',
+    );
+
+    addString(
+      key: LangEnum.analytics.name,
+      enValue: 'Analytics',
+      arValue: 'التحليلات',
+    );
+
+
+
+    addString(
+      key: LangEnum.trips.name,
+      enValue: 'Trips',
+      arValue: 'رحلات',
+    );
+
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+
+    addString(
+      key: LangEnum.timeRange.name,
+      enValue: 'Time range',
+      arValue: 'النطاق الزمني',
+    );
+
+
+
+    addString(
+      key: LangEnum.workHours.name,
+      enValue: 'Work hours',
+      arValue: 'ساعات العمل',
+    );
+
+
+    addString(
+      key: LangEnum.breakDown.name,
+      enValue: 'Break down',
+      arValue: 'انفصال',
+    );
+
+
+    addString(
+      key: LangEnum.netEarnings.name,
+      enValue: 'Net earnings',
+      arValue: 'صافي الأرباح',
+    );
+
+
+    addString(
+      key: LangEnum.tip.name,
+      enValue: 'Tip',
+      arValue: 'نصيحة',
+    );
+
+
+    addString(
+      key: LangEnum.cancelFees.name,
+      enValue: 'Cancel fees',
+      arValue: 'إلغاء الرسوم',
+    );
+
+    addString(
+      key: LangEnum.totalEarnings.name,
+      enValue: 'Total earnings',
+      arValue: 'الأرباح الكلية',
+    );
+
+    addString(
+      key: LangEnum.color.name,
+      enValue: 'Color',
+      arValue: 'اللون',
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

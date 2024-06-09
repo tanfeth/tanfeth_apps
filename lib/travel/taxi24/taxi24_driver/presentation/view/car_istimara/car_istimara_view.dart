@@ -8,8 +8,11 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_istimara/widget/CarIstimaraBottomSheetContent.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_istimara/widget/photo_instruction_info.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
 
 class CarIstimaraView extends ConsumerStatefulWidget{
   const CarIstimaraView();
@@ -19,12 +22,22 @@ class CarIstimaraView extends ConsumerStatefulWidget{
 }
 
 class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
+
+  String pageType = '';
+
+  @override
+  void initState() {
+    pageType = Get.parameters[CarIstimaraRouting.pageType]??'';
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(
         title: LangEnum.vehicleRegistration.tr(),
-        leadingWidget: const BackButton(),
+        leadingWidget: const BackButtonWidget(),
       ),
       body: WebWidth(
         child: SafeArea(
@@ -41,12 +54,14 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
                       ),
 
                       Text(
-                        LangEnum.vehicleRegistration.tr(),
+                        pageType == CarIstimaraPageType.registration?
+                        LangEnum.vehicleRegistration.tr():
+                        LangEnum.uploadVehicleInsurance.tr(),
                         style: context.text.titleMedium,
                         textAlign: TextAlign.start,
                       ),
                       SizedBox(
-                        height: 32,
+                        height: 15,
                       ),
                       Text(
                         LangEnum.makeSureTo.tr(),
@@ -71,7 +86,9 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
                    var checked = await  checkCameraPermission();
                    if(checked??false){
                      showBottomSheetFunction(
-                       content: CaristimaraBottomSheetContent(),
+                       content: CaristimaraBottomSheetContent(
+                         pageType: pageType,
+                       ),
                      );
                    }else {
                      return null;

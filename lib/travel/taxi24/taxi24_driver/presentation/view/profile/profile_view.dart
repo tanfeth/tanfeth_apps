@@ -19,6 +19,8 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/wallet_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/driver_profile_data_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/language_bottom_sheet.dart';
@@ -67,12 +69,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           ProfileCell(
                               title: LangEnum.earnings.tr(),
                               icon: Images.earningsProfileSVG,
-                              function: () {}),
+                              function: () {
+                                Get.toNamed(EarningRouting.config().path);
+                              }),
                           const LargeDivider(),
                           ProfileCell(
                               title: LangEnum.wallet.tr(),
                               icon: Images.walletProfileSVG,
-                              function: () {}),
+                              function: () {
+                                Get.toNamed(WalletRouting.config().path);
+                              }),
                           const LargeDivider(),
                           ProfileCell(
                               title: LangEnum.myCars.tr(),

@@ -11,6 +11,7 @@ import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
 
 class AddCarView extends ConsumerStatefulWidget {
   const AddCarView();
@@ -54,7 +55,10 @@ class _AddCarView extends ConsumerState<AddCarView> {
                             iconHeight: 23,
                             iconWidth: 23,
                             function: () {
-                              Get.toNamed(CarIstimaraRouting.config().path);
+                              Get.toNamed(CarIstimaraRouting.config().path,
+                              parameters: {
+                                CarIstimaraRouting.pageType:CarIstimaraPageType.registration
+                              });
                             }),
                         SmallDivider(),
                         ProfileCell(
@@ -62,7 +66,12 @@ class _AddCarView extends ConsumerState<AddCarView> {
                             icon: Images.fileSVG,
                             iconHeight: 23,
                             iconWidth: 23,
-                            function: () {}),
+                            function: () {
+                              Get.toNamed(CarIstimaraRouting.config().path,
+                                  parameters: {
+                                    CarIstimaraRouting.pageType:CarIstimaraPageType.insurance
+                                  });
+                            }),
                       ],
                     ),
                   ),

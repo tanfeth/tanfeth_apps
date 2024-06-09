@@ -502,7 +502,7 @@ enum LangEnum {
   middleLetter,
   plateNumber,
   carClassification,
-  selectCarClassification, uploadPhoto, chooseFromGallery, photoTakenGoodLight, photoBlurry, registerVehicle, acceptDocumentType, makeSureTo, confirmPhoto, useDateWarn, makeSurePhotoDetails,
+  selectCarClassification, uploadPhoto, chooseFromGallery, photoTakenGoodLight, photoBlurry, registerVehicle, acceptDocumentType, makeSureTo, confirmPhoto, useDateWarn, makeSurePhotoDetails, addExpiryDate, reTakePhoto, uploadVehicleInsurance, sar, availableBalance, payTaxi, cashOut, choosePaymentMethod, minimumBalanceRequestCash, addCreditDebitCard, defaultWord, setDefault, bankAccount, addBankAccount, usedReceiveMoney, myTrips, analytics, trips, inWord, timeRange, workHours, breakDown, netEarnings, tip, cancelFees, totalEarnings,
 }
 
 class MyLanguages extends Translations {

@@ -42,9 +42,9 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 70),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                HomeHeader(),
-
+                Expanded(child: HomeHeader()),
                 //
                 // if (!isLocationEnabledStatus)
                 //   BlocBuilder<AlertLocationStatusViewModel, AlertLocationStates>(
