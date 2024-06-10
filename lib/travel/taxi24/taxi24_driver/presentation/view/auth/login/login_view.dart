@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/login_form.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/login_info.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/visitor_button.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -35,7 +39,10 @@ class _LoginViewState extends ConsumerState<LoginView> {
   Widget build(BuildContext context) {
     initBuild();
     return Scaffold(
-      appBar: const MainAppBar(leadingWidget: BackButtonWidget()),
+      appBar: const MainAppBar(
+        leadingWidget: BackButtonWidget(),
+        trailingWidget: VisitorButton(),
+      ),
       body: WebWidth(
         child: GestureDetector(
           behavior: HitTestBehavior.translucent,
@@ -50,12 +57,14 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  Text(LangEnum.welcome.tr(), style: context.text.titleMedium),
+                  20.ph,
                   LoginInfo(),
                   30.ph,
-                  Expanded(
-                      child: LoginForm(
+                  LoginForm(
                     loginKey: loginKey,
-                  )),
+                  ),
+                  10.ph,
                   ElevatedButton(
                     onPressed: () async {
                       if (loginKey.currentState!.validate()) {
@@ -65,7 +74,15 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     },
                     child: Text(LangEnum.continueWord.tr()),
                   ),
-                  20.ph,
+                  10.ph,
+
+                  AuthLinkedMsg(
+                    message: LangEnum.doNotHaveAccount.tr(),
+                    linkTitle: LangEnum.registerNow.tr(),
+                    onPressed: () => Get.toNamed(RegisterRouting.config().path),
+                  ),
+
+
                 ],
               ),
             ),

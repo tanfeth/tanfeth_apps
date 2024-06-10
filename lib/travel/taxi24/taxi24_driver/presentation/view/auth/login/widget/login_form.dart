@@ -1,22 +1,28 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/phone_form_field_widget.dart';
+import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/form_validation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-class LoginForm extends StatefulWidget {
+class LoginForm extends ConsumerStatefulWidget {
   final GlobalKey<FormState> loginKey;
 
   const LoginForm({super.key,required this.loginKey});
 
   @override
-  _LoginFormState createState() => _LoginFormState();
+  ConsumerState<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _LoginFormState extends ConsumerState<LoginForm> {
 
+  Country selectedMobile = getCountry();
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +34,23 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             15.ph,
-            PhoneFormField(
-              validator: Validation.phone,
-              hintText: LangEnum.numPhone.tr(),
-              onChanged: (val) {
-                if(val.length == 9){
-                  closeKeyBoard();
-                }
-              },
 
-            ),
+            CustomTextFormField(
+                keyboardType: TextInputType.phone,
+                hintText: LangEnum.numPhone.tr(),
+                textInputAction: TextInputAction.next,
+                validator: Validation.notEmpty,
+                prefixIcon: Icons.phone,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                suffixWidget: CountryCodeWidget(
+                  onSelect: (Country country) {
+                    selectedMobile = country;
+                    setState(() {});
+                  },
+                  selectedPhoneCountry: selectedMobile,
+                ),
+                onChanged: (String value) {}),
+
             10.ph,
           ],
         ),

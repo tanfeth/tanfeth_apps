@@ -1,22 +1,36 @@
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
+import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_android/src/android_webview_controller.dart';
+import 'package:webview_flutter_wkwebview/src/webkit_webview_platform.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 
-class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({Key? key}) : super(key: key);
+
+class TermsServiceView extends ConsumerStatefulWidget{
+  const TermsServiceView();
 
   @override
-  State<WebViewScreen> createState() => _WebViewScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _TermsServiceView();
+
+
 }
 
-class _WebViewScreenState extends State<WebViewScreen> {
+class _TermsServiceView extends ConsumerState<TermsServiceView>{
+
   late final WebViewController webViewController;
   late final PlatformWebViewControllerCreationParams params;
   late String appBarTitle;
@@ -26,10 +40,50 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
   @override
   void initState() {
-    appBarTitle = Get.parameters[WebViewRouting.appBarTitle] ?? '';
-    pageUrl = Get.parameters[WebViewRouting.pageUrl] ?? '';
+    pageUrl= '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.read(languageProvider)}';
+     initWebViewSettings();
+    super.initState();
+  }
 
 
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        title: LangEnum.termsOfUse.tr(),
+        leadingWidget: const BackButtonWidget(),
+      ),
+      body: WebWidth(
+        child: SafeArea(
+          child: Stack(
+            children: [
+              pageLoading?
+              Center(child: const CircularProgressIndicator(),):
+              WebViewWidget(controller: webViewController),
+
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child:   Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.offAllNamed(DriverDataRouting.config().path);
+                      },
+                      child: Text(LangEnum.iAgree.tr()),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void initWebViewSettings() {
     if (WebViewPlatform.instance is WebKitWebViewPlatform) {
       params = WebKitWebViewControllerCreationParams(
         allowsInlineMediaPlayback: true,
@@ -84,23 +138,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
       (controller.platform as AndroidWebViewController).setMediaPlaybackRequiresUserGesture(false);
     }
     webViewController = controller;
-    super.initState();
   }
 
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(
-        title: appBarTitle,
-        leadingWidget: const BackButtonWidget(),
-      ),
-      body: pageLoading?
-          Center(child: const CircularProgressIndicator(),):
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: WebViewWidget(controller: webViewController),
-      ),
-    );
-  }
 }

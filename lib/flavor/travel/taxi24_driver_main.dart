@@ -17,8 +17,12 @@ import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart'
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/trips_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/wallet_cash_Out_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/wallet_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/end_points.dart';
@@ -83,6 +87,10 @@ class taxi24DriverMain {
       PaymentMethodRouting.config().page,
       EarningRouting.config().page,
       AnalyticsRouting.config().page,
+      TripsRouting.config().page,
+      PersonalInfoRouting.config().page,
+      TermsOfServiceRouting.config().page,
+      DriverDataRouting.config().page,
     ]);
 
     mainCommon(

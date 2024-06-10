@@ -274,7 +274,7 @@ packages:
     source: hosted
     version: "3.1.1"
   country_picker:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: country_picker
       sha256: "327f5e15a76352089a6b5057abb761ee5202e7516c9440d8d6a7524139f9b14e"
@@ -538,7 +538,7 @@ packages:
     source: hosted
     version: "1.1.0"
   fl_chart:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: fl_chart
       sha256: "749b3342ea3e95cbf61a0fec31a62606e837377b8b6d0caa7367a7ef80f38b7d"

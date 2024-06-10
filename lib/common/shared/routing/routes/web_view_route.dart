@@ -14,7 +14,6 @@ class WebViewRouting extends RoutingConfig {
   static const String successEnum = 'successEnum';
   static const String appBarTitle = 'appBarTitle';
 
-
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:

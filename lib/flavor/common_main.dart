@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
@@ -85,6 +87,7 @@ class CommonMain extends ConsumerWidget {
       SendMessageRouting.config().page,
       ReportProblemRouting.config().page,
       NotificationsRouting.config().page,
+      RegisterRouting.config().page,
     ]);
   }
 
@@ -117,6 +120,7 @@ class CommonMain extends ConsumerWidget {
         fallbackLocale: flavorConfig.fallbackLocale,
         translations: flavorConfig.languages,
         localizationsDelegates: [
+          CountryLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,

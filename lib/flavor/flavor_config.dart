@@ -12,6 +12,7 @@ class FlavorConfig {
 
    ITheme myTheme = MyTheme();
   final AppNameEnum appNameEnum;
+  final String defaultCountryCode;
   final CommonEnum commonEnum;
   final Set<AppCategoryEnum> appCategoryEnum;
   final List<Locale> supportedLocales;
@@ -27,6 +28,7 @@ class FlavorConfig {
     required this.appNameEnum,
     required this.appCategoryEnum,
     required this.baseUrl,
+    this.defaultCountryCode="EG",
     required this.commonEnum,
     required this.endPoints,
     this.secretJWT = "",

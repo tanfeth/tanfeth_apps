@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:country_picker/country_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -156,5 +157,18 @@ Future<bool?> checkCameraPermission() async {
   return null;
 }
 
+
+String countryFlag({required String countryCode}) {
+  String flag = countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
+          (match) => String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397));
+  return flag;
+}
+
+
+Country getCountry() {
+  Locale myLocale = Localizations.localeOf(Get.context!);
+  print('myLocale => ${myLocale.countryCode}');
+  return Country.parse(customAppFlavor.defaultCountryCode);
+}
 
 

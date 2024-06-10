@@ -502,7 +502,7 @@ enum LangEnum {
   middleLetter,
   plateNumber,
   carClassification,
-  selectCarClassification, uploadPhoto, chooseFromGallery, photoTakenGoodLight, photoBlurry, registerVehicle, acceptDocumentType, makeSureTo, confirmPhoto, useDateWarn, makeSurePhotoDetails, addExpiryDate, reTakePhoto, uploadVehicleInsurance, sar, availableBalance, payTaxi, cashOut, choosePaymentMethod, minimumBalanceRequestCash, addCreditDebitCard, defaultWord, setDefault, bankAccount, addBankAccount, usedReceiveMoney, myTrips, analytics, trips, inWord, timeRange, workHours, breakDown, netEarnings, tip, cancelFees, totalEarnings,
+  selectCarClassification, uploadPhoto, chooseFromGallery, photoTakenGoodLight, photoBlurry, registerVehicle, acceptDocumentType, makeSureTo, confirmPhoto, useDateWarn, makeSurePhotoDetails, addExpiryDate, reTakePhoto, uploadVehicleInsurance, sar, availableBalance, payTaxi, cashOut, choosePaymentMethod, minimumBalanceRequestCash, addCreditDebitCard, defaultWord, setDefault, bankAccount, addBankAccount, usedReceiveMoney, myTrips, analytics, trips, inWord, timeRange, workHours, breakDown, netEarnings, tip, cancelFees, totalEarnings, daily, weekly, monthly, finishedTrips, youDidntAccept, youCanceled, passengerCanceled, passengerDidntShow, chagePic, birthDate, areSureWantDeleteAccount, yourLoseAllData, enterDetails, fullname, birthdateHijri, hijriDate, visitor, iAgree, completeStepsFinishEnrollment, personalPhoto, drivingLicence, howStartDriver, vehicleRequirements,
 }
 
 class MyLanguages extends Translations {

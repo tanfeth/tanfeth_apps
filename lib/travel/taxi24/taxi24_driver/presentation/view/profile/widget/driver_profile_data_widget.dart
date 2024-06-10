@@ -27,7 +27,7 @@ class DriverProfileDataWidget extends StatelessWidget {
 
           Center(
             child: Text(
-              'Ezzeldeen Ahmed',
+              'Abdelrhman Mobarak',
               style: context.text.titleMedium,
             )
           ),

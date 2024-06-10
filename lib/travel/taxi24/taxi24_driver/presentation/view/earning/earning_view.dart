@@ -2,11 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/analytics_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/trips_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/helper_methods.dart';
 
@@ -69,8 +72,8 @@ class _EarningView extends ConsumerState<EarningView>{
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                   // Navigator.pushNamed(context, RoutePath.analyticsScreen);
-                  },
+                      Get.toNamed(AnalyticsRouting.config().path);
+                    },
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -102,8 +105,7 @@ class _EarningView extends ConsumerState<EarningView>{
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    // Navigator.pushNamed(context,
-                    //     RoutePath.myTripsScreen);
+                    Get.toNamed(TripsRouting.config().path);
                   },
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,

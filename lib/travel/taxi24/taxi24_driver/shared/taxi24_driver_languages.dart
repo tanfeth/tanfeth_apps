@@ -759,10 +759,140 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.color.name,
-      enValue: 'Color',
-      arValue: 'اللون',
+      key: LangEnum.daily.name,
+      enValue: 'Daily',
+      arValue: 'يوميًا',
     );
+
+    addString(
+      key: LangEnum.weekly.name,
+      enValue: 'Weekly',
+      arValue: 'أسبوعيا',
+    );
+
+    addString(
+      key: LangEnum.monthly.name,
+      enValue: 'Monthly',
+      arValue: 'شهريا',
+    );
+
+    addString(
+      key: LangEnum.finishedTrips.name,
+      enValue: 'Finished trips',
+      arValue: 'رحلات منتهية',
+    );
+
+    addString(
+      key: LangEnum.youDidntAccept.name,
+      enValue: 'You didn’t accept',
+      arValue: 'أنت لم تقبل',
+    );
+
+    addString(
+      key: LangEnum.youCanceled.name,
+      enValue: 'You canceled',
+      arValue: 'لقد ألغيت',
+    );
+
+    addString(
+      key: LangEnum.passengerCanceled.name,
+      enValue: 'Passenger canceled',
+      arValue: 'ألغى الراكب',
+    );
+
+    addString(
+      key: LangEnum.passengerDidntShow.name,
+      enValue: 'Passenger didn’t show',
+      arValue: 'لم يظهر الراكب',
+    );
+
+
+
+    addString(
+      key: LangEnum.chagePic.name,
+      enValue: 'Change pic',
+      arValue: 'تغير الصورة',
+    );
+    addString(
+      key: LangEnum.birthDate.name,
+      enValue: 'Birth date',
+      arValue: 'تاريخ الميلاد',
+    );
+    addString(
+      key: LangEnum.areSureWantDeleteAccount.name,
+      enValue: 'Are your sure you want to delete your account?',
+      arValue: 'هل أنت متأكد أنك تريد حذف حسابك؟',
+    );
+    addString(
+      key: LangEnum.yourLoseAllData.name,
+      enValue: 'Your will lose all your data',
+      arValue: 'سوف تفقد كافة البيانات الخاصة بك',
+    );
+    addString(
+      key: LangEnum.enterDetails.name,
+      enValue: 'Enter your details',
+      arValue: 'أدخل التفاصيل الخاصة بك',
+    );
+
+    addString(
+      key: LangEnum.fullname.name,
+      enValue: 'Full name',
+      arValue: 'الاسم الكامل',
+    );
+    addString(
+      key: LangEnum.birthdateHijri.name,
+      enValue: 'Birthdate in hijri',
+      arValue: 'تاريخ الميلاد بالهجري',
+    );
+    addString(
+      key: LangEnum.hijriDate.name,
+      enValue: 'Hijri date',
+      arValue: 'التاريخ الهجري',
+    );
+    addString(
+      key: LangEnum.visitor.name,
+      enValue: 'Login as a visitor',
+      arValue: 'دخول كزائر',
+    );
+    addString(
+      key: LangEnum.iAgree.name,
+      enValue: 'I Agree',
+      arValue: 'أنا موافق',
+    );
+    addString(
+      key: LangEnum.completeStepsFinishEnrollment.name,
+      enValue: 'Please complete these steps to finish your enrollment',
+      arValue: 'يرجى إكمال هذه الخطوات لإنهاء تسجيلك',
+    );
+    addString(
+      key: LangEnum.personalPhoto.name,
+      enValue: 'Personal photo',
+      arValue: 'الصورة الشخصية',
+    );
+    addString(
+      key: LangEnum.drivingLicence.name,
+      enValue: 'Driving Licence',
+      arValue: 'رخصة القيادة',
+    );
+    addString(
+      key: LangEnum.howStartDriver.name,
+      enValue: 'How to start as a driver',
+      arValue: 'كيف تبدأ كسائق',
+    );
+    addString(
+      key: LangEnum.vehicleRequirements.name,
+      enValue: 'Vehicle requirements',
+      arValue: 'متطلبات السيارة',
+    );
+    addString(
+      key: LangEnum.daily.name,
+      enValue: 'Daily',
+      arValue: 'يوميًا',
+    );
+
+
+
+
 
 
 

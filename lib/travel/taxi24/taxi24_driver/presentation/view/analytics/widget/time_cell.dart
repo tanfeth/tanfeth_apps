@@ -1,41 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/presentation/widget/radio_widget.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/custom_radio_widget.dart';
 
+class TimeCell extends StatelessWidget {
+  final String time;
+  final int index;
+  final BuildContext context;
+  
+  const TimeCell({Key? key, required this.time,
+    required this.index,
+  required this.context})
+      : super(key: key);
 
-class AnalyticsTimeCell extends StatelessWidget {
-  const AnalyticsTimeCell({Key? key, required this.time, required this.index}) : super(key: key);
-final String time;
-final int index;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: (){
-        getIt<AnalyticsViewModel>().geAnalytics(query: {"TimeRangeType":time});
-        getIt<AnalyticsViewModel>().changeIndex(index);
-        Navigator.pop(context);
+      onTap: () {
+        // getIt<AnalyticsViewModel>().geAnalytics(query: {"TimeRangeType": time});
+        // getIt<AnalyticsViewModel>().changeIndex(index);
+        Get.back();
       },
       child: Container(
-        height: 56.h,
-        padding:  EdgeInsets.symmetric(horizontal: 24.w),
+        height: 56,
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: CustomText(
-                text: time.tr(),
-                fontSize: FontSizer.s16,
-                textAlign: TextAlign.start,
-                fontWeight: FontWeight.w500,
+              child: Text(
+                time,
               ),
             ),
-             BlocBuilder<AnalyticsViewModel,AnalyticsState>(
-               buildWhen: (previous,current)=>current.currentState=='ChangeIndex',
-               builder: (context,state) {
-                 return RadioWidget(value:  getIt<AnalyticsViewModel>().selectedIndex==index? true:false,);
-               }
-             ),
+
+            CustomRadioWidget(
+              value: false,
+            ),
+
           ],
         ),
       ),
