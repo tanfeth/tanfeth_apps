@@ -24,7 +24,7 @@ class AppMode {
           ? ThemeMode.dark
           : ThemeMode.light;
     else
-      return isDarkMode ? ThemeMode.dark : ThemeMode.light;
+      return isDarkMode ? ThemeMode.light : ThemeMode.light;
 
   }
 
