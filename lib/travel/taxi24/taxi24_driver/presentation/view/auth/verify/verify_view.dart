@@ -10,6 +10,7 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/vm/verify_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
@@ -99,7 +100,7 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                 ElevatedButton(
                   onPressed: () async {
                     if (pinKey.currentState!.validate()) {
-                      Get.offAllNamed(HomeRouting.config().path);
+                      Get.offAllNamed(LayoutRouting.config().path);
                     }
 
                     // try {} catch (e) {

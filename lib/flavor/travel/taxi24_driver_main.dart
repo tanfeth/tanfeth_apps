@@ -32,11 +32,11 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/theme/theme.dart
 
 
 
-class taxi24DriverMain {
+class Taxi24DriverMain {
 
   List<GetPage> screenPages = [];
 
-  taxi24DriverMain() {
+  Taxi24DriverMain() {
     MinusWebWidth = 400;
     bool isStaging = const String.fromEnvironment("staging").isNotEmpty;
 
@@ -100,4 +100,4 @@ class taxi24DriverMain {
   }
 }
 
-void main() => taxi24DriverMain();
+void main() => Taxi24DriverMain();

@@ -16,7 +16,7 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_istimara/widget/CarIstimaraBottomSheetContent.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/form_validation.dart';
+import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 class CarIstimaraConfirmPhotoView extends ConsumerStatefulWidget {
   const CarIstimaraConfirmPhotoView();

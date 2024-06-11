@@ -7,7 +7,8 @@ import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.d
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/form_validation.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
@@ -39,8 +40,11 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 keyboardType: TextInputType.phone,
                 hintText: LangEnum.numPhone.tr(),
                 textInputAction: TextInputAction.next,
-                validator: Validation.notEmpty,
+                validator: customAppFlavor.defaultCountryCode == 'SA'?
+                Validation.phone:Validation.notEmpty,
                 prefixIcon: Icons.phone,
+                maxLength: customAppFlavor.defaultCountryCode == 'SA'?
+                9:null,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 suffixWidget: CountryCodeWidget(
                   onSelect: (Country country) {
@@ -49,7 +53,11 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   },
                   selectedPhoneCountry: selectedMobile,
                 ),
-                onChanged: (String value) {}),
+                onChanged: (String value) {
+                  if(value.length == 9){
+                    closeKeyBoard();
+                  }
+                }),
 
             10.ph,
           ],

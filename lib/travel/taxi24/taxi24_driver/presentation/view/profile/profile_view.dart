@@ -10,11 +10,13 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
+import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -28,6 +30,8 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profi
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/profile_rate.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/app_version.dart';
+import 'package:showcaseview/showcaseview.dart';
+
 
 class TaxiDriverProfile extends ConsumerStatefulWidget {
   const TaxiDriverProfile();
@@ -36,6 +40,30 @@ class TaxiDriverProfile extends ConsumerStatefulWidget {
 }
 
 class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
+
+
+
+  GlobalKey four = GlobalKey();
+  GlobalKey five = GlobalKey();
+  GlobalKey six = GlobalKey();
+  GlobalKey seven = GlobalKey();
+  GlobalKey eight = GlobalKey();
+  GlobalKey nine = GlobalKey();
+  GlobalKey ten = GlobalKey();
+
+  @override
+  void initState() {
+    if(AppStorage.getProfileCase() == true) {
+      showCaseEvent(context: context
+          , caseList: [four, five, six, seven,
+            eight, nine, ten]);
+    }
+    super.initState();
+  }
+
+
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,14 +79,19 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                   SizedBox(
                     height: 28,
                   ),
-                  const DriverProfileDataWidget(),
+                   DriverProfileDataWidget(
+                    globalKey: four,
+                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const ProfileRate(),
+                           ProfileRate(
+                            five: five,
+                            six: six,
+                          ),
                           SizedBox(
                             height: 24,
                           ),
@@ -83,12 +116,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                 Get.toNamed(WalletRouting.config().path);
                               }),
                           const LargeDivider(),
-                          ProfileCell(
-                              title: LangEnum.myCars.tr(),
-                              icon: Images.carProfileSVG,
-                              function: () {
-                                Get.toNamed(CarsRouting.config().path);
-                              }),
+                          Showcase(
+                            key: seven,
+                            description: LangEnum.carsOption.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.myCars.tr(),
+                                icon: Images.carProfileSVG,
+                                function: () {
+                                  Get.toNamed(CarsRouting.config().path);
+                                }),
+                          ),
                           const LargeDivider(),
                           ProfileCell(
                               title: LangEnum.document.tr(),
@@ -111,6 +148,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                     content: const LangBottomSheet(),
                                   )),
                           const LargeDivider(),
+
                           ProfileCell(
                               title: LangEnum.sendMessage.tr(),
                               icon: Images.sendSVG,
@@ -126,17 +164,21 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                               function: () => Get.toNamed(
                                   SendMessageRouting.config().path)),
                           const LargeDivider(),
-                          ProfileCell(
-                              title: LangEnum.paymentAndPricing.tr(),
-                              icon: Images.aboutProfileSVG,
-                              function: () => Get.toNamed(
-                                      WebViewRouting.config().path,
-                                      parameters: {
-                                        WebViewRouting.pageUrl:
-                                            'https://www.youtube.com/',
-                                        WebViewRouting.appBarTitle:
-                                            LangEnum.paymentAndPricing.tr(),
-                                      })),
+                          Showcase(
+                            key: eight,
+                            description: LangEnum.priceOption.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.paymentAndPricing.tr(),
+                                icon: Images.aboutProfileSVG,
+                                function: () => Get.toNamed(
+                                        WebViewRouting.config().path,
+                                        parameters: {
+                                          WebViewRouting.pageUrl:
+                                              'https://www.youtube.com/',
+                                          WebViewRouting.appBarTitle:
+                                              LangEnum.paymentAndPricing.tr(),
+                                        })),
+                          ),
                           const LargeDivider(),
                           ProfileCell(
                               title: LangEnum.aboutAppName.tr(),
@@ -174,33 +216,41 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                             LangEnum.privacyPolicy.tr(),
                                       })),
                           const LargeDivider(),
-                          ProfileCell(
-                              title: LangEnum.rateApp.tr(),
-                              icon: Images.starSVG,
-                              imageWidget: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
-                                child: Image.asset(
-                                  Images.startGif,
-                                  height: 25,
-                                  width: 25,
+                          Showcase(
+                            key: nine,
+                            description: LangEnum.rateAppOption.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.rateApp.tr(),
+                                icon: Images.starSVG,
+                                imageWidget: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: Image.asset(
+                                    Images.startGif,
+                                    height: 25,
+                                    width: 25,
+                                  ),
                                 ),
-                              ),
-                              function: () => rateAppOnStore()),
+                                function: () => rateAppOnStore()),
+                          ),
                           const LargeDivider(),
-                          ProfileCell(
-                              title: LangEnum.shareApp.tr(),
-                              icon: Images.aboutProfileSVG,
-                              imageWidget: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
-                                child: Image.asset(
-                                  Images.shareGif,
-                                  height: 25,
-                                  width: 25,
+                          Showcase(
+                            key:ten,
+                            description: LangEnum.shareOption.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.shareApp.tr(),
+                                icon: Images.aboutProfileSVG,
+                                imageWidget: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: Image.asset(
+                                    Images.shareGif,
+                                    height: 25,
+                                    width: 25,
+                                  ),
                                 ),
-                              ),
-                              function: () => shareApp()),
+                                function: () => shareApp()),
+                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -241,4 +291,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
       ),
     );
   }
+
+
+  
 }

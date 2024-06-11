@@ -95,6 +95,7 @@ dependency_overrides:
   firebase_analytics: ^10.10.6
   widget_zoom: ^0.0.4
   dropdown_search: ^5.0.6
+  showcaseview: ^3.0.0
 
 dev_dependencies:
   build_runner: ^2.2.0
@@ -117,6 +118,8 @@ flutter:
     - assets/common/lottie/
     - assets/taxi24Driver/
     - assets/taxi24Driver/lottie/
+    - assets/taxi24Passenger/
+    - assets/taxi24Passenger/lottie/
 
 
 

@@ -15,7 +15,7 @@ import 'package:tanfeth_apps/travel/common/shared/app_data/cars.dart';
 import 'package:tanfeth_apps/travel/common/shared/app_data/years.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/ParamCarDetailsModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/vm/car_details_vm.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/form_validation.dart';
+import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 class CarData extends ConsumerStatefulWidget {
   final GlobalKey<FormState>  formKey;

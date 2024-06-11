@@ -16,9 +16,9 @@ class LoginRouting  {
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return RoutingConfig(path: _path, widget: const LoginView());
+        return RoutingConfig(path: _path, widget: const DriverLoginView());
       default:
-        return RoutingConfig(path: _path, widget: const LoginView(),);
+        return RoutingConfig(path: _path, widget: const DriverLoginView(),);
     }
   }
 }

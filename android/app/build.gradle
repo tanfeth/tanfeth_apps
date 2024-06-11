@@ -57,12 +57,19 @@ android {
     }
 
     signingConfigs {
-//        taxi24 {
-//            keyAlias 'upload'
-//            keyPassword 'taxi24driver'
-//            storeFile file('key.jks')
-//            storePassword 'taxi24driver'
-//        }
+        taxi24Driver {
+            keyAlias 'upload'
+            keyPassword 'taxi24driver'
+            storeFile file('key.jks')
+            storePassword 'taxi24driver'
+        }
+     taxi24Passenger {
+            keyAlias 'upload'
+            keyPassword 'taxi24passenger'
+            storeFile file('key.jks')
+            storePassword 'taxi24passenger'
+        }
+
     }
 
     flavorDimensions "app"
@@ -71,6 +78,13 @@ android {
             dimension "app"
             applicationId "com.taxi24.driver"
 //            signingConfig signingConfigs.taxi24Driver
+            versionCode 1
+            versionName "1.1.0"
+        }
+        taxi24Passenger {
+            dimension "app"
+            applicationId "com.taxi24.passenger"
+//            signingConfig signingConfigs.taxi24Passenger
             versionCode 1
             versionName "1.1.0"
         }

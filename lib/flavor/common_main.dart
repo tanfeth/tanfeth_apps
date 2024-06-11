@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
+import 'package:tanfeth_apps/common/shared/custom_methods.dart';
 import 'package:tanfeth_apps/common/shared/custom_time_ago.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
@@ -35,7 +38,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:timeago/timeago.dart' as timeago;
-
+import 'package:showcaseview/showcaseview.dart';
 
 var currentRoute = "".obs;
 
@@ -60,10 +63,26 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
      await SharedPreferencesService.init();
     Get.put(flavorConfig, permanent: true);
     return runApp(
-      ProviderScope(child: CommonMain(flavorConfig, screenPages)),
+        ShowCaseWidget(
+          onStart: (index, key) {
+            log('onStart: $index, $key');
+          },
+          onComplete: (index, key) {
+            log('onComplete: $index, $key');
+            checkCaseStatus(index:index);
+          },
+          blurValue: 1,
+          enableAutoScroll: true,
+          autoPlayDelay: const Duration(seconds: 3),
+          builder: (context) =>
+              ProviderScope(child: CommonMain(flavorConfig, screenPages)),
+        ),
+
     );
   });
 }
+
+
 
 class CommonMain extends ConsumerWidget {
   final FlavorConfig flavorConfig;

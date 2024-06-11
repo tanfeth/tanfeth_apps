@@ -4,7 +4,7 @@ import 'package:tanfeth_apps/common/shared/custom_methods.dart';
 
 
 
-class Lotties {
+class Lottie {
   static String correct = "";
 
 
@@ -19,7 +19,7 @@ class Lotties {
     try {
       if (isTaxi24Driver){
         finalPath = "assets/taxi24Driver/lottie/" + path;
-      }else if(isTaxi24Client){
+      }else if(isTaxi24Passenger){
         finalPath = "assets/taxi24Client/lottie/" + path;
       }
       await rootBundle.loadString(finalPath);

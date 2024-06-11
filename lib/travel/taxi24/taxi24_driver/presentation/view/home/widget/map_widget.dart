@@ -24,24 +24,21 @@ class _MapState extends ConsumerState<MapWidget>{
   @override
   Widget build(BuildContext context) {
 
-    return    SizedBox(
-      height: MediaQuery.sizeOf(context).height-114,
-      child: GoogleMap(
-        compassEnabled: false,
-        mapToolbarEnabled: false,
-        myLocationEnabled: true,
-        myLocationButtonEnabled: false,
-        trafficEnabled: false,
-        tiltGesturesEnabled: false,
-        zoomControlsEnabled: false,
-        mapType: MapType.normal,
-        initialCameraPosition: CameraPosition(bearing: 0,
-            target: LatLng(latitude, longitude), zoom: 16),
-        onMapCreated: (GoogleMapController controller) {
-          mapController.complete(controller);
-          //viewModel.googleMapController=controller;
-        },
-      ),
+    return    GoogleMap(
+      compassEnabled: false,
+      mapToolbarEnabled: false,
+      myLocationEnabled: true,
+      myLocationButtonEnabled: false,
+      trafficEnabled: false,
+      tiltGesturesEnabled: false,
+      zoomControlsEnabled: false,
+      mapType: MapType.normal,
+      initialCameraPosition: CameraPosition(bearing: 0,
+          target: LatLng(latitude, longitude), zoom: 16),
+      onMapCreated: (GoogleMapController controller) {
+        mapController.complete(controller);
+        //viewModel.googleMapController=controller;
+      },
     );
   }
   

@@ -12,7 +12,8 @@ abstract class AppStorage {
   static const String _onboard = '_onboard';
   static const String _latitude = ' _latitude';
   static const String _longitude = '_longitude ';
-
+  static const String _homeCase = '_homeCase ';
+  static const String _profileCase = '_profileCase ';
 
   // Token
   static Future<void> saveApiToken(String token) => _box.write(_token, token);
@@ -53,6 +54,20 @@ abstract class AppStorage {
   static Future<void> saveLongitude (double longitude) => _box.write(_longitude ,longitude);
   static String getLongitude() => _box.read<String>(_longitude ) ?? '';
   static Future<void> clearLongitude() => _box.remove(_longitude );
+
+  // home case
+  static Future<void> showHomeCase (bool showCase) => _box.write(_homeCase ,showCase);
+  static bool getHomeCase() => _box.read<bool>(_homeCase ) ?? true;
+  static Future<void> clearHomeCase() => _box.remove(_homeCase );
+
+
+
+  // profile case
+  static Future<void> showProfileCase (bool showCase) => _box.write(_profileCase ,showCase);
+  static bool getProfileCase() => _box.read<bool>(_profileCase ) ?? true;
+  static Future<void> clearProfileCase() => _box.remove(_profileCase );
+
+
 
 
 

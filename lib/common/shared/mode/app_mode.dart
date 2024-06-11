@@ -25,11 +25,7 @@ class AppMode {
           : ThemeMode.light;
     else
       return isDarkMode ? ThemeMode.dark : ThemeMode.light;
-/*
-    else
-    return StorageManager.readData(THEME_MODE, Get.isDarkMode)
-    ? ThemeMode.dark
-        : ThemeMode.light*/
+
   }
 
   static changeLanguageMode({required String localeCode,

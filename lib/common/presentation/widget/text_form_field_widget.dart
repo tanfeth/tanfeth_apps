@@ -27,6 +27,7 @@ class CustomTextFormField extends StatefulWidget {
   final Color? fillColor;
   final bool? enableInteractiveSelection;
   final TextInputAction? textInputAction;
+  final int? maxLength;
 
   const CustomTextFormField({
     super.key,
@@ -50,7 +51,8 @@ class CustomTextFormField extends StatefulWidget {
     this.suffixWidget,
     this.fillColor,
     this.enableInteractiveSelection,
-    this.textInputAction
+    this.textInputAction,
+    this.maxLength
   });
 
   @override
@@ -88,11 +90,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         // obscuringCharacter: '-',
         maxLines: widget.maxLine ?? 1,
         inputFormatters: widget.inputFormatters,
+        maxLength: widget.maxLength,
         textInputAction: widget.textInputAction,
         enableInteractiveSelection: widget.enableInteractiveSelection,
         decoration: InputDecoration(
           hintText: widget.hintText,
           contentPadding: widget.contentPadding,
+          counterText: '',
           label: Text(widget.hintText??''),
           labelStyle: context.text.bodySmall?.copyWith(
             color: context.color.onSurface.withOpacity(0.3)

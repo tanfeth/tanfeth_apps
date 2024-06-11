@@ -1,19 +1,21 @@
 
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/picker_helper.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/form_validation.dart';
-import 'package:jhijri_picker/_src/_jWidgets.dart';
+import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 
 class DriverRegisterView extends ConsumerStatefulWidget{
@@ -33,6 +35,8 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
   final formKey = GlobalKey<FormState>();
   late bool isDisable=true;
   late bool isMale=true;
+  Country selectedMobile = getCountry();
+
 
   @override
   void initState() {
@@ -96,7 +100,29 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           SizedBox(height:16,),
 
+                          CustomTextFormField(
+                              keyboardType: TextInputType.phone,
+                              hintText: LangEnum.numPhone.tr(),
+                              textInputAction: TextInputAction.next,
+                              validator: customAppFlavor.defaultCountryCode == 'SA'?
+                              Validation.phone:Validation.notEmpty,
+                              maxLength: customAppFlavor.defaultCountryCode == 'SA'?
+                              9:null,
+                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              suffixWidget: CountryCodeWidget(
+                                onSelect: (Country country) {
+                                  selectedMobile = country;
+                                  setState(() {});
+                                },
+                                selectedPhoneCountry: selectedMobile,
+                              ),
+                              onChanged: (String value) {
+                                if(value.length == 9){
+                                  closeKeyBoard();
+                                }
+                              }),
 
+                          SizedBox(height:16,),
                           ///Email
                           CustomTextFormField(
                               controller: userEmailController,
@@ -115,9 +141,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               hintText: LangEnum.birthdateHijri.tr(),
                               readOnly: true,
                               onTap: ()async{
-                                String jhijriM="";
-                                String jhijriD="";
-                                JPickerValue? value =  await AppPicker.selectHijriDate(context,birthDatHijriController);
+                                await AppPicker.selectHijriDate(context,birthDatHijriController);
                               },
                               textInputAction: TextInputAction.next,
                               validator: Validation.notEmpty,

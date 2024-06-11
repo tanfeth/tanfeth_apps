@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
@@ -14,7 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:store_redirect/store_redirect.dart';
 import 'dart:typed_data';
 import 'package:uni_links/uni_links.dart';
-
+import 'package:showcaseview/showcaseview.dart';
 
 
 void openKeyboard({required BuildContext context,
@@ -170,5 +171,17 @@ Country getCountry() {
   print('myLocale => ${myLocale.countryCode}');
   return Country.parse(customAppFlavor.defaultCountryCode);
 }
+
+
+
+void showCaseEvent({required BuildContext context,
+required List<GlobalKey<State<StatefulWidget>>> caseList }){
+  WidgetsBinding.instance.addPostFrameCallback((_) =>
+      ShowCaseWidget.of(context).startShowCase(caseList)
+  );
+
+}
+
+
 
 

@@ -34,7 +34,7 @@ class CountryCodeWidget extends ConsumerWidget {
             ),
             Icon(
               Icons.arrow_drop_down,
-              size: 15,
+              size: 20,
               color: Theme.of(context).colorScheme.primary,
             ),
             Text(countryFlag(countryCode: selectedPhoneCountry.countryCode)),

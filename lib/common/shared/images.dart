@@ -112,7 +112,7 @@ class Images {
   static String startGif = "";
   static String shareGif = "";
   static String notification = "";
-
+  static String sun = "";
 
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
@@ -225,6 +225,7 @@ class Images {
      startGif = await checkImage('star.gif');
      shareGif = await checkImage('share.gif');
      notification = await checkImage('notification.png');
+     sun = await checkImage('sun.svg');
 
   }
 
@@ -233,6 +234,8 @@ class Images {
     try {
       if (isTaxi24Driver) {
         finalPath = "assets/taxi24Driver/$path";
+      }else if(isTaxi24Passenger){
+        finalPath = "assets/taxi24Passenger/$path";
       }
       await services.rootBundle.loadString(finalPath);
       return finalPath;

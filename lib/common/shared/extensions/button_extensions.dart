@@ -45,6 +45,15 @@ extension ElevatedButtonEx on ButtonStyle {
       padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: MySizes.defaultPadding)),
     );
   }
+
+  ButtonStyle? SurfaceElevatedButton(BuildContext context) {
+    return copyWith(
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.surface),
+      backgroundColor: WidgetStateProperty.all<Color?>(context.color.onSurface),
+    );
+  }
+
+
 }
 
 extension OutlinedButtonEx on ButtonStyle {
@@ -66,8 +75,8 @@ extension OutlinedButtonEx on ButtonStyle {
 
   ButtonStyle? DarkTextButton(BuildContext context) {
     return copyWith(
-      foregroundColor: MaterialStateProperty.all<Color?>(context.color.onBackground),
-      overlayColor: MaterialStateProperty.all<Color?>(context.color.onPrimaryContainer.withOpacity(.05)),
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onSurface),
+      overlayColor: WidgetStateProperty.all<Color?>(context.color.onPrimaryContainer.withOpacity(.05)),
     );
   }
 
@@ -78,7 +87,8 @@ extension OutlinedButtonEx on ButtonStyle {
 extension TextButtonEx on ButtonStyle {
   ButtonStyle? BlackTextButton(BuildContext context) {
     return copyWith(
-      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onBackground),
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onSurface),
+      overlayColor: WidgetStateProperty.all<Color?>(context.color.onPrimaryContainer.withOpacity(.05)),
     );
   }
 }

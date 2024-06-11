@@ -28,7 +28,7 @@ class FlavorConfig {
     required this.appNameEnum,
     required this.appCategoryEnum,
     required this.baseUrl,
-    this.defaultCountryCode="EG",
+    this.defaultCountryCode="SA",
     required this.commonEnum,
     required this.endPoints,
     this.secretJWT = "",
@@ -49,7 +49,7 @@ class FlavorConfig {
 
 enum AppNameEnum {
   taxi24Driver,
-  taxi24Client
+  taxi24Passenger
 }
 
 enum AppCategoryEnum {

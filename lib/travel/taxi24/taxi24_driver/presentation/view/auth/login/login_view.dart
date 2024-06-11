@@ -15,14 +15,14 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 
-class LoginView extends ConsumerStatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class DriverLoginView extends ConsumerStatefulWidget {
+  const DriverLoginView({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<LoginView> createState() => _LoginViewState();
+  ConsumerState<DriverLoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends ConsumerState<LoginView> {
+class _LoginViewState extends ConsumerState<DriverLoginView> {
   final phoneController = TextEditingController();
   final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
   late bool isDisable = true;

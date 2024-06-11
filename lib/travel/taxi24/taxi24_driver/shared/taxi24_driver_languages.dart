@@ -885,10 +885,116 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'متطلبات السيارة',
     );
     addString(
-      key: LangEnum.daily.name,
-      enValue: 'Daily',
-      arValue: 'يوميًا',
+      key: LangEnum.menu.name,
+      enValue: 'Menu',
+      arValue: 'القائمة',
     );
+
+    addString(
+      key: LangEnum.menuOption.name,
+      enValue: 'Click here to see menu options',
+      arValue: 'انقر هنا لرؤية خيارات القائمة',
+    );
+
+    addString(
+      key: LangEnum.walletOption.name,
+      enValue: 'Click here to see wallet options',
+      arValue: 'انقر هنا لرؤية خيارات المحفظة',
+    );
+
+    addString(
+      key: LangEnum.startOption.name,
+      enValue: 'Click here to start receive delivery orders',
+      arValue: 'انقر هنا لبدء تلقي طلبات التوصيل',
+    );
+
+    addString(
+      key: LangEnum.rateOption.name,
+      enValue: 'Here you can see your work rate',
+      arValue: 'هنا يمكنك رؤية معدل عملك',
+    );
+
+    addString(
+      key: LangEnum.compilationRateOption.name,
+      enValue: 'Click here to see your compilation Rate',
+      arValue: 'انقر هنا لرؤية معدل التجميع الخاص بك',
+    );
+
+    addString(
+      key: LangEnum.acceptanceRateOption.name,
+      enValue: 'Click here to see your acceptance Rate',
+      arValue: 'انقر هنا لمعرفة معدل القبول الخاص بك',
+    );
+
+    addString(
+      key: LangEnum.carsOption.name,
+      enValue:'Click here to see your added cars',
+      arValue: 'انقر هنا لرؤية السيارات المضافة الخاصة بك',
+    );
+
+
+    addString(
+      key: LangEnum.priceOption.name,
+      enValue: 'Click here to see pricing details',
+      arValue: 'انقر هنا لرؤية تفاصيل التسعير',
+    );
+    addString(
+      key: LangEnum.shareOption.name,
+      enValue:  'Click here to share app  to your friends',
+      arValue: 'انقر هنا لمشاركة التطبيق مع أصدقائك',
+    );
+    addString(
+      key: LangEnum.rateAppOption.name,
+      enValue: 'Click here to rate app on store to support us',
+      arValue: 'انقر هنا لتقييم التطبيق في المتجر لدعمنا',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+
+
+
+
+
+
+
 
 
 

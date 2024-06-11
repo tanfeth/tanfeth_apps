@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Taxi24 Passenger Pro " type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="additionalArgs" value="--flavor taxi24Passenger --dart-define=staging=true" />
+    <option name="filePath" value="$PROJECT_DIR$/lib/flavor/travel/taxi24_passenger_main.dart" />
+    <method v="2" />
+  </configuration>
+</component>
