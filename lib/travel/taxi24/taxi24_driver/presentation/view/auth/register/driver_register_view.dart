@@ -100,27 +100,30 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           SizedBox(height:16,),
 
-                          CustomTextFormField(
-                              keyboardType: TextInputType.phone,
-                              hintText: LangEnum.numPhone.tr(),
-                              textInputAction: TextInputAction.next,
-                              validator: customAppFlavor.defaultCountryCode == 'SA'?
-                              Validation.phone:Validation.notEmpty,
-                              maxLength: customAppFlavor.defaultCountryCode == 'SA'?
-                              9:null,
-                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                              suffixWidget: CountryCodeWidget(
-                                onSelect: (Country country) {
-                                  selectedMobile = country;
-                                  setState(() {});
-                                },
-                                selectedPhoneCountry: selectedMobile,
-                              ),
-                              onChanged: (String value) {
-                                if(value.length == 9){
-                                  closeKeyBoard();
-                                }
-                              }),
+                          Directionality(
+                            textDirection: TextDirection.rtl,
+                            child: CustomTextFormField(
+                                keyboardType: TextInputType.phone,
+                                hintText: LangEnum.numPhone.tr(),
+                                textInputAction: TextInputAction.next,
+                                validator: customAppFlavor.defaultCountryCode == 'SA'?
+                                Validation.phone:Validation.notEmpty,
+                                maxLength: customAppFlavor.defaultCountryCode == 'SA'?
+                                9:null,
+                                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                suffixWidget: CountryCodeWidget(
+                                  onSelect: (Country country) {
+                                    selectedMobile = country;
+                                    setState(() {});
+                                  },
+                                  selectedPhoneCountry: selectedMobile,
+                                ),
+                                onChanged: (String value) {
+                                  if(value.length == 9){
+                                    closeKeyBoard();
+                                  }
+                                }),
+                          ),
 
                           SizedBox(height:16,),
                           ///Email
@@ -134,7 +137,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           SizedBox(height:16,),
 
-                          ///Email
+                          ///BirthdateHijri
                           CustomTextFormField(
                               controller: birthDatHijriController,
                               keyboardType: TextInputType.text,
@@ -150,6 +153,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           SizedBox(height:16,),
 
+                          ///Gender
                           Text(
                             LangEnum.gender.tr(),
                             style: context.text.titleMedium,
@@ -168,6 +172,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                 child: Container(
                                   alignment: Alignment.center,
                                   height: 48,
+                                  width: 100,
                                   decoration: BoxDecoration(
                                       color:isMale? context.color.primary:null,
                                       borderRadius: BorderRadius.circular(8),
@@ -190,6 +195,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                 },
                                 child: Container(
                                   height: 48,
+                                  width:100,
                                   decoration: BoxDecoration(
                                       color:isMale? null:context.color.primary,
                                       borderRadius: BorderRadius.circular(8),

@@ -90,6 +90,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         // obscuringCharacter: '-',
         maxLines: widget.maxLine ?? 1,
         inputFormatters: widget.inputFormatters,
+        textAlign: TextAlign.start,
         maxLength: widget.maxLength,
         textInputAction: widget.textInputAction,
         enableInteractiveSelection: widget.enableInteractiveSelection,
@@ -101,6 +102,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           labelStyle: context.text.bodySmall?.copyWith(
             color: context.color.onSurface.withOpacity(0.3)
           ),
+
           fillColor: widget.fillColor,
           prefixIcon: widget.prefixIcon != null
               ? Container(

@@ -61,8 +61,11 @@ class _LoginViewState extends ConsumerState<DriverLoginView> {
                   20.ph,
                   LoginInfo(),
                   30.ph,
-                  LoginForm(
-                    loginKey: loginKey,
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: LoginForm(
+                      loginKey: loginKey,
+                    ),
                   ),
                   10.ph,
                   ElevatedButton(

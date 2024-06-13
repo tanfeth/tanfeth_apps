@@ -64,7 +64,7 @@ class _HomerHeader extends ConsumerState<HomeHeader>{
            key: widget.two,
            description: LangEnum.walletOption.tr(),
            child:  Padding(
-             padding: EdgeInsets.symmetric(horizontal: 110),
+             padding: EdgeInsets.symmetric(horizontal: 100),
              child: GestureDetector(
                behavior: HitTestBehavior.translucent,
                onTap: (){
