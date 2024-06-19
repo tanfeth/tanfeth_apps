@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extension.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/vm/layout_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/widget/layout_nav_bar.dart';
@@ -22,17 +23,19 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
 
 
   final navScreens = <Widget>[
+     HomeRouting.config().widget,
     Scaffold(
-      body: SizedBox(),
+      body: Container(
+        color: Colors.black,
+      ),
     ),
     Scaffold(
-      body: SizedBox(),
-    ),
-    Scaffold(
-      body: SizedBox(),
+      body: Container(
+        color: Colors.yellow,
+      ),
     ),
 
-    // HomeRouting.config().widget,
+
     // CategoriesRouting.config().widget,
     // DiscountsRouting.config().widget,
     // MoreRouting.config().widget,
@@ -52,8 +55,9 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
   Widget build(BuildContext context) {
 
     return Scaffold(
+      extendBody: true,
       body: navScreens.elementAt(ref.watch(layoutProvider)),
-      bottomNavigationBar:  TaxiDriverLayoutBottomNavigationBar(
+      bottomNavigationBar:  TaxiPassengerLayoutBottomNavigationBar(
         layoutVM: layoutVM,
       ),
     ).systemUiDarkText(context);

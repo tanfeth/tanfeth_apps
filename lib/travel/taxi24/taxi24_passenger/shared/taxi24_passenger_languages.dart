@@ -950,20 +950,20 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.noData.name,
+      enValue: 'No data found',
+      arValue: 'لاتوجد بيانات',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
     );
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.whereTo.name,
+      enValue: 'Where to?',
+      arValue: 'إلى أين ؟',
     );
     addString(
       key: LangEnum.inWord.name,

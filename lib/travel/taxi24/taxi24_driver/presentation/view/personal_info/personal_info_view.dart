@@ -10,7 +10,7 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/delete_account.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/DriverModel.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/document_details/widget/image_coverter.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/personal_info/widget/change_photo.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/personal_info/widget/personal_info_cell.dart';

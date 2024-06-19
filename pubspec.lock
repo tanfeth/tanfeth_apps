@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.4.1"
+  animated_notch_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: animated_notch_bottom_bar
+      sha256: adc389a39e7b015883bba22de57e691eb6445c98c055b2438d6593a7f68017fe
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   archive:
     dependency: transitive
     description:
@@ -545,6 +553,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.55.2"
+  floating_draggable_widget:
+    dependency: "direct main"
+    description:
+      name: floating_draggable_widget
+      sha256: f701f4c77f7c47ec75e62d0625eab675a0b063e4bf6b32e77af75e5a8fe090e7
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.5"
   flutter:
     dependency: "direct main"
     description: flutter

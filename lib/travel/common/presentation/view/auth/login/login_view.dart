@@ -9,20 +9,20 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/login_form.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/login_info.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/login/widget/visitor_button.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_form.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_info.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/visitor_button.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 
-class DriverLoginView extends ConsumerStatefulWidget {
-  const DriverLoginView({Key? key}) : super(key: key);
+class TravelLoginView extends ConsumerStatefulWidget {
+  const TravelLoginView({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<DriverLoginView> createState() => _LoginViewState();
+  ConsumerState<TravelLoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends ConsumerState<DriverLoginView> {
+class _LoginViewState extends ConsumerState<TravelLoginView> {
   final phoneController = TextEditingController();
   final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
   late bool isDisable = true;

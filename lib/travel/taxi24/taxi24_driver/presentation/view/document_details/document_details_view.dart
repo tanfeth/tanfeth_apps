@@ -5,7 +5,7 @@ import 'package:tanfeth_apps/common/presentation/widget/cached_image_widget.dart
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/document_details_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 
 class DocumentDetailsView extends StatefulWidget {

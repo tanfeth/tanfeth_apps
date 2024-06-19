@@ -562,7 +562,7 @@ enum LangEnum {
   drivingLicence,
   howStartDriver,
   vehicleRequirements, darkMode, lightMode, chooseFromGallery, menu, menuOption, walletOption, startOption,
-  rateOption, compilationRateOption, acceptanceRateOption, carsOption, priceOption, shareOption, rateAppOption,
+  rateOption, compilationRateOption, acceptanceRateOption, carsOption, priceOption, shareOption, rateAppOption, noData, hello, whereTo,
 }
 
 class MyLanguages extends Translations {

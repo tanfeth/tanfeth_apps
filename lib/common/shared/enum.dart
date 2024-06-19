@@ -4,6 +4,7 @@ import 'package:tanfeth_apps/common/shared/enums/language_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/login_way_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/app_data_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/car_data_enum.dart';
+import 'package:tanfeth_apps/travel/common/shared/enum/country_ios_code_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/driver_state_enum.dart';
 import 'enums/app_store_enum.dart';
 import 'enums/entity_type_enum.dart';
@@ -54,7 +55,7 @@ class CommonEnum {
   DriverStateEnum driverStateEnum;
   AppDataEnum appDataEnum;
   CarDataEnum carDataEnum;
-
+  CountryIosCodeEnum countryIosCodeEnum;
 
   CommonEnum({
     this.loginWayEnum = const LoginWayEnum(),
@@ -83,7 +84,7 @@ class CommonEnum {
     this.driverStateEnum = const DriverStateEnum(),
     this.appDataEnum = const AppDataEnum(),
     this.carDataEnum = const CarDataEnum(),
-
+    this.countryIosCodeEnum  = const CountryIosCodeEnum(),
   });
 }
 

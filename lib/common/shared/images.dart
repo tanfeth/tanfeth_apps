@@ -113,6 +113,10 @@ class Images {
   static String shareGif = "";
   static String notification = "";
   static String sun = "";
+  static String car = "";
+
+
+
 
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
@@ -133,7 +137,7 @@ class Images {
      walletSVG = await checkImage( 'wallet.svg');
      locationDetectorSVG = await checkImage( 'location_detector.svg');
      userLocation = await checkImage( 'User_location.png');
-     formFieldCircleSVG = await checkImage( 'form_field_circle.svg');
+     formFieldCircleSVG = await checkImage('form_field_circle.svg');
      heartSVG = await checkImage( 'heart.svg');
      heartFilledSVG = await checkImage( 'heart-filled-icon.svg');
      fullClockSVG = await checkImage( 'full_clock.svg');
@@ -226,7 +230,7 @@ class Images {
      shareGif = await checkImage('share.gif');
      notification = await checkImage('notification.png');
      sun = await checkImage('sun.svg');
-
+     car = await checkImage('car.png');
   }
 
   static Future<String> checkImage(String path) async {

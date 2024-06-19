@@ -2,7 +2,6 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
-import 'package:tanfeth_apps/common/presentation/widget/phone_form_field_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';

@@ -13,8 +13,9 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/picker_helper.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/select_city_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 
@@ -126,13 +127,20 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                           ),
 
                           SizedBox(height:16,),
+
+                          ///City
+                          SelectCityWidget(),
+
+
+                          SizedBox(height:16,),
+
                           ///Email
                           CustomTextFormField(
                               controller: userEmailController,
                               keyboardType: TextInputType.text,
                               hintText: LangEnum.email.tr(),
                               textInputAction: TextInputAction.next,
-                              validator: Validation.notEmpty,
+                              validator: Validation.email,
                               onChanged: (String value) {}),
 
                           SizedBox(height:16,),

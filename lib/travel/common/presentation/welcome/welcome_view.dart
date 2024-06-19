@@ -94,7 +94,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView>{
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

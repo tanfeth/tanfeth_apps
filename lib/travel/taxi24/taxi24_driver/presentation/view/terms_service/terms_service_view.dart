@@ -11,7 +11,7 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/verify/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/src/android_webview_controller.dart';
 import 'package:webview_flutter_wkwebview/src/webkit_webview_platform.dart';

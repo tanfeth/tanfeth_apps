@@ -8,7 +8,7 @@ import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/custom_slide_panel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/widget/home_header.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/widget/map_widget.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/map_widget.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 

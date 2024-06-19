@@ -37,7 +37,7 @@ class _MapState extends ConsumerState<MapWidget>{
           target: LatLng(latitude, longitude), zoom: 16),
       onMapCreated: (GoogleMapController controller) {
         mapController.complete(controller);
-        //viewModel.googleMapController=controller;
+
       },
     );
   }

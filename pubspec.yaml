@@ -61,6 +61,8 @@ dependencies:
   pdf: ^3.10.8
   fl_chart: ^0.68.0
   country_picker: ^2.0.26
+  animated_notch_bottom_bar: ^1.0.3
+  floating_draggable_widget: ^2.1.5
 
 
 dependency_overrides:
