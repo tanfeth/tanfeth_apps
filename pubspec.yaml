@@ -39,7 +39,7 @@ dependencies:
   file_picker: ^6.0.0
   open_filex: ^4.3.4
   path_provider: ^2.1.1
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   #====== google map ======================================
   geolocator: ^10.1.0
   google_maps_flutter: ^2.5.0

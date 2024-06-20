@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
 
 
 class MapWidget extends ConsumerStatefulWidget{
@@ -15,15 +16,8 @@ class MapWidget extends ConsumerStatefulWidget{
 
 class _MapState extends ConsumerState<MapWidget>{
 
-  final Completer<GoogleMapController> mapController =
-  Completer<GoogleMapController>();
-
-  double  latitude = 	26.399250;
-  double  longitude = 49.984360;
-
   @override
   Widget build(BuildContext context) {
-
     return    GoogleMap(
       compassEnabled: false,
       mapToolbarEnabled: false,
@@ -31,14 +25,20 @@ class _MapState extends ConsumerState<MapWidget>{
       myLocationButtonEnabled: false,
       trafficEnabled: false,
       tiltGesturesEnabled: false,
-      zoomControlsEnabled: false,
+      zoomControlsEnabled: true,
       mapType: MapType.normal,
-      initialCameraPosition: CameraPosition(bearing: 0,
-          target: LatLng(latitude, longitude), zoom: 16),
+      initialCameraPosition:
+      CameraPosition(zoom:  ref.watch(mapProvider).mapZoom,
+          target: ref.watch(mapProvider).currentLatLng),
       onMapCreated: (GoogleMapController controller) {
-        mapController.complete(controller);
+        ref.read(mapProvider.notifier).
+        updateMapController(mapController: controller);
+        ref.read(mapProvider.notifier).setMarker(
+            currentPosition: ref.watch(mapProvider).currentLatLng,
+            animateCamera: true);
 
       },
+      markers:  ref.watch(mapProvider).markers.toSet(),
     );
   }
   

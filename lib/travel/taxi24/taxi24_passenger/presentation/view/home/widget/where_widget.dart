@@ -38,7 +38,7 @@ class _WhereWidget extends ConsumerState<WhereWidget>{
             style: context.text.titleMedium,
           ),
 
-          SizedBox(height: 24,),
+          SizedBox(height: 15,),
 
           CustomTextFormField(
               controller: placeController,
@@ -79,7 +79,6 @@ class _WhereWidget extends ConsumerState<WhereWidget>{
                         }
                       },
                     ),*/
-          SizedBox(height: 16,),
 
         ],
       ),

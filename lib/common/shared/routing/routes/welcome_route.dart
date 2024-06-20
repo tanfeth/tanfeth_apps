@@ -4,7 +4,7 @@
 import 'package:tanfeth_apps/common/shared/routing/routing_config.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
-import 'package:tanfeth_apps/travel/common/presentation/welcome/welcome_view.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/welcome/welcome_view.dart';
 
 class WelcomeRouting   {
   WelcomeRouting();

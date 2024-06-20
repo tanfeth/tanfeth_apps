@@ -11,6 +11,9 @@ import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 
 
+// final mapProvider =
+// StateNotifierProvider<MapVM, ParamMapModel>((ref) =>
+//     MapVM(ParamMapModel()));
 
 final mapProvider =
 StateNotifierProvider.autoDispose<MapVM, ParamMapModel>((ref) {
@@ -20,6 +23,7 @@ StateNotifierProvider.autoDispose<MapVM, ParamMapModel>((ref) {
 });
 
 
+
 class MapVM extends
 ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     MapGenerateMarkerVMA{
@@ -27,8 +31,11 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
   final AutoDisposeStateNotifierProviderRef ref;
 
   MapVM(this.ref, {ParamMapModel? state})
-      : super(state ?? ParamMapModel()) {
-    generateMapMarker(Images.car);
+      : super(state ?? ParamMapModel()) {}
+
+
+  void updateMapController({required GoogleMapController mapController}){
+    state.gMapControl = mapController;
   }
 
 
@@ -40,19 +47,18 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
   }
 
 
-  void getCurrentLocation({GoogleMapController? mapController}) async {
+  void getCurrentLocation() async {
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.always || permission == LocationPermission.whileInUse) {
       Position getPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-      mapController!.animateCamera(
+      state.gMapControl!.animateCamera(
         CameraUpdate.newCameraPosition(
           (CameraPosition(target: LatLng(getPosition.latitude, getPosition.longitude),
               zoom: state.mapZoom)),
         ),
       );
       setMarker(currentPosition: LatLng(getPosition.latitude,
-          getPosition.longitude), animateCamera: true,
-       mapController: mapController);
+          getPosition.longitude), animateCamera: true);
     } else if (permission == LocationPermission.denied) {
       var t = await Geolocator.requestPermission();
       getCurrentLocation();
@@ -61,27 +67,29 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       }
     }
 
-    setModel(state);
   }
 
 
   void setMarker({required LatLng currentPosition,
-    required bool animateCamera,
-    required GoogleMapController mapController}) {
+    required bool animateCamera})async {
+    await generateMapMarker(Images.car);
     state.markers.clear();
     state.markers.add(Marker(
       markerId: const MarkerId('location'),
       position: currentPosition,
-      icon: state.defaultMarker,
+      icon: state.defaultMarker!,
     ));
-    state.currentLatLng = currentPosition;
+
+
     if (animateCamera) {
-      mapController.animateCamera(
+      state.gMapControl!.animateCamera(
         CameraUpdate.newCameraPosition(
-          (CameraPosition(target: currentPosition, zoom: state.mapZoom)),
+          (CameraPosition(target: currentPosition, zoom: 10)),
         ),
       );
+      
     }
+
   }
 
 

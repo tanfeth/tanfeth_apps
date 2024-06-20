@@ -14,6 +14,8 @@ import 'package:tanfeth_apps/travel/common/presentation/widget/custom_slide_pane
 import 'package:tanfeth_apps/travel/common/presentation/widget/map_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/where_action_button.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/where_widget.dart';
 
 
@@ -29,23 +31,9 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView>{
 
 
 
-  late MapVM mapVM;
-  late ParamMapModel paramMapModel;
-  final Completer<GoogleMapController> mapController =
-  Completer<GoogleMapController>();
-
-
-
-  initBuild(){
-    mapVM = ref.watch(mapProvider.notifier);
-    paramMapModel = ref.watch(mapProvider);
-  }
 
   @override
   void initState() {
-    mapVM = ref.read(mapProvider.notifier);
-    paramMapModel = ref.read(mapProvider);
-
 
     super.initState();
   }
@@ -55,8 +43,6 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView>{
 
   @override
   Widget build(BuildContext context) {
-    initBuild();
-
     return GestureDetector(
       onTap: () {
        closeKeyBoard();
@@ -66,8 +52,6 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView>{
         children: [
 
           MapWidget(),
-
-          WhereWidget(),
 
 
 
@@ -101,11 +85,6 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView>{
     );
   }
 
-  void getLocation()async {
-    paramMapModel.gMapControl = await mapController.future;
-    mapVM.getCurrentLocation(
-        mapController:paramMapModel.gMapControl
-    );
-  }
+
   
 }
