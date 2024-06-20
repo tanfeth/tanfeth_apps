@@ -15,15 +15,10 @@ class ProfileRate extends StatefulWidget {
   const ProfileRate({super.key,
   required this.five,
   required this.six});
-
   @override
   State<ProfileRate> createState() => _ProfileRateState();
 }
-
 class _ProfileRateState extends State<ProfileRate> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,7 +41,6 @@ class _ProfileRateState extends State<ProfileRate> {
                   title: LangEnum.compilationRate.tr(),),
               )),
         ),
-
         20.pw,
         Expanded(
           child: GestureDetector(

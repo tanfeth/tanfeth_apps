@@ -7,8 +7,7 @@ class ButtonThemes {
   static final double _maxButtonHeight = 40.0;
 
 
-  static TextButtonThemeData textButtonPrimaryCircularTheme(
-      {BuildContext? context, ColorScheme? colorScheme}) {
+  static TextButtonThemeData textButtonPrimaryCircularTheme({BuildContext? context, ColorScheme? colorScheme}) {
     colorScheme = colorScheme ?? Theme.of(context ?? Get.context!).colorScheme;
     return TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -24,8 +23,7 @@ class ButtonThemes {
           )),
     );
   }
-  static TextButtonThemeData iconButtonCircleTheme(
-      {BuildContext? context, ColorScheme? colorScheme}) {
+  static TextButtonThemeData iconButtonCircleTheme({BuildContext? context, ColorScheme? colorScheme}) {
     colorScheme = colorScheme ?? Theme.of(context ?? Get.context!).colorScheme;
     return TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -40,9 +38,7 @@ class ButtonThemes {
       ),
     );
   }
-
-  static TextButtonThemeData textButtonPrimaryRectTheme(
-      {BuildContext? context, ColorScheme? colorScheme}) {
+  static TextButtonThemeData textButtonPrimaryRectTheme({BuildContext? context, ColorScheme? colorScheme}) {
     colorScheme = colorScheme ?? Theme.of(context ?? Get.context!).colorScheme;
     return TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -58,9 +54,7 @@ class ButtonThemes {
           )),
     );
   }
-
-  static TextButtonThemeData transparentTextButton(
-      {BuildContext? context, ColorScheme? colorScheme}) {
+  static TextButtonThemeData transparentTextButton({BuildContext? context, ColorScheme? colorScheme}) {
     colorScheme = colorScheme ?? Theme.of(context ?? Get.context!).colorScheme;
     return TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -76,7 +70,6 @@ class ButtonThemes {
           )),
     );
   }
-
   static ButtonStyle strokeButton(TextButtonThemeData buttonThemeData,{required Color color}){
     return buttonThemeData.style!.copyWith(
       backgroundColor:MaterialStatePropertyAll( Colors.transparent),

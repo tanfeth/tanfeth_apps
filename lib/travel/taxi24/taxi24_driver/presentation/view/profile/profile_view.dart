@@ -10,7 +10,6 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
@@ -20,16 +19,16 @@ import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/wallet_route.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/driver_profile_data_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/language_bottom_sheet.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/profile/widget/profile_rate.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/app_version.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/app_version.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 
@@ -54,21 +53,15 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
   @override
   void initState() {
     if(AppStorage.getProfileCase() == true) {
-      showCaseEvent(context: context
-          , caseList: [four, five, six, seven,
-            eight, nine, ten]);
+      showCaseEvent(context: context, caseList: [four, five, six, seven, eight, nine, ten]);
     }
     super.initState();
   }
 
-
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-          title: LangEnum.profile.tr(), leadingWidget: BackButtonWidget()),
+      appBar: MainAppBar(title: LangEnum.profile.tr(), leadingWidget: BackButtonWidget()),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
@@ -76,25 +69,21 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 28,
-                  ),
+                   SizedBox(height: 28,),
                    DriverProfileDataWidget(
                     globalKey: four,
                   ),
-                  Expanded(
+                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           ProfileRate(
+                          ProfileRate(
                             five: five,
                             six: six,
                           ),
-                          SizedBox(
-                            height: 24,
-                          ),
+                          24.ph,
                           ProfileCell(
                               title: LangEnum.personalInfo.tr(),
                               icon: Images.personInfoSVG,
@@ -148,7 +137,6 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                     content: const LangBottomSheet(),
                                   )),
                           const LargeDivider(),
-
                           ProfileCell(
                               title: LangEnum.sendMessage.tr(),
                               icon: Images.sendSVG,
@@ -251,9 +239,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                 ),
                                 function: () => shareApp()),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
+                          20.ph,
                           Center(
                             child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
@@ -266,9 +252,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                       ?.copyWith(color: context.color.error),
                                 )),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          10.ph,
                           Center(
                             child: Text(
                               LangEnum.copyright.tr(),
@@ -276,10 +260,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                   color: context.color.onPrimaryContainer),
                             ),
                           ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          AppVersion(),
+                          2.ph,
+                          AppVersion(version: '1.0.0',),
                           15.ph,
                         ],
                       ),

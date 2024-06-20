@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extension.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/vm/layout_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/widget/layout_nav_bar.dart';
 
@@ -29,11 +30,8 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
         color: Colors.black,
       ),
     ),
-    Scaffold(
-      body: Container(
-        color: Colors.yellow,
-      ),
-    ),
+    ProfileRouting.config().widget
+
 
 
     // CategoriesRouting.config().widget,

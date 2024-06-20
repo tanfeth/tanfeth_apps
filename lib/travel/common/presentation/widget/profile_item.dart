@@ -59,9 +59,7 @@ class ProfileCell extends ConsumerWidget {
               ),
             ),
             SvgPicture.asset(
-              ref.watch(languageProvider) == 'en'
-                  ? Images.arrowSVG
-                  : Images.arrowLeftSVG,
+              ref.watch(languageProvider) == 'en' ? Images.arrowSVG : Images.arrowLeftSVG,
               width: 24,
               height: 24,
             )
