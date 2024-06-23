@@ -2,7 +2,7 @@
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class ParamMapModel{
+class ParamMapModel {
 
   GoogleMapController? gMapControl;
   Set<Marker> markers = {};
@@ -12,6 +12,15 @@ class ParamMapModel{
    String currentAddress ='';
    String from = '';
 
-  ParamMapModel();
+  ParamMapModel({
+  GoogleMapController? gMapControl,
+  Set<Marker>? markers ,
+  double? mapZoom ,
+  BitmapDescriptor? defaultMarker,
+  LatLng? currentLatLng ,
+  String? currentAddress,
+  String? from,
+});
 
+  
 }

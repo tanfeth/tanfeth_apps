@@ -47,19 +47,20 @@ class _WebViewScreenState extends State<WebViewScreen> {
         NavigationDelegate(
           onProgress: (int progress) {
             log('WebView is loading (progress : $progress%)');
-
+            if(progress == 100){
+              WidgetsBinding.instance.addPostFrameCallback((_) async {
+                await Future.delayed(const Duration(seconds: 1));
+                setState(() {
+                  pageLoading = false;
+                });
+              });
+            }
           },
           onPageStarted: (String url) {
             log('Page started loading: $url');
           },
           onPageFinished: (String url) {
             // WebViewRepository.getWebViewResponse(url: url, context: context);
-            WidgetsBinding.instance.addPostFrameCallback((_) async {
-              setState(() {
-                pageLoading = false;
-              });
-            });
-
 
           },
           onWebResourceError: (WebResourceError error) {

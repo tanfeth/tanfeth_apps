@@ -57,7 +57,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: LangEnum.profile.tr(), leadingWidget: BackButtonWidget()),
+      appBar: MainAppBar(title: LangEnum.profile.tr()),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
@@ -126,7 +126,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
-                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider)}',
+                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+
+                                        ref.watch(languageProvider)}',
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
                                   })),

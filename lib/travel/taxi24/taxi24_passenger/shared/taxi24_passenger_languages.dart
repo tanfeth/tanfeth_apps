@@ -966,26 +966,26 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'إلى أين ؟',
     );
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.selectDestination.name,
+      enValue: 'Select destination',
+      arValue: 'حدد وجهتك',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.changeRider.name,
+      enValue: 'Change rider',
+      arValue: 'تغيير الراكب',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.currentLocation.name,
+      enValue: 'Current location',
+      arValue: 'الموقع الحالي',
     );
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.whereToGo.name,
+      enValue: 'Where to go?',
+      arValue: 'إلى أين تذهب؟',
     );
 
     addString(
@@ -995,7 +995,152 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
 
+    addString(
+      key: LangEnum.setOnMap.name,
+      enValue: 'Set on map',
+      arValue: 'تعيين على الخريطة',
+    );
+    addString(
+      key: LangEnum.scrollHere.name,
+      enValue: 'Scroll Here',
+      arValue: 'انتقل هنا',
+    );
+    addString(
+      key: LangEnum.previousTrips.name,
+      enValue: 'Previous trips',
+      arValue: 'الرحلات السابقة',
+    );
+    addString(
+      key: LangEnum.addNewRider.name,
+      enValue: 'Add new rider',
+      arValue: 'إضافة راكب جديد',
+    );
+    addString(
+      key: LangEnum.requestRideForSomeone.name,
+      enValue: 'Request a ride for someone else',
+      arValue: 'طلب رحلة لشخص آخر',
+    );
+    addString(
+      key: LangEnum.addRider.name,
+      enValue: 'Add rider',
+      arValue: 'اضف راكب',
+    );
 
+
+
+    addString(
+      key: LangEnum.ridersMustLeast18Years.name,
+      enValue: 'Riders must be at least 18 years old or accompanied by an adult',
+      arValue: 'يجب ألا يقل عمر الركاب عن 18 عامًا أو برفقة شخص بالغ',
+    );
+    addString(
+      key: LangEnum.theyReceiveTripInfoTextMmessage.name,
+      enValue: 'They will receive the trip info in a text message',
+      arValue: 'سوف يتلقون معلومات الرحلة في رسالة نصية',
+    );
+    addString(
+      key: LangEnum.payTripCreditOrPayDriverCash.name,
+      enValue: 'You will pay for the trip if it’s credit or they can pay the driver in cash',
+      arValue: 'ستدفع ثمن الرحلة إذا كانت ائتمانية أو يمكنهم الدفع للسائق نقدًا',
+    );
+    addString(
+      key: LangEnum.trackTripFromApp.name,
+      enValue: 'You can track the trip from your app',
+      arValue: 'يمكنك تتبع الرحلة من التطبيق الخاص بك',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
 
 
 

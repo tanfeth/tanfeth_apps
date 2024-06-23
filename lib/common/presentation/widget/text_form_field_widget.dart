@@ -24,6 +24,7 @@ class CustomTextFormField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;
   final List<TextInputFormatter>? inputFormatters;
   final Widget? suffixWidget;
+  final Widget? prefixWidget;
   final Color? fillColor;
   final bool? enableInteractiveSelection;
   final TextInputAction? textInputAction;
@@ -48,11 +49,12 @@ class CustomTextFormField extends StatefulWidget {
     this.contentPadding,
     this.inputFormatters,
     this.onTap,
-    this.suffixWidget,
+    this.suffixWidget  = const SizedBox.shrink(),
     this.fillColor,
     this.enableInteractiveSelection,
     this.textInputAction,
-    this.maxLength
+    this.maxLength,
+    this.prefixWidget = const SizedBox.shrink(),
   });
 
   @override
@@ -115,7 +117,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                     color: _focusNode.hasFocus ? context.color.primary : context.color.onPrimaryContainer,
                   ),
                 )
-              : null,
+              : widget.prefixWidget,
           suffixIcon: widget.suffixIcon != null
               ? InkWell(
                   onTap: widget.suffixOnTap,

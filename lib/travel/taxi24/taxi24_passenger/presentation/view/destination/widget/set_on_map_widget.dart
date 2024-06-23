@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/images.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
+
+class SetOnMapWidget extends ConsumerStatefulWidget{
+  const SetOnMapWidget();
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _SetOnMapWidget();
+}
+
+class _SetOnMapWidget extends ConsumerState<SetOnMapWidget>{
+  @override
+  Widget build(BuildContext context) {
+  return GestureDetector(
+    // onTap: ()=>Navigator.pushNamed(context,
+    //     RoutePath.setDestinationLocationOnMapScreen),
+    child: Align(
+      alignment: AlignmentDirectional.bottomCenter,
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+            color: context.color.surface,
+            border: Border(top: BorderSide(color:context.color.surfaceContainerHighest,
+                width: 2 ))
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              Images.pickOnMapSVG,
+                width: 16,height: 16
+            ),
+            SizedBox(width: 12,),
+            Text(
+              LangEnum.setOnMap.tr(),
+              style: context.text.bodyLarge,
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+  }
+
+}

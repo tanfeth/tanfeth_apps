@@ -3,8 +3,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 
 class WhereActionButton extends StatelessWidget {
   const WhereActionButton({super.key});
@@ -17,7 +19,9 @@ class WhereActionButton extends StatelessWidget {
         label: Text(LangEnum.whereTo.tr()),
         icon: Icon(Icons.navigation),
         backgroundColor: context.color.primary,
-        onPressed: (){},
+        onPressed: (){
+          Get.toNamed(DestinationRouting.config().path);
+        },
       ),
     );
   }

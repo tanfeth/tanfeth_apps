@@ -18,8 +18,7 @@ import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 final mapProvider =
 StateNotifierProvider.autoDispose<MapVM, ParamMapModel>((ref) {
   ref.keepAlive();
-  var vm = MapVM(ref);
-  return vm;
+  return MapVM(ref);
 });
 
 
@@ -30,8 +29,17 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
 
   final AutoDisposeStateNotifierProviderRef ref;
 
-  MapVM(this.ref, {ParamMapModel? state})
-      : super(state ?? ParamMapModel()) {}
+  MapVM(this.ref, {ParamMapModel? paramMapModel})
+      : super(paramMapModel ?? ParamMapModel()) {
+     generateMapMarker(Images.car);
+  }
+
+
+
+  @override
+  void setModel(ParamMapModel model) {
+    state = model;
+  }
 
 
   void updateMapController({required GoogleMapController mapController}){
@@ -66,20 +74,17 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
         await Geolocator.openAppSettings();
       }
     }
-
   }
 
 
   void setMarker({required LatLng currentPosition,
     required bool animateCamera})async {
-    await generateMapMarker(Images.car);
     state.markers.clear();
     state.markers.add(Marker(
       markerId: const MarkerId('location'),
       position: currentPosition,
       icon: state.defaultMarker!,
     ));
-
 
     if (animateCamera) {
       state.gMapControl!.animateCamera(
@@ -90,6 +95,16 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       
     }
 
+    ParamMapModel paramMapModel = ParamMapModel();
+    paramMapModel.gMapControl = state.gMapControl;
+    paramMapModel.mapZoom = state.mapZoom;
+    paramMapModel.currentLatLng = state.currentLatLng;
+    paramMapModel.currentAddress = state.currentAddress;
+    paramMapModel.defaultMarker = state.defaultMarker;
+    paramMapModel.markers = state.markers;
+    paramMapModel.from = state.from;
+
+     setModel(paramMapModel);
   }
 
 

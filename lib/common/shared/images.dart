@@ -114,7 +114,9 @@ class Images {
   static String notification = "";
   static String sun = "";
   static String car = "";
-
+  static String pickOnMapSVG = "";
+  static String tap = "";
+  static String scroll = "";
 
 
 
@@ -231,6 +233,9 @@ class Images {
      notification = await checkImage('notification.png');
      sun = await checkImage('sun.svg');
      car = await checkImage('car.png');
+     pickOnMapSVG  =await checkImage('pick_map.svg');
+     tap = await checkImage('tap.png');
+     scroll = await checkImage('scroll.png');
   }
 
   static Future<String> checkImage(String path) async {
