@@ -6,7 +6,8 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 
 class AppVersion extends StatelessWidget {
-  const AppVersion({super.key});
+ final  String version;
+  const AppVersion({super.key , required this.version});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class AppVersion extends StatelessWidget {
           ),
           20.pw,
           Text(
-            '0.1.2',
+            version,
             style: context.text.bodySmall?.copyWith(color: context.color.onPrimaryContainer),
           ),
         ],

@@ -988,6 +988,13 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'في',
     );
 
+    addString(
+      key: LangEnum.favourite.name,
+      enValue: 'Favorite places',
+      arValue: 'الأماكن المفصلة',
+    );
+
+
 
 
 

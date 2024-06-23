@@ -45,8 +45,7 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
       final cantExit = timeGap >= const Duration(seconds: 2);
       backPressDateTime = DateTime.now();
       if (cantExit) {
-        showToast(LangEnum.pressAgainToExit.tr(),
-            position: ToastPosition.bottom);
+        showToast(LangEnum.pressAgainToExit.tr(), position: ToastPosition.bottom);
       } else {
         SystemNavigator.pop();
       }
@@ -67,8 +66,7 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
               ],
             ),
           ),
-
-              CustomSlidePanel(
+         CustomSlidePanel(
                 minHeight: 90,
                 maxHeight: 90,
                 hasBorderRadius: false,
@@ -86,8 +84,6 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
                   ),
                 ),
               ),
-
-
         ])),
       ),
     );

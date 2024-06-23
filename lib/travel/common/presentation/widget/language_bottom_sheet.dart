@@ -29,8 +29,7 @@ class LangBottomSheet extends ConsumerWidget {
             style: context.text.titleMedium,
           ),
           5.ph,
-
-             Row(
+          Row(
               children: [
                 Expanded(
                   child: RadioWidget(
@@ -56,13 +55,11 @@ class LangBottomSheet extends ConsumerWidget {
                 ),
               ],
             ),
-
           15.ph,
           ElevatedButton(
             onPressed: () async {
               Get.back();
-              AppMode.changeLanguageMode(localeCode: ref.read(languageProvider)
-                  ,ref: ref);
+              AppMode.changeLanguageMode(localeCode: ref.read(languageProvider),ref: ref);
             },
             child: Text(LangEnum.save.tr()),
           ),

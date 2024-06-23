@@ -361,8 +361,7 @@ class Auth {
     ApiController.revokeTokenUrl = revokeTokenUrl;
     ApiController.staticHeaders["Secret"] = appSecret;
     ApiController.staticHeaders["Api-Key"] = apiKey;
-    ApiController.staticHeaders["User-Platform"] =
-        userAgent.toString().replaceFirst("UserAgentEnum.", "");
+    ApiController.staticHeaders["User-Platform"] = userAgent.toString().replaceFirst("UserAgentEnum.", "");
     ApiController._pemCer = pemCer;
     ApiController._keyCer = keyCer;
     ApiController._secretCer = secretCer;

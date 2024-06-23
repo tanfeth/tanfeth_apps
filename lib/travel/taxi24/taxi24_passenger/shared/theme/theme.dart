@@ -57,7 +57,7 @@ class Taxi24PassengerTheme extends ITheme {
     onError: Color(0xffffffff),
     tertiary: Color(0xff207538),
     shadow: Color(0xff6CBCEA),
-    secondaryContainer: Color(0xff4A4A4A),
+    secondaryContainer: Color(0xffF5F5F5),
     onSecondaryContainer: Color(0xffF9E9F4),
     onTertiary: Color(0xFFffffff),
     tertiaryContainer: Color(0xFF286AE4),

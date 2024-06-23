@@ -22,11 +22,9 @@ class FlutterPackage {
     Widget Function(BuildContext)? drawerWidgetList,
   }) async {
    FlutterPackage.defaultLogoPath = defaultLogoPath;
-   FlutterPackage.defaultLogoPathDark =
-        defaultLogoPathDark ?? defaultLogoPath;
+   FlutterPackage.defaultLogoPathDark = defaultLogoPathDark ?? defaultLogoPath;
    FlutterPackage.defaultFontPath = defaultFontPath;
-   FlutterPackage.drawerWidgetList =
-        drawerWidgetList ?? (_) => Container();
+   FlutterPackage.drawerWidgetList = drawerWidgetList ?? (_) => Container();
    ApiController.init(
         baseUrl: baseUrl,
         showConnectionListener: showConnectionListener,
