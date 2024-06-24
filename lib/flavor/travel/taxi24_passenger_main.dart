@@ -13,6 +13,7 @@ import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_car_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_rider_instruction_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_rider_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/analytics_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_confirm_photo_route.dart';
@@ -23,6 +24,7 @@ import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart'
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/trips_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/wallet_cash_Out_route.dart';
@@ -55,6 +57,7 @@ class Taxi24PassengerMain {
         appCategoryEnum: {AppCategoryEnum.travel},
         theme: Taxi24PassengerTheme(),
         shareUrl: 'https://test.taxi24.app/api',
+         mapApiKey: 'AIzaSyArcxVdw-9ehlF1atcclWSLBqv3UBiKMeo'
     );
     if (!(kReleaseMode || isStaging))
       Auth.init(
@@ -95,6 +98,8 @@ class Taxi24PassengerMain {
       DriverDataRouting.config().page,
       DestinationRouting.config().page,
       AddRiderInstructionRouting.config().page,
+      AddRiderRouting.config().page,
+      SetLocationOnMapRouting.config().page,
     ]);
 
     mainCommon(

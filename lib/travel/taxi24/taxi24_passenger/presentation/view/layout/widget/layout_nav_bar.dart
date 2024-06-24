@@ -20,30 +20,18 @@ class TaxiPassengerLayoutBottomNavigationBar extends ConsumerStatefulWidget {
 class _TaxiPassengerLayoutBottomNavigationBarState
     extends ConsumerState<TaxiPassengerLayoutBottomNavigationBar> {
   final NotchBottomBarController notchBottomBarController =
-      NotchBottomBarController(index: 0);
+      NotchBottomBarController(index: 1);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedNotchBottomBar(
       elevation: 20,
-      kBottomRadius: 10,
+      kBottomRadius: 0,
       kIconSize: 30,
       removeMargins: true,
       notchBottomBarController: notchBottomBarController,
       bottomBarItems: <BottomBarItem>[
-        BottomBarItem(
-          itemLabel: LangEnum.home.tr(),
-          inActiveItem: Icon(
-            LineIcons.home,
-            color: context.color.onPrimaryContainer,
-            size: 30,
-          ),
-          activeItem: Icon(
-            LineIcons.home,
-            color: context.color.primary,
-            size: 30,
-          ),
-        ),
+
         BottomBarItem(
           itemLabel: LangEnum.wallet.tr(),
           inActiveItem: Icon(
@@ -57,6 +45,22 @@ class _TaxiPassengerLayoutBottomNavigationBarState
             size: 30,
           ),
         ),
+
+        BottomBarItem(
+          itemLabel: LangEnum.home.tr(),
+          inActiveItem: Icon(
+            LineIcons.home,
+            color: context.color.onPrimaryContainer,
+            size: 30,
+          ),
+          activeItem: Icon(
+            LineIcons.home,
+            color: context.color.primary,
+            size: 30,
+          ),
+        ),
+
+
         BottomBarItem(
           itemLabel: LangEnum.profile.tr(),
           inActiveItem: Icon(

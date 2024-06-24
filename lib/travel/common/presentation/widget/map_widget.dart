@@ -53,9 +53,7 @@ late ParamMapModel paramMapModel;
         ref.read(mapProvider.notifier).
         updateMapController(mapController: controller);
 
-        ref.read(mapProvider.notifier).setMarker(
-            currentPosition: paramMapModel.currentLatLng,
-            animateCamera: true);
+        ref.read(mapProvider.notifier).getCurrentLocation();
       },
       markers:  paramMapModel.markers.toSet(),
     );

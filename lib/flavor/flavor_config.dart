@@ -20,6 +20,7 @@ class FlavorConfig {
   final String baseUrl;
   final String shareUrl;
   final CommonEndpoints endPoints;
+  String mapApiKey;
   String signalR;
 
   FlavorConfig({
@@ -36,6 +37,7 @@ class FlavorConfig {
     this.fallbackLocale = const Locale("en"),
     this.supportedLocales = const [Locale("ar"), Locale("en")],
     required this.shareUrl,
+    this.mapApiKey = '',
   }){
     if (myLanguages != null){
       this.languages = myLanguages;

@@ -1049,24 +1049,24 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'يمكنك تتبع الرحلة من التطبيق الخاص بك',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.nameAppearToDriver.name,
+      enValue: 'This name will appear to the driver',
+      arValue: 'سيظهر هذا الاسم للسائق',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.getNumberContacts.name,
+      enValue: 'Get number from contacts',
+      arValue: 'الحصول على رقم من جهات الاتصال',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.selectAvalidMobileNumber.name,
+      enValue: 'Please select avalid mobile number',
+      arValue: 'الرجاء اختيار رقم جوال صالح',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.selectLocation.name,
+      enValue: 'Select location',
+      arValue: 'حدد الموقع',
     );
     addString(
       key: LangEnum.hello.name,

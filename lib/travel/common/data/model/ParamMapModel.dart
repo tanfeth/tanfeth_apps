@@ -10,17 +10,12 @@ class ParamMapModel {
    BitmapDescriptor? defaultMarker;
   LatLng currentLatLng = const LatLng(24.7214143, 46.7077124);
    String currentAddress ='';
+  String currentAddressName ='';
    String from = '';
+  CameraPosition? cameraPosition;
 
-  ParamMapModel({
-  GoogleMapController? gMapControl,
-  Set<Marker>? markers ,
-  double? mapZoom ,
-  BitmapDescriptor? defaultMarker,
-  LatLng? currentLatLng ,
-  String? currentAddress,
-  String? from,
-});
+
+  ParamMapModel();
 
   
 }

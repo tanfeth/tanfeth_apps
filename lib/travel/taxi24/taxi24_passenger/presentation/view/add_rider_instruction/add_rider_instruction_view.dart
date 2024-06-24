@@ -9,6 +9,8 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_rider_route.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/add_rider_instruction/widget/rider_instruction_cell.dart';
 
 class AddRiderInstructionView extends ConsumerStatefulWidget{
   const AddRiderInstructionView();
@@ -38,8 +40,8 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
                 Center(
                   child: SvgPicture.asset(
                     Images.addRiderSVG,
-                    width: 184,
-                    height: 184,
+                    width: 200,
+                    height: 200,
                   ),),
                 SizedBox(height: 32,),
                 Text(
@@ -47,11 +49,21 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
                   style: context.text.titleMedium,
                 ),
                 SizedBox(height: 24,),
+                RiderInstructionCell(
+                  title: LangEnum.ridersMustLeast18Years.tr(),
+                ),
 
-                RequestTripCondition(text: "Riders must be at least 18 years old or accompanied by an adult".tr()),
-                RequestTripCondition(text: "They will receive the trip info in a text message".tr()),
-                RequestTripCondition(text: "You will pay for the trip if it’s credit or they can pay the driver in cash".tr()),
-                RequestTripCondition(text: "You can track the trip from your app".tr()),
+                RiderInstructionCell(
+                  title: LangEnum.theyReceiveTripInfoTextMmessage.tr(),
+                ),
+
+                RiderInstructionCell(
+                  title: LangEnum.payTripCreditOrPayDriverCash.tr(),
+                ),
+
+                RiderInstructionCell(
+                  title: LangEnum.trackTripFromApp.tr(),
+                ),
 
 
               ],
@@ -60,7 +72,7 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
 
                 ElevatedButton(
                   onPressed: () async {
-                    // Get.toNamed(AddRiderRoute.config().path);
+                     Get.offNamed(AddRiderRouting.config().path);
                   },
                   child: Text(LangEnum.addRider.tr()),
                 ),

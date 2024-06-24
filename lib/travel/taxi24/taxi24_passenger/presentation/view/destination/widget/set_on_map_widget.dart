@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 
 class SetOnMapWidget extends ConsumerStatefulWidget{
   const SetOnMapWidget();
@@ -16,8 +18,9 @@ class _SetOnMapWidget extends ConsumerState<SetOnMapWidget>{
   @override
   Widget build(BuildContext context) {
   return GestureDetector(
-    // onTap: ()=>Navigator.pushNamed(context,
-    //     RoutePath.setDestinationLocationOnMapScreen),
+    onTap: (){
+      Get.toNamed(SetLocationOnMapRouting.config().path);
+    },
     child: Align(
       alignment: AlignmentDirectional.bottomCenter,
       child: Container(

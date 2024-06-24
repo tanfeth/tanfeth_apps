@@ -16,21 +16,21 @@ import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 // StateNotifierProvider<MapVM, ParamMapModel>((ref) =>
 //     MapVM(ParamMapModel()));
 
-final mapProvider =
-StateNotifierProvider.autoDispose<MapVM, ParamMapModel>((ref) {
+final setOnLocationMapProvider =
+StateNotifierProvider.autoDispose<SetOnLocationMapVM, ParamMapModel>((ref) {
   ref.keepAlive();
-  return MapVM(ref);
+  return SetOnLocationMapVM(ref);
 });
 
 
 
-class MapVM extends
+class SetOnLocationMapVM extends
 ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     MapGenerateMarkerVMA{
 
   final AutoDisposeStateNotifierProviderRef ref;
 
-  MapVM(this.ref, {ParamMapModel? paramMapModel})
+  SetOnLocationMapVM(this.ref, {ParamMapModel? paramMapModel})
       : super(paramMapModel ?? ParamMapModel()) {
      generateMapMarker(Images.car);
   }
@@ -64,15 +64,11 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.always || permission == LocationPermission.whileInUse) {
       Position getPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-      state.gMapControl!.animateCamera(
-        CameraUpdate.newCameraPosition(
-          (CameraPosition(target: LatLng(getPosition.latitude, getPosition.longitude),
-              zoom: state.mapZoom)),
-        ),
-      );
+
       state.currentLatLng = LatLng(getPosition.latitude, getPosition.longitude);
       state.cameraPosition=(CameraPosition(target: LatLng(getPosition.latitude, getPosition.longitude),
           zoom: state.mapZoom));
+      animateCameraPosition(currentPosition:LatLng(getPosition.latitude, getPosition.longitude));
       if(setMakers){
         setMarker(currentPosition: LatLng(getPosition.latitude,
             getPosition.longitude), animateCamera: true);
@@ -99,19 +95,19 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       icon: state.defaultMarker!,
     ));
 
-    if (animateCamera) {
-      state.gMapControl!.animateCamera(
-        CameraUpdate.newCameraPosition(
-          (CameraPosition(target: currentPosition, zoom: 10)),
-        ),
-      );
-
-      state.cameraPosition=
-      (CameraPosition(target: currentPosition, zoom: 10));
-    }
+   animateCameraPosition(currentPosition: currentPosition);
     updateModel();
   }
 
+
+  Future<void> getAddressFromLatLong({double? lat , double? long}) async {
+    List<Placemark> placeMarks = await placemarkFromCoordinates(
+        lat??state.currentLatLng.latitude,
+        long??state.currentLatLng.longitude);
+    Placemark place = placeMarks[0];
+    state.currentAddress = "${placeMarks.first.locality} , ${placeMarks[0].administrativeArea}";
+    state.currentAddressName = "${place.name}";
+  }
 
 
 
@@ -126,5 +122,20 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     paramMapModel.from = state.from;
     paramMapModel.cameraPosition = state.cameraPosition;
     setModel(paramMapModel);
+  }
+
+
+  void animateCameraPosition({required LatLng currentPosition,double? zoom ,}) {
+
+    state.gMapControl!.animateCamera(
+      CameraUpdate.newCameraPosition(
+        (CameraPosition(target: currentPosition,zoom: zoom??state.mapZoom)),
+      ),
+    );
+    state.currentLatLng = currentPosition;
+    state.cameraPosition=
+    (CameraPosition(target: currentPosition,zoom: zoom??state.mapZoom));
+    state.mapZoom = zoom??14;
+
   }
 }

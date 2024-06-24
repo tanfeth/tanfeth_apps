@@ -1,9 +1,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extension.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
@@ -27,17 +30,17 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
   late String index;
   late LayoutVM layoutVM ;
   late MapVM mapVM;
-
+  DateTime backPressDateTime = DateTime.now();
 
 
 
   final navScreens = <Widget>[
-     HomeRouting.config().widget,
     Scaffold(
       body: Container(
-        color: Colors.black,
+        color: Colors.white,
       ),
     ),
+    HomeRouting.config().widget,
     ProfileRouting.config().widget
 
   ];
@@ -48,7 +51,6 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
     index = Get.parameters[LayoutRouting.index] ?? '';
     mapVM = ref.read(mapProvider.notifier);
     layoutVM = ref.read(layoutProvider.notifier);
-    layoutVM.changeCurrentIndex(index.isEmpty ? 0 : int.parse(index)) ;
     super.initState();
   }
 
@@ -59,24 +61,37 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      floatingActionButton:  ref.watch(layoutProvider) ==0?
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          WhereActionButton(),
-          CurrentLocationDetector(onTap:()async{
-            mapVM.getCurrentLocation();
-          }),
-         
-        ],
-      ):const SizedBox.shrink(),
-      body: navScreens.elementAt(ref.watch(layoutProvider)),
-      bottomNavigationBar:  TaxiPassengerLayoutBottomNavigationBar(
-        layoutVM: layoutVM,
-      ),
-    ).systemUiDarkText(context);
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        final timeGap = DateTime.now().difference(backPressDateTime);
+        final cantExit = timeGap >= const Duration(seconds: 2);
+        backPressDateTime = DateTime.now();
+        if (cantExit) {
+          showToast(LangEnum.pressAgainToExit.tr(), position: ToastPosition.bottom);
+        } else {
+          SystemNavigator.pop();
+        }
+      },
+      child: Scaffold(
+        extendBody: true,
+        floatingActionButton:  ref.watch(layoutProvider) ==1?
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            WhereActionButton(),
+            CurrentLocationDetector(onTap:()async{
+              mapVM.getCurrentLocation();
+            }),
+
+          ],
+        ):const SizedBox.shrink(),
+        body: navScreens.elementAt(ref.watch(layoutProvider)),
+        bottomNavigationBar:  TaxiPassengerLayoutBottomNavigationBar(
+          layoutVM: layoutVM,
+        ),
+      ).systemUiDarkText(context),
+    );
 
   }
 

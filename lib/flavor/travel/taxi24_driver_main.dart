@@ -53,6 +53,7 @@ class Taxi24DriverMain {
         appCategoryEnum: {AppCategoryEnum.travel},
         theme: Taxi24DriverTheme(),
         shareUrl: 'https://test.taxi24.app/api',
+        mapApiKey: 'AIzaSyArcxVdw-9ehlF1atcclWSLBqv3UBiKMeo'
     );
     if (!(kReleaseMode || isStaging))
       Auth.init(

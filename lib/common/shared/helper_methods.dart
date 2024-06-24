@@ -159,6 +159,22 @@ Future<bool?> checkCameraPermission() async {
   return null;
 }
 
+Future<bool?> checkContactsPermission() async {
+  Map<Permission, PermissionStatus> statues =
+  await [Permission.contacts].request();
+  PermissionStatus? statusContacts = statues[Permission.contacts];
+  bool isGranted = statusContacts == PermissionStatus.granted;
+  if (isGranted) {
+    return true;
+  } else {
+    openAppSettings();
+  }
+  return null;
+}
+
+
+
+
 
 String countryFlag({required String countryCode}) {
   String flag = countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
