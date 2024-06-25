@@ -22,6 +22,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
 
 
   final destinationController = TextEditingController();
+  final pickUpController = TextEditingController();
 
 
   @override
@@ -33,6 +34,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
           ///Current location
           CustomTextFormField(
             readOnly: true,
+            controller: pickUpController,
             keyboardType: TextInputType.text,
             hintText: LangEnum.currentLocation.tr(),
             prefixWidget: Padding(
@@ -69,6 +71,14 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
                 height: 25,
               ),
             ),
+            suffixIcon: Icons.add,
+            suffixOnTap: (){
+              Get.toNamed(SetLocationOnMapRouting.config().path,
+                  parameters: {
+                    SetLocationOnMapRouting.pageType:
+                    customAppFlavor.commonEnum.locationTypeEnum.destination
+                  });
+            },
             textInputAction: TextInputAction.done,
             onTap: (){
               Get.toNamed(SetLocationOnMapRouting.config().path,

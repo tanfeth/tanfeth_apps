@@ -7,7 +7,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
+import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 
@@ -101,12 +103,18 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
 
 
   Future<void> getAddressFromLatLong({double? lat , double? long}) async {
-    List<Placemark> placeMarks = await placemarkFromCoordinates(
+    setLocaleIdentifier("${ref.watch(languageProvider)}_${
+        ref.watch(languageProvider) == "en"?
+            "US":"EG"
+    }").then((_) async{
+      List<Placemark> placeMarks = await placemarkFromCoordinates(
         lat??state.currentLatLng.latitude,
-        long??state.currentLatLng.longitude);
-    Placemark place = placeMarks[0];
-    state.currentAddress = "${placeMarks.first.locality} , ${placeMarks[0].administrativeArea}";
-    state.currentAddressName = "${place.name}";
+        long??state.currentLatLng.longitude,);
+      Placemark place = placeMarks[0];
+      state.currentAddress = "${placeMarks.first.country} , ${placeMarks[0].street}";
+      state.currentAddressName = "${place.name}";
+    });
+
   }
 
 

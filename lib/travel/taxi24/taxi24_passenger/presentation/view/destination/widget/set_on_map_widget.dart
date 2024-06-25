@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 
 class SetOnMapWidget extends ConsumerStatefulWidget{
@@ -19,7 +20,11 @@ class _SetOnMapWidget extends ConsumerState<SetOnMapWidget>{
   Widget build(BuildContext context) {
   return GestureDetector(
     onTap: (){
-      Get.toNamed(SetLocationOnMapRouting.config().path);
+      Get.toNamed(SetLocationOnMapRouting.config().path,
+      parameters: {
+        SetLocationOnMapRouting.pageType:
+            customAppFlavor.commonEnum.locationTypeEnum.destination
+      });
     },
     child: Align(
       alignment: AlignmentDirectional.bottomCenter,

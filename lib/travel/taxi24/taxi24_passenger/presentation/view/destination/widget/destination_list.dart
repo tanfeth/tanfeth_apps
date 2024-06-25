@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_cell.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/trip_cell.dart';
 
 
 class DestinationList extends ConsumerStatefulWidget{
-  final ScrollController? scrollController;
-  const DestinationList({this.scrollController});
+  const DestinationList();
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>_DestinationList();
@@ -15,37 +16,81 @@ class DestinationList extends ConsumerStatefulWidget{
 
 class _DestinationList extends ConsumerState<DestinationList>{
 
-  List<LocationModel> destinationList = [];
 
+
+  late DestinationListVM destinationListVM;
+  late  List<LocationModel> destinationList;
+
+
+  initBuild(){
+    destinationListVM = ref.watch(destinationListProvider.notifier);
+    destinationList = ref.watch(destinationListProvider);
+  }
 
   @override
   void initState() {
-     for(int i =0 ; i < 3;i ++ ){
-       LocationModel locationModel  = LocationModel();
-       locationModel.locationCity = 'Dammam';
-       locationModel.description = 'description';
-       locationModel.isFavorite = true;
-       locationModel.placeId = '1';
-       destinationList.add(locationModel);
-     }
+    destinationListVM = ref.read(destinationListProvider.notifier);
+    destinationListVM.clearList();
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //   for(int i =0 ; i < 3;i ++ ) {
+    //     LocationModel locationModel = LocationModel();
+    //     locationModel.locationCity = 'Dammam ${i + 1}';
+    //     locationModel.description = 'description';
+    //     locationModel.isFavorite = true;
+    //     locationModel.placeId = i.toString();
+    //     destinationListVM.addToList([locationModel]);
+    //   }
+    // });
+
     super.initState();
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return       ListView.separated(
-      controller: widget.scrollController??ScrollController(),
-      separatorBuilder: (context, index) =>const  SizedBox(height: 12,),
-      itemBuilder: (context, index) {
-        return GestureDetector(
-            onTap: () async{
-            },
-            child: DestinationCell(
-              locationModel: destinationList[index],
-                isRecent:true),
-                   );},
-      itemCount: destinationList.length,);
+    initBuild();
+
+    return ReorderableListView(
+      children: <Widget>[
+        for (int index = 0; index < destinationList.length; index += 1)
+          ReorderableDragStartListener(
+            key: ValueKey<int>(index),
+            index: index,
+            child: ListTile(
+              key: Key('$index'),
+              title: Text('${destinationList[index].locationCity??''}'),
+               subtitle: Text('${destinationList[index].description??''}',
+               style: TextStyle(
+                 color: context.color.surfaceContainerHighest
+               ),),
+              leading:ReorderableDragStartListener(
+                key: ValueKey<int>(index),
+                index: index,
+                child:  Icon(Icons.drag_handle,
+                  color: context.color.primary,),
+              ),
+              trailing: GestureDetector(
+                onTap: (){
+                  destinationListVM.removeFromListByIndex(index);
+                },
+                child: Icon(
+                  Icons.close,
+                  color: context.color.error,
+                  size: 20,
+                ),
+              ),
+            ),
+          ),
+      ],
+      onReorder: (int oldIndex, int newIndex) {
+          if (oldIndex < newIndex) {
+            newIndex -= 1;
+          }
+          final  item = destinationList.removeAt(oldIndex);
+          destinationListVM.insertToList(newIndex, item);
+
+      },
+    );
   }
 
 }

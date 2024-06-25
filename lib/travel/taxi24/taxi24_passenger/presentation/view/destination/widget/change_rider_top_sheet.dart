@@ -146,7 +146,7 @@ class _ChangeRiderTopSheet extends ConsumerState<ChangeRiderTopSheet>{
               child: Center(
                   child: Text(
                     LangEnum.close.tr(),
-                    style: context.text.headlineSmall,
+                    style: context.text.titleMedium,
                   )
               ),
             ),

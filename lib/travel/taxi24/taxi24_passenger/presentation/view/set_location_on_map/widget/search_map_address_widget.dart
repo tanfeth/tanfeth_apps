@@ -54,10 +54,12 @@ class _SearchMapAddressWidget extends ConsumerState<SearchMapAddressWidget>{
         apiHeaders: await GoogleApiHeaders().getHeaders(),
       );
       PlacesDetailsResponse detail =
-      await _places.getDetailsByPlaceId(prediction.placeId??'');
+      await _places.getDetailsByPlaceId(prediction.placeId??'',
+      language: ref.watch(languageProvider));
       final lat = detail.result.geometry?.location.lat;
       final lng = detail.result.geometry?.location.lng;
       searchController.text = detail.result.name;
+
       ref.read(setOnLocationMapProvider.notifier).getAddressFromLatLong(
         lat: lat,
         long: lng

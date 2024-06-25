@@ -42,7 +42,7 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget>{
     return   GoogleMap(
       compassEnabled: false,
       mapToolbarEnabled: false,
-      myLocationEnabled: false,
+      myLocationEnabled: true,
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,
       mapType: MapType.normal,

@@ -5,16 +5,16 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 
-class DestinationCell extends ConsumerStatefulWidget {
+class TripCell extends ConsumerStatefulWidget {
   final LocationModel locationModel;
   final bool isRecent;
-  const DestinationCell({required this.locationModel, required this.isRecent});
+  const TripCell({required this.locationModel, required this.isRecent});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _DestinationCell();
+  ConsumerState<ConsumerStatefulWidget> createState() => _TripCell();
 }
 
-class _DestinationCell extends ConsumerState<DestinationCell> {
+class _TripCell extends ConsumerState<TripCell> {
   @override
   Widget build(BuildContext context) {
     return Row(

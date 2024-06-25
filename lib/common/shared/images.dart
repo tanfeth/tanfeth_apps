@@ -118,6 +118,7 @@ class Images {
   static String tap = "";
   static String scroll = "";
   static String pickUpImage = "";
+  static String destinationMarker = "";
 
 
   static Future<void> initImages() async {
@@ -237,7 +238,10 @@ class Images {
      tap = await checkImage('tap.png');
      scroll = await checkImage('scroll.png');
      pickUpImage = await checkImage('pickUp.png');
+     destinationMarker = await checkImage('destination_marker.png');
   }
+
+
 
   static Future<String> checkImage(String path) async {
     var finalPath = "";

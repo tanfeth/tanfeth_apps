@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart' as slidingUpPanel;
-import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_list.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/previous_trip_list.dart';
+import 'package:top_modal_sheet/top_modal_sheet.dart';
 
 class PreviousTrips extends ConsumerStatefulWidget {
   const PreviousTrips();
@@ -16,72 +15,81 @@ class PreviousTrips extends ConsumerStatefulWidget {
 }
 
 class _PreviousTrips extends ConsumerState<PreviousTrips> {
-  slidingUpPanel.PanelController panelController =
-      slidingUpPanel.PanelController();
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        panelController.open();
-      },
-      child: slidingUpPanel.SlidingUpPanel(
-        slideDirection: slidingUpPanel.SlideDirection.DOWN,
-        controller: panelController,
-        // margin: EdgeInsets.all(20),
-        minHeight: 60,
-        maxHeight: 300,
-        borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(15), bottomLeft: Radius.circular(15)),
-        collapsed: Center(
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: context.color.primary,
-              borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(15)),
-            ),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    LangEnum.previousTrips.tr(),
-                    style: context.text.titleMedium
-                        ?.copyWith(color: context.color.onPrimary),
-                  ),
-                  15.pw,
-                  Image.asset(
-                    Images.scroll,
-                    color: context.color.onPrimary,
-                    height: 30,
-                    width: 30,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        panelBuilder: (controller) {
-          return Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: Column(
-              children: [
-                Expanded(child: Padding(
-                  padding: EdgeInsets
-                  .symmetric(horizontal: 15),
-                  child: DestinationList(),
-                )),
-                10.ph,
-                Center(child: CloseBottomSheetWidget()),
-                10.ph,
-              ],
-            ),
-          );
-        },
-      ),
-    );
+     var statusBar = MediaQuery.of(context).viewPadding.top;
+
+
+     return Padding(
+       padding:  EdgeInsets.only(top: statusBar),
+       child: GestureDetector(
+         onTap: ()async{
+           await showTopModalSheet<String?>(context,
+               Container(
+                 decoration: BoxDecoration(
+                   color: context.color.surface,
+                   borderRadius: BorderRadius.only(
+                     bottomLeft: Radius.circular(30),
+                     bottomRight: Radius.circular(30)
+                   )
+                 ),
+                 child: ConstrainedBox(
+                   constraints: BoxConstraints(
+                     maxHeight: 350,
+                   ),
+                   child: Column(
+                     mainAxisSize: MainAxisSize.min,
+                     children: [
+                       Expanded(
+                         child: Padding(
+                           padding: EdgeInsets
+                               .symmetric(horizontal: 15),
+                           child: PreviousTripList(),
+                         ),
+                       ),
+                       10.ph,
+                       Center(
+                         child: GestureDetector(
+                           behavior: HitTestBehavior.translucent,
+                           onTap: () {
+                             Get.back();
+                           },
+                           child: Center(
+                               child: Text(
+                                 LangEnum.close.tr(),
+                                 style: context.text.titleMedium,
+                               )
+                           ),
+                         ),
+                       ),
+                       30.ph,
+                     ],
+                   ),
+                 ),
+               ),
+               barrierDismissible: false);
+
+         },
+         child: Container(
+           margin: EdgeInsets.symmetric(horizontal: 100),
+           height: 40,
+           width: 150,
+           decoration: BoxDecoration(
+             color: context.color.primary,
+             borderRadius: BorderRadius.all(Radius.circular(30)),
+           ),
+           child: Center(
+             child: Text(
+               LangEnum.previousTrips.tr(),
+               textAlign: TextAlign.center,
+               style: context.text.titleMedium
+                   ?.copyWith(color: context.color.onPrimary),
+             ),
+           ),
+         ),
+       ),
+     );
+
   }
 }

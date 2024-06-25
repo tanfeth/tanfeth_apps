@@ -5,9 +5,12 @@ import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/vm/set_on_location_map_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/widget/search_map_address_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/widget/set_location_map_widget.dart';
@@ -63,7 +66,10 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                 bottom: (MediaQuery.sizeOf(context).height) / 2,
                 left: (MediaQuery.sizeOf(context).width - 40) / 2,
                 child: Image.asset(
-                  Images.pickUpImage,
+                  pageType == customAppFlavor.commonEnum.locationTypeEnum
+                  .pickUp?
+                  Images.pickUpImage:
+                  Images.destinationMarker,
                   height: 45,
                   width: 45,
                   fit: BoxFit.contain,
@@ -78,7 +84,22 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     child: ElevatedButton(
-                      onPressed: () async {},
+                      onPressed: () async {
+                        if(pageType == customAppFlavor.commonEnum.locationTypeEnum
+                            .destination){
+                          LocationModel model = LocationModel();
+                          model.description = ref.read(setOnLocationMapProvider).currentAddress;
+                          model.locationCity = ref.read(setOnLocationMapProvider).currentAddressName;
+                          model.isFavorite =true;
+                          model.placeId = '0';
+                          ref.read(destinationListProvider.notifier)
+                              .addToList([model]);
+                        }else {
+
+                        }
+
+                        Get.back();
+                      },
                       child: Text(LangEnum.confirmLocation.tr()),
                     ),
                   ),

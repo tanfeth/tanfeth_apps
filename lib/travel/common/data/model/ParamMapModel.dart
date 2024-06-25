@@ -6,6 +6,7 @@ class ParamMapModel {
 
   GoogleMapController? gMapControl;
   Set<Marker> markers = {};
+  Map<PolylineId, Polyline> polyLines = {};
   double mapZoom = 14;
    BitmapDescriptor? defaultMarker;
   LatLng currentLatLng = const LatLng(24.7214143, 46.7077124);

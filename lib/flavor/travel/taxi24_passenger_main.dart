@@ -19,6 +19,7 @@ import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart'
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
@@ -100,6 +101,8 @@ class Taxi24PassengerMain {
       AddRiderInstructionRouting.config().page,
       AddRiderRouting.config().page,
       SetLocationOnMapRouting.config().page,
+      ChooseRideRouting.config().page,
+
     ]);
 
     mainCommon(
