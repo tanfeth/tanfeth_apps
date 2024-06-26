@@ -12,7 +12,10 @@ class LayoutVM extends StateNotifier<int> {
 
 
   void changeCurrentIndex(int index) {
-    state = index;
+    if(state != index){
+      state = index;
+    }
+
   }
 
 }

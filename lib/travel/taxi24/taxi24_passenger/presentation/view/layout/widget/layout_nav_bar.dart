@@ -8,8 +8,10 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/la
 
 class TaxiPassengerLayoutBottomNavigationBar extends ConsumerStatefulWidget {
   final LayoutVM layoutVM;
+  final Function(int index) onItemTap;
   const TaxiPassengerLayoutBottomNavigationBar(
-      {Key? key, required this.layoutVM})
+      {Key? key, required this.layoutVM,
+       required this.onItemTap})
       : super(key: key);
 
   @override
@@ -75,7 +77,7 @@ class _TaxiPassengerLayoutBottomNavigationBarState
           ),
         ),
       ],
-      onTap: (index) => widget.layoutVM.changeCurrentIndex(index),
+      onTap:  widget.onItemTap,
     );
   }
 }

@@ -7,8 +7,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ho
 
 
 class TaxiPassengerHomeView extends ConsumerStatefulWidget {
-  const TaxiPassengerHomeView();
-
+  const TaxiPassengerHomeView({Key? key}) : super(key: key);
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PassengerHomeView();
 }
@@ -28,13 +27,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
       onTap: () {
         closeKeyBoard();
       },
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          MapWidget(),
-          PreviousTrips(),
-        ],
-      ),
+      child: MapWidget(),
     );
   }
 }

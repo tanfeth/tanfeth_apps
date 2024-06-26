@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
@@ -10,7 +9,6 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
@@ -22,14 +20,13 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/app_version.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
-import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 
 class TaxiPassengerProfileView extends ConsumerStatefulWidget {
-  const TaxiPassengerProfileView();
+  const TaxiPassengerProfileView({Key? key}) : super(key: key);
+
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TaxiDriverProfile();
 }

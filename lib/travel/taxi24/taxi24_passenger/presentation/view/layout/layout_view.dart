@@ -10,12 +10,11 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/where_action_button.dart';
 
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/vm/layout_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/widget/layout_nav_bar.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/layout/widget/taxi_passenger_float_widget.dart';
 
 
 class TaxiPassengerLayoutView extends ConsumerStatefulWidget{
@@ -25,23 +24,24 @@ class TaxiPassengerLayoutView extends ConsumerStatefulWidget{
   ConsumerState<TaxiPassengerLayoutView> createState() => _LayoutViewState();
 }
 
-class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
+class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>
+    with SingleTickerProviderStateMixin{
 
   late String index;
   late LayoutVM layoutVM ;
   late MapVM mapVM;
   DateTime backPressDateTime = DateTime.now();
+  final PageStorageBucket bucket = PageStorageBucket();
 
 
-
-  final navScreens = <Widget>[
+  final List<Widget> navScreens = <Widget>[
     Scaffold(
       body: Container(
         color: Colors.white,
       ),
     ),
     HomeRouting.config().widget,
-    ProfileRouting.config().widget
+    ProfileRouting.config().widget,
 
   ];
 
@@ -55,7 +55,10 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
   }
 
 
-
+@override
+  void dispose() {
+    super.dispose();
+  }
 
 
 
@@ -75,20 +78,16 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>{
       },
       child: Scaffold(
         extendBody: true,
-        floatingActionButton:  ref.watch(layoutProvider) ==1?
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            WhereActionButton(),
-            CurrentLocationDetector(onTap:()async{
-              mapVM.getCurrentLocation();
-            }),
-
-          ],
-        ):const SizedBox.shrink(),
-        body: navScreens.elementAt(ref.watch(layoutProvider)),
+        floatingActionButton: TaxiPassengerFloatWidget(),
+        body:IndexedStack(
+          index: ref.watch(layoutProvider),
+          children: navScreens,
+        ),
         bottomNavigationBar:  TaxiPassengerLayoutBottomNavigationBar(
           layoutVM: layoutVM,
+          onItemTap: (index){
+            layoutVM.changeCurrentIndex(index);
+          },
         ),
       ).systemUiDarkText(context),
     );

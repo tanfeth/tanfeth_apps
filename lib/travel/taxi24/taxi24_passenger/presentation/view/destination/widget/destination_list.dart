@@ -30,18 +30,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
   @override
   void initState() {
     destinationListVM = ref.read(destinationListProvider.notifier);
-    destinationListVM.clearList();
-    // WidgetsBinding.instance.addPostFrameCallback((_) async {
-    //   for(int i =0 ; i < 3;i ++ ) {
-    //     LocationModel locationModel = LocationModel();
-    //     locationModel.locationCity = 'Dammam ${i + 1}';
-    //     locationModel.description = 'description';
-    //     locationModel.isFavorite = true;
-    //     locationModel.placeId = i.toString();
-    //     destinationListVM.addToList([locationModel]);
-    //   }
-    // });
-
+    //destinationListVM.clearList();
     super.initState();
   }
 

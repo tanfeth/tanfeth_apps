@@ -8,11 +8,13 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_header.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_list.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/set_on_map_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/where_to_go_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/previous_trips.dart';
 
 class DestinationView extends ConsumerStatefulWidget{
   const DestinationView();
@@ -23,8 +25,12 @@ class DestinationView extends ConsumerStatefulWidget{
 
 class _DestinationView extends ConsumerState<DestinationView>{
 
+
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: MainAppBar(
        titleWidget: DestinationHeader(),
@@ -41,7 +47,9 @@ class _DestinationView extends ConsumerState<DestinationView>{
                 20.ph,
                 SizedBox(height:16),
                 Expanded(
-                  child:DestinationList(),
+                  child:ref.watch(destinationListProvider).isEmpty?
+                  PreviousTrips():
+                  const SizedBox.shrink(),
                 ),
 
                 ElevatedButton(

@@ -46,17 +46,17 @@ class _TripCell extends ConsumerState<TripCell> {
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () {},
-          child: SvgPicture.asset(
-            (widget.locationModel.isFavorite ?? false)
-                ? Images.heartFilledSVG
-                : Images.heartSVG,
-            width: 20,
-            height: 17,
-            colorFilter: ColorFilter.mode(context.color.primary, BlendMode.srcIn),
-          ),
-        )
+        // GestureDetector(
+        //   onTap: () {},
+        //   child: SvgPicture.asset(
+        //     (widget.locationModel.isFavorite ?? false)
+        //         ? Images.heartFilledSVG
+        //         : Images.heartSVG,
+        //     width: 20,
+        //     height: 17,
+        //     colorFilter: ColorFilter.mode(context.color.primary, BlendMode.srcIn),
+        //   ),
+        // )
       ],
     );
   }
