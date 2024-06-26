@@ -51,11 +51,11 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
           polylines: Set<Polyline>.of(paramMapModel.polyLines.values),
           markers:  paramMapModel.markers.toSet(),
           onMapCreated: (GoogleMapController controller) {
-            ref.read(mapProvider.notifier).
-            updateMapController(mapController: controller);
-            ref.read(mapProvider.notifier).
-            setMarker(currentPosition:  ref.read(mapProvider).currentLatLng,
-                animateCamera: true);
+            // ref.read(mapProvider.notifier).
+            // updateMapController(mapController: controller);
+            // ref.read(mapProvider.notifier).
+            // setMarker(currentPosition:  ref.read(mapProvider).currentLatLng,
+            //     animateCamera: true);
 
           },
         )
