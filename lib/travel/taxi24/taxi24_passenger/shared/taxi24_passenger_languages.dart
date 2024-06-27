@@ -1079,9 +1079,9 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'تأكيد موقع الالتقاء',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.confirmCurrentLocation.name,
+      enValue: 'Confirm current location',
+      arValue: 'تأكيد الموقع الحالي',
     );
     addString(
       key: LangEnum.hello.name,

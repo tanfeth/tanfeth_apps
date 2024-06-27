@@ -9,6 +9,7 @@ class ChooseRideRouting extends RoutingConfig {
   ChooseRideRouting();
 
   static const String _path = '/ChooseRide/';
+  static const String pickUpLatLng = '/pickUpLatLng/';
 
 
   static RoutingConfig config() {

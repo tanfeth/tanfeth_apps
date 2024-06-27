@@ -1,5 +1,7 @@
 
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,6 +21,7 @@ class _MapState extends ConsumerState<MapWidget>{
 late ParamMapModel paramMapModel;
 Future mapFuture = Future.delayed(Duration(milliseconds: 1000), () => true);
 bool isMapVisible = false;
+final Completer<GoogleMapController> completer = Completer();
 
 
   @override
@@ -66,6 +69,9 @@ bool isMapVisible = false;
           
               ref.read(mapProvider.notifier).
               updateMapController(mapController: controller);
+              if (!completer.isCompleted) {
+                completer.complete(controller);
+              }
               ref.read(mapProvider.notifier).
               setMarker(currentPosition:  ref.read(mapProvider).currentLatLng,
                   animateCamera: true);

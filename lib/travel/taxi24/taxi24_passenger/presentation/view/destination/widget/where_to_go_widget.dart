@@ -26,6 +26,51 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
   Widget build(BuildContext context) {
     return  Column(
       children: [
+        //
+        // Padding(
+        //   padding:  EdgeInsets.symmetric(horizontal: 8,),
+        //   child: Container(
+        //     padding: EdgeInsets.all(10),
+        //     decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.all(Radius.circular(10)),
+        //         border: Border.all(
+        //             color: context.color.surfaceContainerHighest
+        //         )
+        //     ),
+        //     child:   GestureDetector(
+        //       onTap: (){
+        //         Get.toNamed(SetLocationOnMapRouting.config().path,
+        //             parameters: {
+        //               SetLocationOnMapRouting.pageType:
+        //               customAppFlavor.commonEnum.locationTypeEnum.pickUp
+        //             });
+        //       },
+        //       child: Row(
+        //         children: [
+        //           Expanded(
+        //             child: Row(
+        //               children: [
+        //                 SvgPicture.asset(
+        //                   Images.pickUp,
+        //                   width: 23,
+        //                   height: 23,
+        //                 ),
+        //                 20.pw,
+        //                 Text(
+        //                   LangEnum.currentLocation.tr(),
+        //                   style: context.text.bodyLarge,
+        //                 ),
+        //               ],
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        //
+        // 10.ph,
+
 
         // ///Current location
         // CustomTextFormField(
@@ -55,8 +100,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
 
         /// Where to go?
         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 8,
-          vertical: 15),
+          padding:  EdgeInsets.symmetric(horizontal: 8,),
           child: Container(
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -126,36 +170,6 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
             ),
           ),
         ),
-
-
-        // CustomTextFormField(
-        //   readOnly: true,
-        //   keyboardType: TextInputType.text,
-        //   hintText: LangEnum.whereToGo.tr(),
-        //   prefixWidget: Padding(
-        //     padding:  EdgeInsets.symmetric(horizontal: 16),
-        //     child: SvgPicture.asset(
-        //       Images.formFieldCircleSVG,
-        //       width: 25,
-        //       height: 25,
-        //     ),
-        //   ),
-        //   suffixIcon: Icons.add,
-        //   suffixOnTap: (){
-        //     Get.toNamed(SetLocationOnMapRouting.config().path,
-        //         parameters: {
-        //           SetLocationOnMapRouting.pageType:
-        //           customAppFlavor.commonEnum.locationTypeEnum.destination
-        //         });
-        //   },
-        //   textInputAction: TextInputAction.done,
-        //   onTap: (){
-        //     Get.toNamed(SetLocationOnMapRouting.config().path,
-        //         parameters: {
-        //           SetLocationOnMapRouting.pageType:
-        //           customAppFlavor.commonEnum.locationTypeEnum.destination
-        //         });
-        //   },),
       ],
     );
   }

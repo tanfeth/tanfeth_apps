@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/trip_cell.dart';
 
 
@@ -30,6 +32,8 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
       locationModel.description = 'مطار الملك فهد الدولى';
       locationModel.isFavorite = true;
       locationModel.placeId = '1';
+      locationModel.latLng =
+       LatLng(26.4683, 49.7972);
       tripList.add(locationModel);
     }
     super.initState();
@@ -44,6 +48,8 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () async{
+            ref.read(destinationListProvider.notifier)
+                .addToList([tripList[index]]);
           },
           child: TripCell(
               locationModel: tripList[index],

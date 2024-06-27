@@ -7,6 +7,7 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
@@ -43,7 +44,7 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
         title: pageType == customAppFlavor.commonEnum.locationTypeEnum
             .destination?
         LangEnum.selectLocation.tr():
-        LangEnum.confirmLocation.tr(),
+        LangEnum.confirmCurrentLocation.tr(),
         leadingWidget: const BackButtonWidget(),
       ),
       body: WebWidth(
@@ -138,10 +139,16 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                           model.locationCity = ref.read(setOnLocationMapProvider).currentAddressName;
                           model.isFavorite =true;
                           model.placeId = '0';
+                          model.latLng = ref.read(setOnLocationMapProvider).currentLatLng;
                           ref.read(destinationListProvider.notifier)
                               .addToList([model]);
                           Get.back();
                         }else {
+                          Get.toNamed(ChooseRideRouting.config().path,
+                          arguments: {
+                            ChooseRideRouting.pickUpLatLng:
+                            ref.read(setOnLocationMapProvider).currentLatLng
+                          });
 
                         }
 
@@ -151,7 +158,7 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                           pageType == customAppFlavor.commonEnum.locationTypeEnum
                               .destination?
                           LangEnum.confirmLocation.tr():
-                          LangEnum.confirmPickLocation.tr()
+                          LangEnum.confirmCurrentLocation.tr()
                       ),
                     ),
                   ),

@@ -1,4 +1,5 @@
 
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'LocationModel.g.dart';
@@ -8,7 +9,8 @@ class LocationModel {
    String? placeId;
    String? description;
    String? locationCity;
-  bool? isFavorite;
+   bool? isFavorite;
+   LatLng? latLng;
   
 
   LocationModel();

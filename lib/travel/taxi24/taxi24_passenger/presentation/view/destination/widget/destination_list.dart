@@ -29,8 +29,6 @@ class _DestinationList extends ConsumerState<DestinationList>{
 
   @override
   void initState() {
-    destinationListVM = ref.read(destinationListProvider.notifier);
-    //destinationListVM.clearList();
     super.initState();
   }
 
@@ -60,7 +58,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
               leading:ReorderableDragStartListener(
                 key: ValueKey<int>(index),
                 index: index,
-                child:  Icon(Icons.menu,
+                child:  Icon(Icons.reorder,
                   color: context.color.primary,),
               ),
               trailing: GestureDetector(
@@ -68,7 +66,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
                   destinationListVM.removeFromListByIndex(index);
                 },
                 child: Icon(
-                  Icons.close,
+                  Icons.playlist_remove_sharp,
                   color: context.color.error,
                   size: 20,
                 ),

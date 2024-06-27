@@ -28,6 +28,13 @@ class _DestinationView extends ConsumerState<DestinationView>{
 
 
   @override
+  void initState() {
+    ref.read(destinationListProvider.notifier).clearList();
+    super.initState();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
 
 
@@ -46,9 +53,7 @@ class _DestinationView extends ConsumerState<DestinationView>{
                 WhereToGoWidget(),
                 15.ph,
                 Expanded(
-                  child:ref.watch(destinationListProvider).isEmpty?
-                  PreviousTrips():
-                  const SizedBox.shrink(),
+                  child:PreviousTrips(),
                 ),
 
                 ElevatedButton(

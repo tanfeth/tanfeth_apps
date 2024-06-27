@@ -51,6 +51,10 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
 
   void updateCameraPosition({required CameraPosition position}){
     state.cameraPosition = position;
+    state.currentLatLng = LatLng(
+        position.target.latitude,
+      position.target.longitude,);
+    updateModel();
   }
 
 

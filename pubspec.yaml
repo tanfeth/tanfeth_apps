@@ -104,6 +104,7 @@ dependency_overrides:
   flutter_google_places: ^0.3.0
   http: ^0.13.1
   geocoding: ^3.0.0
+  flutter_polyline_points: ^2.0.1
 
 
 dev_dependencies:
