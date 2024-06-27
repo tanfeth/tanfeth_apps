@@ -26,8 +26,8 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
   void initState() {
     for(int i =0 ; i < 5;i ++ ){
       LocationModel locationModel  = LocationModel();
-      locationModel.locationCity = 'Dammam';
-      locationModel.description = 'description';
+     // locationModel.locationCity = 'Dammam';
+      locationModel.description = 'مطار الملك فهد الدولى';
       locationModel.isFavorite = true;
       locationModel.placeId = '1';
       tripList.add(locationModel);

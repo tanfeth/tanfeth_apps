@@ -173,6 +173,24 @@ Future<bool?> checkContactsPermission() async {
 }
 
 
+List<DateTime> returnSevenMonths() {
+  List<DateTime> list = [];
+  final today = DateTime.now();
+  final firstDate = DateTime(
+    2022,
+    1,
+  );
+  final lastDate = DateTime(
+    today.year,
+    today.month + 4,
+  );
+  for (int i = 0; i <= lastDate.difference(firstDate).inDays ~/ 30; i++) {
+    list.add(firstDate.add(Duration(days: (30 * i) + 5)));
+  }
+  return list;
+}
+
+
 
 
 

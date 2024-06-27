@@ -62,7 +62,8 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
   }
 
 
-  void getCurrentLocation({bool setMakers = true}) async {
+  void getCurrentLocation({bool setMakers = true,
+  bool animateCamera = true}) async {
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.always || permission == LocationPermission.whileInUse) {
       Position getPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
@@ -70,7 +71,9 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       state.currentLatLng = LatLng(getPosition.latitude, getPosition.longitude);
       state.cameraPosition=(CameraPosition(target: LatLng(getPosition.latitude, getPosition.longitude),
           zoom: state.mapZoom));
-      animateCameraPosition(currentPosition:LatLng(getPosition.latitude, getPosition.longitude));
+      if(animateCamera){
+        animateCameraPosition(currentPosition:LatLng(getPosition.latitude, getPosition.longitude));
+      }
       if(setMakers){
         setMarker(currentPosition: LatLng(getPosition.latitude,
             getPosition.longitude), animateCamera: true);

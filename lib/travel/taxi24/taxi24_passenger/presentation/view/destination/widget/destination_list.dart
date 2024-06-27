@@ -40,6 +40,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
     initBuild();
 
     return ReorderableListView(
+      shrinkWrap: true,
       children: <Widget>[
         for (int index = 0; index < destinationList.length; index += 1)
           ReorderableDragStartListener(
@@ -47,15 +48,19 @@ class _DestinationList extends ConsumerState<DestinationList>{
             index: index,
             child: ListTile(
               key: Key('$index'),
-              title: Text('${destinationList[index].locationCity??''}'),
-               subtitle: Text('${destinationList[index].description??''}',
-               style: TextStyle(
-                 color: context.color.surfaceContainerHighest
-               ),),
+              title: Text('${destinationList[index].description??''}',
+              maxLines: 2,
+              style: TextStyle(
+                color: context.color.surfaceContainerHighest,
+              ),),
+               // subtitle: Text('${destinationList[index].description??''}',
+               // style: TextStyle(
+               //   color: context.color.surfaceContainerHighest
+               // ),),
               leading:ReorderableDragStartListener(
                 key: ValueKey<int>(index),
                 index: index,
-                child:  Icon(Icons.drag_handle,
+                child:  Icon(Icons.menu,
                   color: context.color.primary,),
               ),
               trailing: GestureDetector(

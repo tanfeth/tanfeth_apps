@@ -30,18 +30,19 @@ class _TripCell extends ConsumerState<TripCell> {
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   widget.locationModel.description ?? '',
                 ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  widget.locationModel.locationCity ?? '',
-                  style:
-                      TextStyle(color: context.color.surfaceContainerHighest),
-                ),
+                // SizedBox(
+                //   height: 4,
+                // ),
+                // Text(
+                //   widget.locationModel.locationCity ?? '',
+                //   style:
+                //       TextStyle(color: context.color.surfaceContainerHighest),
+                // ),
               ],
             ),
           ),

@@ -103,6 +103,7 @@ class Taxi24PassengerMain {
       SetLocationOnMapRouting.config().page,
       ChooseRideRouting.config().page,
 
+
     ]);
 
     mainCommon(

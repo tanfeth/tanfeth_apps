@@ -37,13 +37,17 @@ class _PreviousTrips extends ConsumerState<PreviousTrips> {
              mainAxisSize: MainAxisSize.min,
              crossAxisAlignment: CrossAxisAlignment.start,
              children: [
+               25.ph,
                Text(
                  LangEnum.previousTrips.tr(),
                  style: context.text.titleMedium,
                ),
-               15.ph,
+               25.ph,
                Expanded(
-                 child: PreviousTripList(),
+                 child: Padding(
+                   padding: const EdgeInsets.symmetric(horizontal:8),
+                   child: PreviousTripList(),
+                 ),
                ),
              ],
            ),

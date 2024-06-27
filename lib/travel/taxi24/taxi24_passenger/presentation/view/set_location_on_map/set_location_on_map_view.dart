@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -40,7 +41,10 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: MainAppBar(
-        title: LangEnum.selectLocation.tr(),
+        title: pageType == customAppFlavor.commonEnum.locationTypeEnum
+            .destination?
+        LangEnum.selectLocation.tr():
+        LangEnum.confirmLocation.tr(),
         leadingWidget: const BackButtonWidget(),
       ),
       body: WebWidth(
@@ -48,6 +52,49 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
           child: Stack(
             children: [
               SetLocationMapWidget(),
+
+              // Positioned(
+              //   bottom: MySizes.defaultPadding * 5,
+              //   right: 0,
+              //   left: 0,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child:  Container(
+              //           height: MySizes.buttonHeight * 2.0,
+              //           margin: const EdgeInsets.symmetric(
+              //             horizontal: MySizes.largePadding,
+              //             vertical: 20
+              //           ),
+              //           padding: const EdgeInsets.symmetric(
+              //             horizontal: MySizes.largePadding / 2,
+              //             vertical: MySizes.defaultPadding ,
+              //           ),
+              //           decoration: BoxDecoration(
+              //             color: Theme.of(context).colorScheme.primary,
+              //             borderRadius: BorderRadius.circular(
+              //               MySizes.circleRadius / 10,
+              //             ),
+              //           ),
+              //           child: Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Expanded(
+              //                 child: Text(
+              //                   ref.watch(setOnLocationMapProvider).currentAddress,
+              //                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              //                     color: Theme.of(context).colorScheme.onPrimary,
+              //                   ),
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
 
               Positioned.fill(
                 child: Align(
@@ -94,13 +141,19 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                           model.placeId = '0';
                           ref.read(destinationListProvider.notifier)
                               .addToList([model]);
+                          Get.back();
                         }else {
 
                         }
 
-                        Get.back();
+
                       },
-                      child: Text(LangEnum.confirmLocation.tr()),
+                      child: Text(
+                          pageType == customAppFlavor.commonEnum.locationTypeEnum
+                              .destination?
+                          LangEnum.confirmLocation.tr():
+                          LangEnum.confirmPickLocation.tr()
+                      ),
                     ),
                   ),
                 ),
