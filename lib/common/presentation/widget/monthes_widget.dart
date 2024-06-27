@@ -3,20 +3,22 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 
 
-class MonthsWidget extends StatefulWidget {
+class MonthsWidget extends ConsumerStatefulWidget {
   final Function(DateTime) callBack;
 
   MonthsWidget({required this.callBack});
 
   @override
-  State<StatefulWidget> createState() {
+  ConsumerState<ConsumerStatefulWidget> createState() {
     return _MonthsWidgetState();
   }
 }
 
-class _MonthsWidgetState extends State<MonthsWidget> {
+class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
   List<DateTime> months = [];
   DateTime? selectedMonth;
    late FixedExtentScrollController controller;
@@ -26,7 +28,7 @@ class _MonthsWidgetState extends State<MonthsWidget> {
 
   @override
   void initState() {
-    months = returnSevenMonths();
+    months = returnMonthsOfYear();
     selectedMonth =
         months.firstWhere((element) => element.month == DateTime.now().month&&
             element.year == DateTime.now().year) ;
@@ -63,7 +65,8 @@ class _MonthsWidgetState extends State<MonthsWidget> {
                       child: Container(
                         width: 200,
                         child: Text(
-                          DateFormat('MMMM').format(months[index])+'\n'+
+                          DateFormat('MMMM',
+                           ref.watch(languageProvider)).format(months[index])+'\n'+
                           '${months[index].year}',
                           style: selectedMonth == months[index]
                               ? Theme.of(context).textTheme.headlineMedium?.copyWith(
