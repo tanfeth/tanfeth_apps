@@ -22,6 +22,8 @@ import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_s
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/my_trip/passenger_my_trip_view.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/profile/widget/passenger_profile_data_widget.dart';
 
 
 class TaxiPassengerProfileView extends ConsumerStatefulWidget {
@@ -63,6 +65,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 28,),
+                  PassengerProfileDataWidget(),
+                  40.ph,
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -71,7 +75,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                         children: [
                           // person_info
                           ProfileCell(
-                              title: LangEnum.personalInfo.tr(),
+                              title: LangEnum.editProfile.tr(),
                               icon: Images.personInfoSVG,
                               function: () {
                                 Get.toNamed(PersonalInfoRouting.config().path);
@@ -82,6 +86,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.myTrips.tr(),
                               icon: Images.fullClockSVG,
                               function: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (_)=>PassengerMyTripView()));
                                 //Get.toNamed(EarningRouting.config().path);
                               }),
                           const LargeDivider(),
@@ -162,11 +167,10 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 function: () => shareApp()),
                           ),
                           const LargeDivider(),
-
                           // become  a captain
                           ProfileCell(
-                              title: LangEnum.termsAndConditions.tr(),
-                              icon: Images.aboutProfileSVG,
+                              title: LangEnum.becomeCaptain.tr(),
+                              icon: Images.becomeCaptainSVG,
                               function: () => Get.toNamed(
                                   WebViewRouting.config().path,
                                   parameters: {
@@ -198,7 +202,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                           // app version
                           AppVersion(version: '1.0.0',).vPadding(4),
                         ],
-                      ),
+                      ).hPadding(8),
                     ),
                   )
                 ],

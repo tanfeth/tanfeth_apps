@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
@@ -176,17 +177,14 @@ Future<bool?> checkContactsPermission() async {
 List<DateTime> returnMonthsOfYear() {
   List<DateTime> list = [];
   final today = DateTime.now();
-  final firstDate = DateTime(
-    today.year,
-    1,
-  );
-  final lastDate = DateTime(
-    today.year,
-    today.month,
-  );
+  for (int month = 1; month <= 12; month++) {
+    list.add(DateTime(today.year, month, 1));
+  }
+  /*final firstDate = DateTime(today.year, 1,);
+  final lastDate = DateTime(today.year, 12,);
   for (int i = 0; i <= lastDate.difference(firstDate).inDays ~/ 30; i++) {
     list.add(firstDate.add(Duration(days: (30 * i) + 5)));
-  }
+  }*/
   return list;
 }
 
@@ -216,6 +214,15 @@ required List<GlobalKey<State<StatefulWidget>>> caseList }){
   );
 
 }
+
+String formatTimestamp(String timestamp) {
+  DateTime dateTime = DateTime.parse(timestamp);
+  String formattedDate = DateFormat.MMMd().format(dateTime);
+  String formattedTime = DateFormat.jm().format(dateTime);
+  String formattedDateTime = '$formattedDate - $formattedTime';
+  return formattedDateTime;
+}
+
 
 
 

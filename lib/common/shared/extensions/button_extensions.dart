@@ -23,6 +23,13 @@ extension ElevatedButtonEx on ButtonStyle {
     );
   }
 
+  ButtonStyle? OutlineElevatedButton(BuildContext context) {
+    return copyWith(
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onPrimaryContainer),
+      backgroundColor: WidgetStateProperty.all<Color?>(context.color.primaryContainer),
+    );
+  }
+
   ButtonStyle? DarkGreyElevatedButton(BuildContext context) {
     return copyWith(
       foregroundColor: WidgetStateProperty.all<Color?>(context.color.onSecondary),

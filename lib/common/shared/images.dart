@@ -119,6 +119,7 @@ class Images {
   static String scroll = "";
   static String pickUpImage = "";
   static String destinationMarker = "";
+  static String emptyTrip = "";
 
 
   static Future<void> initImages() async {
@@ -239,6 +240,7 @@ class Images {
      scroll = await checkImage('scroll.png');
      pickUpImage = await checkImage('pickUp.png');
      destinationMarker = await checkImage('destination_marker.png');
+     emptyTrip = await checkImage('empty_trip.svg');
   }
 
 
