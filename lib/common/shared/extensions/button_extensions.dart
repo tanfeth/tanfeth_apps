@@ -92,3 +92,15 @@ extension TextButtonEx on ButtonStyle {
     );
   }
 }
+
+
+extension SecondaryElevatedButton on ButtonStyle {
+  ButtonStyle? secondaryElevatedButton(BuildContext context) {
+    return copyWith(
+      foregroundColor: WidgetStateProperty.all<Color?>(context.color.onSecondary),
+      backgroundColor: WidgetStateProperty.all<Color?>(context.color.secondary),
+      overlayColor: WidgetStateProperty.all<Color?>(context.color.onSecondary.withOpacity(.1)),
+    );
+  }
+}
+

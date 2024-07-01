@@ -53,12 +53,12 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
     initBuild();
 
     return  SizedBox(
-        height: MediaQuery.sizeOf(context).height-390,
+        height: MediaQuery.sizeOf(context).height,
         child: GoogleMap(
           mapType: MapType.normal,
           myLocationButtonEnabled: false,
           initialCameraPosition:
-          CameraPosition(zoom:  10,
+          CameraPosition(zoom:  6,
               target: paramMapModel.currentLatLng),
           tiltGesturesEnabled: true,
           compassEnabled: true,
@@ -148,7 +148,7 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
     PolylineId id = PolylineId("poly");
     Polyline polyline = Polyline(
       polylineId: id,
-      color: context.color.primary,
+      color: context.color.tertiaryContainer,
       points: polylineCoordinates,
       width: 4,
     );

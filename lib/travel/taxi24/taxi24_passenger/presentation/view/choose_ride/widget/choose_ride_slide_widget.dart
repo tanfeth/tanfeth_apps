@@ -1,6 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/images.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/custom_slide_panel.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/promo_code_route.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/CarTypeModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/car_type_cell.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/payment_type_widget.dart';
 
 
 
@@ -13,156 +26,138 @@ class ChooseRideSlideWidget extends ConsumerStatefulWidget{
 }
 
 class _ChooseRideSlideWidget extends ConsumerState<ChooseRideSlideWidget>{
+
+
+  CarTypeModel carTypeModel = CarTypeModel();
+  late CarTypeVM carTypeVM;
+  int currentIndex  = 0;
+  final TextEditingController controller = TextEditingController();
+  String promoCode = '';
+
+  @override
+  void initState() {
+    carTypeModel.carType= "Sedan";
+    carTypeModel.carImage ='https://picsum.photos/200/300';
+    carTypeModel.passengersNumber= 4;
+    carTypeModel.tripCost= 44;
+    super.initState();
+  }
+
+
+  initBuild(){
+    carTypeVM = ref.watch(carTypeProvider.notifier);
+    currentIndex = ref.watch(carTypeProvider);
+  }
+  
+  
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    initBuild();
+    
+    return  CustomSlidePanel(
+      maxHeight: 420,
+      locationDetectorEnabled: false,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
 
-    // return  CustomSlidePanel(
-    //   minHeight: 420,
-    //   maxHeight: 420,
-    //   locationDetectorEnabled: false,
-    //   child: Padding(
-    //     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         CustomText(
-    //           text: "Choose a ride".tr(),
-    //           fontSize: FontSizer.s24,
-    //           fontWeight: FontWeightManager.large,
-    //         ),
-    //         SizedBox(height: 24,),
-    //         Expanded(
-    //           child: Column(
-    //             children: [
-    //               Expanded(
-    //                   child: ListView(
-    //                     padding: EdgeInsets.zero ,
-    //                     physics: const NeverScrollableScrollPhysics(),
-    //                     children: [
-    //                       GestureDetector(
-    //                         behavior: HitTestBehavior.translucent,
-    //                         onTap: () => changeCurrentTrip(index: 0),
-    //                         child: Container(
-    //                           decoration: currentIndex == 0 ? tripDecoration : null,
-    //                           child: TripInformationWidget(
-    //                             carType: "Sedan".tr(),
-    //                             arriveTime: "3 - 5 ${"min".tr()}",
-    //                             passengersNumber: 4,
-    //                             tripCost: tripPriceEntity?.sedanCarPrice??0.0,
-    //                           ),
-    //                         ),
-    //                       ),
-    //                       GestureDetector(
-    //                         behavior: HitTestBehavior.translucent,
-    //                         onTap: () => changeCurrentTrip(index: 1),
-    //                         child: Container(
-    //                           decoration: currentIndex != 0 ? tripDecoration : null,
-    //                           child: TripInformationWidget(
-    //                             carType: "Family".tr(),
-    //                             arriveTime: "3 - 5 ${"min".tr()}",
-    //                             passengersNumber: 7,
-    //                             tripCost: tripPriceEntity?.familyCarPrice??0.0,
-    //                           ),
-    //                         ),
-    //                       ),
-    //                     ],) ),
-    //               const Divider(
-    //                 color: ColorsManager.dividerColor,
-    //               ),
-    //               Column(
-    //                 children: [
-    //                   Padding(
-    //                     padding: EdgeInsets.symmetric(vertical: 12.0),
-    //                     child: Row(
-    //                       children: [
-    //                         Expanded(
-    //                           child: GestureDetector(
-    //
-    //                               onTap: (){
-    //                                 showCustomBottomSheetMenu(context: context, child: const PaymentMethodWidget());
-    //                               },
-    //                               child:  PaymentTypeWidget(
-    //                                   typeTitle: selectPayment==0?"Cash".tr() : getIt<CardViewModel>().cardList[selectPayment-1].cardBrand??"",
-    //                                   typeColor: selectPayment==0?ColorsManager.greenColor:null,
-    //                                   typeImage: selectPayment==0?AssetsManager.cashSVG:getIt<CardViewModel>().cardList[selectPayment-1].cardBrand?.toLowerCase()=="master".tr()? AssetsManager.mastercardSVG:AssetsManager.visaSVG)
-    //                           ),
-    //                         ),
-    //                         SizedBox(
-    //                           width: 24.w,
-    //                         ),
-    //                         Expanded(
-    //                           child: GestureDetector(
-    //                             onTap: (){
-    //                               showCustomBottomSheetMenu(
-    //                                   isScrollControlled: true,
-    //                                   context: context,
-    //                                   child: PromoCodeScreen(start: widget.start, destination: widget.destination));
-    //                             },
-    //                             child:  PaymentTypeWidget(
-    //                                 typeTitle: "Add Promo".tr(),
-    //                                 typeColor: ColorsManager.baseOrange,
-    //                                 typeImage: AssetsManager.percentageSVG),
-    //                           ),
-    //                         ),
-    //                       ],
-    //                     ),
-    //                   ),
-    //                   Padding(
-    //                     padding:  EdgeInsets.symmetric(vertical: 8),
-    //                     child: PrimaryButton(
-    //                       isLoading: state is AddTripsLoadingState ? true :false,
-    //                       text: "Confirm".tr(),
-    //                       onPressed: () async {
-    //                         await addTrip(parameter: {
-    //                           "Price": currentIndex==0?tripPriceEntity?.sedanCarPrice:tripPriceEntity?.familyCarPrice,
-    //                           "orderTempId":tripPriceEntity?.orderTempId,
-    //                           "PaymentMethods": <int>[
-    //                             paymentType(selectPayment: selectPayment, openWallet: openWallet),
-    //                           ],
-    //                           "CarSeatType": currentIndex+1,
-    //                           "points": [
-    //                             {
-    //                               "index": 0,
-    //                               "Lat": widget.start["startLatLng"].latitude,
-    //                               "lng": widget.start["startLatLng"].longitude,
-    //                               "placeId": widget.start['startLocation'].placeId,
-    //                               "Description":  widget.start['startLocation'].description,
-    //                               "SecondaryText":  widget.start['startLocation'].locationCity
-    //                             },
-    //                             {
-    //                               "index": 1,
-    //                               "Lat": widget.destination['destinationLatLng'].latitude,
-    //                               "lng": widget.destination['destinationLatLng'].longitude,
-    //                               "placeId": widget.destination['destinationLocation'].placeId,
-    //                               "Description": widget.destination['destinationLocation'].description,
-    //                               "SecondaryText": widget.destination['destinationLocation'].locationCity
-    //                             }
-    //                           ],
-    //                           "PromoCode": null,
-    //                           "CardId":selectPayment!=0? getIt<CardViewModel>().cardList[selectPayment-1].id:null
-    //                         }).then((value) {
-    //                           if(tripEntity!.tripId.isNotEmpty){
-    //                             Navigator.pushNamedAndRemoveUntil(context, RoutePath.tripStageScreen,(_)=>false,arguments: {'tripId' : tripEntity?.tripId});
-    //                           }
-    //                           else{
-    //                             Navigator.pushNamed(context, RoutePath.payTripWebViewScreen);
-    //                           }
-    //                         });
-    //                       },
-    //                       color: ColorsManager.baseOrange,
-    //                       colorText: ColorsManager.blackColor,
-    //                     ),
-    //                   ),
-    //                 ],
-    //               ),
-    //             ],
-    //           ),
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    // );
+            Text(
+              LangEnum.chooseRide.tr(),
+              style: context.text.titleMedium,
+            ),
+
+            SizedBox(height: 24,),
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.zero ,
+                        physics: const BouncingScrollPhysics(),
+                        children: [
+                          GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () {},
+                            child: Container(
+                              decoration: currentIndex == 0 ?
+                              BoxDecoration(
+                                  border: Border.all(
+                                      color: context.color.primary, width: 2),
+                                  color: context.color.primary.withOpacity(0.2),
+                                  borderRadius:
+                                  BorderRadius.circular(8)): null,
+                              child: CarTypeCell(
+                                carTypeModel: carTypeModel,
+                              ),
+                            ),
+                          ),
+                        ],) ),
+
+                  const SmallDivider(),
+
+
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+
+                                  onTap: (){
+                                    Get.toNamed(PaymentMethodRouting.config().path);
+                                  },
+                                  child:  PaymentTypeWidget(
+                                      title:LangEnum.cash.tr(),
+                                      image: Images.cashSVG,
+                                      // AssetsManager.mastercardSVG:
+                                      // AssetsManager.visaSVG
+                                  )
+                              ),
+                            ),
+                            SizedBox(
+                              width: 24,
+                            ),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: ()async{
+                                  promoCode = await Get.toNamed(
+                                      PromoCodeRouting.config().path);
+                                  setState(() {});
+
+                                },
+                                child:  PaymentTypeWidget(
+                                    title: promoCode.isEmpty?
+                                    LangEnum.addPromo.tr():promoCode,
+                                    color: context.color.primary,
+                                    image: Images.percentageSVG),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      8.ph,
+
+                      Padding(
+                        padding:  EdgeInsets.symmetric(vertical: 8),
+                        child:ElevatedButton(
+                          onPressed: () {},
+                          child: Text(LangEnum.confirm.tr()),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
 }

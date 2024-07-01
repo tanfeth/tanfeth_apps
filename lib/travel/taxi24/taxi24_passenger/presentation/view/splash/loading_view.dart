@@ -20,7 +20,7 @@ class LoadingView extends StatelessWidget {
       Globals.init(),
       //CustomSignalR.init(),
       Images.initImages(),
-      Lottie.initLottie(),
+      LottieFiles.initLottie(),
     ];
     return Scaffold(
       body: FutureBuilder(

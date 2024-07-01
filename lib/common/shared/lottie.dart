@@ -4,13 +4,14 @@ import 'package:tanfeth_apps/common/shared/custom_methods.dart';
 
 
 
-class Lottie {
+class LottieFiles {
   static String correct = "";
-
+  static String promoCode = "";
 
 
   static Future<void> initLottie() async {
     correct = await checkLottie("correct.json");
+    promoCode = await checkLottie("promo_code.json");
   }
 
 

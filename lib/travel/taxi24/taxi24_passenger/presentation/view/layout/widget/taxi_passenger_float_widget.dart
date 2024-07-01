@@ -22,7 +22,7 @@ class _TaxiPassengerFloatWidget extends ConsumerState<TaxiPassengerFloatWidget>{
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        WhereActionButton(),
+         WhereActionButton(),
         CurrentLocationDetector(onTap:()async{
           ref.read(mapProvider.notifier).getCurrentLocation();
         }),

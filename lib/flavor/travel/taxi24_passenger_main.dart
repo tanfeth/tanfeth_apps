@@ -20,11 +20,13 @@ import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_confirm_ph
 import 'package:tanfeth_apps/travel/common/shared/routes/car_istimara_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/promo_code_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/trips_route.dart';
@@ -102,7 +104,8 @@ class Taxi24PassengerMain {
       AddRiderRouting.config().page,
       SetLocationOnMapRouting.config().page,
       ChooseRideRouting.config().page,
-
+      PromoCodeRouting.config().page,
+      CompleteTripRouting.config().page,
 
     ]);
 

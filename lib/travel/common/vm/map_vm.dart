@@ -97,6 +97,7 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     state.markers.clear();
     state.markers.add(Marker(
       markerId: const MarkerId('location'),
+      rotation: 50,
       position: currentPosition,
       icon: state.defaultMarker!,
     ));

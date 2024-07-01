@@ -9,7 +9,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
-import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 

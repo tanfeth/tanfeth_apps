@@ -602,7 +602,7 @@ class Taxi24PassengerLanguages extends MyLanguages {
     addString(
       key: LangEnum.sar.name,
       enValue: 'SAR',
-      arValue: 'ريال سعودي',
+      arValue: 'ريال',
     );
 
 
@@ -1084,57 +1084,54 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'تأكيد الموقع الحالي',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.cash.name,
+      enValue: 'Cash',
+      arValue: 'نقدي',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.addPromo.name,
+      enValue: 'Add Promo',
+      arValue: 'اضف خصم',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.promoCode.name,
+      enValue: 'Promo code',
+      arValue: 'كود الخصم',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
-    );addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.activate.name,
+      enValue: 'Activate',
+      arValue: 'تفعيل',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.completeTrip.name,
+      enValue: 'Complete trip',
+      arValue: 'اتمام الرحلة',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.bankTransfer.name,
+      enValue: "Bank transfer",
+      arValue: 'تحويل بنكي',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
-    );addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.couponDiscount.name,
+      enValue: "Discount coupon (if available)",
+      arValue: 'كوبون خصم (إن وجد)',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.couponHint.name,
+      enValue: "Enter the code here",
+      arValue: 'ادخل الكود هنا',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.onlinePayment.name,
+      enValue: 'Online payment',
+      arValue: 'الدفع الالكتروني',
+    );
+    addString(
+      key: LangEnum.confirmPickUpLocation.name,
+      enValue: 'Confirm pick up location',
+      arValue: 'تأكيد مكان الاستلام',
     );
     addString(
       key: LangEnum.hello.name,
@@ -1142,7 +1139,11 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'مرحبًا',
     );
 
-
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
 
 
 
