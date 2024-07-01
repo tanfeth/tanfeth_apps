@@ -120,6 +120,12 @@ class Taxi24PassengerTheme extends ITheme {
       highlightColor: colorScheme.primaryContainer.withOpacity(.5),
       switchTheme: switchThemeData(brightness: brightness),
       floatingActionButtonTheme: floatingActionButtonTheme(brightness: brightness),
+      expansionTileTheme: ExpansionTileThemeData(
+        iconColor: colorScheme.primary, // Color when the tile is expanded
+        collapsedIconColor: colorScheme.onSurface, // Color when the tile is collapsed
+        backgroundColor: Colors.transparent, // Optional: set the background color when expanded
+        collapsedBackgroundColor: Colors.transparent, // Optional: set the background color when collapsed
+      ),
     );
   }
 

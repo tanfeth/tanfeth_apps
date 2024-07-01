@@ -1138,6 +1138,51 @@ class Taxi24PassengerLanguages extends MyLanguages {
       enValue: 'Hello',
       arValue: 'مرحبًا',
     );
+    addString(
+      key: LangEnum.becomeCaptain.name,
+      enValue: 'Become a captain',
+      arValue: 'أشترك كسائق',
+    );
+    addString(
+      key: LangEnum.tripDetails.name,
+      enValue: 'Trip details',
+      arValue: 'تفاصيل الرحلة',
+    );
+    addString(
+      key: LangEnum.cash.name,
+      enValue: 'Cash',
+      arValue: 'نقدي',
+    );
+    addString(
+      key: LangEnum.total.name,
+      enValue: 'Total',
+      arValue: 'الإجمالي',
+    );
+    addString(
+      key: LangEnum.tripCost.name,
+      enValue: 'Trip cost',
+      arValue: 'تكلفة الرحلة',
+    );
+    addString(
+      key: LangEnum.waitTme.name,
+      enValue: 'Wait time',
+      arValue: 'وقت الانتظار',
+    );
+    addString(
+      key: LangEnum.balance.name,
+      enValue: 'Balance',
+      arValue: 'رصيد',
+    );
+    addString(
+      key: LangEnum.promoCode.name,
+      enValue: 'promo code',
+      arValue: 'كود الخصم',
+    );
+    addString(
+      key: LangEnum.reportTrip.name,
+      enValue: 'Help with this ride',
+      arValue: 'احصل علي مساعدة لهذه الرحلة',
+    );
 
     addString(
       key: LangEnum.hello.name,

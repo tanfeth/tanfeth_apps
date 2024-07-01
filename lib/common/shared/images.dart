@@ -119,6 +119,8 @@ class Images {
   static String scroll = "";
   static String pickUpImage = "";
   static String destinationMarker = "";
+  static String emptyTrip = "";
+
   static String bank = "";
   static String cash = "";
   static String visa = "";
@@ -241,6 +243,7 @@ class Images {
      scroll = await checkImage('scroll.png');
      pickUpImage = await checkImage('pickUp.png');
      destinationMarker = await checkImage('destination_marker.png');
+     emptyTrip = await checkImage('empty_trip.svg');
      bank = await checkImage("bank.png");
      cash = await checkImage("cash.png");
      visa = await checkImage("visa.png");

@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
@@ -9,9 +11,7 @@ import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 
 class MonthsWidget extends ConsumerStatefulWidget {
   final Function(DateTime) callBack;
-
   MonthsWidget({required this.callBack});
-
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
     return _MonthsWidgetState();
@@ -21,7 +21,7 @@ class MonthsWidget extends ConsumerStatefulWidget {
 class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
   List<DateTime> months = [];
   DateTime? selectedMonth;
-   late FixedExtentScrollController controller;
+  late FixedExtentScrollController controller;
 
   Timer? _debounce;
   int _debounceTime = 500;
@@ -29,11 +29,9 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
   @override
   void initState() {
     months = returnMonthsOfYear();
-    selectedMonth =
-        months.firstWhere((element) => element.month == DateTime.now().month&&
-            element.year == DateTime.now().year) ;
-    controller = FixedExtentScrollController(
-        initialItem: months.indexOf(selectedMonth!));
+    selectedMonth = months.firstWhere((element) => element.month == DateTime.now().month&&
+        element.year == DateTime.now().year) ;
+    controller = FixedExtentScrollController(initialItem: months.indexOf(selectedMonth!));
     widget.callBack(selectedMonth ?? DateTime.now());
      super.initState();
   }
@@ -48,7 +46,7 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
           child: RotatedBox(
             quarterTurns: 3,
             child: ListWheelScrollView.useDelegate(
-              itemExtent: 150,
+              itemExtent: 100,
               squeeze: 1,
               useMagnifier: true,
               controller: controller,
@@ -60,20 +58,30 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
               childDelegate: ListWheelChildBuilderDelegate(
                   childCount: months.length,
                   builder: (BuildContext context, int index) {
-                    return RotatedBox(
-                      quarterTurns: -3,
-                      child: Container(
-                        width: 200,
-                        child: Text(
-                          DateFormat('MMMM',
-                           ref.watch(languageProvider)).format(months[index])+'\n'+
-                          '${months[index].year}',
-                          style: selectedMonth == months[index]
-                              ? Theme.of(context).textTheme.headlineMedium?.copyWith(
-                              color: Theme.of(context).colorScheme.primary)
-                              : Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: Theme.of(context).colorScheme.primary),
-                          textAlign: TextAlign.center,
+                    return GestureDetector(
+                      onTap: ()=>{
+                        controller.animateToItem(index, duration: Duration(milliseconds: _debounceTime), curve: Curves.easeInOut)
+                      },
+                      child: RotatedBox(
+                        quarterTurns: -3,
+                        child: Container(
+                          margin: 6.toHorizontal,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: context.color.primaryContainer,
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: Text(
+                            DateFormat('MMMM',
+                             ref.watch(languageProvider)).format(months[index])+'\n'+
+                            '${months[index].year}',
+                            style: selectedMonth == months[index]
+                                ? context.text.titleMedium?.copyWith(
+                                color:  context.color.primary)
+                                :  context.text.titleSmall?.copyWith(
+                                color: context.color.onPrimaryContainer),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     );

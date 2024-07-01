@@ -12,6 +12,7 @@ class TripsRouting extends RoutingConfig {
   static const String _path = '/Trips/';
   static const String index = 'index';
 
+
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
