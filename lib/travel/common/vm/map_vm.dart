@@ -12,9 +12,6 @@ import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
 
 
-// final mapProvider =
-// StateNotifierProvider<MapVM, ParamMapModel>((ref) =>
-//     MapVM(ParamMapModel()));
 
 final mapProvider =
 StateNotifierProvider.autoDispose<MapVM, ParamMapModel>((ref) {

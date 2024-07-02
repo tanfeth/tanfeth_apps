@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>708944208533-4vunr3u5hfnp09tlbaloeo79brrhf7kj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.708944208533-4vunr3u5hfnp09tlbaloeo79brrhf7kj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDf4_pSBB0bxJ5uQEMhH0V54K7ncBYj-HQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>708944208533</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.taxi24.driver</string>
+	<key>PROJECT_ID</key>
+	<string>proud-guide-380707</string>
+	<key>STORAGE_BUCKET</key>
+	<string>proud-guide-380707.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:708944208533:ios:93bcff1faabaff1dac319c</string>
+	<key>DATABASE_URL</key>
+	<string>https://proud-guide-380707-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

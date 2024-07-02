@@ -112,7 +112,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: (){
                     Get.toNamed(SetLocationOnMapRouting.config().path,
                         parameters: {
