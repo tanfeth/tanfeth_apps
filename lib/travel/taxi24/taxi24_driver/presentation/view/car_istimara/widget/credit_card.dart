@@ -76,10 +76,8 @@ class CreditCard extends ConsumerWidget {
         if(!isSelect)   GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: (){
-
               showBottomSheetFunction(
                 content: CreditCardBottomSheetContent(
-
                 ),
               );
             },

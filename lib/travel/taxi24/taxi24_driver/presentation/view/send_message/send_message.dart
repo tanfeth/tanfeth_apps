@@ -51,8 +51,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,
                           parameters: {
-                            ReportProblemRouting.problemTitle:
-                            Taxi24DriverSendMessageEnum.walletProblem
+                            ReportProblemRouting.problemTitle: Taxi24DriverSendMessageEnum.walletProblem
                           });
                     }),
                 const SmallDivider(),
@@ -75,8 +74,7 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
                     function: () {
                       Get.toNamed(ReportProblemRouting.config().path,
                           parameters: {
-                            ReportProblemRouting.problemTitle:
-                            Taxi24DriverSendMessageEnum.otherProblem
+                            ReportProblemRouting.problemTitle: Taxi24DriverSendMessageEnum.otherProblem
                           });
                     }),
 

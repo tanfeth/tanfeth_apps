@@ -12,6 +12,7 @@ class ProfileCell extends ConsumerWidget {
   final Widget? imageWidget;
   final double? iconHeight;
   final double? iconWidth;
+  final double? height;
 
   const ProfileCell(
       {Key? key,
@@ -20,7 +21,9 @@ class ProfileCell extends ConsumerWidget {
       required this.function,
       this.imageWidget,
       this.iconHeight,
-      this.iconWidth})
+      this.iconWidth,
+      this.height,
+      })
       : super(key: key);
 
   @override
@@ -29,14 +32,13 @@ class ProfileCell extends ConsumerWidget {
       behavior: HitTestBehavior.translucent,
       onTap: function,
       child: SizedBox(
-        height: 64,
+        height:height?? 64,
         child: Row(
           children: [
             Expanded(
               child: Row(
                 children: [
-                  if (imageWidget != null) ...[
-                    imageWidget ?? const SizedBox.shrink()
+                  if (imageWidget != null) ...[imageWidget ?? const SizedBox.shrink()
                   ] else ...[
                     icon.isNotEmpty
                         ? SvgPicture.asset(

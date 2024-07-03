@@ -8,6 +8,7 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/trip_details_route.dart';
@@ -107,7 +108,9 @@ class _TripDetailsScreenState extends State<TripDetailsView> {
                             backgroundColor: WidgetStateProperty.all<Color?>(context.color.surface),
                             foregroundColor: WidgetStateProperty.all<Color?>(context.color.onSurface),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(SendMessageRouting.config().path);
+                          },
                           child: Text(LangEnum.reportTrip.tr(),style: context.text.bodyLarge,),
                         ),
                         24.ph,

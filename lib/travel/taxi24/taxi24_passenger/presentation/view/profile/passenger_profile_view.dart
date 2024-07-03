@@ -10,7 +10,6 @@ import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
@@ -20,9 +19,10 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/app_version.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:showcaseview/showcaseview.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/my_trip/passenger_my_trip_view.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/profile/widget/passenger_profile_data_widget.dart';
 
 
@@ -64,7 +64,6 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 28,),
                   PassengerProfileDataWidget(),
                   40.ph,
                   Expanded(
@@ -90,6 +89,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 Scaffold.of(context).closeDrawer();
                                 Navigator.push(context, MaterialPageRoute(builder: (_)=>PassengerMyTripView()));
                                 //Get.toNamed(EarningRouting.config().path);
+                                Get.toNamed(MyTripRouting.config().path);
                               }),
                           const LargeDivider(),
                           // favourite place
@@ -97,6 +97,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.favourite.tr(),
                               icon: Images.locationSVG,
                               function: () {
+                                Get.toNamed(FavoritePlaceRouting.config().path);
                                 Scaffold.of(context).closeDrawer();
                                // Get.toNamed(WalletRouting.config().path);
                               }),
@@ -129,6 +130,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 Scaffold.of(context).closeDrawer();
                                 Get.toNamed(SendMessageRouting.config().path);
                               }),
+                              function: () {}),
                           const LargeDivider(),
                           // terms And Conditions
                           ProfileCell(
@@ -139,8 +141,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
-                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+
-                                        ref.watch(languageProvider)}',
+                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ ref.watch(languageProvider)}',
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
                                   });
