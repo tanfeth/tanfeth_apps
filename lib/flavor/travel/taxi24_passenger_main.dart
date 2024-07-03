@@ -23,6 +23,9 @@ import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart'
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_cards.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
@@ -104,7 +107,11 @@ class Taxi24PassengerMain {
       SetLocationOnMapRouting.config().page,
       ChooseRideRouting.config().page,
       TripDetailsRouting.config().page,
-
+      FavoritePlaceRouting.config().page,
+      MyTripRouting.config().page,
+      WalletRouting.config().page,
+      WalletRouting.config().page,
+      MyCardsRouting.config().page,
     ]);
 
     mainCommon(

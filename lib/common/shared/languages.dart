@@ -563,7 +563,9 @@ enum LangEnum {
   howStartDriver,
   vehicleRequirements, darkMode, lightMode, chooseFromGallery, menu, menuOption, walletOption, startOption,
   rateOption, compilationRateOption, acceptanceRateOption, carsOption, priceOption, shareOption, rateAppOption, noData, hello, whereTo, selectDestination, changeRide, currentLocation, whereToGo, setOnMap, scrollHere, previousTrips, changeRider, addNewRider, requestRideForSomeone, addRider, ridersMustLeast18Years, theyReceiveTripInfoTextMmessage, payTripCreditOrPayDriverCash, trackTripFromApp, nameAppearToDriver, getNumberContacts, selectAvalidMobileNumber, selectLocation, chooseRide,
-  becomeCaptain, confirmPickLocation,tripDetails,cash,tripCost,waitTme, balance ,promoCode , reportTrip
+  becomeCaptain, confirmPickLocation,tripDetails,cash,tripCost,waitTme,
+  balance ,promoCode , reportTrip,transactions,currentBalance,myCards,
+  noPlace,addAddressToFavourite,addPlace,addCards,noCard,addCardList
 }
 
 class MyLanguages extends Translations {

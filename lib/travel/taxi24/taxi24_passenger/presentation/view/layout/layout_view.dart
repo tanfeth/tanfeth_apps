@@ -9,6 +9,7 @@ import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extensio
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/wallet_route.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
 
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
@@ -35,11 +36,7 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>
 
 
   final List<Widget> navScreens = <Widget>[
-    Scaffold(
-      body: Container(
-        color: Colors.white,
-      ),
-    ),
+    WalletRouting.config().widget,
     HomeRouting.config().widget,
     ProfileRouting.config().widget,
 

@@ -1186,6 +1186,53 @@ class Taxi24PassengerLanguages extends MyLanguages {
       enValue: 'Help with this ride',
       arValue: 'احصل علي مساعدة لهذه الرحلة',
     );
+    addString(
+      key: LangEnum.transactions.name,
+      enValue: 'See transactions',
+      arValue: 'المعاملات',
+    );
+    addString(
+      key: LangEnum.currentBalance.name,
+      enValue: 'Current balance',
+      arValue: 'الرصيد الحالي',
+    );
+    addString(
+      key: LangEnum.myCards.name,
+      enValue: 'My cards',
+      arValue: 'بطاقاتي',
+    );
+
+    addString(
+      key: LangEnum.noPlace.name,
+      enValue: 'You have no saved places',
+      arValue: 'ليس لديك أماكن مفضلة',
+    );
+    addString(
+      key: LangEnum.addAddressToFavourite.name,
+      enValue: 'Add your frequently used addresses, so you can find them in one place.',
+      arValue: 'أضف العناوين التي تستخدمها بشكل متكرر، حتى تتمكن من العثور عليها في مكان واحدة',
+    );
+    addString(
+      key: LangEnum.addPlace.name,
+      enValue: 'Add place',
+      arValue: 'أضف مكان',
+    );
+    addString(
+      key: LangEnum.addCards.name,
+      enValue: 'Add card',
+      arValue: 'إضافة بطاقة',
+    );
+    addString(
+      key: LangEnum.noCard.name,
+      enValue: 'No cards added',
+      arValue: 'لم تتم إضافة بطاقات',
+    );
+    addString(
+      key: LangEnum.addCardList.name,
+      enValue: 'Add a card to be able to top up your wallet and pay for your trips by card',
+      arValue: 'أضف بطاقة لتتمكن من تعبئة محفظتك ودفع تكاليف رحلاتك بالبطاقة',
+    );
+
 
 
 

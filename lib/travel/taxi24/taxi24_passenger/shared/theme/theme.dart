@@ -111,9 +111,9 @@ class Taxi24PassengerTheme extends ITheme {
       outlinedButtonTheme: outlinedButtonThemeData(brightness: brightness),
       textButtonTheme: textButtonThemeData(brightness: brightness),
       checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStatePropertyAll(colorScheme.primary),
-        checkColor: WidgetStatePropertyAll(colorScheme.onPrimary),
-        side: BorderSide(width: 2, color: colorScheme.onPrimaryContainer),
+        fillColor: WidgetStatePropertyAll(colorScheme.surface),
+        checkColor: WidgetStatePropertyAll(colorScheme.surface),
+        side: BorderSide(width: 2, color: colorScheme.primary),
       ),
       colorScheme: colorScheme.copyWith(surface: colorScheme.surface),
       splashColor: colorScheme.primaryContainer.withOpacity(.5),
@@ -184,12 +184,9 @@ class Taxi24PassengerTheme extends ITheme {
       titleMedium: TextStyle(color: colorScheme.onSurface, fontSize: 18, fontWeight: FontWeight.w700),
       titleSmall: TextStyle(color: colorScheme.onSurface, fontSize: 16, fontWeight: FontWeight.w400),
       bodyLarge: TextStyle(color: colorScheme.onSurface, fontSize: 15, fontWeight: FontWeight.w500),
-      bodyMedium: TextStyle(color: colorScheme.onSurface,
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-      ),
-      labelLarge: TextStyle(color: colorScheme.onSurface, fontSize: 14, fontWeight: FontWeight.w800),
+      bodyMedium: TextStyle(color: colorScheme.onSurface, fontSize: 14, fontWeight: FontWeight.w400,),
       bodySmall: TextStyle(color: colorScheme.onSurface, fontSize: 13, fontWeight: FontWeight.w400),
+      labelLarge: TextStyle(color: colorScheme.onSurface, fontSize: 14, fontWeight: FontWeight.w800),
       labelSmall: TextStyle(color: colorScheme.onSurface, fontSize: 11, fontWeight: FontWeight.w400),
     );
   }

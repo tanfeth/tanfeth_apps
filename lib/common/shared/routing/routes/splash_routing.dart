@@ -7,7 +7,6 @@ import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/splash/splash_view.dart';
 
-import '../../../../travel/taxi24/taxi24_passenger/presentation/view/profile/passenger_profile_view.dart';
 
 class SplashRouting {
   SplashRouting();
@@ -19,9 +18,7 @@ class SplashRouting {
       case AppNameEnum.taxi24Driver:
         return RoutingConfig(path: _path, widget: const SplashView());
       case AppNameEnum.taxi24Passenger:
-        //todo
-        return RoutingConfig(path: _path, widget: const TaxiPassengerProfileView());
-
+        return RoutingConfig(path: _path, widget: const TaxiPassengerSplashView());
       default:
         return RoutingConfig(path: _path, widget: const SplashView());
     }
