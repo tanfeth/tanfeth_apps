@@ -10,6 +10,7 @@ import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
@@ -87,7 +88,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               icon: Images.fullClockSVG,
                               function: () {
                                 Scaffold.of(context).closeDrawer();
-                                Navigator.push(context, MaterialPageRoute(builder: (_)=>PassengerMyTripView()));
+                                Get.toNamed( MyTripRouting.config().path);
                                 //Get.toNamed(EarningRouting.config().path);
                                 Get.toNamed(MyTripRouting.config().path);
                               }),
@@ -130,7 +131,6 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 Scaffold.of(context).closeDrawer();
                                 Get.toNamed(SendMessageRouting.config().path);
                               }),
-                              function: () {}),
                           const LargeDivider(),
                           // terms And Conditions
                           ProfileCell(
