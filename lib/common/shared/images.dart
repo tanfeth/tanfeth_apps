@@ -124,6 +124,9 @@ class Images {
   static String bank = "";
   static String cash = "";
   static String visa = "";
+  static String sedan = "";
+  static String familyCar = "";
+
 
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
@@ -247,6 +250,8 @@ class Images {
      bank = await checkImage("bank.png");
      cash = await checkImage("cash.png");
      visa = await checkImage("visa.png");
+     familyCar = await checkImage("family_car.png");
+     sedan = await checkImage("sedan.png");
   }
 
 

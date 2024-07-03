@@ -43,88 +43,87 @@ class _WelcomeViewState extends ConsumerState<WelcomeView>{
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: true,
+          extendBody: true,
           body: WebWidth(
-            child: SafeArea(
-              child: Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.topRight,
-                        colors: [
-                          context.color.primary,
-                          context.color.primary.withOpacity(0.4),
-                        ])),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: SingleChildScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Center(
-                                child: SvgPicture.asset(
-                                  Images.appLogoSVG,
-                                  height: 170,
-                                  width: 170,
+            child: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        context.color.primary,
+                        context.color.primary.withOpacity(0.4),
+                      ])),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: SvgPicture.asset(
+                                Images.appLogoSVG,
+                                height: 170,
+                                width: 170,
+                              ),
+                            ),
+                            50.ph,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SvgPicture.asset(
+                                  Images.welcomeGroup10SVG,
                                 ),
-                              ),
-                              50.ph,
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SvgPicture.asset(
-                                    Images.welcomeGroup10SVG,
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 100),
+                                  child: SvgPicture.asset(
+                                    Images.welcomeGroup14SVG,
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 100),
-                                    child: SvgPicture.asset(
-                                      Images.welcomeGroup14SVG,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              20.ph,
-                            ],
-                          ),
+                                ),
+                              ],
+                            ),
+                            20.ph,
+                          ],
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            LangEnum.welcomeTitle.tr(),
-                            style: context.text.titleMedium,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          LangEnum.welcomeTitle.tr(),
+                          style: context.text.titleMedium,
+                        ),
+                        5.ph,
+                        Text(
+                          LangEnum.welcomeDes.tr(),
+                          style: context.text.bodySmall,
+                        ),
+                        50.ph,
+                        ElevatedButton(
+                          style:
+                          const ButtonStyle().OnBackOutlinedButton(context),
+                          onPressed: () {
+                            Get.toNamed(LoginRouting.config().path);
+                          },
+                          child: Text(
+                            LangEnum.start.tr(),
+                            style: TextStyle(color: context.color.onSurface),
                           ),
-                          5.ph,
-                          Text(
-                            LangEnum.welcomeDes.tr(),
-                            style: context.text.bodySmall,
-                          ),
-                          50.ph,
-                          ElevatedButton(
-                            style:
-                            const ButtonStyle().OnBackOutlinedButton(context),
-                            onPressed: () {
-                              Get.toNamed(LoginRouting.config().path);
-                            },
-                            child: Text(
-                              LangEnum.start.tr(),
-                              style: TextStyle(color: context.color.onSurface),
-                            ),
-                          ),
-                          20.ph,
-                        ],
-                      ),
+                        ),
+                        20.ph,
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

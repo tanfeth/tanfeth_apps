@@ -614,7 +614,7 @@ enum LangEnum {
   tripCost,
   waitTme,
   balance,
-  reportTrip
+  reportTrip, sedan, familyCar, route, findADriver
 }
 
 class MyLanguages extends Translations {

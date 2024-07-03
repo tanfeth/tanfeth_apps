@@ -25,4 +25,15 @@ class DestinationListVM extends ListNotifierVMA<LocationModel,
     state.insert(index, element);
     state = List.from(state);
   }
+
+
+  void addToMyList(List<LocationModel> list,bool clearList) {
+    if(clearList){
+      state = [];
+    }
+    state = list;
+    super.addToList(list);
+  }
+
+
 }

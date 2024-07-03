@@ -17,7 +17,9 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/se
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/widget/set_location_map_widget.dart';
 
 class SetLocationOnMapView extends ConsumerStatefulWidget {
-  const SetLocationOnMapView();
+  final String? pageType;
+
+  const SetLocationOnMapView({this.pageType});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -30,7 +32,12 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
 
   @override
   void initState() {
-    pageType =Get.parameters[SetLocationOnMapRouting.pageType] ?? '';
+    if(widget.pageType != null){
+      pageType = widget.pageType??'';
+    }else {
+      pageType =Get.parameters[SetLocationOnMapRouting.pageType] ?? '';
+    }
+
     super.initState();
   }
 
@@ -51,7 +58,11 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
         child: SafeArea(
           child: Stack(
             children: [
-              SetLocationMapWidget(),
+              SetLocationMapWidget(
+                pageType: pageType.isNotEmpty?
+                pageType:customAppFlavor.commonEnum.locationTypeEnum
+                    .pickUp,
+              ),
 
               // Positioned(
               //   bottom: MySizes.defaultPadding * 5,

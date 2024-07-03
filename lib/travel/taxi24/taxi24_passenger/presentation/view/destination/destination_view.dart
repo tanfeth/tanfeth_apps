@@ -29,7 +29,6 @@ class _DestinationView extends ConsumerState<DestinationView>{
 
   @override
   void initState() {
-    ref.read(destinationListProvider.notifier).clearList();
     super.initState();
   }
 
@@ -59,17 +58,21 @@ class _DestinationView extends ConsumerState<DestinationView>{
                 ElevatedButton(
                   onPressed: () async {
                     if(ref.read(destinationListProvider).isNotEmpty){
-                      Get.toNamed(SetLocationOnMapRouting.config().path,
-                          parameters: {
-                            SetLocationOnMapRouting.pageType:
-                            customAppFlavor.commonEnum.locationTypeEnum.pickUp
-                          });
+                      Get.back();
+
+                      // Get.toNamed(SetLocationOnMapRouting.config().path,
+                      //     parameters: {
+                      //       SetLocationOnMapRouting.pageType:
+                      //       customAppFlavor.commonEnum.locationTypeEnum.pickUp
+                      //     });
                     }else {
                       showToast(LangEnum.selectDestination.tr());
                     }
                   },
                   child: Text(LangEnum.confirm.tr()),
                 ),
+
+                10.ph
               ],
             ),
           ),

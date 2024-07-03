@@ -78,6 +78,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.editProfile.tr(),
                               icon: Images.personInfoSVG,
                               function: () {
+                                Scaffold.of(context).closeDrawer();
                                 Get.toNamed(PersonalInfoRouting.config().path);
                               }),
                           const LargeDivider(),
@@ -86,6 +87,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.myTrips.tr(),
                               icon: Images.fullClockSVG,
                               function: () {
+                                Scaffold.of(context).closeDrawer();
                                 Navigator.push(context, MaterialPageRoute(builder: (_)=>PassengerMyTripView()));
                                 //Get.toNamed(EarningRouting.config().path);
                               }),
@@ -95,6 +97,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.favourite.tr(),
                               icon: Images.locationSVG,
                               function: () {
+                                Scaffold.of(context).closeDrawer();
                                // Get.toNamed(WalletRouting.config().path);
                               }),
                           const LargeDivider(),
@@ -103,6 +106,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.notifications.tr(),
                               icon: Images.alertSVG,
                               function: () {
+                                Scaffold.of(context).closeDrawer();
                                 Get.toNamed(NotificationsRouting.config().path);
                               }),
                           const LargeDivider(),
@@ -110,21 +114,28 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                           ProfileCell(
                               title: LangEnum.language.tr(),
                               icon: Images.languageSVG,
-                              function: () => showBottomSheetFunction(
+                              function: () {
+                                Scaffold.of(context).closeDrawer();
+                                showBottomSheetFunction(
                                 content: const LangBottomSheet(),
-                              )),
+                              );
+                              }),
                           const LargeDivider(),
                           // help
                           ProfileCell(
                               title: LangEnum.help.tr(),
                               icon: Images.helpSVG,
-                              function: () => Get.toNamed(SendMessageRouting.config().path)),
+                              function: () {
+                                Scaffold.of(context).closeDrawer();
+                                Get.toNamed(SendMessageRouting.config().path);
+                              }),
                           const LargeDivider(),
                           // terms And Conditions
                           ProfileCell(
                               title: LangEnum.termsAndConditions.tr(),
                               icon: Images.aboutProfileSVG,
-                              function: () => Get.toNamed(
+                              function: () {
+                                Get.toNamed(
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
@@ -132,7 +143,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                         ref.watch(languageProvider)}',
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
-                                  })),
+                                  });
+                              }),
                           const LargeDivider(),
                           // rate app
                           Showcase(
@@ -150,7 +162,10 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                     width: 25,
                                   ),
                                 ),
-                                function: () => rateAppOnStore()),
+                                function: () {
+                                  Scaffold.of(context).closeDrawer();
+                                  rateAppOnStore();
+                                }),
                           ),
                           const LargeDivider(),
                           //share app
@@ -164,26 +179,33 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   height: 25,
                                   width: 25,
                                 ).hPadding(8),
-                                function: () => shareApp()),
+                                function: () {
+                                  Scaffold.of(context).closeDrawer();
+                                  shareApp();
+                                }),
                           ),
                           const LargeDivider(),
                           // become  a captain
                           ProfileCell(
                               title: LangEnum.becomeCaptain.tr(),
                               icon: Images.becomeCaptainSVG,
-                              function: () => Get.toNamed(
+                              function: () {
+                                Scaffold.of(context).closeDrawer();
+                                Get.toNamed(
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
                                     '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider)}',
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
-                                  })),
+                                  });
+                              }),
                           //log out
                           Center(
                             child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () {
+                                  Scaffold.of(context).closeDrawer();
                                   Get.offAllNamed(WelcomeRouting.config().path);
                                 },
                                 child: Text(

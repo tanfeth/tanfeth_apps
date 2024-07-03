@@ -1,12 +1,16 @@
 
 
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 
 
 class MapWidget extends ConsumerStatefulWidget{
@@ -22,6 +26,8 @@ late ParamMapModel paramMapModel;
 Future mapFuture = Future.delayed(Duration(milliseconds: 1000), () => true);
 bool isMapVisible = false;
 final Completer<GoogleMapController> completer = Completer();
+late ToggleAnimationVM toggleAnimationVM;
+
 
 
   @override
@@ -32,6 +38,7 @@ final Completer<GoogleMapController> completer = Completer();
 
   initBuild(){
      paramMapModel =ref.watch(mapProvider);
+     toggleAnimationVM = ref.watch(toggleAnimationProvider.notifier);
 
   }
 
@@ -54,6 +61,12 @@ final Completer<GoogleMapController> completer = Completer();
           opacity: isMapVisible ? 1.0 : 0,
           duration: const Duration(milliseconds: 600),
           child: GoogleMap(
+            gestureRecognizers: Set()
+              ..add(Factory<PanGestureRecognizer>(() => PanGestureRecognizer()))
+              ..add(Factory<ScaleGestureRecognizer>(() => ScaleGestureRecognizer()))
+              ..add(Factory<TapGestureRecognizer>(() => TapGestureRecognizer()))
+              ..add(Factory<VerticalDragGestureRecognizer>(
+                      () => VerticalDragGestureRecognizer())),
             compassEnabled: false,
             mapToolbarEnabled: false,
             myLocationEnabled: true,
@@ -62,11 +75,16 @@ final Completer<GoogleMapController> completer = Completer();
             tiltGesturesEnabled: false,
             zoomControlsEnabled: false,
             mapType: MapType.normal,
+            onTap: (latLng){
+              toggleAnimationVM.toggleHeaderAnimate(false);
+              toggleAnimationVM.toggleConfirmFooterAnimate(true);
+              toggleAnimationVM.toggleTripFooterAnimate(false);
+            },
             initialCameraPosition:
             CameraPosition(zoom:  paramMapModel.mapZoom,
                 target: paramMapModel.currentLatLng),
             onMapCreated: (GoogleMapController controller) {
-          
+
               ref.read(mapProvider.notifier).
               updateMapController(mapController: controller);
               if (!completer.isCompleted) {
@@ -96,5 +114,7 @@ final Completer<GoogleMapController> completer = Completer();
     );
 
   }
-  
+
+
+
 }

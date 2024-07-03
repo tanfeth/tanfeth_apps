@@ -54,6 +54,8 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     state.currentLatLng = LatLng(
         position.target.latitude,
       position.target.longitude,);
+    getAddressFromLatLong(lat: position.target.latitude,
+    long: position.target.longitude);
     updateModel();
   }
 
@@ -121,7 +123,7 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       state.currentAddress = "${placeMarks.first.country} , ${placeMarks[0].street}";
       state.currentAddressName = "${place.name}";
     });
-
+    updateModel();
   }
 
 

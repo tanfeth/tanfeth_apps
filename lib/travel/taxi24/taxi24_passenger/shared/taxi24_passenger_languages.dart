@@ -1185,10 +1185,39 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
     addString(
+      key: LangEnum.sedan.name,
+      enValue: 'Sedan',
+      arValue: 'سيدان',
+    );
+
+    addString(
+      key: LangEnum.familyCar.name,
+      enValue: 'Family',
+      arValue: 'سيارة عائلية',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.findADriver.name,
+      enValue: 'Find a driver',
+      arValue: 'ابحث عن سائق',
+    );
+    addString(
       key: LangEnum.hello.name,
       enValue: 'Hello',
       arValue: 'مرحبًا',
     );
+    addString(
+      key: LangEnum.hello.name,
+      enValue: 'Hello',
+      arValue: 'مرحبًا',
+    );
+
 
 
 

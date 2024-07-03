@@ -62,18 +62,17 @@ class _SplashViewState extends ConsumerState<TaxiPassengerSplashView> {
           backgroundColor: Theme.of(context).colorScheme.surface,
         ),
         body: WebWidth(
-          child: SafeArea(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                  height: 250, width: 250,
-                  child: Image.asset(Images.appLogo)),
-              SizedBox(height: MySizes.defaultPadding),
-              ProgressLoading.showIndicator(context,
-              color:  context.color.onPrimary),
-            ],
-          )),
+          child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+          Container(
+              height: 250, width: 250,
+              child: Image.asset(Images.appLogo)),
+          SizedBox(height: MySizes.defaultPadding),
+          ProgressLoading.showIndicator(context,
+          color:  context.color.onPrimary),
+                      ],
+                    ),
         ),
       ),
     );
