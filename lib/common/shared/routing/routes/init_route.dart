@@ -12,9 +12,9 @@ class InitRouting {
 
   static  RoutingConfig config() => RoutingConfig(
     path: "/init",
-   // widget: LoadingView(),
+     widget: LoadingView(),
     ///Todo change route
-    widget: PassengerWalletView(),
+   // widget: PassengerWalletView(),
   );
 }
 

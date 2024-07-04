@@ -29,32 +29,32 @@ class CompleteTripView extends ConsumerStatefulWidget{
 class _CompleteTripView extends ConsumerState<CompleteTripView>{
 
 
-  List<CarTypeModel> carTypeList = [];
-
-  late CarTypeVM carTypeVM;
-  late int currentIndex ;
+  // List<CarTypeModel> carTypeList = [];
+  //
+  // late CarTypeVM carTypeVM;
+  // late int currentIndex ;
   final TextEditingController controller = TextEditingController();
   String promoCode = '';
 
 
   @override
   void initState() {
-    for(int i =0; i< 3 ; i ++){
-      CarTypeModel carTypeModel = CarTypeModel();
-      carTypeModel.carType= "Sedan";
-      carTypeModel.carImage ='https://picsum.photos/200/300';
-      carTypeModel.passengersNumber= 4;
-      carTypeModel.tripCost= 44;
-      carTypeList.add(carTypeModel);
-    }
+    // for(int i =0; i< 3 ; i ++){
+    //   CarTypeModel carTypeModel = CarTypeModel();
+    //   carTypeModel.carType= "Sedan";
+    //   carTypeModel.carImage ='https://picsum.photos/200/300';
+    //   carTypeModel.passengersNumber= 4;
+    //   carTypeModel.tripCost= 44;
+    //   carTypeList.add(carTypeModel);
+    // }
 
     super.initState();
   }
 
 
   initBuild(){
-    carTypeVM = ref.watch(carTypeProvider.notifier);
-    currentIndex = ref.watch(carTypeProvider);
+    // carTypeVM = ref.watch(carTypeProvider.notifier);
+    // currentIndex = ref.watch(carTypeProvider);
   }
 
 
@@ -66,7 +66,7 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
 
     return Scaffold(
       appBar: MainAppBar(
-        title: LangEnum.completeTrip.tr(),
+        title: LangEnum.choosePaymentMethod.tr(),
         leadingWidget: const BackButtonWidget(),
       ),
       body: WebWidth(
@@ -80,23 +80,23 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
                     physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: [
-                        ...List.generate(carTypeList.length, (index) =>
-                            InkWell(
-                              onTap: () {
-                                carTypeVM.changeIndex(index);
-                              },
-                              child: Container(
-                                  decoration: currentIndex == index ?
-                                  BoxDecoration(
-                                      border: Border.all(
-                                          color: context.color.primary, width: 2),
-                                      color: context.color.primary.withOpacity(0.2),
-                                      borderRadius:
-                                      BorderRadius.circular(8)): null,
-                                  child: CarTypeCell(carTypeModel: carTypeList[index],)),
-                            )),
-                        25.ph,
-                        const LargeDivider(),
+                        // ...List.generate(carTypeList.length, (index) =>
+                        //     InkWell(
+                        //       onTap: () {
+                        //         carTypeVM.changeIndex(index);
+                        //       },
+                        //       child: Container(
+                        //           decoration: currentIndex == index ?
+                        //           BoxDecoration(
+                        //               border: Border.all(
+                        //                   color: context.color.primary, width: 2),
+                        //               color: context.color.primary.withOpacity(0.2),
+                        //               borderRadius:
+                        //               BorderRadius.circular(8)): null,
+                        //           child: CarTypeCell(carTypeModel: carTypeList[index],)),
+                        //     )),
+                        // 25.ph,
+                        // const LargeDivider(),
                         25.ph,
                         const PaymentMethodsWidget(),
                         15.ph,
@@ -113,10 +113,13 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
 
                 ElevatedButton(
                   onPressed: () async {
+                    Get.back();
                    // Get.offNamed(AddRiderRouting.config().path);
                   },
                   child: Text(LangEnum.confirm.tr()),
                 ),
+
+                25.ph,
               ],
             ),
           ),

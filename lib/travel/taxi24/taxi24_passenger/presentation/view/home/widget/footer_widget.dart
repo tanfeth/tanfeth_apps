@@ -2,20 +2,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
 
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/car_type_cell.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_car_list.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_pay_way_widget.dart';
 
 
 class FooterWidget extends ConsumerStatefulWidget{
@@ -60,34 +60,48 @@ class _FooterWidget extends ConsumerState<FooterWidget>{
                 FooterCarList(),
 
                 10.ph,
-                SmallDivider(),
 
                 ///Pick up location
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        Images.pickUp,
-                      ),
-
-                      10.pw,
-                      Expanded(
-                        child: Text(
-                          ref.watch(pickUpLocationProvider).description??'',
-                          style: context.text.bodyMedium,
+                InkWell(
+                  onTap: (){
+                    ref.read(destinationListProvider.notifier)
+                    .clearList();
+                    ref.read(toggleAnimationProvider.notifier)
+                        .toggleConfirmFooterAnimate(true);
+                    ref.read(toggleAnimationProvider.notifier)
+                        .toggleTripFooterAnimate(false);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          Images.pickUp,
+                          height: 20,
+                            width: 20,
                         ),
-                      ),
-                    ],
+
+                        10.pw,
+                        Expanded(
+                          child: Text(
+                            ref.watch(pickUpLocationProvider).description??'',
+                            style: context.text.bodyMedium,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
 
                 10.ph,
 
+                ///Destination widget
                 InkWell(
                   onTap: (){
-                    Get.toNamed(DestinationRouting.config().path);
+                    showBottomSheetFunction(
+                      content:DestinationRouting.config().widget,
+                    );
                   },
                   child: Container(
                     padding: EdgeInsets.all(8),
@@ -98,8 +112,8 @@ class _FooterWidget extends ConsumerState<FooterWidget>{
                             children: [
                               SvgPicture.asset(
                                 Images.formFieldCircleSVG,
-                                width: 23,
-                                height: 23,
+                                height: 20,
+                                width: 20,
                               ),
                               20.pw,
                               if(ref.watch(destinationListProvider).isEmpty)...[
@@ -132,14 +146,9 @@ class _FooterWidget extends ConsumerState<FooterWidget>{
 
                         GestureDetector(
                           onTap: (){
-
-                            Get.toNamed(DestinationRouting.config().path);
-
-                            // Get.toNamed(SetLocationOnMapRouting.config().path,
-                            //     parameters: {
-                            //       SetLocationOnMapRouting.pageType:
-                            //       customAppFlavor.commonEnum.locationTypeEnum.destination
-                            //     });
+                            showBottomSheetFunction(
+                              content:DestinationRouting.config().widget,
+                            );
                           },
                           child: Icon(
                             Icons.add,
@@ -153,17 +162,70 @@ class _FooterWidget extends ConsumerState<FooterWidget>{
                   ),
                 ),
 
+                10.ph,
+
+                ///Pay way
+                FooterPayWayWidget(),
+
+
               ],
             ),
           ),
 
 
 
-          ElevatedButton(
-            onPressed: () async {
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () async {
+                
+                  },
+                  child: Text(LangEnum.findADriver.tr()),
+                ),
+              ),
 
-            },
-            child: Text(LangEnum.findADriver.tr()),
+              if(ref.watch(destinationListProvider).isNotEmpty)
+              Row(
+                children: [
+                  10.pw,
+                  InkWell(
+                    onTap: (){
+                      showBottomSheetFunction(
+                        content:CompleteTripRouting.config().widget,
+                      );
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 80,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: context.color.primary
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            ref.watch(carTypeProvider) == 0?
+                            '50':'70',
+                            style: context.text.titleMedium?.copyWith(
+                                color: context.color.onPrimary
+                            ),
+                          ),
+
+                          Text(
+                            LangEnum.sar.tr(),
+                            style: TextStyle(
+                                color: context.color.onPrimary
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
+            ],
           ),
 
 

@@ -10,6 +10,7 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/choose_ride_map_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
@@ -68,10 +69,15 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
               children: [
 
                 ///Map
-                SetLocationMapWidget(
-                  pageType: customAppFlavor.commonEnum.locationTypeEnum.pickUp,
-                ),
+                if(ref.watch(destinationListProvider).isEmpty)...[
+                  SetLocationMapWidget(
+                    pageType: customAppFlavor.commonEnum.locationTypeEnum.pickUp,
+                  ),
+                ]else...[
+                  ChooseRideMapWidget(),
+                ],
 
+                ///Current location
                 Positioned.fill(
                   child: Align(
                     alignment: Alignment.bottomLeft,
@@ -89,6 +95,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                 ),
 
                 ///Marker
+                if(ref.watch(destinationListProvider).isEmpty)
                 Positioned(
                   bottom: (MediaQuery.sizeOf(context).height) / 2,
                   left: (MediaQuery.sizeOf(context).width - 40) / 2,

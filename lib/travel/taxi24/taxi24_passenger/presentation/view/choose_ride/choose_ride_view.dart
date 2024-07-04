@@ -49,11 +49,7 @@ class _ChooseRideView extends ConsumerState<ChooseRideView>{
         child: SafeArea(
           child: Stack(
             children: [
-              ChooseRideMapWidget(
-                startLatLng: pickUpLatLng,
-                wayLatLng:ref.read(destinationListProvider).map((e) =>
-                e.latLng).toList()
-              ),
+              ChooseRideMapWidget(),
 
               ChooseRideSlideWidget(),
             ],

@@ -4,8 +4,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 mixin  MapGenerateMarkerVMA {
   Future<BitmapDescriptor> generateMapMarker(String imagePath) async {
-    final Uint8List endMarker = await getBytesFromAsset(imagePath, 120);
-    final icon = BitmapDescriptor.fromBytes(endMarker);
+    final Uint8List endMarker = await getBytesFromAsset(imagePath, 25);
+    final icon = BitmapDescriptor.bytes(endMarker);
     return icon;
   }
 

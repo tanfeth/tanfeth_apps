@@ -14,7 +14,8 @@ class ParamMapModel {
   String currentAddressName ='';
    String from = '';
   CameraPosition? cameraPosition;
-
+   LatLng? startLatLng ;
+   List<LatLng?> wayLatLng =  [];
 
   ParamMapModel();
 

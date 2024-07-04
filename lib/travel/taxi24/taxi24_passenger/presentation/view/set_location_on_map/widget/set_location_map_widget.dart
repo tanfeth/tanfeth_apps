@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/vm/set_on_location_map_vm.dart';
 
@@ -69,6 +70,11 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
         }
       },
       onCameraIdle: () async {
+        if(ref.read(destinationListProvider).isNotEmpty &&
+            widget.pageType ==
+                customAppFlavor.commonEnum.locationTypeEnum.pickUp){
+          ref.read(destinationListProvider.notifier).clearList();
+        }
         await ref
             .read(setOnLocationMapProvider.notifier)
             .getAddressFromLatLong();
@@ -82,6 +88,11 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
         }
       },
       onTap: (latLang) async {
+        if(ref.read(destinationListProvider).isNotEmpty &&
+            widget.pageType ==
+                customAppFlavor.commonEnum.locationTypeEnum.pickUp){
+          ref.read(destinationListProvider.notifier).clearList();
+        }
         await ref.read(setOnLocationMapProvider.notifier).getAddressFromLatLong(
             lat: latLang.latitude, long: latLang.longitude);
         if (widget.pageType ==

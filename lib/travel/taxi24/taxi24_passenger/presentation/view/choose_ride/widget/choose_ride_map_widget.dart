@@ -4,19 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
 import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/choose_ride_map_vm.dart';
 import'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
 
 
 class ChooseRideMapWidget extends ConsumerStatefulWidget{
-  final LatLng? startLatLng ;
-  final List<LatLng?> wayLatLng ;
-  const ChooseRideMapWidget({super.key
-    ,required this.startLatLng,
-   required this.wayLatLng});
+
+  const ChooseRideMapWidget({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>_ChooseRideMapWidget();
@@ -35,8 +36,10 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      handleMarkersAndPolyLines();
+    });
 
-    handleMarkersAndPolyLines();
 
     super.initState();
   }
@@ -67,7 +70,7 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
           zoomGesturesEnabled: true,
           zoomControlsEnabled: false,
           mapToolbarEnabled: false,
-          trafficEnabled: false,
+          trafficEnabled: true,
           buildingsEnabled: true,
           myLocationEnabled: true,
           markers: Set<Marker>.of(markers.toSet()),
@@ -84,12 +87,24 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
 
 
 
-  Future<void> addMarker(LatLng? latLng) async{
+  Future<void> addMarker(LatLng? latLng,{int? index}) async{
+    late BitmapDescriptor customIcon;
+
+    if(index != null && index == 0){
+      customIcon=  await ref.read(mapProvider.notifier).generateMapMarker(
+        Images.pickUpImage
+      );
+    }else {
+      customIcon=  await ref.read(mapProvider.notifier).generateMapMarker(
+          Images.destinationMarker
+      );
+    }
     markers.add(
         Marker(
             consumeTapEvents: true,
             markerId: MarkerId(latLng.toString()),
             position: latLng??LatLng(0.0, 0.0),
+            icon:customIcon
         ));
     if(markers.length > 1){
       getDirections(markers);
@@ -101,10 +116,10 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
   Future<void> getDirections(List<Marker> markers) async {
     List<LatLng> polylineCoordinates = [];
     List<PolylineWayPoint> polylineWayPoints = [];
-    for(var i = 0; i<(widget.wayLatLng).length;i++){
+    for(var i = 0; i<(ref.watch(destinationListProvider)).length;i++){
       polylineWayPoints.add(PolylineWayPoint(
-          location: "${widget.wayLatLng[i]?.latitude.toString()},"
-          "${widget.wayLatLng[i]?.longitude.toString()}",stopOver: true));
+          location: "${ref.watch(destinationListProvider)[i].latLng?.latitude.toString()},"
+          "${ref.watch(destinationListProvider)[i].latLng?.longitude.toString()}",stopOver: true));
     }
 
 
@@ -121,11 +136,11 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
           optimizeWaypoints: true,
          wayPoints: polylineWayPoints,
         origin: PointLatLng(
-            widget.startLatLng!.latitude,
-            widget.startLatLng!.longitude), //first added marker
+            ref.watch(pickUpLocationProvider).latLng!.latitude,
+            ref.watch(pickUpLocationProvider).latLng!.longitude), //first added marker
         destination: PointLatLng(
-            (widget.wayLatLng).last?.latitude??0.0,
-            (widget.wayLatLng).last?.longitude??0.0), //last added marker
+            (ref.watch(destinationListProvider)).last.latLng?.latitude??0.0,
+            (ref.watch(destinationListProvider)).last.latLng?.longitude??0.0), //last added marker
 
       ),
       googleApiKey: customAppFlavor.mapApiKey
@@ -159,10 +174,12 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget>{
   }
 
   void handleMarkersAndPolyLines() {
-    widget.wayLatLng.add(widget.startLatLng);
+    List<LocationModel> list = [];
+    list.addAll(ref.watch(destinationListProvider));
+    list.insert(0, ref.watch(pickUpLocationProvider));
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      for(int i =0 ; i <( (widget.wayLatLng.length)) ; i++ ){
-        addMarker(widget.wayLatLng[i]);
+      for(int i =0 ; i <( (list.length)) ; i++ ){
+        addMarker(list[i].latLng,index :i);
       }
     });
 
