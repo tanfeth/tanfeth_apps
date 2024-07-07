@@ -616,7 +616,8 @@ enum LangEnum {
   balance,
   reportTrip, sedan, familyCar, route, findADriver,
   transactions,currentBalance,myCards,
-  noPlace,addAddressToFavourite,addPlace,addCards,noCard,addCardList
+  noPlace,addAddressToFavourite,addPlace,addCards,noCard,addCardList,tripHint,noTransaction,
+  transactionHint,
 }
 
 class MyLanguages extends Translations {

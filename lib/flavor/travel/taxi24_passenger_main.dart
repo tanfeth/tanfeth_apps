@@ -12,6 +12,7 @@ import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_car_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_funds_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_rider_instruction_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_rider_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/analytics_route.dart';
@@ -25,13 +26,14 @@ import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart'
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/my_cards.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/promo_code_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/set_location_on_map_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/transaction_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/trip_details_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/trips_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/wallet_cash_Out_route.dart';
@@ -111,12 +113,11 @@ class Taxi24PassengerMain {
       TripDetailsRouting.config().page,
       FavoritePlaceRouting.config().page,
       MyTripRouting.config().page,
-      WalletRouting.config().page,
-      WalletRouting.config().page,
       MyCardsRouting.config().page,
       PromoCodeRouting.config().page,
       CompleteTripRouting.config().page,
-
+      TransactionRouting.config().page,
+      AddFundsRouting.config().page,
     ]);
 
     mainCommon(
