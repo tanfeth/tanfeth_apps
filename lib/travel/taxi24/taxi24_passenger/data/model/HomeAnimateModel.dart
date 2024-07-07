@@ -9,11 +9,13 @@ class HomeAnimateModel {
   bool? header;
   bool? confirmFooter;
   bool? tripFooter;
+  bool? findDriver;
 
   HomeAnimateModel({
-     this.header = true,
+     this.header = false,
     this.confirmFooter = false,
-    this.tripFooter = false
+    this.tripFooter = false,
+    this.findDriver = false,
 });
 
 
@@ -25,10 +27,11 @@ class HomeAnimateModel {
 
 
   HomeAnimateModel copyWith({ bool? header, bool? confirmFooter ,
-  bool? tripFooter}) => HomeAnimateModel(
+  bool? tripFooter,bool? findDriver}) => HomeAnimateModel(
       header: header ?? this.header,
       confirmFooter: confirmFooter ?? this.confirmFooter,
-      tripFooter: tripFooter ?? this.tripFooter
+      tripFooter: tripFooter ?? this.tripFooter,
+      findDriver: findDriver ?? this.findDriver
   );
   
   

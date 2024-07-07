@@ -24,6 +24,12 @@ void checkCaseStatus({int? index}) {
        }else if(Get.currentRoute == ProfileRouting.config().path && index == 6){
          AppStorage.showProfileCase(false);
        }
+    case AppNameEnum.taxi24Passenger:
+      if(Get.currentRoute == LayoutRouting.config().path && index == 15){
+        AppStorage.showHomeCase(false);
+      }else if(Get.currentRoute == ProfileRouting.config().path && index == 6){
+        AppStorage.showProfileCase(false);
+      }
       default:
         if(Get.currentRoute == HomeRouting.config().path && index == 2){
           AppStorage.showHomeCase(false);

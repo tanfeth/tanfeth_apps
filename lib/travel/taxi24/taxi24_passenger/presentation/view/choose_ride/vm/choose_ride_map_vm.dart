@@ -2,16 +2,24 @@
 
 
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/ParamMapModel.dart';
+import 'package:tanfeth_apps/travel/common/vm/map_vm.dart';
 import 'package:tanfeth_apps/travel/common/vma/map_vma.dart';
-
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
+import'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 final chooseRideMapProvider =
 StateNotifierProvider.autoDispose<ChooseRideMapVM, ParamMapModel>((ref) {
@@ -124,6 +132,10 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     paramMapModel.markers = state.markers;
     paramMapModel.from = state.from;
     paramMapModel.cameraPosition = state.cameraPosition;
+    paramMapModel.polyLines = state.polyLines;
+    paramMapModel.wayLatLng = state.wayLatLng;
+    paramMapModel.currentAddressName = state.currentAddressName;
+    paramMapModel.startLatLng = state.startLatLng;
     setModel(paramMapModel);
   }
 
@@ -141,4 +153,108 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     state.mapZoom = zoom??14;
 
   }
+
+
+
+  Future<void> addMarker(LatLng? latLng,{int? index}) async{
+    late BitmapDescriptor customIcon;
+
+    if(index != null && index == 0){
+      customIcon=  await ref.read(mapProvider.notifier).generateMapMarker(
+          Images.pickUpImage
+      );
+    }else {
+      customIcon=  await ref.read(mapProvider.notifier).generateMapMarker(
+          Images.destinationMarker
+      );
+    }
+    state.markers.add(
+        Marker(
+            consumeTapEvents: true,
+            markerId: MarkerId(latLng.toString()),
+            position: latLng??LatLng(0.0, 0.0),
+            icon:customIcon
+        ));
+    if(state.markers.length > 1){
+      getDirections(state.markers.toList());
+    }
+
+  }
+
+
+  Future<void> getDirections(List<Marker> markers) async {
+    List<LatLng> polylineCoordinates = [];
+    List<PolylineWayPoint> polylineWayPoints = [];
+    PolylinePoints polylinePoints = PolylinePoints();
+
+    for(var i = 0; i<(ref.watch(destinationListProvider)).length;i++){
+      polylineWayPoints.add(PolylineWayPoint(
+          location: "${ref.watch(destinationListProvider)[i].latLng?.latitude.toString()},"
+              "${ref.watch(destinationListProvider)[i].latLng?.longitude.toString()}",stopOver: true));
+    }
+
+
+    /// Result gets little bit late as soon as in video,
+    /// Because package
+    /// Send http request for getting real road routes
+
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+        request: PolylineRequest(
+          mode: TravelMode.driving,
+          avoidFerries: true,
+          avoidTolls: true,
+          avoidHighways: true,
+          optimizeWaypoints: true,
+          wayPoints: polylineWayPoints,
+          origin: PointLatLng(
+              ref.watch(pickUpLocationProvider).latLng!.latitude,
+              ref.watch(pickUpLocationProvider).latLng!.longitude), //first added marker
+          destination: PointLatLng(
+              (ref.watch(destinationListProvider)).last.latLng?.latitude??0.0,
+              (ref.watch(destinationListProvider)).last.latLng?.longitude??0.0), //last added marker
+
+        ),
+        googleApiKey: customAppFlavor.mapApiKey
+    );
+    if (result.points.isNotEmpty) {
+      result.points.forEach((PointLatLng point) {
+        polylineCoordinates.add(
+            LatLng(point.latitude,
+                point.longitude));
+      });
+    } else {
+      print(result.errorMessage);
+    }
+
+    addPolyLine(polylineCoordinates);
+
+  }
+
+
+  void addPolyLine(List<LatLng> polylineCoordinates) {
+    PolylineId id = PolylineId("poly");
+    Polyline polyline = Polyline(
+      polylineId: id,
+      color: Get.context!.color.tertiaryContainer,
+      points: polylineCoordinates,
+      width: 4,
+    );
+    state.polyLines[id] = polyline;
+
+   updateModel();
+  }
+
+  void handleMarkersAndPolyLines() {
+    List<LocationModel> list = [];
+    list.addAll(ref.watch(destinationListProvider));
+    list.insert(0, ref.watch(pickUpLocationProvider));
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      for(int i =0 ; i <( (list.length)) ; i++ ){
+        addMarker(list[i].latLng,index :i);
+      }
+    });
+
+  }
+
+
 }

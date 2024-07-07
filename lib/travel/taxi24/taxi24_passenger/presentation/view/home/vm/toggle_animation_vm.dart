@@ -18,7 +18,7 @@ class ToggleAnimationVM extends StateNotifier<HomeAnimateModel> {
     if(state.header != header){
       state = state.copyWith(
           header: header,
-          confirmFooter: state.confirmFooter,);
+          confirmFooter: state.confirmFooter);
     }
 
   }
@@ -27,9 +27,10 @@ class ToggleAnimationVM extends StateNotifier<HomeAnimateModel> {
   void toggleConfirmFooterAnimate(bool confirmFooter) {
     if(state.confirmFooter != confirmFooter){
       state = state.copyWith(
-        header: state.header,
+        header: true,
         confirmFooter:confirmFooter,
-          tripFooter: state.tripFooter);
+          tripFooter: false,
+          findDriver:false);
     }
 
   }
@@ -37,13 +38,24 @@ class ToggleAnimationVM extends StateNotifier<HomeAnimateModel> {
   void toggleTripFooterAnimate(bool tripFooter) {
     if(state.tripFooter != tripFooter){
       state = state.copyWith(
-        header: state.header,
-        confirmFooter:state.confirmFooter,
-      tripFooter: tripFooter);
+        header: true,
+        confirmFooter:false,
+        tripFooter: tripFooter,
+          findDriver:false);
     }
 
   }
 
+  void toggleFindDriverAnimate(bool findDriver) {
+    if(state.findDriver != findDriver){
+      state = state.copyWith(
+          header: true,
+          confirmFooter:false,
+          tripFooter: false,
+          findDriver:findDriver);
+    }
+
+  }
 
 
 }

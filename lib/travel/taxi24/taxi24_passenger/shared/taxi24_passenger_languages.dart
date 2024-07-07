@@ -1255,15 +1255,177 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'ابحث عن سائق',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.findingDriverForYou.name,
+      enValue: 'Finding a driver for you...',
+      arValue: 'ابحث عن سائق لك...',
     );
     addString(
-      key: LangEnum.hello.name,
-      enValue: 'Hello',
-      arValue: 'مرحبًا',
+      key: LangEnum.areSureWantCancel.name,
+      enValue: 'Are your sure you want to cancel?',
+      arValue: 'هل أنت متأكد أنك تريد الإلغاء؟',
     );
+
+
+    addString(
+      key: LangEnum.cancelRide.name,
+      enValue: 'Cancel ride',
+      arValue: 'إلغاء الرحلة',
+    );
+
+
+    addString(
+      key: LangEnum.whyWantCancel.name,
+      enValue: 'Why do you want to cancel?',
+      arValue: 'لماذا تريد الإلغاء؟',
+    );
+
+    addString(
+      key: LangEnum.noKeepRide.name,
+      enValue: 'No keep ride',
+      arValue: 'لا مواصلة الرحلة',
+    );
+    addString(
+      key: LangEnum.chargedCancelling.name,
+      enValue: 'You will be charged with 5 SAR for cancelling to compensate driver’s time.',
+      arValue: 'سيتم محاسبتك بمبلغ 5 ريال سعودي مقابل الإلغاء لتعويض وقت السائق.سيتم محاسبتك بمبلغ 5 ريال سعودي مقابل الإلغاء لتعويض وقت السائق.',
+    );
+    addString(
+      key: LangEnum.call.name,
+      enValue: 'Call',
+      arValue: 'اتصل',
+    );
+
+
+    addString(
+      key: LangEnum.carCaseHint.name,
+      enValue: 'Press here to choose suitable car type to you',
+      arValue: 'هنا يمكنك اختيار نوع السيارة المناسب لك',
+    );
+
+    addString(
+      key: LangEnum.pickLocationCaseHint.name,
+      enValue: 'Press here to change pick up location',
+      arValue: 'اضغط هنا لتغيير موقع الالتقاط',
+    );
+    addString(
+      key: LangEnum.destinationCaseHint.name,
+      enValue: 'Press here to change or add destination location',
+      arValue: 'اضغط هنا لتغيير أو إضافة موقع الوجهة',
+    );
+
+    addString(
+      key: LangEnum.payWayCaseHint.name,
+      enValue: 'Press here to change payment method or add promo code',
+      arValue: 'اضغط هنا لتغيير طريقة الدفع أو إضافة كود الخصم',
+    );
+
+    addString(
+      key: LangEnum.paymentPriceCaseHint.name,
+      enValue: 'Here you can see trip cost details',
+      arValue: 'هنا يمكنك رؤية تفاصيل تكلفة الرحلة',
+    );
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+    addString(
+      key: LangEnum.route.name,
+      enValue: 'Route',
+      arValue: 'مسار',
+    );
+
+
+
 
 
 

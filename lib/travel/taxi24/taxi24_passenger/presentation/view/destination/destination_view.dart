@@ -7,6 +7,7 @@ import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/choose_ride_map_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_header.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/where_to_go_widget.dart';
@@ -38,7 +39,14 @@ class _DestinationView extends ConsumerState<DestinationView>{
     return Scaffold(
       appBar: MainAppBar(
        titleWidget: DestinationHeader(),
-        leadingWidget: const BackButtonWidget(),
+        leadingWidget:  BackButtonWidget(
+          onTap: (){
+            ref.read(chooseRideMapProvider.notifier)
+                .handleMarkersAndPolyLines();
+            Get.back();
+
+          },
+        ),
       ),
       body: WebWidth(
         child: SafeArea(
@@ -56,6 +64,8 @@ class _DestinationView extends ConsumerState<DestinationView>{
                 ElevatedButton(
                   onPressed: () async {
                     if(ref.read(destinationListProvider).isNotEmpty){
+                      ref.read(chooseRideMapProvider.notifier)
+                      .handleMarkersAndPolyLines();
                       Get.back();
 
                       // Get.toNamed(SetLocationOnMapRouting.config().path,

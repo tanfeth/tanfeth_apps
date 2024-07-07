@@ -4,11 +4,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 
 class HeaderWidget extends ConsumerStatefulWidget{
-  const HeaderWidget();
+  final GlobalKey<State<StatefulWidget>> showcaseKey;
+  const HeaderWidget({
+    super.key,
+    required this.showcaseKey
+});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _HeaderWidget();
@@ -20,9 +28,21 @@ class HeaderWidget extends ConsumerStatefulWidget{
 
 class _HeaderWidget extends ConsumerState<HeaderWidget>{
 
+
+  @override
+  void initState() {
+    if(AppStorage.getHomeCase() == true){
+      Future.delayed(Duration(seconds: 1),(){
+        showCaseEvent(context: context,caseList: [widget.showcaseKey]);
+      });
+
+    }
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
-
     return  SizedBox(
       width: Get.width,
       child: Row(
@@ -61,22 +81,27 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
               onTap: (){
                 Scaffold.of(context).openDrawer();
               },
-              child: FadeInRight(
+              child: Showcase(
+                key: widget.showcaseKey,
+                description: LangEnum.menuOption.tr(),
+                child: FadeInRight(
                   animate: ref.watch(toggleAnimationProvider).header??false,
                   child: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: context.color.primary.withOpacity(0.7),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.menu,
-                        color: context.color.onPrimary,
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: context.color.primary.withOpacity(0.7),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.menu,
+                          color: context.color.onPrimary,
+                        ),
                       ),
                     ),
-                  ) ),
+                ),
+              ),
             ),
           ),
 

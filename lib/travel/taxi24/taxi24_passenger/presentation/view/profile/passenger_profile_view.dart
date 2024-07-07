@@ -49,7 +49,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
   @override
   void initState() {
     if(AppStorage.getProfileCase() == true) {
-      showCaseEvent(context: context, caseList: [four, five, six, seven, eight, nine, ten]);
+      showCaseEvent(context: context,
+          caseList: [four, five, six, seven, eight, nine, ten]);
     }
     super.initState();
   }

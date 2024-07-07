@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
+import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/find_driver_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/choose_ride_map_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/find_driver_view.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_widget.dart';
@@ -32,10 +37,12 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
 
 
   DateTime backPressDateTime = DateTime.now();
+  List<GlobalKey<State<StatefulWidget>>>  showCaseMainList = [];
 
 
   @override
   void initState() {
+    addShowCaseList();
     super.initState();
   }
 
@@ -108,18 +115,44 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                 ),
 
                 ///Header
-                HeaderWidget(),
+                HeaderWidget(
+                  showcaseKey: showCaseMainList[0],
+                ),
 
-                ///Trip footer
+
+                ///Find Driver footer
                 Positioned.fill(
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: FadeInUp(
-                      animate: ref.watch(toggleAnimationProvider).tripFooter??false,
-                      child: const FooterWidget(),
+                      animate: ref.watch(toggleAnimationProvider).findDriver??false,
+                      child: FindDriverView(
+                        showcaseList: showCaseMainList,
+                      ),
                     ),
                   ),
                 ),
+
+
+                ///Trip footer
+                Positioned.fill(
+                  child: IgnorePointer(
+                    ignoring: !(ref.watch(toggleAnimationProvider).tripFooter??false),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: FadeInUp(
+                        animate: ref.watch(toggleAnimationProvider).tripFooter??false,
+                        child:  FooterWidget(
+                          showcaseList: showCaseMainList,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
+
+
 
                 ///Confirm button
                 Positioned.fill(
@@ -162,6 +195,14 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
         ),
       ),
     );
+  }
+
+  void addShowCaseList() {
+    for(int i = 0 ; i < 20 ; i++){
+      GlobalKey<State<StatefulWidget>> key =
+      GlobalKey<State<StatefulWidget>>();
+      showCaseMainList.add(key);
+    }
   }
 
 

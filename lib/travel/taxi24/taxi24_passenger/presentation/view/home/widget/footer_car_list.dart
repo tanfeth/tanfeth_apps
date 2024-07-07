@@ -5,6 +5,7 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/CarTypeModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/car_type_cell.dart';
 
@@ -20,7 +21,8 @@ class FooterCarList extends ConsumerStatefulWidget {
 
 class _FooterCarListState extends ConsumerState<FooterCarList> {
 
-  List<CarTypeModel> carTypeList = [];
+late CarListVM carListVM;
+  late List<CarTypeModel> carList ;
 
   late CarTypeVM carTypeVM;
   late int currentIndex ;
@@ -28,6 +30,8 @@ class _FooterCarListState extends ConsumerState<FooterCarList> {
 
   @override
   void initState() {
+    carListVM = ref.read(carListProvider.notifier);
+    carList =ref.read(carListProvider);
     for(int i =0; i< 2 ; i ++){
       if(i == 0){
         CarTypeModel carTypeModel = CarTypeModel();
@@ -35,14 +39,20 @@ class _FooterCarListState extends ConsumerState<FooterCarList> {
         carTypeModel.carImage =Images.sedan;
         carTypeModel.passengersNumber= 4;
         carTypeModel.tripCost= 44;
-        carTypeList.add(carTypeModel);
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          carListVM.addToList([carTypeModel]);
+        });
+
       }else {
         CarTypeModel carTypeModel = CarTypeModel();
         carTypeModel.carType= LangEnum.familyCar.tr();
         carTypeModel.carImage =Images.familyCar;
-        carTypeModel.passengersNumber= 4;
+        carTypeModel.passengersNumber= 7;
         carTypeModel.tripCost= 44;
-        carTypeList.add(carTypeModel);
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          carListVM.addToList([carTypeModel]);
+        });
+
       }
     }
 
@@ -54,6 +64,8 @@ class _FooterCarListState extends ConsumerState<FooterCarList> {
   initBuild(){
     carTypeVM = ref.watch(carTypeProvider.notifier);
     currentIndex = ref.watch(carTypeProvider);
+    carListVM = ref.watch(carListProvider.notifier);
+    carList =ref.watch(carListProvider);
   }
 
 
@@ -66,7 +78,7 @@ class _FooterCarListState extends ConsumerState<FooterCarList> {
         height: 120,
         child:ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: carTypeList.length,
+          itemCount: carList.length,
           itemBuilder: (context,index){
             return   InkWell(
               onTap: () {
@@ -85,7 +97,7 @@ class _FooterCarListState extends ConsumerState<FooterCarList> {
                         color: context.color.primary.withOpacity(0.2),
                         borderRadius:
                         BorderRadius.circular(8)): null,
-                    child: Center(child: CarTypeCell(carTypeModel: carTypeList[index],))),
+                    child: Center(child: CarTypeCell(carTypeModel: carList[index],))),
               ),
             );
           },

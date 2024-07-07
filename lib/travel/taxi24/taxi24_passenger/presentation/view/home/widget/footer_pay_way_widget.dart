@@ -1,14 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/images.dart';
-import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/vm/selected_payment_method_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/helper_methods.dart';
 
 
 class FooterPayWayWidget extends ConsumerStatefulWidget{
@@ -38,7 +34,7 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
               child: Row(
                 children: [
                   Image.asset(
-                    getPaymentImage(),
+                    getPaymentImage(ref:ref),
                     width: 23,
                     height: 23,
                   ),
@@ -46,7 +42,7 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
 
                   Expanded(
                     child: Text(
-                      getPaymentName(),
+                      getPaymentName(ref:ref),
                       style: context.text.bodyLarge,
                     ),
                   ),
@@ -74,28 +70,6 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
     );
   }
 
-  String getPaymentName() {
-    if(ref.watch(selectedPaymentMethodProvider) ==
-        customAppFlavor.commonEnum.paymentMethodEnum.bankTransfer){
-      return LangEnum.onlinePayment.tr();
-    }else if(ref.watch(selectedPaymentMethodProvider) ==
-        customAppFlavor.commonEnum.paymentMethodEnum.visa){
-      return LangEnum.visa.tr();
-    }else {
-     return LangEnum.cash.tr();
-    }
-  }
 
-  String getPaymentImage() {
-    if(ref.watch(selectedPaymentMethodProvider) ==
-        customAppFlavor.commonEnum.paymentMethodEnum.bankTransfer){
-      return Images.bank;
-    }else if(ref.watch(selectedPaymentMethodProvider) ==
-        customAppFlavor.commonEnum.paymentMethodEnum.visa){
-      return Images.visa;
-    }else {
-      return Images.cash;
-    }
-  }
 
 }

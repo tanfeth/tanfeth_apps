@@ -6,6 +6,7 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_cards.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/vm/selected_payment_method_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_cell.dart';
 
@@ -96,11 +97,12 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
 
         InkWell(
           onTap: (){
+
+            Get.toNamed(MyCardsRouting.config().path);
             selectedPaymentMethodVM.setPayment(
                 customAppFlavor.commonEnum.paymentMethodEnum.visa
             );
 
-           // Get.toNamed(MyCardsRouting.config().path);
           },
           child: PaymentCell(
             image: Images.visa,
@@ -109,11 +111,11 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
             selectedPayment ==
                 customAppFlavor.commonEnum.paymentMethodEnum.visa,
             onTap: () {
+              Get.toNamed(MyCardsRouting.config().path);
               selectedPaymentMethodVM.setPayment(
                   customAppFlavor.commonEnum.paymentMethodEnum.visa
               );
 
-             // Get.toNamed(MyCardsRouting.config().path);
             },
             trailing: Expanded(
               child: Padding(
