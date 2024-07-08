@@ -1332,7 +1332,9 @@ class Taxi24PassengerLanguages extends MyLanguages {
     addString(
       key: LangEnum.transactionHint.name,
       enValue: 'Any wallet activity you do will show up here',
-      arValue: 'أي معاملات خاصة بالمحفظة سوف تظهر هنا',
+      arValue: 'أي معاملات خاصة بالمحفظة سوف تظهر هنا',);
+
+      addString(
       key: LangEnum.paymentPriceCaseHint.name,
       enValue: 'Here you can see trip cost details',
       arValue: 'هنا يمكنك رؤية تفاصيل تكلفة الرحلة',

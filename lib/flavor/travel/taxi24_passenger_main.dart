@@ -28,7 +28,6 @@ import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/find_driver_route.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/my_cards.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/payment_method_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
@@ -70,7 +69,7 @@ class Taxi24PassengerMain {
         shareUrl: 'https://test.taxi24.app/api',
          mapApiKey: 'AIzaSyArcxVdw-9ehlF1atcclWSLBqv3UBiKMeo'
     );
-    if (!(kReleaseMode || isStaging))
+    if (!(kReleaseMode || isStaging)) {
       Auth.init(
         apiKey: "a2b63710-5b7d-4b58-8fc8-4a12724dfecc",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
@@ -79,7 +78,7 @@ class Taxi24PassengerMain {
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );
-    else
+    } else {
       Auth.init(
         apiKey: "a2b63710-5b7d-4b58-8fc8-4a12724dfecc",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
@@ -88,6 +87,7 @@ class Taxi24PassengerMain {
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );
+    }
     Get.put(flavor, permanent: true);
     customAppFlavor = flavor;
     screenPages.addAll([
