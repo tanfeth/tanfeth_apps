@@ -61,23 +61,26 @@ class _TripDetailsWidget extends ConsumerState<TripDetailsWidget>{
             children:[
               ...List.generate(ref
                   .watch(destinationListProvider).length, (index)=>
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    Images.formFieldCircleSVG,
-                    height: 20,
-                    width: 20,
-                  ),
-                  10.pw,
-                  Expanded(
-                    child: Text(
-                      ref
-                          .watch(destinationListProvider)[index]
-                          .description ??
-                          '',
-                      maxLines: 2,
-                    ),)
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      Images.formFieldCircleSVG,
+                      height: 20,
+                      width: 20,
+                    ),
+                    10.pw,
+                    Expanded(
+                      child: Text(
+                        ref
+                            .watch(destinationListProvider)[index]
+                            .description ??
+                            '',
+                        maxLines: 2,
+                      ),)
+                  ],
+                ),
               )),
             ],
           ),

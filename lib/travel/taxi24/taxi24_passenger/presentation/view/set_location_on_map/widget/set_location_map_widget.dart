@@ -46,7 +46,8 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
       buildingsEnabled: true,
       mapType: MapType.normal,
       initialCameraPosition: CameraPosition(
-          zoom: paramMapModel.mapZoom, target: paramMapModel.currentLatLng),
+          zoom: paramMapModel.mapZoom,
+          target: paramMapModel.currentLatLng),
       onMapCreated: (GoogleMapController controller) async {
         ref
             .read(setOnLocationMapProvider.notifier)
@@ -70,6 +71,7 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
         }
       },
       onCameraIdle: () async {
+
         if(ref.read(destinationListProvider).isNotEmpty &&
             widget.pageType ==
                 customAppFlavor.commonEnum.locationTypeEnum.pickUp){
@@ -78,9 +80,10 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
         await ref
             .read(setOnLocationMapProvider.notifier)
             .getAddressFromLatLong();
+
         if (widget.pageType ==
             customAppFlavor.commonEnum.locationTypeEnum.pickUp) {
-          Future.delayed(Duration(seconds: 1), () {
+          Future.delayed(const Duration(seconds: 1), () {
             toggleAnimationVM.toggleHeaderAnimate(true);
             toggleAnimationVM.toggleConfirmFooterAnimate(true);
             toggleAnimationVM.toggleTripFooterAnimate(false);
@@ -95,6 +98,22 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
         }
         await ref.read(setOnLocationMapProvider.notifier).getAddressFromLatLong(
             lat: latLang.latitude, long: latLang.longitude);
+        if (widget.pageType ==
+            customAppFlavor.commonEnum.locationTypeEnum.pickUp) {
+          toggleAnimationVM.toggleHeaderAnimate(false);
+          toggleAnimationVM.toggleConfirmFooterAnimate(false);
+          toggleAnimationVM.toggleTripFooterAnimate(false);
+        }
+      },
+      onCameraMoveStarted: (){
+        if (widget.pageType ==
+            customAppFlavor.commonEnum.locationTypeEnum.pickUp) {
+          toggleAnimationVM.toggleHeaderAnimate(false);
+          toggleAnimationVM.toggleConfirmFooterAnimate(false);
+          toggleAnimationVM.toggleTripFooterAnimate(false);
+        }
+      },
+      onLongPress: (latLng){
         if (widget.pageType ==
             customAppFlavor.commonEnum.locationTypeEnum.pickUp) {
           toggleAnimationVM.toggleHeaderAnimate(false);

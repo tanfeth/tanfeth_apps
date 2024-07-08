@@ -26,7 +26,7 @@ packages:
     source: hosted
     version: "6.4.1"
   animate_do:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: animate_do
       sha256: "7a3162729f0ea042f9dd84da217c5bde5472ad9cef644079929d4304a5dc4ca0"
@@ -138,7 +138,7 @@ packages:
     source: hosted
     version: "2.4.2"
   build_runner:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: build_runner
       sha256: "644dc98a0f179b872f612d3eb627924b578897c629788e858157fa5e704ca0c7"
@@ -202,7 +202,7 @@ packages:
     source: hosted
     version: "4.2.1"
   change_app_package_name:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: change_app_package_name
       sha256: "494e7943d4e8ba6a70970bf0fac293c866a121c50096dc9e027565bfbfc5c7a1"
@@ -362,7 +362,7 @@ packages:
     source: hosted
     version: "7.0.0"
   dio:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: dio
       sha256: "11e40df547d418cc0c4900a9318b26304e665da6fa4755399a9ff9efd09034b5"
@@ -370,7 +370,7 @@ packages:
     source: hosted
     version: "5.4.3+1"
   dropdown_search:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: dropdown_search
       sha256: "55106e8290acaa97ed15bea1fdad82c3cf0c248dd410e651f5a8ac6870f783ab"
@@ -386,7 +386,7 @@ packages:
     source: hosted
     version: "2.0.5"
   facebook_app_events:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: facebook_app_events
       sha256: "01c4f3ea5ec3e4bf492c8d782e569ca2251f2b67d34504efba24887e63dd42da"
@@ -402,7 +402,7 @@ packages:
     source: hosted
     version: "1.3.1"
   ffi:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: ffi
       sha256: "493f37e7df1804778ff3a53bd691d8692ddf69702cf4c1c1096a2e41b4779e21"
@@ -458,7 +458,7 @@ packages:
     source: hosted
     version: "0.9.3+1"
   firebase_analytics:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: firebase_analytics
       sha256: "726596f4ac3352978238274c33234435e61bdb811484ea3d6a2b857bf47a2715"
@@ -506,7 +506,7 @@ packages:
     source: hosted
     version: "2.17.2"
   firebase_crashlytics:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: firebase_crashlytics
       sha256: "54c06fa45585ed77e978b049f8e488db7677313d5dc808c54d24384a6e5bf0c8"
@@ -554,7 +554,7 @@ packages:
     source: hosted
     version: "1.1.0"
   fl_chart:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: fl_chart
       sha256: d0f0d49112f2f4b192481c16d05b6418bd7820e021e265a3c22db98acf7ed7fb
@@ -583,7 +583,7 @@ packages:
     source: hosted
     version: "3.3.1"
   flutter_google_places:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_google_places
       sha256: e9fb23ceacdc7359aa759627550146f7fd3ae6c067d16f39f3c50d8feebf4809
@@ -591,7 +591,7 @@ packages:
     source: hosted
     version: "0.3.0"
   flutter_image_compress:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_image_compress
       sha256: "45a3071868092a61b11044c70422b04d39d4d9f2ef536f3c5b11fb65a1e7dd90"
@@ -639,13 +639,21 @@ packages:
     source: hosted
     version: "0.1.4+1"
   flutter_launcher_icons:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_launcher_icons
       sha256: "526faf84284b86a4cb36d20a5e45147747b7563d921373d4ee0559c54fcdbcea"
       url: "https://pub.dev"
     source: hosted
     version: "0.13.1"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   flutter_local_notifications:
     dependency: "direct main"
     description:
@@ -671,7 +679,7 @@ packages:
     source: hosted
     version: "7.2.0"
   flutter_localization:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_localization
       sha256: faaeb1eba307473032e2c2af737f36ced61fc98735608410d0a6d9c231b50912
@@ -692,7 +700,7 @@ packages:
     source: hosted
     version: "0.6.23"
   flutter_native_contact_picker:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_native_contact_picker
       sha256: b34aac5c3640904b513628c7bcb326c25f213ba36482a30b3013a4e69285f006
@@ -708,7 +716,7 @@ packages:
     source: hosted
     version: "2.0.20"
   flutter_polyline_points:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_polyline_points
       sha256: "05e1ac0ecf2879bed5baa3ed34d44f9262355a24c55d677663e6c932521f6acb"
@@ -724,7 +732,7 @@ packages:
     source: hosted
     version: "4.0.1"
   flutter_riverpod:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_riverpod
       sha256: "0f1974eff5bbe774bf1d870e406fc6f29e3d6f1c46bd9c58e7172ff68a785d7d"
@@ -740,7 +748,7 @@ packages:
     source: hosted
     version: "5.9.3"
   flutter_secure_storage:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: flutter_secure_storage
       sha256: "165164745e6afb5c0e3e3fcc72a012fb9e58496fb26ffb92cf22e16a821e85d0"
@@ -830,7 +838,7 @@ packages:
     source: hosted
     version: "0.10.6"
   fluttertoast:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: fluttertoast
       sha256: "7eae679e596a44fdf761853a706f74979f8dd3cd92cf4e23cae161fda091b847"
@@ -1110,7 +1118,7 @@ packages:
     source: hosted
     version: "3.2.1"
   http_parser:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: http_parser
       sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
@@ -1190,7 +1198,7 @@ packages:
     source: hosted
     version: "0.2.1+1"
   internet_connection_checker:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: internet_connection_checker
       sha256: "1c683e63e89c9ac66a40748b1b20889fd9804980da732bf2b58d6d5456c8e876"
@@ -1214,7 +1222,7 @@ packages:
     source: hosted
     version: "1.0.4"
   jhijri:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: jhijri
       sha256: c2a28e803b1d07513a29953c6685b933235511a1f57966fd5bf66bfdae131f70
@@ -1222,7 +1230,7 @@ packages:
     source: hosted
     version: "1.0.0"
   jhijri_picker:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: jhijri_picker
       sha256: "55e3cdc03a20284fea179658c102b8eed802a5cc0e1fd949265285b1d352da8a"
@@ -1254,7 +1262,7 @@ packages:
     source: hosted
     version: "4.9.0"
   json_model:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: json_model
       sha256: c9a86ab62c800220cfe626fe64ab613a78bc39fc93c4ddf029b68e00b4d3fa87
@@ -1333,6 +1341,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   logging:
     dependency: transitive
     description:
@@ -1342,7 +1358,7 @@ packages:
     source: hosted
     version: "1.2.0"
   lottie:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: lottie
       sha256: "6a24ade5d3d918c306bb1c21a6b9a04aab0489d51a2582522eea820b4093b62b"
@@ -1390,7 +1406,7 @@ packages:
     source: hosted
     version: "1.12.0"
   mime:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: mime
       sha256: "2e123074287cc9fd6c09de8336dae606d1ddb88d9ac47358826db698c176a1f2"
@@ -1726,7 +1742,7 @@ packages:
     source: hosted
     version: "3.4.0"
   shared_preferences:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: d3bbe5553a986e83980916ded2f0b435ef2e1893dfaa29d5a7a790d0eca12180
@@ -1782,7 +1798,7 @@ packages:
     source: hosted
     version: "2.3.2"
   shelf:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: shelf
       sha256: e7dd780a7ffb623c57850b33f43309312fc863fb6aa3d276a754bb299839ef12
@@ -1806,7 +1822,7 @@ packages:
     source: hosted
     version: "3.0.0"
   showcaseview:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: showcaseview
       sha256: f236c1f44b286e1ba888f8701adca067af92c33e29ea937d0fe9b4a29d4cd41e
@@ -1814,7 +1830,7 @@ packages:
     source: hosted
     version: "3.0.0"
   signalr_core:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: signalr_core
       sha256: "27c4ce798c8fedc2f7e3e4668c2b1dbcf6ee2a93f40ad24284b5f5bbed84529d"
@@ -1822,7 +1838,7 @@ packages:
     source: hosted
     version: "1.1.2"
   signalr_netcore:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: signalr_netcore
       sha256: "7e04ab4b541bff9437f83af701ef7b0c413c65437df67a65cf5580e5b842051e"
@@ -1899,7 +1915,7 @@ packages:
     source: hosted
     version: "0.1.1"
   sse_channel2:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: sse_channel2
       sha256: be9bd58151b38e2cceb5c507bad746efa40c601a22b63d46e1a7cb60fc5cd24f
@@ -1979,7 +1995,7 @@ packages:
     source: hosted
     version: "0.7.0"
   timeago:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: timeago
       sha256: d3204eb4c788214883380253da7f23485320a58c11d145babc82ad16bf4e7764
@@ -2003,7 +2019,7 @@ packages:
     source: hosted
     version: "1.0.1"
   top_modal_sheet:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: top_modal_sheet
       sha256: "404249c2cec151a5872197601bce2913ff88bb3b714ddae0223756308e7ccf08"
@@ -2027,7 +2043,7 @@ packages:
     source: hosted
     version: "1.3.2"
   uni_links:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: uni_links
       sha256: "051098acfc9e26a9fde03b487bef5d3d228ca8f67693480c6f33fd4fbb8e2b6e"
@@ -2139,7 +2155,7 @@ packages:
     source: hosted
     version: "3.1.1"
   uuid:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: uuid
       sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
@@ -2307,7 +2323,7 @@ packages:
     source: hosted
     version: "3.13.1"
   widget_zoom:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       name: widget_zoom
       sha256: f74cb1b9969a74668db0048d3db9ddc7ec5b334d32a1f54475db56f873114550

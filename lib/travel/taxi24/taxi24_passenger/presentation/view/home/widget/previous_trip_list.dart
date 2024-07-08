@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/trip_cell.dart';
+import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+
 
 
 class PreviousTripList extends ConsumerStatefulWidget{
@@ -46,15 +48,32 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
       controller: widget.scrollController??ScrollController(),
       separatorBuilder: (context, index) =>const  SizedBox(height: 12,),
       itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () async{
-            ref.read(destinationListProvider.notifier)
-                .addToList([tripList[index]]);
-          },
-          child: TripCell(
-              locationModel: tripList[index],
-              isRecent:true),
-        );},
+        if(index == 0){
+          return Showcase(
+            key: showcaseKey15,
+            description: LangEnum.previousTripsHint.tr(),
+            child: GestureDetector(
+              onTap: () async{
+                ref.read(destinationListProvider.notifier)
+                    .addToList([tripList[index]]);
+              },
+              child: TripCell(
+                  locationModel: tripList[index],
+                  isRecent:true),
+            ),
+          );
+        }else {
+          return GestureDetector(
+            onTap: () async{
+              ref.read(destinationListProvider.notifier)
+                  .addToList([tripList[index]]);
+            },
+            child: TripCell(
+                locationModel: tripList[index],
+                isRecent:true),
+          );
+        }
+    },
       itemCount: tripList.length,);
   }
 

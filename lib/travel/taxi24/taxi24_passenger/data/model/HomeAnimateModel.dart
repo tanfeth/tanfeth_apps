@@ -12,8 +12,8 @@ class HomeAnimateModel {
   bool? findDriver;
 
   HomeAnimateModel({
-     this.header = false,
-    this.confirmFooter = false,
+     this.header = true,
+    this.confirmFooter = true,
     this.tripFooter = false,
     this.findDriver = false,
 });

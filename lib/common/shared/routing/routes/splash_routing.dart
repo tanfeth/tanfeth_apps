@@ -18,9 +18,7 @@ class SplashRouting {
       case AppNameEnum.taxi24Driver:
         return RoutingConfig(path: _path, widget: const SplashView());
       case AppNameEnum.taxi24Passenger:
-        //todo
-        return RoutingConfig(path: _path, widget: const SplashView());
-
+        return RoutingConfig(path: _path, widget: const TaxiPassengerSplashView());
       default:
         return RoutingConfig(path: _path, widget: const SplashView());
     }

@@ -153,10 +153,7 @@ class CustomNotification {
   static Future<void> _firebaseMessagingBackgroundHandler(
       RemoteMessage message) async {
         log('_firebaseMessagingBackgroundHandler');
-        var userImage;
         if((message.data['ImgUrl']??'').toString().isNotEmpty){
-          userImage = (message.data['ImgUrl']??'')
-              .substring((message.data['ImgUrl']??'').lastIndexOf("https://"));
         }
 
   }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -12,11 +13,13 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/de
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/destination_header.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/where_to_go_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/previous_trips.dart';
-
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 
 class DestinationView extends ConsumerStatefulWidget{
-  const DestinationView();
+  const DestinationView({super.key});
+
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _DestinationView();
 
@@ -28,6 +31,16 @@ class _DestinationView extends ConsumerState<DestinationView>{
 
   @override
   void initState() {
+    if(TaxiPassengerAppStorage.getDestinationCase() == true){
+      Future.delayed(const Duration(seconds: 1),(){
+        showCaseEvent(context: context,caseList: [
+          showcaseKey14,
+          showcaseKey15,
+        ]);
+      });
+
+    }
+
     super.initState();
   }
 
@@ -37,15 +50,18 @@ class _DestinationView extends ConsumerState<DestinationView>{
 
 
     return Scaffold(
-      appBar: MainAppBar(
-       titleWidget: DestinationHeader(),
-        leadingWidget:  BackButtonWidget(
-          onTap: (){
-            ref.read(chooseRideMapProvider.notifier)
-                .handleMarkersAndPolyLines();
-            Get.back();
-
-          },
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100.0),
+        child: MainAppBar(
+         titleWidget: const DestinationHeader(),
+          leadingWidget:  BackButtonWidget(
+            onTap: (){
+              ref.read(chooseRideMapProvider.notifier)
+                  .handleMarkersAndPolyLines();
+              Get.back();
+        
+            },
+          ),
         ),
       ),
       body: WebWidth(
@@ -55,9 +71,9 @@ class _DestinationView extends ConsumerState<DestinationView>{
             child: Column(
               children: [
                 20.ph,
-                WhereToGoWidget(),
+                const WhereToGoWidget(),
                 15.ph,
-                Expanded(
+                const Expanded(
                   child:PreviousTrips(),
                 ),
 
@@ -80,7 +96,7 @@ class _DestinationView extends ConsumerState<DestinationView>{
                   child: Text(LangEnum.confirm.tr()),
                 ),
 
-                10.ph
+                15.ph
               ],
             ),
           ),

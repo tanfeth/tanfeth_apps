@@ -54,7 +54,7 @@ class AccountModel extends BaseModel {
   @JsonKey(includeIfNull: false)
   int? accountCheckerEnum;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false)
   bool isOnline = false;
   @JsonKey(includeIfNull: false)
   bool? isAdmin;

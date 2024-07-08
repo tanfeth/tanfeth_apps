@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tanfeth_apps/common/presentation/widget/shimmer_widget.dart';
 
 class CachedImageWidget extends StatelessWidget {
   final String imageUrl;

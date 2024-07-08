@@ -14,7 +14,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final BorderRadiusGeometry? borderRadius;
 
   const MainAppBar({
-    Key? key,
+    super.key,
     this.appBarColor,
     this.title,
     this.textAlign,
@@ -22,7 +22,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.trailingWidget,
     this.titleWidget,
     this.borderRadius, this.searchWidget,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

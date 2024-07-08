@@ -122,7 +122,7 @@ Future<void> initURIHandler() async {
     }
   } on PlatformException {
     debugPrint("Failed to receive initial uri");
-  } on FormatException catch (err) {
+  } on FormatException {
     debugPrint('Malformed Initial URI received');
   }
 }

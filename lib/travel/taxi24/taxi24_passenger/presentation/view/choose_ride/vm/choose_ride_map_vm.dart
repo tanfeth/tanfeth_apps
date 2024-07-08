@@ -2,6 +2,8 @@
 
 
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geocoding/geocoding.dart';
@@ -172,7 +174,7 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
         Marker(
             consumeTapEvents: true,
             markerId: MarkerId(latLng.toString()),
-            position: latLng??LatLng(0.0, 0.0),
+            position: latLng??const LatLng(0.0, 0.0),
             icon:customIcon
         ));
     if(state.markers.length > 1){
@@ -217,13 +219,13 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
         googleApiKey: customAppFlavor.mapApiKey
     );
     if (result.points.isNotEmpty) {
-      result.points.forEach((PointLatLng point) {
+      for (var point in result.points) {
         polylineCoordinates.add(
             LatLng(point.latitude,
                 point.longitude));
-      });
+      }
     } else {
-      print(result.errorMessage);
+      log(result.errorMessage.toString());
     }
 
     addPolyLine(polylineCoordinates);
@@ -232,7 +234,7 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
 
 
   void addPolyLine(List<LatLng> polylineCoordinates) {
-    PolylineId id = PolylineId("poly");
+    PolylineId id = const PolylineId("poly");
     Polyline polyline = Polyline(
       polylineId: id,
       color: Get.context!.color.tertiaryContainer,
@@ -240,6 +242,16 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
       width: 4,
     );
     state.polyLines[id] = polyline;
+
+
+
+    animateCameraPosition(
+      currentPosition: LatLng(
+          ref.watch(pickUpLocationProvider).latLng?.latitude??0.0,
+          polylineCoordinates.last.longitude),
+          zoom: 8
+    );
+
 
    updateModel();
   }

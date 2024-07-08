@@ -5,10 +5,8 @@ import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
@@ -19,12 +17,13 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ho
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_car_list.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_pay_way_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class FooterWidget extends ConsumerStatefulWidget {
-  final List<GlobalKey<State<StatefulWidget>>>? showcaseList;
+
   const FooterWidget({
     super.key,
-    this.showcaseList = const []
 });
 
   @override
@@ -33,11 +32,11 @@ class FooterWidget extends ConsumerStatefulWidget {
 
 class _FooterWidget extends ConsumerState<FooterWidget> {
 
+
+
+
   @override
   void initState() {
-    if(AppStorage.getHomeCase() == true){
-      showCaseEvent(context: context,caseList: widget.showcaseList??[]);
-    }
     super.initState();
   }
 
@@ -46,10 +45,10 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       decoration: BoxDecoration(
           color: context.color.surface,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           )),
@@ -62,15 +61,15 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
               children: [
 
                 Showcase(
-                   key: (widget.showcaseList??[])[1],
+                   key: showcaseKey2,
                     description: LangEnum.carCaseHint.tr(),
-                    child: FooterCarList()),
+                    child: const FooterCarList()),
 
                 10.ph,
 
                 ///Pick up location
                 Showcase(
-                  key: (widget.showcaseList??[])[2],
+                  key: showcaseKey3,
                   description: LangEnum.pickLocationCaseHint.tr(),
                   child: InkWell(
                     onTap: () {
@@ -83,7 +82,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                           .toggleTripFooterAnimate(false);
                     },
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Row(
                         children: [
                           SvgPicture.asset(
@@ -108,7 +107,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
 
                 ///Destination widget
                 Showcase(
-                  key:( widget.showcaseList??[])[3],
+                  key:showcaseKey4,
                   description: LangEnum.destinationCaseHint.tr(),
                   child: InkWell(
                     onTap: () {
@@ -117,7 +116,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                       );
                     },
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: Row(
                         children: [
                           Expanded(
@@ -186,9 +185,12 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
 
                 ///Pay way
                 Showcase(
-                    key: (widget.showcaseList??[])[4],
+                    key:showcaseKey5,
                     description: LangEnum.payWayCaseHint.tr(),
-                    child: FooterPayWayWidget()),
+                    onBarrierClick: (){
+                      TaxiPassengerAppStorage.showHomeTripFooterCase(false);
+                    },
+                    child: const FooterPayWayWidget()),
               ],
             ),
           ),
@@ -202,9 +204,13 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                       ref
                           .read(toggleAnimationProvider.notifier)
                           .toggleFindDriverAnimate(true);
-                      Future.delayed(Duration(seconds: 3),(){
+
+
+                      Future.delayed(const Duration(seconds: 3),(){
                         ref.read(findDriverProvider.notifier).changeCurrentIndex(1);
                       });
+
+
                     }else {
                       showToast(LangEnum.selectDestination.tr());
                     }
@@ -227,7 +233,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                         height: 50,
                         width: 80,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderRadius: const BorderRadius.all(Radius.circular(15)),
                             color: context.color.primary),
                         child: Column(
                           children: [

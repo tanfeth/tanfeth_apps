@@ -17,6 +17,6 @@ showBottomSheetFunction({required Widget content,
     isScrollControlled: true,
     backgroundColor: Get.theme.colorScheme.surface,
     barrierColor: Colors.black.withOpacity(0.6),
-    exitBottomSheetDuration: Duration(milliseconds: 500),
-    enterBottomSheetDuration: Duration(milliseconds: 1000),
+    exitBottomSheetDuration: const Duration(milliseconds: 500),
+    enterBottomSheetDuration: const Duration(milliseconds: 600),
   );

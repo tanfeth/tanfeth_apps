@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
-import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/find_driver_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/home/current_location/current_location_fab.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/choose_ride_map_widget.dart';
@@ -24,7 +21,9 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ho
 import 'package:animate_do/animate_do.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/vm/set_on_location_map_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/set_location_on_map/widget/set_location_map_widget.dart';
-
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class TaxiPassengerHomeView extends ConsumerStatefulWidget {
   const TaxiPassengerHomeView({Key? key}) : super(key: key);
@@ -37,12 +36,11 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
 
 
   DateTime backPressDateTime = DateTime.now();
-  List<GlobalKey<State<StatefulWidget>>>  showCaseMainList = [];
+
 
 
   @override
   void initState() {
-    addShowCaseList();
     super.initState();
   }
 
@@ -50,7 +48,6 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
 
   @override
   Widget build(BuildContext context) {
-
 
     return PopScope(
       canPop: false,
@@ -81,7 +78,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                     pageType: customAppFlavor.commonEnum.locationTypeEnum.pickUp,
                   ),
                 ]else...[
-                  ChooseRideMapWidget(),
+                 const  ChooseRideMapWidget(),
                 ],
 
                 ///Current location
@@ -91,11 +88,20 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                     child: FadeInUp(
                       animate: ref.watch(toggleAnimationProvider).confirmFooter??false,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 100),
-                        child: CurrentLocationDetector(onTap: () async {
-                          ref.read(setOnLocationMapProvider.notifier)
-                              .getCurrentLocation(setMakers: false);
-                        }),
+                        padding: const EdgeInsets.symmetric(vertical: 100),
+                        child: Showcase(
+                          key: showcaseKey1,
+                          description: LangEnum.currentLocationHint.tr(),
+                          onBarrierClick: (){
+                            ref.read(setOnLocationMapProvider.notifier)
+                                .getCurrentLocation();
+                            TaxiPassengerAppStorage.showHomeCase(false);
+                          },
+                          child: CurrentLocationDetector(onTap: () async {
+                            ref.read(setOnLocationMapProvider.notifier)
+                                .getCurrentLocation(setMakers: false);
+                          }),
+                        ),
                       ),
                     ),
                   ),
@@ -115,19 +121,18 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                 ),
 
                 ///Header
-                HeaderWidget(
-                  showcaseKey: showCaseMainList[0],
-                ),
+                const HeaderWidget(),
 
 
                 ///Find Driver footer
                 Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FadeInUp(
-                      animate: ref.watch(toggleAnimationProvider).findDriver??false,
-                      child: FindDriverView(
-                        showcaseList: showCaseMainList,
+                  child: IgnorePointer(
+                    ignoring: !(ref.watch(toggleAnimationProvider).findDriver??false),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: FadeInUp(
+                        animate: ref.watch(toggleAnimationProvider).findDriver??false,
+                        child: const FindDriverView(),
                       ),
                     ),
                   ),
@@ -142,9 +147,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                       alignment: Alignment.bottomCenter,
                       child: FadeInUp(
                         animate: ref.watch(toggleAnimationProvider).tripFooter??false,
-                        child:  FooterWidget(
-                          showcaseList: showCaseMainList,
-                        ),
+                        child:  const FooterWidget(),
                       ),
                     ),
                   ),
@@ -161,7 +164,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                     child: FadeInUp(
                       animate: ref.watch(toggleAnimationProvider).confirmFooter??false,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                         child: ElevatedButton(
                           onPressed: () async {
                             LocationModel model = LocationModel();
@@ -178,6 +181,18 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                                 .toggleConfirmFooterAnimate(false);
                             ref.read(toggleAnimationProvider.notifier)
                                 .toggleTripFooterAnimate(true);
+
+
+                            if(TaxiPassengerAppStorage.getHomeTripFooterCase() == true){
+                              Future.delayed(const Duration(milliseconds: 500),(){
+                                showCaseEvent(context: context,
+                                    caseList: [
+                                     showcaseKey2,
+                                     showcaseKey3,
+                                      showcaseKey4,
+                                      showcaseKey5]);
+                              });
+                            }
                           },
                           child: Text(
                               LangEnum.confirm.tr()
@@ -196,17 +211,6 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
       ),
     );
   }
-
-  void addShowCaseList() {
-    for(int i = 0 ; i < 20 ; i++){
-      GlobalKey<State<StatefulWidget>> key =
-      GlobalKey<State<StatefulWidget>>();
-      showCaseMainList.add(key);
-    }
-  }
-
-
-
 
 
 }

@@ -1,14 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/helper_methods.dart';
 
 
 class FooterPayWayWidget extends ConsumerStatefulWidget{
-  const FooterPayWayWidget();
+  const FooterPayWayWidget({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=> _FooterPayWayWidget();
@@ -21,13 +24,17 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
+        if(ref.read(destinationListProvider).isEmpty){
+          showToast(LangEnum.selectDestination.tr());
+        }else{
+          showBottomSheetFunction(
+            content:CompleteTripRouting.config().widget,
+          );
+        }
 
-        showBottomSheetFunction(
-        content:CompleteTripRouting.config().widget,
-        );
       },
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           children: [
             Expanded(

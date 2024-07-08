@@ -11,7 +11,7 @@ final toggleAnimationProvider = StateNotifierProvider<ToggleAnimationVM, HomeAni
 
 class ToggleAnimationVM extends StateNotifier<HomeAnimateModel> {
 
-  ToggleAnimationVM(HomeAnimateModel state) : super(state);
+  ToggleAnimationVM(super.state);
 
 
   void toggleHeaderAnimate(bool header) {

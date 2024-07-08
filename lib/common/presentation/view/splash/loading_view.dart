@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/flutter_package/flutter_package.dart';
 import 'package:tanfeth_apps/common/shared/globals.dart';

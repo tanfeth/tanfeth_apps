@@ -1,5 +1,4 @@
 
-import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/enum.dart';
 
 void toTarget({required String targetPage, required String targetValue,

@@ -3,22 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/CarTypeModel.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/car_type_cell.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/coupon_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_methods_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_price_widget.dart';
 
 
 class CompleteTripView extends ConsumerStatefulWidget{
-  const CompleteTripView();
+  const CompleteTripView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CompleteTripView();
@@ -65,14 +60,17 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
     initBuild();
 
     return Scaffold(
-      appBar: MainAppBar(
-        title: LangEnum.choosePaymentMethod.tr(),
-        leadingWidget: const BackButtonWidget(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100.0),
+        child: MainAppBar(
+          title: LangEnum.choosePaymentMethod.tr(),
+          leadingWidget: const BackButtonWidget(),
+        ),
       ),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
                 Expanded(

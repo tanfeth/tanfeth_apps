@@ -1325,57 +1325,57 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'هنا يمكنك رؤية تفاصيل تكلفة الرحلة',
     );
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.callDriverHint.name,
+      enValue:  'Press here to make call to driver',
+      arValue: 'اضغط هنا لإجراء مكالمة مع السائق',
     );
 
 
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.currentLocationHint.name,
+      enValue: 'Press here to get your current location',
+      arValue: 'اضغط هنا للحصول على موقعك الحالي',
     );
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.cancelRideCaseHint.name,
+      enValue: 'Press here if you want to cancel ride',
+      arValue: 'اضغط هنا إذا كنت تريد إلغاء الرحلة',
     );
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.personInfoHint.name,
+      enValue: 'Press here see or edit personal information',
+      arValue: 'اضغط هنا لرؤية أو تعديل المعلومات الشخصية',
     );
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
-    );
-
-    addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.myTripHint.name,
+      enValue: 'Press here see your previous trips',
+      arValue: 'اضغط هنا لرؤية رحلاتك السابقة',
     );
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.favouritePlaceHint.name,
+      enValue: 'Press here see or add your favourite places',
+      arValue: 'اضغط هنا لرؤية أو إضافة أماكنك المفضلة',
     );
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.whereToGoHint.name,
+      enValue: 'Press here to add destination place from map',
+      arValue: 'اضغط هنا لإضافة مكان الوجهة من الخريطة',
+    );
+
+    addString(
+      key: LangEnum.previousTripsHint.name,
+      enValue: 'Press here to add destination from your previous trips',
+      arValue: 'اضغط هنا لإضافة وجهة من رحلاتك السابقة',
     );
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.reorderListHint.name,
+      enValue: 'If you have more than one destination Press here to swap and reorder destinations places',
+      arValue: 'إذا كان لديك أكثر من وجهة واحدة، اضغط هنا لتبديل أماكن الوجهات وإعادة ترتيبها',
     );
 
     addString(

@@ -37,6 +37,7 @@ class _SplashViewState extends ConsumerState<TaxiPassengerSplashView> {
   }
 
   initBuild(){
+
     // FirebaseAuth.instance.signOut();
     // GoogleSignIn().signOut();
     // ref.listen(splashProvider,
@@ -50,25 +51,24 @@ class _SplashViewState extends ConsumerState<TaxiPassengerSplashView> {
 
   @override
   Widget build(BuildContext context) {
+
     initBuild();
     return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-        statusBarColor:  context.color.primary.withOpacity(0.4),
-    ),
+      value: SystemUiOverlayStyle(
+        statusBarColor: context.color.primary.withOpacity(0.4),
+      ),
       child: Scaffold(
         backgroundColor: context.color.primary,
-        appBar: AppBar(
-          toolbarHeight: 0,
-          backgroundColor: Theme.of(context).colorScheme.surface,
-        ),
+        resizeToAvoidBottomInset: true,
+        extendBody: true,
         body: WebWidth(
           child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-          Container(
+          SizedBox(
               height: 250, width: 250,
               child: Image.asset(Images.appLogo)),
-          SizedBox(height: MySizes.defaultPadding),
+          const SizedBox(height: MySizes.defaultPadding),
           ProgressLoading.showIndicator(context,
           color:  context.color.onPrimary),
                       ],

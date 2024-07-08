@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/widget/trip_cell.dart';
-
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class DestinationList extends ConsumerStatefulWidget{
   const DestinationList();
@@ -29,6 +32,12 @@ class _DestinationList extends ConsumerState<DestinationList>{
 
   @override
   void initState() {
+    if(TaxiPassengerAppStorage.getDestinationCase() == true){
+      showCaseEvent(context: context,caseList: [
+        showcaseKey16,
+      ]);
+
+    }
     super.initState();
   }
 
@@ -44,34 +53,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
           ReorderableDragStartListener(
             key: ValueKey<int>(index),
             index: index,
-            child: ListTile(
-              key: Key('$index'),
-              title: Text('${destinationList[index].description??''}',
-              maxLines: 2,
-              style: TextStyle(
-                color: context.color.surfaceContainerHighest,
-              ),),
-               // subtitle: Text('${destinationList[index].description??''}',
-               // style: TextStyle(
-               //   color: context.color.surfaceContainerHighest
-               // ),),
-              leading:ReorderableDragStartListener(
-                key: ValueKey<int>(index),
-                index: index,
-                child:  Icon(Icons.reorder,
-                  color: context.color.primary,),
-              ),
-              trailing: GestureDetector(
-                onTap: (){
-                  destinationListVM.removeFromListByIndex(index);
-                },
-                child: Icon(
-                  Icons.playlist_remove_sharp,
-                  color: context.color.error,
-                  size: 20,
-                ),
-              ),
-            ),
+            child: getChild(index: index)
           ),
       ],
       onReorder: (int oldIndex, int newIndex) {
@@ -85,4 +67,44 @@ class _DestinationList extends ConsumerState<DestinationList>{
     );
   }
 
+
+  Widget getChild({required int index}){
+    return ListTile(
+      key: Key('$index'),
+      title: Text('${destinationList[index].description??''}',
+        maxLines: 2,
+        style: TextStyle(
+          color: context.color.surfaceContainerHighest,
+        ),),
+      // subtitle: Text('${destinationList[index].description??''}',
+      // style: TextStyle(
+      //   color: context.color.surfaceContainerHighest
+      // ),),
+      leading:ReorderableDragStartListener(
+        key: ValueKey<int>(index),
+        index: index,
+        child:  index ==0 ?
+         Showcase(
+             key: showcaseKey16,
+             description: LangEnum.reorderListHint.tr(),
+             onBarrierClick:(){
+               TaxiPassengerAppStorage.showDestinationCase(false);
+             },
+             child:   Icon(Icons.reorder,
+               color: context.color.primary,)):
+        Icon(Icons.reorder,
+          color: context.color.primary,),
+      ),
+      trailing: GestureDetector(
+        onTap: (){
+          destinationListVM.removeFromListByIndex(index);
+        },
+        child: Icon(
+          Icons.playlist_remove_sharp,
+          color: context.color.error,
+          size: 20,
+        ),
+      ),
+    );
+  }
 }

@@ -25,13 +25,13 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-        leadingWidget: const BackButtonWidget(),
+      appBar: const MainAppBar(
+        leadingWidget: BackButtonWidget(),
       ),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child:Column(
               children: [
           Expanded(
@@ -43,12 +43,12 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
                     width: 200,
                     height: 200,
                   ),),
-                SizedBox(height: 32,),
+                const SizedBox(height: 32,),
                 Text(
                   LangEnum.requestRideForSomeone.tr(),
                   style: context.text.titleMedium,
                 ),
-                SizedBox(height: 24,),
+                const SizedBox(height: 24,),
                 RiderInstructionCell(
                   title: LangEnum.ridersMustLeast18Years.tr(),
                 ),
@@ -77,7 +77,7 @@ class _AddRiderInstructionView extends ConsumerState<AddRiderInstructionView>{
                   child: Text(LangEnum.addRider.tr()),
                 ),
 
-                SizedBox(height: 8,),
+                const SizedBox(height: 15,),
               ],
             ),
           ),

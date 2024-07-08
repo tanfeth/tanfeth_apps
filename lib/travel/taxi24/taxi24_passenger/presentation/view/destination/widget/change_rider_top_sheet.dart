@@ -43,7 +43,7 @@ class _ChangeRiderTopSheet extends ConsumerState<ChangeRiderTopSheet>{
     return Container(
       decoration: BoxDecoration(
         color: context.color.surface,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(15),
           bottomLeft: Radius.circular(15),
         )
@@ -52,14 +52,14 @@ class _ChangeRiderTopSheet extends ConsumerState<ChangeRiderTopSheet>{
         mainAxisSize: MainAxisSize.min,
         children: [
           50.ph,
-          Row(
+          const Row(
             children: [
                BackButtonWidget(),
             ],
           ),
 
           Container(
-            padding:  EdgeInsets.symmetric(horizontal: 30),
+            padding:  const EdgeInsets.symmetric(horizontal: 30),
             child: ListView.separated(
               itemCount: riderList.length+1,
               shrinkWrap: true,
@@ -118,7 +118,7 @@ class _ChangeRiderTopSheet extends ConsumerState<ChangeRiderTopSheet>{
                     children: [
                       Icon(Icons.add,size: 24,
                         color: context.color.onSurface,),
-                      SizedBox(width: 16,),
+                      const SizedBox(width: 16,),
                       Text(
                         LangEnum.addNewRider.tr(),
 
@@ -127,7 +127,7 @@ class _ChangeRiderTopSheet extends ConsumerState<ChangeRiderTopSheet>{
                   ),
                 );
               }, separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(
+              return const SizedBox(
                 height: 30,
                 width: double.infinity,
               );

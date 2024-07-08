@@ -6,16 +6,15 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 
 class HeaderWidget extends ConsumerStatefulWidget{
-  final GlobalKey<State<StatefulWidget>> showcaseKey;
   const HeaderWidget({
     super.key,
-    required this.showcaseKey
 });
 
   @override
@@ -31,14 +30,19 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
 
   @override
   void initState() {
-    if(AppStorage.getHomeCase() == true){
-      Future.delayed(Duration(seconds: 1),(){
-        showCaseEvent(context: context,caseList: [widget.showcaseKey]);
+    if(TaxiPassengerAppStorage.getHomeCase() == true){
+      Future.delayed(const Duration(seconds: 1),(){
+        showCaseEvent(context: context,caseList: [
+          showcaseKey0,
+          showcaseKey1,
+        ]);
       });
 
     }
     super.initState();
   }
+
+
 
 
   @override
@@ -82,7 +86,7 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
                 Scaffold.of(context).openDrawer();
               },
               child: Showcase(
-                key: widget.showcaseKey,
+                key: showcaseKey0,
                 description: LangEnum.menuOption.tr(),
                 child: FadeInRight(
                   animate: ref.watch(toggleAnimationProvider).header??false,
@@ -90,7 +94,7 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: context.color.primary.withOpacity(0.7),
+                        color: context.color.primary.withOpacity(0.9),
                         shape: BoxShape.circle,
                       ),
                       child: Center(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
@@ -24,7 +26,10 @@ import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.da
 import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/personal_info_route.dart';
 import 'package:showcaseview/showcaseview.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/profile/widget/passenger_profile_data_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 
 class TaxiPassengerProfileView extends ConsumerStatefulWidget {
@@ -38,19 +43,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
 
 
 
-  GlobalKey four = GlobalKey();
-  GlobalKey five = GlobalKey();
-  GlobalKey six = GlobalKey();
-  GlobalKey seven = GlobalKey();
-  GlobalKey eight = GlobalKey();
-  GlobalKey nine = GlobalKey();
-  GlobalKey ten = GlobalKey();
-
   @override
   void initState() {
-    if(AppStorage.getProfileCase() == true) {
-      showCaseEvent(context: context,
-          caseList: [four, five, six, seven, eight, nine, ten]);
+    if(TaxiPassengerAppStorage.getProfileCase() == true){
+      showCaseEvent(context: context,caseList: [
+        showcaseKey9,
+        showcaseKey10,
+        showcaseKey11,
+        showcaseKey12,
+        showcaseKey13
+      ]);
     }
     super.initState();
   }
@@ -74,37 +76,50 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // person_info
-                          ProfileCell(
-                              title: LangEnum.editProfile.tr(),
-                              icon: Images.personInfoSVG,
-                              function: () {
-                                Scaffold.of(context).closeDrawer();
-                                Get.toNamed(PersonalInfoRouting.config().path);
-                              }),
-                          const LargeDivider(),
-                          // my trip
-                          ProfileCell(
-                              title: LangEnum.myTrips.tr(),
-                              icon: Images.fullClockSVG,
-                              function: () {
-                                Scaffold.of(context).closeDrawer();
-                                Get.toNamed( MyTripRouting.config().path);
-                                //Get.toNamed(EarningRouting.config().path);
-                                Get.toNamed(MyTripRouting.config().path);
-                              }),
-                          const LargeDivider(),
-                          // favourite place
-                          ProfileCell(
-                              title: LangEnum.favourite.tr(),
-                              icon: Images.locationSVG,
-                              function: () {
-                                Get.toNamed(FavoritePlaceRouting.config().path);
-                                Scaffold.of(context).closeDrawer();
-                               // Get.toNamed(WalletRouting.config().path);
-                              }),
-                          const LargeDivider(),
-                          // notification
+
+                          /// Person info
+                          Showcase(
+                            key: showcaseKey9,
+                            description: LangEnum.personInfoHint.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.editProfile.tr(),
+                                icon: Images.personInfoSVG,
+                                function: () {
+                                  Scaffold.of(context).closeDrawer();
+                                  Get.toNamed(PersonalInfoRouting.config().path);
+                                }),
+                          ),
+                          const SmallDivider(),
+                          /// My trip
+                          Showcase(
+                            key: showcaseKey10,
+                            description: LangEnum.myTripHint.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.myTrips.tr(),
+                                icon: Images.fullClockSVG,
+                                function: () {
+                                  Scaffold.of(context).closeDrawer();
+                                  Get.toNamed( MyTripRouting.config().path);
+                                  //Get.toNamed(EarningRouting.config().path);
+                                  Get.toNamed(MyTripRouting.config().path);
+                                }),
+                          ),
+                           const SmallDivider(),
+                          /// Favourite place
+                          Showcase(
+                            key: showcaseKey11,
+                            description: LangEnum.favouritePlaceHint.tr(),
+                            child: ProfileCell(
+                                title: LangEnum.favourite.tr(),
+                                icon: Images.locationSVG,
+                                function: () {
+                                  Get.toNamed(FavoritePlaceRouting.config().path);
+                                  Scaffold.of(context).closeDrawer();
+                                 // Get.toNamed(WalletRouting.config().path);
+                                }),
+                          ),
+                           const SmallDivider(),
+                          /// Notification
                           ProfileCell(
                               title: LangEnum.notifications.tr(),
                               icon: Images.alertSVG,
@@ -112,8 +127,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 Scaffold.of(context).closeDrawer();
                                 Get.toNamed(NotificationsRouting.config().path);
                               }),
-                          const LargeDivider(),
-                          // language
+                           const SmallDivider(),
+                          /// Language
                           ProfileCell(
                               title: LangEnum.language.tr(),
                               icon: Images.languageSVG,
@@ -123,8 +138,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 content: const LangBottomSheet(),
                               );
                               }),
-                          const LargeDivider(),
-                          // help
+                           const SmallDivider(),
+                          /// Help
                           ProfileCell(
                               title: LangEnum.help.tr(),
                               icon: Images.helpSVG,
@@ -132,8 +147,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 Scaffold.of(context).closeDrawer();
                                 Get.toNamed(SendMessageRouting.config().path);
                               }),
-                          const LargeDivider(),
-                          // terms And Conditions
+                           const SmallDivider(),
+                          /// Terms And Conditions
                           ProfileCell(
                               title: LangEnum.termsAndConditions.tr(),
                               icon: Images.aboutProfileSVG,
@@ -147,10 +162,10 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                     LangEnum.termsAndConditions.tr(),
                                   });
                               }),
-                          const LargeDivider(),
-                          // rate app
+                           const SmallDivider(),
+                          /// Rate app
                           Showcase(
-                            key: nine,
+                            key: showcaseKey12,
                             description: LangEnum.rateAppOption.tr(),
                             child: ProfileCell(
                                 title: LangEnum.rateApp.tr(),
@@ -169,11 +184,14 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   rateAppOnStore();
                                 }),
                           ),
-                          const LargeDivider(),
-                          //share app
+                           const SmallDivider(),
+                          ///Share app
                           Showcase(
-                            key:ten,
+                            key:showcaseKey13,
                             description: LangEnum.shareOption.tr(),
+                            onBarrierClick: (){
+                              TaxiPassengerAppStorage.showProfileCase(false);
+                            },
                             child: ProfileCell(
                                 title: LangEnum.shareApp.tr(),
                                 imageWidget: Image.asset(
@@ -186,8 +204,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   shareApp();
                                 }),
                           ),
-                          const LargeDivider(),
-                          // become  a captain
+                           const SmallDivider(),
+                          /// Become  a captain
                           ProfileCell(
                               title: LangEnum.becomeCaptain.tr(),
                               icon: Images.becomeCaptainSVG,
@@ -202,7 +220,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                     LangEnum.termsAndConditions.tr(),
                                   });
                               }),
-                          //log out
+                          ///Log out
                           Center(
                             child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
@@ -215,7 +233,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   style: context.text.titleMedium?.copyWith(color: context.color.error),
                                 )),
                           ).vPadding(24,),
-                          // copy right
+                          ///Copy right
                           Center(
                             child: Text(
                               LangEnum.copyright.tr(),

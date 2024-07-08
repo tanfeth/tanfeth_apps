@@ -40,7 +40,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Form(
               key: formKey,
               child: Column(
@@ -57,7 +57,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                             style: context.text.titleMedium,
                             textAlign: TextAlign.start,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
 
@@ -70,13 +70,13 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                               validator: Validation.notEmpty,
                               onChanged: (String value) {}),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
                           SelectCityWidget(),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
@@ -111,7 +111,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                                 }),
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
@@ -124,7 +124,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                               validator: Validation.email,
                               onChanged: (String value) {}),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                         ],
@@ -140,7 +140,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                     },
                     child: Text(LangEnum.continueWord.tr()),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],
