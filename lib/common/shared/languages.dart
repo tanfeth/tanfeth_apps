@@ -617,6 +617,8 @@ enum LangEnum {
   reportTrip, sedan, familyCar, route, findADriver,
   transactions,currentBalance,myCards,
   noPlace,addAddressToFavourite,addPlace,addCards,noCard,addCardList, findingDriverForYou, areSureWantCancel, cancelRide, whyWantCancel, noKeepRide, chargedCancelling, call, carCaseHint, pickLocationCaseHint, destinationCaseHint, payWayCaseHint, paymentPriceCaseHint, callDriverHint, currentLocationHint, cancelRideCaseHint, personInfoHint, myTripHint, favouritePlaceHint, whereToGoHint, previousTripsHint, reorderListHint
+  noPlace,addAddressToFavourite,addPlace,addCards,noCard,addCardList,tripHint,noTransaction,
+  transactionHint,
 }
 
 class MyLanguages extends Translations {

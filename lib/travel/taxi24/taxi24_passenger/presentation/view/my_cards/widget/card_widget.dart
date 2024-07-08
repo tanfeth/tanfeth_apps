@@ -18,6 +18,7 @@ class CreditCard extends StatelessWidget {
       child: Row(
         children: [
           Checkbox(
+            shape: CircleBorder(),
             tristate: true,
             isError: true,
             activeColor: context.color.primary,

@@ -8,7 +8,9 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/my_cards.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/add_funds_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/transaction_route.dart';
 
 class PassengerWalletView extends StatefulWidget {
     const PassengerWalletView({super.key});
@@ -18,10 +20,10 @@ class PassengerWalletView extends StatefulWidget {
   class _PassengerWalletViewState extends State<PassengerWalletView> {
     @override
     Widget build(BuildContext context) {
-      return WebWidth(
-        child: Scaffold(
-          appBar: MainAppBar(title: LangEnum.wallet.tr(),),
-          body: Column(
+      return Scaffold(
+        appBar: MainAppBar(title: LangEnum.wallet.tr(),),
+        body: WebWidth(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
@@ -51,13 +53,18 @@ class PassengerWalletView extends StatefulWidget {
                               Text(LangEnum.currentBalance.tr(),style: context.text.bodyLarge,),
                             ],
                           ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              color: context.color.onSurface,
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Icon(Icons.add, size: 24,color: context.color.surface,),
+                          GestureDetector(
+                            onTap:() {
+                              Get.toNamed(AddFundsRouting.config().path);
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: context.color.onSurface,
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Icon(Icons.add, size: 24,color: context.color.surface,),
+                            ),
                           )
                         ],
                       ),
@@ -70,7 +77,7 @@ class PassengerWalletView extends StatefulWidget {
                         iconWidth: 24,
                         icon: Images.recentClock,
                         function: () {
-                          Get.toNamed(MyCardsRouting.config().path);
+                          Get.toNamed(TransactionRouting.config().path);
                         }),
                     20.ph,
                     ProfileCell(

@@ -1185,7 +1185,7 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
     addString(
       key: LangEnum.transactions.name,
-      enValue: 'See transactions',
+      enValue: 'transactions',
       arValue: 'المعاملات',
     );
     addString(
@@ -1320,6 +1320,19 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
     addString(
+      key: LangEnum.tripHint.name,
+      enValue: 'Your recent and cancelled trips will appear here',
+      arValue: 'ستظهر رحلاتك الأخيرة والمُلغاة هنا',
+    );
+    addString(
+      key: LangEnum.noTransaction.name,
+      enValue: 'No transactions yet',
+      arValue: 'لا يوجد معاملات بعد',
+    );
+    addString(
+      key: LangEnum.transactionHint.name,
+      enValue: 'Any wallet activity you do will show up here',
+      arValue: 'أي معاملات خاصة بالمحفظة سوف تظهر هنا',
       key: LangEnum.paymentPriceCaseHint.name,
       enValue: 'Here you can see trip cost details',
       arValue: 'هنا يمكنك رؤية تفاصيل تكلفة الرحلة',

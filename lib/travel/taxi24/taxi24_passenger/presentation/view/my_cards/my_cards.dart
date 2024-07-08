@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -63,21 +66,32 @@ class _MyCardsState extends State<MyCards> {
           child: Padding(padding: (24,16).toSymmetric,
             child:card.isNotEmpty? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(LangEnum.myCards.tr(),style: context.text.titleMedium?.
                 copyWith(fontWeight: FontWeight.w700),),
                 16.ph,
                 Expanded(
                   child: ListView.separated(
-                    itemCount:card.length,
-                    itemBuilder: (_,index)=> CreditCard(
+                    itemCount:card.length+1,
+                    itemBuilder: (_,index)=> index!=card.length?CreditCard(
                       card: card[index],
                       onCheckBoxChanged: onCheckBoxChanged,
                       index: index
+                    ):Row(
+                      children: [
+                        SvgPicture.asset(Images.plusIconSVG,width: 16,height: 16,),
+                        24.pw,
+                        Text("Add credit/debit card",style: context.text.titleMedium,)
+                      ],
                     ),
                     separatorBuilder: (BuildContext context, int index)=>12.ph,
                   ),
+                ),
+                ElevatedButton(
+                  onPressed: ()async {
+                    Get.back();
+                  },
+                  child: Text(LangEnum.save.tr()),
                 ),
               ],
             ):EmptyCard(),
