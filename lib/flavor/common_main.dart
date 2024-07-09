@@ -59,7 +59,7 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
     timeago.setLocaleMessages('ar', CustomArTimeAgo());
     await GetStorage.init();
      await Images.initImages();
-     await FacebookAppEvents().setAdvertiserTracking(enabled: true);
+   //  await FacebookAppEvents().setAdvertiserTracking(enabled: true);
      await SharedPreferencesService.init();
     Get.put(flavorConfig, permanent: true);
     return runApp(
@@ -70,9 +70,6 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
           onComplete: (index, key) {
             log('onComplete: $index, $key');
             checkCaseStatus(index:index);
-          },
-          onFinish: (){
-           // log('onFinish');
           },
           blurValue: 1,
           enableAutoScroll: true,
@@ -92,7 +89,7 @@ class CommonMain extends ConsumerWidget {
   final List<GetPage> screenPages;
   CommonMain(
     this.flavorConfig,
-    this.screenPages,
+    this.screenPages, {super.key}
   ) {
     screenPages.addAll([
       InitRouting.config().page,
@@ -141,7 +138,7 @@ class CommonMain extends ConsumerWidget {
         locale: Locale(AppMode.getLanguageMode(initLang: "en")),
         fallbackLocale: flavorConfig.fallbackLocale,
         translations: flavorConfig.languages,
-        localizationsDelegates: [
+        localizationsDelegates: const [
           CountryLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
@@ -154,7 +151,7 @@ class CommonMain extends ConsumerWidget {
         builder: (context, child) {
           return Row(
             children: [
-              Expanded(child: child ?? SizedBox()),
+              Expanded(child: child ?? const SizedBox.shrink()),
             ],
           );
         },

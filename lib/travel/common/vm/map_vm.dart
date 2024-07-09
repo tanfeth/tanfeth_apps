@@ -102,12 +102,12 @@ ReadNotifierVMA<ParamMapModel, ParamMapModel, ParamMapModel> with
     if (animateCamera) {
       state.gMapControl!.animateCamera(
         CameraUpdate.newCameraPosition(
-          (CameraPosition(target: currentPosition, zoom: 10)),
+          (CameraPosition(target: currentPosition, zoom: state.mapZoom)),
         ),
       );
 
       state.cameraPosition=
-      (CameraPosition(target: currentPosition, zoom: 10));
+      (CameraPosition(target: currentPosition, zoom: state.mapZoom));
     }
     updateModel();
   }

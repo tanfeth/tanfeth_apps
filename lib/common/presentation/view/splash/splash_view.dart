@@ -20,8 +20,8 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 
 class SplashView extends ConsumerStatefulWidget {
   const SplashView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ConsumerState createState() => _SplashViewState();

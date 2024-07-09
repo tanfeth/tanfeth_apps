@@ -42,7 +42,7 @@ class Taxi24DriverMain {
 
     final String baseUrl = kReleaseMode || isStaging
         ? "https://test.taxi24.app/api"
-        : "https://devapi.taxi24.app/api";
+        : "https://devapi.taxi24.app";
 
     var flavor = FlavorConfig(
         baseUrl: baseUrl,
@@ -55,24 +55,25 @@ class Taxi24DriverMain {
         shareUrl: 'https://test.taxi24.app/api',
         mapApiKey: 'AIzaSyArcxVdw-9ehlF1atcclWSLBqv3UBiKMeo'
     );
-    if (!(kReleaseMode || isStaging))
+    if (!(kReleaseMode || isStaging)) {
       Auth.init(
-        apiKey: "a2b63710-5b7d-4b58-8fc8-4a12724dfecc",
+        apiKey: "IzVqc7xBjNiYQS0Nl6QXIXSX8WBsd0Hwjfe9jVQs",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
         refreshTokenUrl: "/v1/Authentication/RefreshToken",
         revokeTokenUrl: "/v1/Authentication/RevokeToken",
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );
-    else
+    } else {
       Auth.init(
-        apiKey: "a2b63710-5b7d-4b58-8fc8-4a12724dfecc",
+        apiKey: "IzVqc7xBjNiYQS0Nl6QXIXSX8WBsd0Hwjfe9jVQs",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
         refreshTokenUrl: "/v1/Authentication/RefreshToken",
         revokeTokenUrl: "/v1/Authentication/RevokeToken",
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );
+    }
     Get.put(flavor, permanent: true);
     customAppFlavor = flavor;
     screenPages.addAll([

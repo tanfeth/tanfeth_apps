@@ -25,7 +25,7 @@ class ProfileDataWidget extends StatelessWidget {
               color:sheetColor(value: percentNumber,context: context)
                   )),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,19 +39,24 @@ class ProfileDataWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                SvgPicture.asset(
-                  Images.accsMarkSVG,
-                  height: 16,
-                  width: 16,
+                Center(
+                  child: SvgPicture.asset(
+                    Images.accsMarkSVG,
+                    height: 20,
+                    width: 20,
+                  ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
 
-            Text(
-              title,
+            Expanded(
+              child: Text(
+                title,
+                maxLines: 1,
+              ),
             ),
           ],
         ),

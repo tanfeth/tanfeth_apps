@@ -10,7 +10,7 @@ class BaseModel {
 
   bool? isAdded = false;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false)
   ApiResponse apiResponse = ApiResponse();
 
   String? createdBy;

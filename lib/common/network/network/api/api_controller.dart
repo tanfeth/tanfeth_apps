@@ -8,7 +8,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb, kReleaseMode;
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart'
-as storageSecure;
+as storage_secure;
 import 'package:get/get.dart' as getx;
 import 'package:get/get_connect/http/src/multipart/form_data.dart';
 import 'package:http_parser/http_parser.dart';
@@ -371,7 +371,7 @@ class Auth {
     required String token,
     required String expiration,
   }) async {
-    const storage =  storageSecure.FlutterSecureStorage();
+    const storage =  storage_secure.FlutterSecureStorage();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     ApiController.authorization = token;
     if (!kIsWeb) {
@@ -399,7 +399,7 @@ class Auth {
     String? expires;
     String? token;
     if (!kIsWeb) {
-      const storage =  storageSecure.FlutterSecureStorage();
+      const storage =  storage_secure.FlutterSecureStorage();
       try {
         expires = await storage.read(key: "authorization-timeout");
         token = await storage.read(key: "authorization-token");
@@ -421,7 +421,7 @@ class Auth {
     String? expires;
     String? token;
     if (!kIsWeb) {
-      const storage =  storageSecure.FlutterSecureStorage();
+      const storage =  storage_secure.FlutterSecureStorage();
       try {
         expires = await storage.read(key: "Expires");
         token = await storage.read(key: "RefreshToken");
@@ -456,7 +456,7 @@ class Auth {
     ApiController.authorization = "";
     String? token;
     if (!kIsWeb) {
-      const storage =  storageSecure.FlutterSecureStorage();
+      const storage =  storage_secure.FlutterSecureStorage();
       try {
         token = await storage.read(key: "RefreshToken");
         await storage.delete(key: "RefreshToken");
@@ -481,7 +481,7 @@ class Auth {
       }
 
       if (!kIsWeb) {
-        const storage =  storageSecure.FlutterSecureStorage();
+        const storage =  storage_secure.FlutterSecureStorage();
         storage.deleteAll();
       } else {
         SharedPreferences.getInstance().then((value) => value.clear());
@@ -494,7 +494,7 @@ class Auth {
 
   static _setRefreshToken(String refreshToken) async {
     ApiController.refreshToken = refreshToken;
-    const storage =  storageSecure.FlutterSecureStorage();
+    const storage =  storage_secure.FlutterSecureStorage();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> json = jsonDecode(refreshToken);
     ApiController.refreshToken = json["RefreshToken"];

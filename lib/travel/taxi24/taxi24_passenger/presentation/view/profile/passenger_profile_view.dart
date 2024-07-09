@@ -20,6 +20,7 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/app_version.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
@@ -60,15 +61,20 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: LangEnum.profile.tr()),
+      appBar: MainAppBar(title: LangEnum.profile.tr(),
+      leadingWidget: BackButtonWidget(
+        onTap: (){
+          Scaffold.of(context).closeDrawer();
+        },
+      ),),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  PassengerProfileDataWidget(),
+                  const PassengerProfileDataWidget(),
                   40.ph,
                   Expanded(
                     child: SingleChildScrollView(
@@ -242,7 +248,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                             ),
                           ),
                           // app version
-                          AppVersion(version: '1.0.0',).vPadding(4),
+                          const AppVersion(version: '1.0.0',).vPadding(4),
                         ],
                       ).hPadding(8),
                     ),

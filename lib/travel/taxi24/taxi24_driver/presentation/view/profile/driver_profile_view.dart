@@ -33,7 +33,7 @@ import 'package:showcaseview/showcaseview.dart';
 
 
 class TaxiDriverProfile extends ConsumerStatefulWidget {
-  const TaxiDriverProfile();
+  const TaxiDriverProfile({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TaxiDriverProfile();
 }
@@ -61,15 +61,20 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: LangEnum.profile.tr(), leadingWidget: BackButtonWidget()),
+      appBar: MainAppBar(title: LangEnum.profile.tr(),
+          leadingWidget:  BackButtonWidget(
+            onTap: (){
+              Scaffold.of(context).closeDrawer();
+            },
+          )),
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   SizedBox(height: 28,),
+                   const SizedBox(height: 28,),
                    DriverProfileDataWidget(
                     globalKey: four,
                   ),
@@ -261,7 +266,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                             ),
                           ),
                           2.ph,
-                          AppVersion(version: '1.0.0',),
+                          const AppVersion(version: '1.0.0',),
                           15.ph,
                         ],
                       ),

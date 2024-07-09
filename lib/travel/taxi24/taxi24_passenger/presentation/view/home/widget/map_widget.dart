@@ -22,7 +22,7 @@ class MapWidget extends ConsumerStatefulWidget{
 class _MapState extends ConsumerState<MapWidget>{
 
 late ParamMapModel paramMapModel;
-Future mapFuture = Future.delayed(Duration(milliseconds: 1000), () => true);
+Future mapFuture = Future.delayed(const Duration(milliseconds: 1000), () => true);
 bool isMapVisible = false;
 final Completer<GoogleMapController> completer = Completer();
 late ToggleAnimationVM toggleAnimationVM;
@@ -60,7 +60,7 @@ late ToggleAnimationVM toggleAnimationVM;
           opacity: isMapVisible ? 1.0 : 0,
           duration: const Duration(milliseconds: 600),
           child: GoogleMap(
-            gestureRecognizers: Set()
+            gestureRecognizers: {}
               ..add(Factory<PanGestureRecognizer>(() => PanGestureRecognizer()))
               ..add(Factory<ScaleGestureRecognizer>(() => ScaleGestureRecognizer()))
               ..add(Factory<TapGestureRecognizer>(() => TapGestureRecognizer()))
@@ -90,7 +90,8 @@ late ToggleAnimationVM toggleAnimationVM;
                 completer.complete(controller);
               }
               ref.read(mapProvider.notifier).
-              setMarker(currentPosition:  ref.read(mapProvider).currentLatLng,
+              setMarker(currentPosition:
+              ref.read(mapProvider).currentLatLng,
                   animateCamera: true);
               // ref.read(mapProvider.notifier).getCurrentLocation();
 

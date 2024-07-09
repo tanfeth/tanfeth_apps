@@ -38,7 +38,7 @@ class AccountReadVM
 
 
   AccountReadVM(this.ref, {AccountModel? state})
-      : super(state ?? AccountModel()) {}
+      : super(state ?? AccountModel());
 
   void setAuthResponse(AuthenticateResponseModel? authModel) async {
     if (authModel == null) state = AccountModel();
@@ -77,18 +77,17 @@ class AccountReadVM
   @override
   void setModel(AccountModel model) {
     super.setModel(model);
-    if (state.id == 0)
-
+    if (state.id == 0) {
       /// de ya 7ooda ( mahmoud flutter )  34an n2fl beha l provider bta3 account lma y7sl logout aw error
       ref.keepAlive().close();
-    else {
+    } else {
       ref.keepAlive();
     }
   }
 
   void getProfile({int? fkAccount, int? uid}) async {
     refresh(
-        future: getProfileApi(fkAccount: fkAccount != null?fkAccount : state.id, uid: uid),
+        future: getProfileApi(fkAccount: fkAccount ?? state.id, uid: uid),
         ref: ref,
         isAbstract: false);
     var response = await ref.read(futureProvider);
