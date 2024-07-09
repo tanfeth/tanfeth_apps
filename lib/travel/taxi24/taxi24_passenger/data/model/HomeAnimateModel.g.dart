@@ -8,8 +8,8 @@ part of 'HomeAnimateModel.dart';
 
 HomeAnimateModel _$HomeAnimateModelFromJson(Map<String, dynamic> json) =>
     HomeAnimateModel(
-      header: json['header'] as bool? ?? false,
-      confirmFooter: json['confirmFooter'] as bool? ?? false,
+      header: json['header'] as bool? ?? true,
+      confirmFooter: json['confirmFooter'] as bool? ?? true,
       tripFooter: json['tripFooter'] as bool? ?? false,
       findDriver: json['findDriver'] as bool? ?? false,
     );

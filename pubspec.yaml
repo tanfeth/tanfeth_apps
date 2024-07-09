@@ -130,6 +130,7 @@ dependency_overrides:
   firebase_analytics: ^11.1.0
   widget_zoom: ^0.0.4
   dropdown_search: ^5.0.6
+  showcaseview: ^3.0.0
   shelf: ^1.4.2
   top_modal_sheet: ^2.1.0
   fl_chart: ^0.68.0
