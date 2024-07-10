@@ -37,7 +37,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             children: [
@@ -47,7 +47,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                   height: 65,
                   child: Image.asset(Images.driverImage, fit: BoxFit.fill,))),
 
-              RateWidget(rateValue: 4.2,)
+              const RateWidget(rateValue: 4.2,)
             ],
           ),
           8.pw,
@@ -76,7 +76,8 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(4),
+                margin: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color:context.color.inverseSurface,
                   shape: BoxShape.circle,

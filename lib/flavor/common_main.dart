@@ -69,7 +69,6 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
           },
           onComplete: (index, key) {
             log('onComplete: $index, $key');
-            checkCaseStatus(index:index);
           },
           blurValue: 1,
           enableAutoScroll: true,

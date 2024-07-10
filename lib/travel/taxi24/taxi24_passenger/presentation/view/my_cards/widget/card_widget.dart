@@ -5,11 +5,13 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 
 
-class CreditCard extends StatelessWidget {
+class CreditCardCell extends StatelessWidget {
   final dynamic card;
   final Function onCheckBoxChanged;
   final int index;
-  const CreditCard({required this.card,required this.onCheckBoxChanged,required this.index,Key? key}) : super(key: key);
+  const CreditCardCell({required this.card,
+    required this.onCheckBoxChanged,
+    required this.index,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +19,27 @@ class CreditCard extends StatelessWidget {
       onTap: ()=>onCheckBoxChanged(!card['isDefault'],index),
       child: Row(
         children: [
-          Checkbox(
-            shape: CircleBorder(),
-            tristate: true,
-            isError: true,
-            activeColor: context.color.primary,
-            value: card['isDefault'],
-            onChanged: (bool? value) =>onCheckBoxChanged(value,index),
+          Expanded(
+            child: Row(
+              children: [
+                Checkbox(
+                  shape: const CircleBorder(),
+                  tristate: true,
+                  isError: true,
+                  activeColor: context.color.primary,
+                  value: card['isDefault'],
+                  onChanged: (bool? value) =>onCheckBoxChanged(value,index),
+                ),
+                8.pw,
+                SvgPicture.asset( card['brand']=="visa"?Images.visaSVG:Images.mastercardSVG,width: 24,height: 24,),
+                16.pw,
+                Text(card['cardNumber'],
+                  style: context.text.titleSmall,),
+              ],
+            ),
           ),
-          8.pw,
-          SvgPicture.asset( card['brand']=="visa"?Images.visaSVG:Images.mastercardSVG,width: 24,height: 24,),
-          16.pw,
-          Text(card['cardNumber'],style: context.text.titleSmall,),
-          const Spacer(),
-          SvgPicture.asset(Images.deleteIconSVG,width: 20,height: 20,),
+          SvgPicture.asset(Images.deleteIconSVG,
+            width: 20,height: 20,),
           8.pw,
         ],
       ),

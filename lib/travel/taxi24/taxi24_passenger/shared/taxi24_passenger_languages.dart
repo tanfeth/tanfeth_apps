@@ -1255,9 +1255,9 @@ class Taxi24PassengerLanguages extends MyLanguages {
       arValue: 'ابحث عن سائق',
     );
     addString(
-      key: LangEnum.findingDriverForYou.name,
+      key: LangEnum.searching.name,
       enValue: 'Finding a driver for you...',
-      arValue: 'ابحث عن سائق لك...',
+      arValue: 'البحث عن سائق لك...',
     );
     addString(
       key: LangEnum.areSureWantCancel.name,

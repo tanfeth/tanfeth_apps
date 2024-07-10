@@ -14,13 +14,13 @@ import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart'
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/src/android_webview_controller.dart';
-import 'package:webview_flutter_android/webview_flutter_android.dart';
+import "package:webview_flutter_android/webview_flutter_android.dart";
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 
 
 class TermsServiceView extends ConsumerStatefulWidget{
-  const TermsServiceView();
+  const TermsServiceView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TermsServiceView();
@@ -39,7 +39,7 @@ class _TermsServiceView extends ConsumerState<TermsServiceView>{
 
   @override
   void initState() {
-    pageUrl= '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.read(languageProvider)}';
+    pageUrl= customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.read(languageProvider);
      initWebViewSettings();
     super.initState();
   }

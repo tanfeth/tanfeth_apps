@@ -73,15 +73,17 @@ class _MyCardsState extends State<MyCards> {
                 Expanded(
                   child: ListView.separated(
                     itemCount:card.length+1,
-                    itemBuilder: (_,index)=> index!=card.length?CreditCard(
+                    itemBuilder: (_,index)=> index!=card.length?CreditCardCell(
                       card: card[index],
                       onCheckBoxChanged: onCheckBoxChanged,
                       index: index
                     ):Row(
                       children: [
-                        SvgPicture.asset(Images.plusIconSVG,width: 16,height: 16,),
+                        SvgPicture.asset(Images.plusIconSVG,
+                          width: 16,height: 16,),
                         24.pw,
-                        Text("Add credit/debit card",style: context.text.titleMedium,)
+                        Text("Add credit/debit card",
+                          style: context.text.titleMedium,)
                       ],
                     ),
                     separatorBuilder: (BuildContext context, int index)=>12.ph,

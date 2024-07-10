@@ -42,18 +42,19 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
 
 
 
+  GlobalKey one = GlobalKey();
+  GlobalKey two = GlobalKey();
+  GlobalKey three = GlobalKey();
   GlobalKey four = GlobalKey();
   GlobalKey five = GlobalKey();
   GlobalKey six = GlobalKey();
   GlobalKey seven = GlobalKey();
-  GlobalKey eight = GlobalKey();
-  GlobalKey nine = GlobalKey();
-  GlobalKey ten = GlobalKey();
 
   @override
   void initState() {
     if(AppStorage.getProfileCase() == true) {
-      showCaseEvent(context: context, caseList: [four, five, six, seven, eight, nine, ten]);
+      showCaseEvent(context: context,
+          caseList: [one, two, three, four, five, six, seven]);
     }
     super.initState();
   }
@@ -76,7 +77,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                 children: [
                    const SizedBox(height: 28,),
                    DriverProfileDataWidget(
-                    globalKey: four,
+                    globalKey: one,
                   ),
                    Expanded(
                     child: SingleChildScrollView(
@@ -85,8 +86,8 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ProfileRate(
-                            five: five,
-                            six: six,
+                            five: two,
+                            six: three,
                           ),
                           24.ph,
                           ProfileCell(
@@ -111,7 +112,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                               }),
                           const LargeDivider(),
                           Showcase(
-                            key: seven,
+                            key: four,
                             description: LangEnum.carsOption.tr(),
                             child: ProfileCell(
                                 title: LangEnum.myCars.tr(),
@@ -158,7 +159,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                   SendMessageRouting.config().path)),
                           const LargeDivider(),
                           Showcase(
-                            key: eight,
+                            key: five,
                             description: LangEnum.priceOption.tr(),
                             child: ProfileCell(
                                 title: LangEnum.paymentAndPricing.tr(),
@@ -180,7 +181,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                       WebViewRouting.config().path,
                                       parameters: {
                                         WebViewRouting.pageUrl:
-                                            '${customAppFlavor.commonEnum.appDataEnum.aboutApp+ref.watch(languageProvider)}',
+                                            customAppFlavor.commonEnum.appDataEnum.aboutApp+ref.watch(languageProvider),
                                         WebViewRouting.appBarTitle:
                                             LangEnum.aboutAppName.tr(),
                                       })),
@@ -192,7 +193,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                       WebViewRouting.config().path,
                                       parameters: {
                                         WebViewRouting.pageUrl:
-                                            '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider)}',
+                                            customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider),
                                         WebViewRouting.appBarTitle:
                                             LangEnum.termsAndConditions.tr(),
                                       })),
@@ -204,13 +205,13 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                                       WebViewRouting.config().path,
                                       parameters: {
                                         WebViewRouting.pageUrl:
-                                            '${customAppFlavor.commonEnum.appDataEnum.policy+ref.watch(languageProvider)}',
+                                            customAppFlavor.commonEnum.appDataEnum.policy+ref.watch(languageProvider),
                                         WebViewRouting.appBarTitle:
                                             LangEnum.privacyPolicy.tr(),
                                       })),
                           const LargeDivider(),
                           Showcase(
-                            key: nine,
+                            key: six,
                             description: LangEnum.rateAppOption.tr(),
                             child: ProfileCell(
                                 title: LangEnum.rateApp.tr(),
@@ -228,8 +229,11 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           ),
                           const LargeDivider(),
                           Showcase(
-                            key:ten,
+                            key:seven,
                             description: LangEnum.shareOption.tr(),
+                            onBarrierClick: (){
+                              AppStorage.showProfileCase(false);
+                            },
                             child: ProfileCell(
                                 title: LangEnum.shareApp.tr(),
                                 icon: Images.aboutProfileSVG,

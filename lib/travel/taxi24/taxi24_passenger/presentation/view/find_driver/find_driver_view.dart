@@ -9,7 +9,7 @@ import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_price_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/vm/find_driver_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/vm/searching_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/widget/driver_info_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/widget/searching_driver_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/widget/trip_details_widget.dart';
@@ -65,7 +65,7 @@ class _FindDriverView extends ConsumerState<FindDriverView>{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   10.ph,
-                  if(  ref.watch(findDriverProvider) == 0)...[
+                  if(  ref.watch(searchingProvider) == 0)...[
                     const SearchingDriverWidget(),
                   ]else...[
                     const DriverInfoWidget(),

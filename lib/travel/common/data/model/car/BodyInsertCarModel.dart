@@ -1,5 +1,6 @@
 
 
+import 'package:file_picker/file_picker.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'BodyInsertCarModel.g.dart';
 
@@ -26,6 +27,14 @@ class BodyInsertCarModel{
   int ? plateLetterMiddle;
   @JsonKey(name: 'PlateLetterLeft')
   int ? plateLetterLeft;
+
+
+  @JsonKey(name:'Images',includeIfNull: false,
+      includeFromJson: false,
+  includeToJson: false)
+
+  List<PlatformFile> images = [];
+
 
   BodyInsertCarModel();
 

@@ -469,21 +469,21 @@ class Taxi24DriverLanguages extends MyLanguages {
     addString(
       key: LangEnum.letterRight.name,
       enValue: 'Right Letter',
-      arValue: 'حرف الايمن',
+      arValue: 'الحرف الايمن',
     );
 
 
     addString(
       key: LangEnum.letterLeft.name,
       enValue: 'Left Letter',
-      arValue: 'حرف اليسار',
+      arValue: 'الحرف اليسار',
     );
 
 
     addString(
       key: LangEnum.middleLetter.name,
       enValue: 'Middle Letter',
-      arValue: 'حرف الأوسط',
+      arValue: 'الحرف الأوسط',
     );
 
 
@@ -950,31 +950,31 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.goOffline.name,
+      enValue: 'Go offline',
+      arValue: 'انتقل إلى وضع عدم الاتصال',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.searching.name,
+      enValue: 'Searching for trips...',
+      arValue: 'البحث عن الرحلات...',
     );
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.decline.name,
+      enValue: 'Decline',
+      arValue: 'رفض',
     );
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.payYourExpenses.name,
+      enValue: 'You need to charge your wallet to receive trips',
+      arValue: 'تحتاج إلى شحن محفظتك لتلقي الرحلات',
     );
 
     addString(

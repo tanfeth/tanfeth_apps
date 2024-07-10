@@ -18,9 +18,8 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_d
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 class CarData extends ConsumerStatefulWidget {
-  final GlobalKey<FormState>  formKey;
-  CarData({required this.formKey});
-
+  final GlobalKey<FormState> formKey;
+  CarData({super.key, required this.formKey});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CarData();
@@ -48,12 +47,10 @@ class _CarData extends ConsumerState<CarData> {
     super.initState();
   }
 
-
-  initBuild(){
+  initBuild() {
     carDetailsVM = ref.watch(carDetailsProvider.notifier);
     paramCarDetailsModel = ref.watch(carDetailsProvider);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +80,7 @@ class _CarData extends ConsumerState<CarData> {
               carDetailsVM.setModel(model);
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Column(
@@ -117,14 +114,14 @@ class _CarData extends ConsumerState<CarData> {
               ),
               paramCarDetailsModel.carType == null
                   ? Padding(
-                      padding: EdgeInsets.only(top: 8, bottom: 16),
+                      padding: const EdgeInsets.only(top: 8, bottom: 16),
                       child: Text(
                         LangEnum.selectCarTypeValidator.tr(),
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             color: context.color.surfaceContainerHighest),
                       ))
-                  : SizedBox(
+                  : const SizedBox(
                       height: 16,
                     ),
             ],
@@ -155,14 +152,14 @@ class _CarData extends ConsumerState<CarData> {
               ),
               paramCarDetailsModel.carModel == null
                   ? Padding(
-                      padding: EdgeInsets.only(top: 8, bottom: 16),
+                      padding: const EdgeInsets.only(top: 8, bottom: 16),
                       child: Text(
                         LangEnum.selectCarModelValidator.tr(),
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             color: context.color.surfaceContainerHighest),
                       ))
-                  : SizedBox(
+                  : const SizedBox(
                       height: 16,
                     ),
             ],
@@ -180,8 +177,9 @@ class _CarData extends ConsumerState<CarData> {
                 hint: LangEnum.carClassification.tr(),
                 isDisable: paramCarDetailsModel.carYearModel != null,
                 radius: 8,
-                validator: (value) =>
-                    value == null ? LangEnum.selectCarClassification.tr() : null,
+                validator: (value) => value == null
+                    ? LangEnum.selectCarClassification.tr()
+                    : null,
                 onChanged: (value) {
                   ParamCarDetailsModel model = ParamCarDetailsModel();
                   model.carSeatType = value;
@@ -193,7 +191,7 @@ class _CarData extends ConsumerState<CarData> {
               ),
               paramCarDetailsModel.carSeatType == null
                   ? Padding(
-                      padding: EdgeInsets.only(top: 8, bottom: 16),
+                      padding: const EdgeInsets.only(top: 8, bottom: 16),
                       child: Text(
                         LangEnum.selectCarYearModel.tr(),
                         textAlign: TextAlign.start,
@@ -201,7 +199,7 @@ class _CarData extends ConsumerState<CarData> {
                             color: context.color.surfaceContainerHighest),
                       ),
                     )
-                  : SizedBox(
+                  : const SizedBox(
                       height: 16,
                     ),
             ],
@@ -224,77 +222,71 @@ class _CarData extends ConsumerState<CarData> {
               validator: Validation.notEmpty,
               onChanged: (String value) {}),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Row(
-            children: [
-              /// Letter Left
-              Expanded(
-                child: CustomTextFormField(
-                    controller: plateLetterLeftController,
-                    keyboardType: TextInputType.text,
-                    hintText: LangEnum.letterLeft.tr(),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
-                      ),
-                      FilteringTextInputFormatter.deny(
-                        RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
-                      )
-                    ],
-                    textInputAction: TextInputAction.next,
-                    validator: Validation.notEmpty,
-                    onChanged: (String value) {}),
-              ),
-              SizedBox(
-                width: 8,
-              ),
 
-              /// Letter Middle
-              Expanded(
-                child: CustomTextFormField(
-                    controller: plateLetterMiddleController,
-                    keyboardType: TextInputType.text,
-                    hintText: LangEnum.middleLetter.tr(),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
-                      ),
-                      FilteringTextInputFormatter.deny(
-                        RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
-                      )
-                    ],
-                    textInputAction: TextInputAction.next,
-                    validator: Validation.notEmpty,
-                    suffixOnTap: () {},
-                    onChanged: (String value) {}),
-              ),
-              SizedBox(
-                width: 8,
-              ),
+          /// Letter Left
+          CustomTextFormField(
+              controller: plateLetterLeftController,
+              keyboardType: TextInputType.text,
+              hintText: LangEnum.letterLeft.tr(),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(
+                  RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
+                ),
+                FilteringTextInputFormatter.deny(
+                  RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
+                )
+              ],
+              textInputAction: TextInputAction.next,
+              validator: Validation.notEmpty,
+              onChanged: (String value) {}),
 
-              /// Letter Right
-              Expanded(
-                child: CustomTextFormField(
-                    controller: plateLetterRightController,
-                    keyboardType: TextInputType.text,
-                    hintText: LangEnum.letterRight.tr(),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(
-                        RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
-                      ),
-                      FilteringTextInputFormatter.deny(
-                        RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
-                      )
-                    ],
-                    textInputAction: TextInputAction.next,
-                    validator: Validation.notEmpty,
-                    onChanged: (String value) {}),
-              )
-            ],
+          const SizedBox(
+            height: 10,
           ),
-          SizedBox(
+
+          /// Letter Middle
+          CustomTextFormField(
+              controller: plateLetterLeftController,
+              keyboardType: TextInputType.text,
+              hintText: LangEnum.middleLetter.tr(),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(
+                  RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
+                ),
+                FilteringTextInputFormatter.deny(
+                  RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
+                )
+              ],
+              textInputAction: TextInputAction.next,
+              validator: Validation.notEmpty,
+              onChanged: (String value) {}),
+
+          const SizedBox(
+            height: 10,
+          ),
+
+
+          /// Letter Right
+          CustomTextFormField(
+              controller: plateLetterLeftController,
+              keyboardType: TextInputType.text,
+              hintText: LangEnum.letterRight.tr(),
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(
+                  RegExp(r'[a-zA-Z\u0600-\u06FF\s]'),
+                ),
+                FilteringTextInputFormatter.deny(
+                  RegExp('[٠١٢٣٤٥٦٧٨٩؟!؛،٪]'),
+                )
+              ],
+              textInputAction: TextInputAction.next,
+              validator: Validation.notEmpty,
+              onChanged: (String value) {}),
+
+          const SizedBox(
             height: 16,
           ),
 
@@ -312,7 +304,7 @@ class _CarData extends ConsumerState<CarData> {
               textInputAction: TextInputAction.next,
               validator: Validation.notEmpty,
               onChanged: (String value) {}),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
@@ -333,7 +325,7 @@ class _CarData extends ConsumerState<CarData> {
               validator: Validation.notEmpty,
               onChanged: (String value) {}),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Text(
@@ -342,7 +334,7 @@ class _CarData extends ConsumerState<CarData> {
             style: context.text.titleMedium
                 ?.copyWith(color: context.color.onSurface),
           ),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
           Text(
@@ -350,7 +342,7 @@ class _CarData extends ConsumerState<CarData> {
             textAlign: TextAlign.start,
             style: TextStyle(color: context.color.surfaceContainerHighest),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           SizedBox(
@@ -374,7 +366,7 @@ class _CarData extends ConsumerState<CarData> {
                           child: Container(
                               height: 72,
                               width: 72,
-                              margin: EdgeInsets.only(right: 16),
+                              margin: const EdgeInsets.only(right: 16),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   border: Border.all(
@@ -390,7 +382,7 @@ class _CarData extends ConsumerState<CarData> {
                         child: Container(
                           height: 72,
                           width: 72,
-                          margin: EdgeInsets.only(right: 16),
+                          margin: const EdgeInsets.only(right: 16),
                           alignment: Alignment.topRight,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
@@ -401,7 +393,7 @@ class _CarData extends ConsumerState<CarData> {
                           child: Container(
                               height: 24,
                               width: 24,
-                              margin: EdgeInsets.all(4),
+                              margin: const EdgeInsets.all(4),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: context.color.surface,

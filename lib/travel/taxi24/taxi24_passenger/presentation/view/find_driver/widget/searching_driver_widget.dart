@@ -14,13 +14,13 @@ class SearchingDriverWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          LangEnum.findingDriverForYou.tr(),
+          LangEnum.searching.tr(),
           style: context.text.titleMedium,
         ),
 
 
         Padding(
-          padding: EdgeInsets.symmetric( vertical: 24),
+          padding: const EdgeInsets.symmetric( vertical: 24),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(

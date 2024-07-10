@@ -628,7 +628,7 @@ enum LangEnum {
   addCards,
   noCard,
   addCardList,
-  findingDriverForYou,
+  searching,
   areSureWantCancel,
   cancelRide,
   whyWantCancel,
@@ -651,7 +651,7 @@ enum LangEnum {
   reorderListHint,
   tripHint,
   noTransaction,
-  transactionHint,
+  transactionHint, goOffline, decline, km, payYourExpenses,
 }
 
 class MyLanguages extends Translations {

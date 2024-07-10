@@ -13,8 +13,8 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ho
 
 class TripDetailsWidget extends ConsumerStatefulWidget {
   const TripDetailsWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TripDetailsWidget();
@@ -34,7 +34,7 @@ class _TripDetailsWidget extends ConsumerState<TripDetailsWidget>{
 
         ///Pick up location
         Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             children: [
               SvgPicture.asset(
@@ -56,7 +56,7 @@ class _TripDetailsWidget extends ConsumerState<TripDetailsWidget>{
         ///Destination location
 
         Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children:[
               ...List.generate(ref
@@ -104,7 +104,7 @@ class _TripDetailsWidget extends ConsumerState<TripDetailsWidget>{
               height: 40,
             ),
 
-            SizedBox(width: 16,),
+            const SizedBox(width: 16,),
 
             Text(
               (ref.watch(carListProvider)[

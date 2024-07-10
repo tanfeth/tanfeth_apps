@@ -20,7 +20,7 @@ import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 
 class DriverRegisterView extends ConsumerStatefulWidget{
-  const DriverRegisterView();
+  const DriverRegisterView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _DriverRegisterView();
@@ -56,7 +56,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Form(
               key: formKey,
               child: Column(
@@ -73,7 +73,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                             style: context.text.titleMedium,
                             textAlign: TextAlign.start,
                           ),
-                          SizedBox(height: 24,),
+                          const SizedBox(height: 24,),
 
                           ///Full name
                           CustomTextFormField(
@@ -84,7 +84,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               validator: Validation.notEmpty,
                               onChanged: (String value) {}),
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
 
                           ///Saudi ID
@@ -99,7 +99,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               validator: Validation.notEmpty,
                               onChanged: (String value) {}),
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           Directionality(
                             textDirection: TextDirection.rtl,
@@ -126,13 +126,13 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                 }),
                           ),
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           ///City
                           SelectCityWidget(),
 
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           ///Email
                           CustomTextFormField(
@@ -143,7 +143,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               validator: Validation.email,
                               onChanged: (String value) {}),
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           ///BirthdateHijri
                           CustomTextFormField(
@@ -159,7 +159,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               onChanged: (String value) {}),
 
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           ///Gender
                           Text(
@@ -168,7 +168,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                             textAlign: TextAlign.start,
                           ),
 
-                          SizedBox(height:16,),
+                          const SizedBox(height:16,),
 
                           Row(
                             children: [
@@ -188,14 +188,14 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                           color: context.color.surfaceContainerHighest)
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 16),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16),
                                     child:Text(
                                       LangEnum.male.tr(),
                                     )
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 8,),
+                              const SizedBox(width: 8,),
                               GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap:(){
@@ -211,7 +211,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                   ),
                                   child: Center(
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 16),
+                                      padding: const EdgeInsets.symmetric(horizontal: 16),
                                       child: Text(
                                         LangEnum.female.tr(),
                                       )
@@ -237,7 +237,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                     child: Text(LangEnum.continueWord.tr()),
                   ),
 
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                 ],
               ),
             ),

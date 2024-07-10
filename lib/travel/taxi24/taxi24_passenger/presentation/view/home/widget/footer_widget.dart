@@ -12,7 +12,7 @@ import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart'
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/vm/car_type_vm.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/vm/find_driver_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/find_driver/vm/searching_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/pick_up_location_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/vm/toggle_animation_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/footer_car_list.dart';
@@ -207,7 +207,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
 
 
                       Future.delayed(const Duration(seconds: 3),(){
-                        ref.read(findDriverProvider.notifier).changeCurrentIndex(1);
+                        ref.read(searchingProvider.notifier).changeCurrentIndex(1);
                       });
 
 

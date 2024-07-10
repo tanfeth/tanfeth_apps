@@ -8,15 +8,13 @@ import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widge
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/car_data.dart';
 
 class CarDetailsView extends ConsumerStatefulWidget {
-  const CarDetailsView();
+  const CarDetailsView({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CarDetailsView();
 }
 
 class _CarDetailsView extends ConsumerState<CarDetailsView> {
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +34,7 @@ class _CarDetailsView extends ConsumerState<CarDetailsView> {
                       formKey: formKey,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   ElevatedButton(
