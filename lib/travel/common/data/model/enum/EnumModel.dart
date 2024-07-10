@@ -10,6 +10,7 @@ class EnumModel{
 
   @JsonKey(name: 'name')
   String ? name;
+  String? code;
 
   EnumModel();
 
