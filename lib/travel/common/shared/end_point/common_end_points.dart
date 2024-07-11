@@ -4,8 +4,8 @@ import 'package:tanfeth_apps/travel/common/shared/end_point/auth/auth_end_point.
 
 class CommonEndpoints{
   AuthEndPoints authEndPoints;
-
   final String getCities;
+
   final String driverRegister;
   final String deleteAccount;
   final String verifyAccount;

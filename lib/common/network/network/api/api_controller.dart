@@ -228,7 +228,9 @@ class ApiController {
         ),
       );
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
     if ((response == null || response.statusCode == HttpStatus.unauthorized)) {
       if (enableRe && !retry) {

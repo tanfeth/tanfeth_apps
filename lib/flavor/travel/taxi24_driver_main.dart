@@ -59,8 +59,8 @@ class Taxi24DriverMain {
       Auth.init(
         apiKey: "IzVqc7xBjNiYQS0Nl6QXIXSX8WBsd0Hwjfe9jVQs",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
-        refreshTokenUrl: "/v1/Authentication/RefreshToken",
-        revokeTokenUrl: "/v1/Authentication/RevokeToken",
+        refreshTokenUrl: "/v1/Auth/RefreshToken",
+        revokeTokenUrl: "/v1/Auth/RevokeToken",
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );
@@ -68,8 +68,8 @@ class Taxi24DriverMain {
       Auth.init(
         apiKey: "IzVqc7xBjNiYQS0Nl6QXIXSX8WBsd0Hwjfe9jVQs",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
-        refreshTokenUrl: "/v1/Authentication/RefreshToken",
-        revokeTokenUrl: "/v1/Authentication/RevokeToken",
+        refreshTokenUrl: "/v1/Auth/RefreshToken",
+        revokeTokenUrl: "/v1/Auth/RevokeToken",
         secretCer: "okgOZmQDDvDxxLNMHfdQZs7WP5lFuInI",
         userAgent:UserAgentEnum.android,
       );

@@ -6,7 +6,7 @@ class Taxi24PassengerEndPoints extends CommonEndpoints {
 
 
   Taxi24PassengerEndPoints():super(
-    authEndPoints: AuthEndPoints(
+    authEndPoints: const AuthEndPoints(
       login: "/User/login",
       register: "/User/Register",
       sendCode: "User/sendCode",
