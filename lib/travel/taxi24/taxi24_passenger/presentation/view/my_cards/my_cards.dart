@@ -61,7 +61,7 @@ class _MyCardsState extends State<MyCards> {
   Widget build(BuildContext context) {
     return WebWidth(
       child: Scaffold(
-        appBar: MainAppBar(title: LangEnum.myCards.tr(),leadingWidget: BackButtonWidget()),
+        appBar: MainAppBar(title: LangEnum.myCards.tr(),leadingWidget: const BackButtonWidget()),
         body: SafeArea(
           child: Padding(padding: (24,16).toSymmetric,
             child:card.isNotEmpty? Column(
@@ -96,7 +96,7 @@ class _MyCardsState extends State<MyCards> {
                   child: Text(LangEnum.save.tr()),
                 ),
               ],
-            ):EmptyCard(),
+            ):const EmptyCard(),
           ),
         ),
       ),
