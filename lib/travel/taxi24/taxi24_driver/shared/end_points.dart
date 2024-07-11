@@ -7,7 +7,7 @@ import 'package:tanfeth_apps/travel/common/shared/end_point/common_end_points.da
 class Taxi24DriverEndPoints extends CommonEndpoints {
 
   Taxi24DriverEndPoints():super(
-    authEndPoints: AuthEndPoints(
+    authEndPoints: const AuthEndPoints(
       login: "/Driver/login",
       register: "/User/Register",
       sendCode: "User/sendCode",
