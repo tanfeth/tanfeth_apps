@@ -82,7 +82,7 @@ class _MyCardsState extends State<MyCards> {
                         SvgPicture.asset(Images.plusIconSVG,
                           width: 16,height: 16,),
                         24.pw,
-                        Text("Add credit/debit card",
+                        Text(LangEnum.addCreditDebitCard.tr(),
                           style: context.text.titleMedium,)
                       ],
                     ),
