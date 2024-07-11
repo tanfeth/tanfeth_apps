@@ -5,7 +5,7 @@ import 'package:tanfeth_apps/travel/common/shared/end_point/auth/auth_end_point.
 class CommonEndpoints{
   AuthEndPoints authEndPoints;
 
-  final String sendCode;
+  final String getCities;
   final String driverRegister;
   final String deleteAccount;
   final String verifyAccount;
@@ -41,7 +41,7 @@ class CommonEndpoints{
 
   CommonEndpoints({
     this.authEndPoints = const AuthEndPoints(),
-    this.sendCode = '',
+    this.getCities = '',
     this.addDriverCar ='',
     this.deleteAccount = '',
     this.checkDriverData ='',

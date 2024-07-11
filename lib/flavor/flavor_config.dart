@@ -40,12 +40,12 @@ class FlavorConfig {
     this.mapApiKey = '',
   }){
     if (myLanguages != null){
-      this.languages = myLanguages;
+      languages = myLanguages;
     } else{
-      this.languages = MyLanguages();
+      languages = MyLanguages();
     }
 
-    if (theme != null) this.myTheme = theme;
+    if (theme != null) myTheme = theme;
   }
 }
 
