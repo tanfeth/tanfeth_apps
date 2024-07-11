@@ -5,7 +5,7 @@ part 'ResponseVerifyModel.g.dart';
 @JsonSerializable(explicitToJson: true)
 class ResponseVerifyModel{
 
-  @JsonKey(name: 'token')
+  @JsonKey(name: 'token',includeIfNull: false)
   String ? token;
 
   @JsonKey(name: 'accountState')

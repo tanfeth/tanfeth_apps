@@ -7,8 +7,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:tanfeth_apps/common/shared/lottie.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,8 +42,10 @@ Future<http.MultipartFile> convertImage({required String imageKey, required Stri
 
 void showLoading() {
   Get.dialog(
-    const Center(child: CircularProgressIndicator()),
-    barrierColor: Colors.white.withOpacity(.35),
+     const PopScope(
+        canPop: false,
+        child: Center(child:CircularProgressIndicator(),)),
+    barrierColor: Colors.black.withOpacity(.35),
     barrierDismissible: false,
   );
 }
@@ -116,7 +120,7 @@ Future<void> initURIHandler() async {
     if (initialURI != null) {
       var fullPath = initialURI.path;
       initialURI.queryParameters.forEach((key, value) {
-        fullPath += '?${key}=${value}&';
+        fullPath += '?$key=$value&';
       });
       Get.toNamed(fullPath);
     }

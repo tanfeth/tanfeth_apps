@@ -7,16 +7,15 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/vm/login_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_form.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_info.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/visitor_button.dart';
-import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 
 class TravelLoginView extends ConsumerStatefulWidget {
-  const TravelLoginView({Key? key}) : super(key: key);
+  const TravelLoginView({super.key});
 
   @override
   ConsumerState<TravelLoginView> createState() => _LoginViewState();
@@ -27,20 +26,24 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
   final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
   late bool isDisable = true;
   FocusNode focusNode = FocusNode();
+  late TaxiLoginVM taxiLoginVM ;
+
 
   @override
   void initState() {
     super.initState();
   }
 
-  initBuild() {}
+  initBuild() {
+    taxiLoginVM = ref.watch(taxiLoginProvider.notifier);
+  }
 
   @override
   Widget build(BuildContext context) {
     initBuild();
     return Scaffold(
       appBar: const MainAppBar(
-        leadingWidget: BackButtonWidget(),
+        //leadingWidget: BackButtonWidget(),
         trailingWidget: VisitorButton(),
       ),
       body: WebWidth(
@@ -59,7 +62,7 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                 children: [
                   Text(LangEnum.welcome.tr(), style: context.text.titleMedium),
                   20.ph,
-                  LoginInfo(),
+                  const LoginInfo(),
                   30.ph,
                   Directionality(
                     textDirection: TextDirection.rtl,
@@ -72,7 +75,9 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                     onPressed: () async {
                       if (loginKey.currentState!.validate()) {
                         closeKeyBoard();
-                        Get.toNamed(VerifyRouting.config().path);
+
+                        showLoading();
+                       // Get.toNamed(VerifyRouting.config().path);
                       }
                     },
                     child: Text(LangEnum.continueWord.tr()),

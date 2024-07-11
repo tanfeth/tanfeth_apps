@@ -17,7 +17,9 @@ class EnumModel{
 
   factory EnumModel.fromJson(Map<String, dynamic> json) => _$EnumModelFromJson(json);
 
-  static List<EnumModel> toList(dynamic jsonArray) => List<Map<String, dynamic>>.from(jsonArray).map(EnumModel.fromJson).toList();
+  static List<EnumModel> toList(dynamic jsonArray) =>
+      List<Map<String, dynamic>>.
+      from(jsonArray).map(EnumModel.fromJson).toList();
 
   Map<String, dynamic> toJson() => _$EnumModelToJson(this);
 

@@ -1,5 +1,6 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
 import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 
@@ -7,10 +8,16 @@ import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 final splashProvider =
     FutureProvider.autoDispose<AuthenticateResponseModel?>((ref) async {
   try {
-    var response = await  Auth.reToken();
-    if (response != null) {
-      AuthenticateResponseModel authResponse =
-          AuthenticateResponseModel.fromJson(response.objectResponse);
+    String? token;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    token = prefs.getString("RefreshToken");
+
+   // var response = await  Auth.reToken();
+    if (token != null || (token??'').isNotEmpty) {
+      // AuthenticateResponseModel authResponse =
+      //     AuthenticateResponseModel.fromJson(response.objectResponse);
+      AuthenticateResponseModel authResponse = AuthenticateResponseModel();
+      authResponse.authToken = token;
 
       return authResponse;
 

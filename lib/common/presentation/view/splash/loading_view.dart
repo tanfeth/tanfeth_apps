@@ -11,7 +11,7 @@ import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 
 class LoadingView extends StatelessWidget {
-  LoadingView({Key? key}) : super(key: key);
+  const LoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {

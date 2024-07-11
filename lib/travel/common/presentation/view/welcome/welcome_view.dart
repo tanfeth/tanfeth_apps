@@ -13,7 +13,7 @@ import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_rou
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 
 class WelcomeView extends ConsumerStatefulWidget {
-  const WelcomeView({Key? key}) : super(key: key);
+  const WelcomeView({super.key});
 
   @override
   ConsumerState<WelcomeView> createState() => _WelcomeViewState();
@@ -112,7 +112,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView>{
                           style:
                           const ButtonStyle().OnBackOutlinedButton(context),
                           onPressed: () {
-                            Get.toNamed(LoginRouting.config().path);
+                            Get.offAllNamed(LoginRouting.config().path);
                           },
                           child: Text(
                             LangEnum.start.tr(),

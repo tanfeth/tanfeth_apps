@@ -10,9 +10,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
-import 'package:tanfeth_apps/common/shared/custom_methods.dart';
 import 'package:tanfeth_apps/common/shared/custom_time_ago.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/globals.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
@@ -36,7 +36,6 @@ import 'package:tanfeth_apps/firebase_options.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
-import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:showcaseview/showcaseview.dart';
 
@@ -59,6 +58,7 @@ void mainCommon(FlavorConfig flavorConfig, List<GetPage> screenPages) {
     timeago.setLocaleMessages('ar', CustomArTimeAgo());
     await GetStorage.init();
      await Images.initImages();
+    await Globals.init();
    //  await FacebookAppEvents().setAdvertiserTracking(enabled: true);
      await SharedPreferencesService.init();
     Get.put(flavorConfig, permanent: true);

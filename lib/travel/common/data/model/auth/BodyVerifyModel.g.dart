@@ -10,7 +10,7 @@ BodyVerifyModel _$BodyVerifyModelFromJson(Map<String, dynamic> json) =>
     BodyVerifyModel()
       ..phoneNumber = json['PhoneNumber'] as String?
       ..code = json['Code'] as String?
-      ..appEnum = json['AppEnum'] as String?;
+      ..appEnum = (json['AppEnum'] as num?)?.toInt();
 
 Map<String, dynamic> _$BodyVerifyModelToJson(BodyVerifyModel instance) =>
     <String, dynamic>{

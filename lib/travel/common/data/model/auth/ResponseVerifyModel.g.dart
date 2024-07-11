@@ -12,10 +12,17 @@ ResponseVerifyModel _$ResponseVerifyModelFromJson(Map<String, dynamic> json) =>
       ..accountState = json['accountState'] as String?
       ..isInTrip = json['isInTrip'] as bool?;
 
-Map<String, dynamic> _$ResponseVerifyModelToJson(
-        ResponseVerifyModel instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      'accountState': instance.accountState,
-      'isInTrip': instance.isInTrip,
-    };
+Map<String, dynamic> _$ResponseVerifyModelToJson(ResponseVerifyModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('token', instance.token);
+  val['accountState'] = instance.accountState;
+  val['isInTrip'] = instance.isInTrip;
+  return val;
+}

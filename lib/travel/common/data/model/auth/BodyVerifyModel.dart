@@ -12,7 +12,7 @@ class BodyVerifyModel{
   String ? code;
 
   @JsonKey(name: 'AppEnum')
-  String ? appEnum;
+  int? appEnum;
 
 
 

@@ -9,6 +9,9 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
 
 
+
+///Cities
+
 Future<PaginationModel<List<EnumModel>>> getCitiesApi() async {
   try {
     var response = await ApiController(

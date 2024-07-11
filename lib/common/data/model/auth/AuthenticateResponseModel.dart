@@ -9,6 +9,7 @@ class AuthenticateResponseModel {
   String? emailAddress;
   String? phoneNumber;
   String? imageUrl;
+  String? authToken;
 
   @JsonKey()
   int? fk_Account;

@@ -428,7 +428,9 @@ class Auth {
         expires = await storage.read(key: "Expires");
         token = await storage.read(key: "RefreshToken");
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          log(e.toString());
+        }
       }
     } else {
       SharedPreferences prefs = await SharedPreferences.getInstance();
