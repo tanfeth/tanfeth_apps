@@ -231,8 +231,14 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           Showcase(
                             key:seven,
                             description: LangEnum.shareOption.tr(),
-                            onBarrierClick: (){
-                              AppStorage.showProfileCase(false);
+                            onBarrierClick: ()async{
+                              await   AppStorage.showProfileCase(false);
+                            },
+                            onToolTipClick: ()async{
+                              await   AppStorage.showProfileCase(false);
+                            },
+                            onTargetClick: ()async{
+                              await   AppStorage.showProfileCase(false);
                             },
                             child: ProfileCell(
                                 title: LangEnum.shareApp.tr(),

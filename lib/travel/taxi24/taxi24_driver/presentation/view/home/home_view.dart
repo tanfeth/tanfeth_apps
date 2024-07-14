@@ -131,8 +131,15 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
                 child: Showcase(
                   key: three,
                   description: LangEnum.startOption.tr(),
-                  onBarrierClick: () {
-                    AppStorage.showHomeCase(false);
+                  disposeOnTap: true,
+                  onBarrierClick: ()async{
+                    await  AppStorage.showHomeCase(false);
+                  },
+                  onToolTipClick: ()async{
+                    await  AppStorage.showHomeCase(false);
+                  },
+                  onTargetClick: ()async{
+                    await  AppStorage.showHomeCase(false);
                   },
                   child: ElevatedButton(
                     onPressed: () {
