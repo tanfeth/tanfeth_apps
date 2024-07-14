@@ -1,6 +1,6 @@
 
 
-import 'package:dio/src/headers.dart';
+import 'package:dio/dio.dart';
 
 enum RequestState {
   fetch,

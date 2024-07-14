@@ -6,7 +6,7 @@ part 'BodyLoginModel.g.dart';
 class BodyLoginModel{
 
   @JsonKey(name: 'PhoneNumber')
-  String ? phoneNumber;
+  String? phoneNumber;
   BodyLoginModel();
 
   factory BodyLoginModel.fromJson(Map<String, dynamic> json) => _$BodyLoginModelFromJson(json);

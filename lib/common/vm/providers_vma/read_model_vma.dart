@@ -31,7 +31,7 @@ abstract class ReadNotifierVMA<Model, Response, Notifier>
       }
       return result;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 }

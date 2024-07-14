@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
-import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
@@ -15,7 +13,6 @@ import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dar
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
-import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -163,7 +160,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
-                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ ref.watch(languageProvider)}',
+                                    customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ ref.watch(languageProvider),
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
                                   });
@@ -195,9 +192,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                           Showcase(
                             key:showcaseKey13,
                             description: LangEnum.shareOption.tr(),
-                            onBarrierClick: (){
-                              TaxiPassengerAppStorage.showProfileCase(false);
+                            onBarrierClick: ()async{
+                             await  TaxiPassengerAppStorage.showProfileCase(false);
                             },
+                            onToolTipClick: ()async{
+                              await  TaxiPassengerAppStorage.showProfileCase(false);
+                            },
+                            onTargetClick: ()async{
+                              await  TaxiPassengerAppStorage.showProfileCase(false);
+                            },
+                            disposeOnTap: true,
                             child: ProfileCell(
                                 title: LangEnum.shareApp.tr(),
                                 imageWidget: Image.asset(
@@ -221,7 +225,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   WebViewRouting.config().path,
                                   parameters: {
                                     WebViewRouting.pageUrl:
-                                    '${customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider)}',
+                                    customAppFlavor.commonEnum.appDataEnum.termsAndCondition+ref.watch(languageProvider),
                                     WebViewRouting.appBarTitle:
                                     LangEnum.termsAndConditions.tr(),
                                   });

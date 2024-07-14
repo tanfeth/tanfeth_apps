@@ -10,7 +10,7 @@ import 'package:showcaseview/showcaseview.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class DestinationList extends ConsumerStatefulWidget{
-  const DestinationList();
+  const DestinationList({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>_DestinationList();
@@ -71,7 +71,7 @@ class _DestinationList extends ConsumerState<DestinationList>{
   Widget getChild({required int index}){
     return ListTile(
       key: Key('$index'),
-      title: Text('${destinationList[index].description??''}',
+      title: Text(destinationList[index].description??'',
         maxLines: 2,
         style: TextStyle(
           color: context.color.surfaceContainerHighest,

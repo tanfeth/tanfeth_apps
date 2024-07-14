@@ -92,10 +92,21 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                         child: Showcase(
                           key: showcaseKey1,
                           description: LangEnum.currentLocationHint.tr(),
-                          onBarrierClick: (){
+                          disposeOnTap: true,
+                          onBarrierClick: ()async{
+                               ref.read(setOnLocationMapProvider.notifier)
+                                .getCurrentLocation();
+                               await TaxiPassengerAppStorage.showHomeCase(false);
+                          },
+                          onToolTipClick: ()async{
                             ref.read(setOnLocationMapProvider.notifier)
                                 .getCurrentLocation();
-                            TaxiPassengerAppStorage.showHomeCase(false);
+                            await TaxiPassengerAppStorage.showHomeCase(false);
+                          },
+                          onTargetClick: ()async{
+                            ref.read(setOnLocationMapProvider.notifier)
+                                .getCurrentLocation();
+                            await TaxiPassengerAppStorage.showHomeCase(false);
                           },
                           child: CurrentLocationDetector(onTap: () async {
                             ref.read(setOnLocationMapProvider.notifier)

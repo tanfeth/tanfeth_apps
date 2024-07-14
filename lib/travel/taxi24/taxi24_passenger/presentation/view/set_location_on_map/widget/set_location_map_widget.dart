@@ -11,7 +11,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/se
 
 class SetLocationMapWidget extends ConsumerStatefulWidget {
   final String pageType;
-  const SetLocationMapWidget({required this.pageType});
+  const SetLocationMapWidget({super.key, required this.pageType});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -83,7 +83,7 @@ class _SetLocationMapWidget extends ConsumerState<SetLocationMapWidget> {
 
         if (widget.pageType ==
             customAppFlavor.commonEnum.locationTypeEnum.pickUp) {
-          Future.delayed(const Duration(seconds: 1), () {
+          Future.delayed(const Duration(milliseconds: 400), () {
             toggleAnimationVM.toggleHeaderAnimate(true);
             toggleAnimationVM.toggleConfirmFooterAnimate(true);
             toggleAnimationVM.toggleTripFooterAnimate(false);

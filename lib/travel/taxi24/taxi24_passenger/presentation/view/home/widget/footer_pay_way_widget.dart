@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
@@ -27,9 +28,11 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
         if(ref.read(destinationListProvider).isEmpty){
           showToast(LangEnum.selectDestination.tr());
         }else{
-          showBottomSheetFunction(
-            content:CompleteTripRouting.config().widget,
-          );
+          Get.toNamed(CompleteTripRouting.config().path);
+
+          // showBottomSheetFunction(
+          //   content:CompleteTripRouting.config().widget,
+          // );
         }
 
       },

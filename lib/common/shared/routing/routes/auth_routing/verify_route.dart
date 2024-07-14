@@ -10,6 +10,8 @@ class VerifyRouting  {
   VerifyRouting();
 
   static const String _path = '/Verify/';
+  static const String phone = 'phone';
+
 
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {

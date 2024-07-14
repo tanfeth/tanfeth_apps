@@ -60,6 +60,7 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
     initBuild();
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100.0),
         child: MainAppBar(
@@ -75,34 +76,38 @@ class _CompleteTripView extends ConsumerState<CompleteTripView>{
               children: [
                 Expanded(
                   child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      children: [
-                        // ...List.generate(carTypeList.length, (index) =>
-                        //     InkWell(
-                        //       onTap: () {
-                        //         carTypeVM.changeIndex(index);
-                        //       },
-                        //       child: Container(
-                        //           decoration: currentIndex == index ?
-                        //           BoxDecoration(
-                        //               border: Border.all(
-                        //                   color: context.color.primary, width: 2),
-                        //               color: context.color.primary.withOpacity(0.2),
-                        //               borderRadius:
-                        //               BorderRadius.circular(8)): null,
-                        //           child: CarTypeCell(carTypeModel: carTypeList[index],)),
-                        //     )),
-                        // 25.ph,
-                        // const LargeDivider(),
-                        25.ph,
-                        const PaymentMethodsWidget(),
-                        15.ph,
-                        const CouponWidget(),
-                        const PaymentPriceWidget(),
-                        25.ph,
+                   // physics: const BouncingScrollPhysics(),
+                    child: Padding(
+                      padding:
+                      EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: Column(
+                        children: [
+                          // ...List.generate(carTypeList.length, (index) =>
+                          //     InkWell(
+                          //       onTap: () {
+                          //         carTypeVM.changeIndex(index);
+                          //       },
+                          //       child: Container(
+                          //           decoration: currentIndex == index ?
+                          //           BoxDecoration(
+                          //               border: Border.all(
+                          //                   color: context.color.primary, width: 2),
+                          //               color: context.color.primary.withOpacity(0.2),
+                          //               borderRadius:
+                          //               BorderRadius.circular(8)): null,
+                          //           child: CarTypeCell(carTypeModel: carTypeList[index],)),
+                          //     )),
+                          // 25.ph,
+                          // const LargeDivider(),
+                          25.ph,
+                          const PaymentMethodsWidget(),
+                          15.ph,
+                          const CouponWidget(),
+                          const PaymentPriceWidget(),
+                          25.ph,
 
-                      ],
+                        ],
+                      ),
                     )
 
 

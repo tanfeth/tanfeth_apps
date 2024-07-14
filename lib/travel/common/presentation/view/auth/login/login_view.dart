@@ -1,12 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
+import 'package:tanfeth_apps/common/presentation/dialog/WarningBottomSheet.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/vm/login_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_form.dart';
@@ -68,6 +71,7 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                     textDirection: TextDirection.rtl,
                     child: LoginForm(
                       loginKey: loginKey,
+                      controller: phoneController,
                     ),
                   ),
                   10.ph,
@@ -75,9 +79,26 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                     onPressed: () async {
                       if (loginKey.currentState!.validate()) {
                         closeKeyBoard();
-
                         showLoading();
-                       // Get.toNamed(VerifyRouting.config().path);
+                        taxiLoginVM.bodyLoginModel.phoneNumber=
+                            phoneController.text;
+                        taxiLoginVM.userLoginApi();
+                        try{
+                          var response = await ref.read(
+                              taxiLoginVM
+                                  .futureProvider);
+                               hideLoading();
+                             if(response?.success??false){
+                                Get.toNamed(VerifyRouting.config().path,
+                                arguments: {
+                                  VerifyRouting.phone:phoneController.text
+                                });
+                             }
+                        }catch(e){
+                          hideLoading();
+                          showToast(e.toString());
+                        }
+
                       }
                     },
                     child: Text(LangEnum.continueWord.tr()),

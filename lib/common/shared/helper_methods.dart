@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/lottie.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -40,11 +41,20 @@ Future<http.MultipartFile> convertImage({required String imageKey, required Stri
   return await http.MultipartFile.fromPath(imageKey, imagePath);
 }
 
-void showLoading() {
+void showLoading({Widget? child}) {
   Get.dialog(
-     const PopScope(
+      PopScope(
         canPop: false,
-        child: Center(child:CircularProgressIndicator(),)),
+        child: Center(child:child??
+            Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                    color: Get.context?.color.surface,
+                    borderRadius: const BorderRadius.all(Radius.circular(15))
+                ),
+                child: const Center(child:  CircularProgressIndicator()))
+          ,)),
     barrierColor: Colors.black.withOpacity(.35),
     barrierDismissible: false,
   );

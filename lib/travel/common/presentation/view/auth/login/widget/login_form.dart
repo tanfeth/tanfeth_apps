@@ -13,8 +13,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
   final GlobalKey<FormState> loginKey;
-
-  const LoginForm({super.key,required this.loginKey});
+ final TextEditingController controller;
+  const LoginForm({super.key,required this.loginKey,
+  required this.controller});
 
   @override
   ConsumerState<LoginForm> createState() => _LoginFormState();
@@ -38,6 +39,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             CustomTextFormField(
                 keyboardType: TextInputType.phone,
                 hintText: LangEnum.numPhone.tr(),
+                controller: widget.controller,
                 textInputAction: TextInputAction.next,
                 validator: customAppFlavor.defaultCountryCode == 'SA'?
                 Validation.phone:Validation.notEmpty,

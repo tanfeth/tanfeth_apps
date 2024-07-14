@@ -110,11 +110,11 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
 
         /// Where to go?
         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 8,),
+          padding:  const EdgeInsets.symmetric(horizontal: 8,),
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(
                   color: context.color.surfaceContainerHighest
                 )
@@ -152,7 +152,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
                           ),
                         ),
 
-                        GestureDetector(
+                        InkWell(
                           onTap: (){
                             Get.toNamed(SetLocationOnMapRouting.config().path,
                                 parameters: {
@@ -177,7 +177,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     15.ph,
-                    DestinationList(),
+                    const DestinationList(),
                   ],
                 )
               ],

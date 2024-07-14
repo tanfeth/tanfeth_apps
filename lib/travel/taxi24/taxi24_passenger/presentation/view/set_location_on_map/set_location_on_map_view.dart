@@ -19,7 +19,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/se
 class SetLocationOnMapView extends ConsumerStatefulWidget {
   final String? pageType;
 
-  const SetLocationOnMapView({this.pageType});
+  const SetLocationOnMapView({super.key, this.pageType});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -111,7 +111,7 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 100),
+                    padding: const EdgeInsets.symmetric(vertical: 100),
                     child: CurrentLocationDetector(onTap: () async {
                       ref.read(setOnLocationMapProvider.notifier)
                           .getCurrentLocation(setMakers: false);
@@ -134,13 +134,13 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                 ),
               ),
 
-              SearchMapAddressWidget(),
+              const SearchMapAddressWidget(),
 
               Positioned.fill(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     child: ElevatedButton(
                       onPressed: () async {
                         if(pageType == customAppFlavor.commonEnum.locationTypeEnum

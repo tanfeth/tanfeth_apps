@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
@@ -21,25 +21,19 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dar
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class FooterWidget extends ConsumerStatefulWidget {
-
   const FooterWidget({
     super.key,
-});
+  });
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _FooterWidget();
 }
 
 class _FooterWidget extends ConsumerState<FooterWidget> {
-
-
-
-
   @override
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +53,8 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
           Expanded(
             child: Column(
               children: [
-
                 Showcase(
-                   key: showcaseKey2,
+                    key: showcaseKey2,
                     description: LangEnum.carCaseHint.tr(),
                     child: const FooterCarList()),
 
@@ -93,7 +86,8 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                           10.pw,
                           Expanded(
                             child: Text(
-                              ref.watch(pickUpLocationProvider).description ?? '',
+                              ref.watch(pickUpLocationProvider).description ??
+                                  '',
                               style: context.text.bodyMedium,
                             ),
                           ),
@@ -107,13 +101,14 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
 
                 ///Destination widget
                 Showcase(
-                  key:showcaseKey4,
+                  key: showcaseKey4,
                   description: LangEnum.destinationCaseHint.tr(),
                   child: InkWell(
                     onTap: () {
-                      showBottomSheetFunction(
-                        content: DestinationRouting.config().widget,
-                      );
+                      Get.toNamed(DestinationRouting.config().path);
+                      // showBottomSheetFunction(
+                      //   content: DestinationRouting.config().widget,
+                      // );
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),
@@ -163,11 +158,13 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                               ],
                             ),
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
-                              showBottomSheetFunction(
-                                content: DestinationRouting.config().widget,
-                              );
+                              Get.toNamed(DestinationRouting.config().path);
+
+                              // showBottomSheetFunction(
+                              //   content: DestinationRouting.config().widget,
+                              // );
                             },
                             child: Icon(
                               Icons.add,
@@ -185,10 +182,17 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
 
                 ///Pay way
                 Showcase(
-                    key:showcaseKey5,
+                    key: showcaseKey5,
                     description: LangEnum.payWayCaseHint.tr(),
-                    onBarrierClick: (){
-                      TaxiPassengerAppStorage.showHomeTripFooterCase(false);
+                    disposeOnTap: true,
+                    onBarrierClick: ()async{
+                      await  TaxiPassengerAppStorage.showHomeTripFooterCase(false);
+                    },
+                    onToolTipClick: ()async{
+                      await  TaxiPassengerAppStorage.showHomeTripFooterCase(false);
+                    },
+                    onTargetClick: ()async{
+                      await  TaxiPassengerAppStorage.showHomeTripFooterCase(false);
                     },
                     child: const FooterPayWayWidget()),
               ],
@@ -200,21 +204,19 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () async {
-                    if(ref.read(destinationListProvider).isNotEmpty){
+                    if (ref.read(destinationListProvider).isNotEmpty) {
                       ref
                           .read(toggleAnimationProvider.notifier)
                           .toggleFindDriverAnimate(true);
 
-
-                      Future.delayed(const Duration(seconds: 3),(){
-                        ref.read(searchingProvider.notifier).changeCurrentIndex(1);
+                      Future.delayed(const Duration(seconds: 3), () {
+                        ref
+                            .read(searchingProvider.notifier)
+                            .changeCurrentIndex(1);
                       });
-
-
-                    }else {
+                    } else {
                       showToast(LangEnum.selectDestination.tr());
                     }
-
                   },
                   child: Text(LangEnum.findADriver.tr()),
                 ),
@@ -225,15 +227,18 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                     10.pw,
                     InkWell(
                       onTap: () {
-                        showBottomSheetFunction(
-                          content: CompleteTripRouting.config().widget,
-                        );
+                        Get.toNamed(CompleteTripRouting.config().path);
+
+                        // showBottomSheetFunction(
+                        //   content: CompleteTripRouting.config().widget,
+                        // );
                       },
                       child: Container(
                         height: 50,
                         width: 80,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: context.color.primary),
                         child: Column(
                           children: [

@@ -119,7 +119,7 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
             },
             trailing: Expanded(
               child: Padding(
-                padding:EdgeInsets.only(top: 10,
+                padding:const EdgeInsets.only(top: 10,
                 right: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,

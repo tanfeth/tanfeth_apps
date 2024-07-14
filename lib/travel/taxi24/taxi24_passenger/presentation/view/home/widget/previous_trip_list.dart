@@ -12,7 +12,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dar
 
 class PreviousTripList extends ConsumerStatefulWidget{
   final ScrollController? scrollController;
-  const PreviousTripList({this.scrollController});
+  const PreviousTripList({super.key, this.scrollController});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>_PreviousTripList();
@@ -35,7 +35,7 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
       locationModel.isFavorite = true;
       locationModel.placeId = '1';
       locationModel.latLng =
-       LatLng(26.4683, 49.7972);
+       const LatLng(26.4683, 49.7972);
       tripList.add(locationModel);
     }
     super.initState();
@@ -52,7 +52,7 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
           return Showcase(
             key: showcaseKey15,
             description: LangEnum.previousTripsHint.tr(),
-            child: GestureDetector(
+            child: InkWell(
               onTap: () async{
                 ref.read(destinationListProvider.notifier)
                     .addToList([tripList[index]]);
@@ -63,7 +63,7 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
             ),
           );
         }else {
-          return GestureDetector(
+          return InkWell(
             onTap: () async{
               ref.read(destinationListProvider.notifier)
                   .addToList([tripList[index]]);

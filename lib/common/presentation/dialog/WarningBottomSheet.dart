@@ -20,14 +20,14 @@ Future<void> warningBottomSheet(
             child: Wrap(
               children: [
                 Container(
-                  margin: EdgeInsets.all(MySizes.defaultPadding),
+                  margin: const EdgeInsets.all(MySizes.defaultPadding),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                         Radius.circular(MySizes.defaultPadding)),
                     child: Container(
                       color: Theme.of(context).colorScheme.surface,
                       height: 180,
-                      padding: EdgeInsets.all(MySizes.defaultPadding),
+                      padding: const EdgeInsets.all(MySizes.defaultPadding),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -44,7 +44,7 @@ Future<void> warningBottomSheet(
                             ),
                           ),
                           Container(
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                   horizontal: MySizes.defaultPadding),
                               child: TextButton(
                                   onPressed: onPress ??

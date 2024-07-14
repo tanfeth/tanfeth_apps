@@ -8,7 +8,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ho
 
 
 class PreviousTrips extends ConsumerStatefulWidget {
-  const PreviousTrips();
+  const PreviousTrips({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PreviousTrips();
@@ -26,13 +26,13 @@ class _PreviousTrips extends ConsumerState<PreviousTrips> {
        child: Container(
          decoration: BoxDecoration(
              color: context.color.surface,
-             borderRadius: BorderRadius.only(
+             borderRadius: const BorderRadius.only(
                  bottomLeft: Radius.circular(30),
                  bottomRight: Radius.circular(30)
              )
          ),
          child: ConstrainedBox(
-           constraints: BoxConstraints(
+           constraints: const BoxConstraints(
              maxHeight: 350,
            ),
            child: Column(
@@ -45,9 +45,9 @@ class _PreviousTrips extends ConsumerState<PreviousTrips> {
                  style: context.text.titleMedium,
                ),
                25.ph,
-               Expanded(
+               const Expanded(
                  child: Padding(
-                   padding: const EdgeInsets.symmetric(horizontal:8),
+                   padding: EdgeInsets.symmetric(horizontal:8),
                    child: PreviousTripList(),
                  ),
                ),
