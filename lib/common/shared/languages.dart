@@ -651,7 +651,7 @@ enum LangEnum {
   reorderListHint,
   tripHint,
   noTransaction,
-  transactionHint, goOffline, decline, km, payYourExpenses,
+  transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data,
 }
 
 class MyLanguages extends Translations {
@@ -2278,6 +2278,29 @@ class MyLanguages extends Translations {
       enValue: 'Light Mode',
       arValue: 'الوضع الفاتح',
     );
+
+
+    addString(
+        key: LangEnum.noResultsMoment.name,
+        enValue: 'No Data Available',
+        arValue: 'لا توجد نتائج');
+
+    addString(
+        key: LangEnum.noResultsFound.name,
+        enValue: 'No result found',
+        arValue: 'لا توجد نتائج');
+
+    addString(key: LangEnum.noFound.name, enValue: 'No ', arValue: 'لا توجد ');
+
+    addString(
+        key: LangEnum.forNow.name,
+        enValue: ' For Now',
+        arValue: ' في الوقت الحالي');
+    addString(key: LangEnum.now.name, enValue: 'Now', arValue: 'الاجتماع الآن');
+
+    addString(key: LangEnum.data.name, enValue: 'data', arValue: 'بيانات');
+
+
 
     return {arKey: arStrings, enKey: enStrings};
   }

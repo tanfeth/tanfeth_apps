@@ -151,15 +151,15 @@ class AppPicker {
       primaryColor: context.color.primary,
       calendarTextColor: context.color.onSurface,
       backgroundColor: context.color.surface,
-      borderRadius: Radius.circular(16),
+      borderRadius: const Radius.circular(16),
       buttonTextColor: context.color.onSurface,
       headerTitle:  Container(
         width: 200,
         height: 40,
-        padding: EdgeInsets.symmetric(vertical: 4),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
             color:context.color.onSurface ,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(16),
+            borderRadius: const BorderRadius.only(topLeft: Radius.circular(16),
                 topRight: Radius.circular(16))
         ),
         child: Center(

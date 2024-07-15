@@ -1,6 +1,5 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
 import 'package:tanfeth_apps/travel/common/data/model/auth/BodyLoginModel.dart';
 import 'package:tanfeth_apps/travel/common/data/model/auth/ResponseLoginModel.dart';

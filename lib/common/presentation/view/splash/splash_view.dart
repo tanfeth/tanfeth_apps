@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
 import 'package:tanfeth_apps/common/data/model/notification/NotificationDeviceModel.dart';
+import 'package:tanfeth_apps/common/data/repo/user/user_repo.dart';
 import 'package:tanfeth_apps/common/presentation/view/splash/vm/splash_vm.dart';
 import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';

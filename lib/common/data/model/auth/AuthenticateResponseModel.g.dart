@@ -14,6 +14,7 @@ AuthenticateResponseModel _$AuthenticateResponseModelFromJson(
       ..emailAddress = json['emailAddress'] as String?
       ..phoneNumber = json['phoneNumber'] as String?
       ..imageUrl = json['imageUrl'] as String?
+      ..authToken = json['authToken'] as String?
       ..fk_Account = (json['fk_Account'] as num?)?.toInt()
       ..fk_AccountState = (json['fk_AccountState'] as num?)?.toInt()
       ..fk_AccountType = (json['fk_AccountType'] as num?)?.toInt()
@@ -28,6 +29,7 @@ Map<String, dynamic> _$AuthenticateResponseModelToJson(
       'emailAddress': instance.emailAddress,
       'phoneNumber': instance.phoneNumber,
       'imageUrl': instance.imageUrl,
+      'authToken': instance.authToken,
       'fk_Account': instance.fk_Account,
       'fk_AccountState': instance.fk_AccountState,
       'fk_AccountType': instance.fk_AccountType,

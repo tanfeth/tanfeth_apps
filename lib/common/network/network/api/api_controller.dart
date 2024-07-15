@@ -294,7 +294,7 @@ class ApiController {
         apiResponse.objectResponse = response.data;
         return apiResponse;
       } else {
-        throw utf8.decode(base64.decode(apiResponse.errorMessage));
+        throw apiResponse.errorMessage;
       }
     } else {
       throw serverErrorMessage;

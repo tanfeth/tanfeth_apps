@@ -19,10 +19,11 @@ mixin class FutureVMA<R> {
       bool isOnPress = false}) async {
     try {
       if (!isAbstract) {
-        if (isCaching)
+        if (isCaching) {
           ref.keepAlive();
-        else
+        } else {
           ref.keepAlive().close();
+        }
       }
       if (isOnPress) {
         ref.refresh(futureProvider.notifier).setState(future);

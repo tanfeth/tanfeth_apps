@@ -61,6 +61,7 @@ class Taxi24PassengerMain {
     var flavor = FlavorConfig(
         baseUrl: baseUrl,
         appNameEnum: AppNameEnum.taxi24Passenger,
+        appEnum: 2,
         commonEnum: TaxiPassengerEnum(),
         myLanguages: Taxi24PassengerLanguages(),
         endPoints: Taxi24PassengerEndPoints(),

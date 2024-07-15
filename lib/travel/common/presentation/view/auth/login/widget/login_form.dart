@@ -23,7 +23,7 @@ class LoginForm extends ConsumerStatefulWidget {
 
 class _LoginFormState extends ConsumerState<LoginForm> {
 
-  Country selectedMobile = getCountry();
+  Country selectedCountry = getCountry();
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +49,15 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 suffixWidget: CountryCodeWidget(
                   onSelect: (Country country) {
-                    selectedMobile = country;
+                    selectedCountry = country;
                     setState(() {});
                   },
-                  selectedPhoneCountry: selectedMobile,
+                  selectedPhoneCountry: selectedCountry,
                 ),
                 onChanged: (String value) {
                   if(value.length == 9){
+                    widget.controller.text =
+                    '${selectedCountry.phoneCode}$value';
                     closeKeyBoard();
                   }
                 }),

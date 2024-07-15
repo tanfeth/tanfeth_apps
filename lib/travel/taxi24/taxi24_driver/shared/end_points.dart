@@ -3,6 +3,7 @@ import 'package:tanfeth_apps/travel/common/shared/end_point/auth/auth_end_point.
 import 'package:tanfeth_apps/travel/common/shared/end_point/car/car_end_points.dart';
 import 'package:tanfeth_apps/travel/common/shared/end_point/common_end_points.dart';
 import 'package:tanfeth_apps/travel/common/shared/end_point/driver/driver_end_points.dart';
+import 'package:tanfeth_apps/travel/common/shared/end_point/enum/enum_end_points.dart';
 
 
 
@@ -31,5 +32,13 @@ class Taxi24DriverEndPoints extends CommonEndpoints {
       driverProfileResponse: '/api/Driver/DriverProfileResponse',
       driver: '/api/Driver'
     ),
+
+    appEnumEndPoints: const EnumEndPoints(
+        appEnum: '/api/Enum/AppEnum',
+        genderEnum: '/api/Enum/GenderEnum',
+        attachmentStatesEnum: '/api/Enum/AttachmentStatesEnum',
+        accountStatesEnum: '/api/Enum/AccountStatesEnum'
+    ),
+
   );
 }

@@ -44,10 +44,11 @@ abstract class ListNotifierVMA<Model, Response, Notifier>
   }
 
   void removeFromList(Model? model) {
-    if (model == null)
+    if (model == null) {
       return;
-    else
+    } else {
       state.remove(model);
+    }
     refreshList([]);
   }
 
@@ -57,10 +58,11 @@ abstract class ListNotifierVMA<Model, Response, Notifier>
   }
 
   void refreshList(List<Notifier> list, {bool atFirst = false}) {
-    if (atFirst)
+    if (atFirst) {
       state = [...list, ...state];
-    else
+    } else {
       state = [...state, ...list];
+    }
   }
 
   void setPagination(Pagination pagination) {

@@ -8,11 +8,16 @@ import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extensio
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/vm/login_vm.dart';
+import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/vm/timer_verify_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/vm/verify_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/widget/timer.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/theme/pinput_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,24 +30,33 @@ class VerifyView extends ConsumerStatefulWidget {
 }
 
 class _VerifyViewState extends ConsumerState<VerifyView> {
+  late TimerVerifyVM timerVerifyVM;
   late VerifyVM verifyVM;
+  final codeController = TextEditingController();
   bool timerState = false;
+  late String phone ;
+  late String pageType;
+
 
   GlobalKey<FormState> pinKey =  GlobalKey<FormState>();
 
   @override
   void initState() {
+    timerVerifyVM = ref.read(timerVerifyProvider.notifier);
     verifyVM = ref.read(verifyProvider.notifier);
+    phone = Get.parameters[VerifyRouting.phone] ?? '';
+    pageType =Get.parameters[VerifyRouting.pageType] ?? '';
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      verifyVM.updateTimer(currentStatus: true);
+      timerVerifyVM.updateTimer(currentStatus: true);
     });
 
     super.initState();
   }
 
   initBuild() {
-    timerState = ref.watch(verifyProvider);
+    timerState = ref.watch(timerVerifyProvider);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +85,7 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                       child: Pinput(
                         length: 4,
                         showCursor: true,
+                        controller: codeController,
                         defaultPinTheme: pinPutTheme,
                         focusedPinTheme: focusedPinTheme,
                         submittedPinTheme: submittedPinTheme,
@@ -98,28 +113,58 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                 ElevatedButton(
                   onPressed: () async {
                     if (pinKey.currentState!.validate()) {
-                      Get.offAllNamed(LayoutRouting.config().path);
-                    }
+                      closeKeyBoard();
+                      showLoading();
+                      setDataModel();
+                      verifyVM.userVerifyApi();
 
-                    // try {} catch (e) {
-                    //   showToast(e.toString());
-                    // }
+                      try{
+                        await ref.read(
+                            verifyVM
+                                .futureProvider);
+                        hideLoading();
+
+                        if(pageType ==
+                            customAppFlavor.commonEnum.verifyTypeByEnum.register){
+                          Get.toNamed(TermsOfServiceRouting.config().path);
+                        }else {
+                          Get.offAllNamed(LayoutRouting.config().path);
+                        }
+                      }catch(e){
+                        hideLoading();
+                        showToast(e.toString());
+                      }
+
+
+
+                    }
                   },
                   child: Text(LangEnum.sure.tr()),
                 ),
                 15.ph,
                 timerState
                     ? TimerWidget(onEnd: () {
-                        verifyVM.updateTimer(currentStatus: false);
+                        timerVerifyVM.updateTimer(currentStatus: false);
                       })
                     : AuthLinkedMsg(
                         message: LangEnum.resendCodeDesc.tr(),
                         linkTitle: LangEnum.resendCodeBtn.tr(),
                         onPressed: () async {
-                          verifyVM.updateTimer(currentStatus: true);
+                          timerVerifyVM.updateTimer(currentStatus: true);
                           try {
-                            //  await vm.resendCode();
+                            closeKeyBoard();
+                            showLoading();
+                            ref.read(taxiLoginProvider.notifier).bodyLoginModel.phoneNumber=
+                                phone;
+                            ref.read(taxiLoginProvider.notifier)
+                                .userLoginApi();
+                             await ref.read(
+                                ref.read(taxiLoginProvider.notifier)
+                                    .futureProvider);
+                            hideLoading();
+
                           } catch (e) {
+                            hideLoading();
                             showToast(e.toString());
                           }
                         },
@@ -130,5 +175,16 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
         ),
       ),
     ).systemUiDarkText(context);
+  }
+
+  void setDataModel() {
+    verifyVM.bodyVerifyModel.phoneNumber=
+        phone;
+    verifyVM.bodyVerifyModel.code=
+        codeController.text;
+
+    verifyVM.bodyVerifyModel.appEnum =
+        customAppFlavor.appEnum;
+
   }
 }

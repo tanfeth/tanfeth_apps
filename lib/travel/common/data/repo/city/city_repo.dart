@@ -2,6 +2,7 @@
 
 
 
+import 'package:tanfeth_apps/common/data/model/base_model/ParamBaseModel.dart';
 import 'package:tanfeth_apps/common/data/model/pagination_model/PaginationModel.dart';
 import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
@@ -12,12 +13,14 @@ import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
 
 ///Cities
 
-Future<PaginationModel<List<EnumModel>>> getCitiesApi() async {
+Future<PaginationModel<List<EnumModel>>> getCitiesApi({required
+  ParamBaseModel model}) async {
   try {
+    var queryParameters = model.toJson();
     var response = await ApiController(
         customAppFlavor.endPoints.getCities,
         RequestTypeEnum.get)
-        .sendRequest();
+        .sendRequest(queryParameters: queryParameters);
     return PaginationModel(
         pagination: response.pagination,
         response: EnumModel.toList(response.objectResponse).toList());

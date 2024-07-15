@@ -1,9 +1,11 @@
 
 import 'package:country_picker/country_picker.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
@@ -11,12 +13,18 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/picker_helper.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/gender_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/select_city_widget.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
+import 'package:tanfeth_apps/travel/common/vm/city/city_list_vm.dart';
+import 'package:tanfeth_apps/travel/common/vm/city/selected_city_vm.dart';
+import 'package:tanfeth_apps/travel/common/vm/gender/gender_list_vm.dart';
+import 'package:tanfeth_apps/travel/common/vm/gender/selected_gender_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/register/vm/register_vm.dart';
 
 
 class DriverRegisterView extends ConsumerStatefulWidget{
@@ -31,23 +39,30 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
   final userNameController = TextEditingController();
   final userEmailController = TextEditingController();
+  final phoneController = TextEditingController();
   final birthDatHijriController = TextEditingController();
   final iDController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  late bool isDisable=true;
-  late bool isMale=true;
-  Country selectedMobile = getCountry();
+  Country selectedCountry = getCountry();
+  String deviceToken = '';
+
+  late TaxiDriverRegisterVM taxiDriverRegisterVM;
 
 
   @override
   void initState() {
-   
+    taxiDriverRegisterVM  =ref.read(taxiDriverRegisterProvider.notifier);
+     setDeviceToken();
     super.initState();
   }
-  
+
+
+
   
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: MainAppBar(
         title: LangEnum.registerNow.tr(),
@@ -101,11 +116,13 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           const SizedBox(height:16,),
 
+                          ///Phone number
                           Directionality(
                             textDirection: TextDirection.rtl,
                             child: CustomTextFormField(
                                 keyboardType: TextInputType.phone,
                                 hintText: LangEnum.numPhone.tr(),
+                                controller: phoneController,
                                 textInputAction: TextInputAction.next,
                                 validator: customAppFlavor.defaultCountryCode == 'SA'?
                                 Validation.phone:Validation.notEmpty,
@@ -114,10 +131,10 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                 suffixWidget: CountryCodeWidget(
                                   onSelect: (Country country) {
-                                    selectedMobile = country;
+                                    selectedCountry = country;
                                     setState(() {});
                                   },
-                                  selectedPhoneCountry: selectedMobile,
+                                  selectedPhoneCountry: selectedCountry,
                                 ),
                                 onChanged: (String value) {
                                   if(value.length == 9){
@@ -162,6 +179,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                           const SizedBox(height:16,),
 
                           ///Gender
+
                           Text(
                             LangEnum.gender.tr(),
                             style: context.text.titleMedium,
@@ -170,57 +188,9 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
 
                           const SizedBox(height:16,),
 
-                          Row(
-                            children: [
-                              GestureDetector(
-                                behavior: HitTestBehavior.translucent,
-                                onTap:(){
+                         const  GenderWidget(),
 
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 48,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                      color:isMale? context.color.primary:null,
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: isMale? null:Border.all(
-                                          color: context.color.surfaceContainerHighest)
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                                    child:Text(
-                                      LangEnum.male.tr(),
-                                    )
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 8,),
-                              GestureDetector(
-                                behavior: HitTestBehavior.translucent,
-                                onTap:(){
 
-                                },
-                                child: Container(
-                                  height: 48,
-                                  width:100,
-                                  decoration: BoxDecoration(
-                                      color:isMale? null:context.color.primary,
-                                      borderRadius: BorderRadius.circular(8),
-                                      border:isMale? Border.all(color: context.color.surfaceContainerHighest):null
-                                  ),
-                                  child: Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                                      child: Text(
-                                        LangEnum.female.tr(),
-                                      )
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
                         ],
                       ),
                     ),
@@ -231,8 +201,29 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                     onPressed: ()async {
                       if (formKey.currentState!.validate()) {
                         closeKeyBoard();
-                        Get.toNamed(TermsOfServiceRouting.config().path);
+                        showLoading();
+                        setDataModel();
+
+                        taxiDriverRegisterVM.userRegisterApi();
+                        try{
+                           await ref.read(
+                              taxiDriverRegisterVM
+                                  .futureProvider);
+                          hideLoading();
+                          Get.toNamed(VerifyRouting.config().path,
+                              arguments: {
+                                VerifyRouting.phone:
+                                '${selectedCountry.phoneCode}${phoneController.text}',
+                                VerifyRouting.pageType:
+                                    customAppFlavor.commonEnum.verifyTypeByEnum.register
+                              });
+                        }catch(e){
+                          hideLoading();
+                          showToast(e.toString());
+                        }
+
                       }
+
                     },
                     child: Text(LangEnum.continueWord.tr()),
                   ),
@@ -245,6 +236,38 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
         ),
       ),
     );
+  }
+
+
+
+
+  void setDataModel() {
+    taxiDriverRegisterVM.bodyRegisterModel.name =
+         userNameController.text;
+    taxiDriverRegisterVM.bodyRegisterModel.identityNumber =
+        iDController.text;
+    taxiDriverRegisterVM.bodyRegisterModel.phoneNumber=
+        '${selectedCountry.phoneCode}${phoneController.text}';
+
+    taxiDriverRegisterVM.bodyRegisterModel.city=
+        ref.read(cityListProvider)[ref.read(selectedCityProvider)].id??0;
+
+    taxiDriverRegisterVM.bodyRegisterModel.email=
+        userEmailController.text;
+    taxiDriverRegisterVM.bodyRegisterModel.dateOfBirth =
+        formatDateTime(dateTime: birthDatHijriController.text);
+
+    taxiDriverRegisterVM.bodyRegisterModel.gender=
+        ref.read(genderListProvider)[ref.read(selectedGenderProvider)].id??0;
+
+    taxiDriverRegisterVM.bodyRegisterModel.deviceToken=deviceToken;
+
+  }
+
+
+
+  void setDeviceToken()async {
+   deviceToken =  await FirebaseMessaging.instance.getToken()??'';
   }
 
 }

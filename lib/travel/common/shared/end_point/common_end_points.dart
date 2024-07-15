@@ -3,12 +3,14 @@
 import 'package:tanfeth_apps/travel/common/shared/end_point/auth/auth_end_point.dart';
 import 'package:tanfeth_apps/travel/common/shared/end_point/car/car_end_points.dart';
 import 'package:tanfeth_apps/travel/common/shared/end_point/driver/driver_end_points.dart';
+import 'package:tanfeth_apps/travel/common/shared/end_point/enum/enum_end_points.dart';
 
 class CommonEndpoints{
   AuthEndPoints authEndPoints;
   final String getCities;
   CarEndPoints carEndPoints;
   DriverEndPoints driverEndPoints;
+  EnumEndPoints appEnumEndPoints;
 
 
   final String driverRegister;
@@ -46,9 +48,10 @@ class CommonEndpoints{
 
   CommonEndpoints({
     this.authEndPoints = const AuthEndPoints(),
-    this.getCities = '',
+    this.getCities = '/api/Auth/GetCities',
     this.carEndPoints = const CarEndPoints(),
     this.driverEndPoints = const DriverEndPoints(),
+    this.appEnumEndPoints = const EnumEndPoints(),
     this.addDriverCar ='',
     this.deleteAccount = '',
     this.checkDriverData ='',

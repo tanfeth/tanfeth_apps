@@ -12,6 +12,7 @@ class FlavorConfig {
 
    ITheme myTheme = MyTheme();
   final AppNameEnum appNameEnum;
+  int appEnum;
   final String defaultCountryCode;
   final CommonEnum commonEnum;
   final Set<AppCategoryEnum> appCategoryEnum;
@@ -38,6 +39,7 @@ class FlavorConfig {
     this.supportedLocales = const [Locale("ar"), Locale("en")],
     required this.shareUrl,
     this.mapApiKey = '',
+    this.appEnum = 0,
   }){
     if (myLanguages != null){
       languages = myLanguages;

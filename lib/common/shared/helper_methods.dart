@@ -1,23 +1,18 @@
 import 'dart:io';
 import 'package:country_picker/country_picker.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/lottie.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:store_redirect/store_redirect.dart';
-import 'dart:typed_data';
 import 'package:uni_links/uni_links.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -214,8 +209,6 @@ String countryFlag({required String countryCode}) {
 
 
 Country getCountry() {
-  Locale myLocale = Localizations.localeOf(Get.context!);
-  print('myLocale => ${myLocale.countryCode}');
   return Country.parse(customAppFlavor.defaultCountryCode);
 }
 
@@ -239,5 +232,9 @@ String formatTimestamp(String timestamp) {
 
 
 
+String formatDateTime({required String dateTime}){
+  DateTime tempDate =  DateFormat("yyyy/MM/dd").parse(dateTime);
+  return  DateFormat("yyyy-MM-ddTHH:mm:ss").format(tempDate);
 
+}
 
