@@ -987,6 +987,26 @@ class Taxi24DriverLanguages extends MyLanguages {
       enValue: 'in',
       arValue: 'في',
     );
+    addString(
+      key: LangEnum.rejectTitle.name,
+      enValue: 'You got rejected!',
+      arValue: 'لقد تم رفضك!',
+    );
+    addString(
+      key: LangEnum.rejectMassage.name,
+      enValue: "Unfortunately, your documents didn't meet our driver's criteria.",
+      arValue: 'لسوء الحظ ، لم تفي مستنداتك بمعايير السائق لدينا.',
+    );
+    addString(
+      key: LangEnum.pendingTitle.name,
+      enValue: "We received your request",
+      arValue: 'لقد أستلمنا طلبك',
+    );
+    addString(
+      key: LangEnum.pendingMassage.name,
+      enValue: "Your request has been received successfully, we will get back to you within 3 working days.",
+      arValue: 'تم إستلام طلبك وسيتم الرد عليك خلال ٣ أيام عمل كحد أقصى',
+    );
 
 
 

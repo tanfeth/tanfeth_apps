@@ -55,6 +55,8 @@ class _ChooseRideMapWidget extends ConsumerState<ChooseRideMapWidget> {
           markers: Set<Marker>.of(paramMapModel.markers.toSet()),
           polylines: Set<Polyline>.of(paramMapModel.polyLines.values),
           onMapCreated: (GoogleMapController controller) {
+            print("kareemmmmmm");
+            print(Set<Polyline>.of(paramMapModel.polyLines.values));
             ref.read(chooseRideMapProvider.notifier).
             updateMapController(mapController: controller);
 

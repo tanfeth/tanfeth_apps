@@ -6,7 +6,7 @@ final languageProvider = StateNotifierProvider<LanguageVM, String>((ref) {
 });
 
 class LanguageVM extends StateNotifier<String> {
-  LanguageVM(String state) : super(state){
+  LanguageVM(super.state){
     update(locale:AppStorage.getLocaleCode() );
   }
 

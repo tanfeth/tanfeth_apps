@@ -41,6 +41,7 @@ class Taxi24PassengerTheme extends ITheme {
     surfaceContainerHighest: Color(0xff9B9B9B),
     onSurfaceVariant: Color(0xff8EBFE9),
     onInverseSurface: Color(0xffEAF0F4),
+
   );
 
   static const colorSchemeDark = ColorScheme(
@@ -117,6 +118,7 @@ class Taxi24PassengerTheme extends ITheme {
       ),
       colorScheme: colorScheme.copyWith(surface: colorScheme.surface),
       splashColor: colorScheme.primaryContainer.withOpacity(.5),
+      dialogBackgroundColor:Colors.transparent,
       highlightColor: colorScheme.primaryContainer.withOpacity(.5),
       switchTheme: switchThemeData(brightness: brightness),
       floatingActionButtonTheme: floatingActionButtonTheme(brightness: brightness),

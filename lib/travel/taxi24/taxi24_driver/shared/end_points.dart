@@ -15,7 +15,8 @@ class Taxi24DriverEndPoints extends CommonEndpoints {
       register: "/api/Auth/Register/Driver",
       sendCode: "User/sendCode",
       verify: '/api/Auth/Verify',
-      getProfile: "/api/Driver/DriverProfileResponse"
+      getProfile: "/api/Driver/DriverProfileResponse",
+      deviceToken: "/api/Auth/device-token"
     ),
 
     getCities: '/api/Auth/GetCities',

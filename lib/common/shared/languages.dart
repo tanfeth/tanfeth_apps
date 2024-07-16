@@ -652,6 +652,8 @@ enum LangEnum {
   tripHint,
   noTransaction,
   transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data,
+  rejectTitle,rejectMassage,pendingTitle,pendingMassage
+
 }
 
 class MyLanguages extends Translations {

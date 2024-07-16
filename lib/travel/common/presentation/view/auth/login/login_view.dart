@@ -79,13 +79,11 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                       if (loginKey.currentState!.validate()) {
                         closeKeyBoard();
                         showLoading();
-                        taxiLoginVM.bodyLoginModel.phoneNumber=
-                            phoneController.text;
+                        Get.toNamed(VerifyRouting.config().path);
+                        taxiLoginVM.bodyLoginModel.phoneNumber= phoneController.text;
                         taxiLoginVM.userLoginApi();
                         try{
-                          var response = await ref.read(
-                              taxiLoginVM
-                                  .futureProvider);
+                          var response = await ref.read(taxiLoginVM.futureProvider);
                                hideLoading();
                              if(response?.success??false){
                                 Get.toNamed(VerifyRouting.config().path,

@@ -48,8 +48,7 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: MainAppBar(
-        title: pageType == customAppFlavor.commonEnum.locationTypeEnum
-            .destination?
+        title: pageType == customAppFlavor.commonEnum.locationTypeEnum.destination?
         LangEnum.selectLocation.tr():
         LangEnum.confirmPickUpLocation.tr(),
         leadingWidget: const BackButtonWidget(),
@@ -60,8 +59,7 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
             children: [
               SetLocationMapWidget(
                 pageType: pageType.isNotEmpty?
-                pageType:customAppFlavor.commonEnum.locationTypeEnum
-                    .pickUp,
+                pageType:customAppFlavor.commonEnum.locationTypeEnum.pickUp,
               ),
 
               // Positioned(
@@ -113,19 +111,20 @@ class _SetLocationOnMapView extends ConsumerState<SetLocationOnMapView> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 100),
                     child: CurrentLocationDetector(onTap: () async {
-                      ref.read(setOnLocationMapProvider.notifier)
-                          .getCurrentLocation(setMakers: false);
+                      ref.read(setOnLocationMapProvider.notifier).getCurrentLocation(setMakers: false);
                     }),
                   ),
                 ),
               ),
 
+             // bottom: (MediaQuery.sizeOf(context).height-150) / 2,
+             // left: (MediaQuery.sizeOf(context).width - 45) / 2,*/
+
               Positioned(
                 bottom: (MediaQuery.sizeOf(context).height) / 2,
                 left: (MediaQuery.sizeOf(context).width - 40) / 2,
                 child: Image.asset(
-                  pageType == customAppFlavor.commonEnum.locationTypeEnum
-                  .pickUp?
+                  pageType == customAppFlavor.commonEnum.locationTypeEnum.pickUp?
                   Images.pickUpImage:
                   Images.destinationMarker,
                   height: 45,

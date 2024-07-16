@@ -56,8 +56,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
                 onChanged: (String value) {
                   if(value.length == 9){
-                    widget.controller.text =
-                    '${selectedCountry.phoneCode}$value';
+                   // widget.controller.text = '${selectedCountry.phoneCode}$value';
                     closeKeyBoard();
                   }
                 }),
