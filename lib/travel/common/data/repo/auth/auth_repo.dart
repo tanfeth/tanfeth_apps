@@ -17,12 +17,14 @@ import 'package:tanfeth_apps/travel/common/data/model/auth/ResponseVerifyModel.d
 /// Login
 
 Future<ResponseLoginModel> loginApi({required BodyLoginModel model}) async {
+  var response = await ApiController(
+      customAppFlavor.endPoints.authEndPoints.login,
+      RequestTypeEnum.post)
+      .sendRequest(body:model.toJson() );
+  return ResponseLoginModel.fromJson(response.objectResponse);
+
   try {
-    var response = await ApiController(
-        customAppFlavor.endPoints.authEndPoints.login,
-        RequestTypeEnum.post)
-        .sendRequest(body:model.toJson() );
-    return ResponseLoginModel.fromJson(response.objectResponse);
+
   } catch (e) {
     throw e.toString();
   }

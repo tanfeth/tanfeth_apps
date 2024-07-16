@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
@@ -215,7 +216,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                             .changeCurrentIndex(1);
                       });
                     } else {
-                      showToast(LangEnum.selectDestination.tr());
+                      showFailed(msg: LangEnum.selectDestination.tr());
                     }
                   },
                   child: Text(LangEnum.findADriver.tr()),

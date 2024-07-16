@@ -5,6 +5,7 @@ import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/complete_trip_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
@@ -26,7 +27,7 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
     return InkWell(
       onTap: (){
         if(ref.read(destinationListProvider).isEmpty){
-          showToast(LangEnum.selectDestination.tr());
+          showFailed(msg: LangEnum.selectDestination.tr());
         }else{
           Get.toNamed(CompleteTripRouting.config().path);
 

@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/vm/login_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_form.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/widget/login_info.dart';
@@ -29,7 +31,7 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
   late bool isDisable = true;
   FocusNode focusNode = FocusNode();
   late TaxiLoginVM taxiLoginVM ;
-
+  Country selectedCountry = getCountry();
 
   @override
   void initState() {
@@ -71,6 +73,11 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                     child: LoginForm(
                       loginKey: loginKey,
                       controller: phoneController,
+                      selectedCountry: selectedCountry,
+                      onSelect: (Country country) {
+                        selectedCountry = country;
+                        setState(() {});
+                      },
                     ),
                   ),
                   10.ph,
@@ -79,8 +86,9 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                       if (loginKey.currentState!.validate()) {
                         closeKeyBoard();
                         showLoading();
-                        taxiLoginVM.bodyLoginModel.phoneNumber=
-                            phoneController.text;
+                        taxiLoginVM
+                            .bodyLoginModel.phoneNumber =
+                        '${selectedCountry.phoneCode}${phoneController.text}';
                         taxiLoginVM.userLoginApi();
                         try{
                           var response = await ref.read(
@@ -89,13 +97,16 @@ class _LoginViewState extends ConsumerState<TravelLoginView> {
                                hideLoading();
                              if(response?.success??false){
                                 Get.toNamed(VerifyRouting.config().path,
-                                arguments: {
-                                  VerifyRouting.phone:phoneController.text
+                                parameters: {
+                                  VerifyRouting.phone:
+                                  '${selectedCountry.phoneCode}${phoneController.text}',
+                                  VerifyRouting.pageType:
+                                      customAppFlavor.commonEnum.verifyTypeByEnum.login
                                 });
                              }
                         }catch(e){
                           hideLoading();
-                          showToast(e.toString());
+                          showFailed(msg:e.toString());
                         }
 
                       }

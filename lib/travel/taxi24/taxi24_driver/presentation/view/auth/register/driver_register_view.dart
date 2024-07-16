@@ -211,7 +211,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                   .futureProvider);
                           hideLoading();
                           Get.toNamed(VerifyRouting.config().path,
-                              arguments: {
+                              parameters: {
                                 VerifyRouting.phone:
                                 '${selectedCountry.phoneCode}${phoneController.text}',
                                 VerifyRouting.pageType:
@@ -219,7 +219,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               });
                         }catch(e){
                           hideLoading();
-                          showToast(e.toString());
+                          showFailed(msg:e.toString());
                         }
 
                       }

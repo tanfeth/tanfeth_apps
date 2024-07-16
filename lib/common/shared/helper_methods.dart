@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
@@ -236,5 +237,16 @@ String formatDateTime({required String dateTime}){
   DateTime tempDate =  DateFormat("yyyy/MM/dd").parse(dateTime);
   return  DateFormat("yyyy-MM-ddTHH:mm:ss").format(tempDate);
 
+}
+
+
+void showSuccess({required String msg}){
+  showToast(msg,
+      backgroundColor: const Color(0xff4BD12A));
+}
+
+void showFailed({required String msg}){
+  showToast(msg,
+      backgroundColor: const Color(0xFFF84C4C));
 }
 

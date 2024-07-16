@@ -12,11 +12,13 @@ import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_ro
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/data/model/auth/ResponseVerifyModel.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/login/vm/login_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/vm/timer_verify_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/vm/verify_vm.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/auth/verify/widget/timer.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/auth/widget/auth_message_with_link.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/theme/pinput_theme.dart';
@@ -34,18 +36,17 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
   late VerifyVM verifyVM;
   final codeController = TextEditingController();
   bool timerState = false;
-  late String phone ;
+  late String phone;
   late String pageType;
 
-
-  GlobalKey<FormState> pinKey =  GlobalKey<FormState>();
+  GlobalKey<FormState> pinKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     timerVerifyVM = ref.read(timerVerifyProvider.notifier);
     verifyVM = ref.read(verifyProvider.notifier);
     phone = Get.parameters[VerifyRouting.phone] ?? '';
-    pageType =Get.parameters[VerifyRouting.pageType] ?? '';
+    pageType = Get.parameters[VerifyRouting.pageType] ?? '';
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       timerVerifyVM.updateTimer(currentStatus: true);
     });
@@ -56,7 +57,6 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
   initBuild() {
     timerState = ref.watch(timerVerifyProvider);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,21 +90,21 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                         focusedPinTheme: focusedPinTheme,
                         submittedPinTheme: submittedPinTheme,
                         autofocus: true,
-                        validator: (val){
-                          if((val??'').length != 4){
+                        validator: (val) {
+                          if ((val ?? '').length != 4) {
                             return LangEnum.verifyValidate.tr();
-                          }else{
+                          } else {
                             return null;
                           }
-
                         },
                         pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                         onChanged: (val) {
-                          if(val.length == 4){
+                          if (val.length == 4) {
                             closeKeyBoard();
                           }
                         },
-                        onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                        onTapOutside: (event) =>
+                            FocusScope.of(context).unfocus(),
                       ),
                     ),
                   ),
@@ -118,25 +118,15 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                       setDataModel();
                       verifyVM.userVerifyApi();
 
-                      try{
-                        await ref.read(
-                            verifyVM
-                                .futureProvider);
+                      try {
+                        var response = await ref.read(verifyVM.futureProvider);
                         hideLoading();
+                        setLoginRoute(response:response);
 
-                        if(pageType ==
-                            customAppFlavor.commonEnum.verifyTypeByEnum.register){
-                          Get.toNamed(TermsOfServiceRouting.config().path);
-                        }else {
-                          Get.offAllNamed(LayoutRouting.config().path);
-                        }
-                      }catch(e){
+                      } catch (e) {
                         hideLoading();
-                        showToast(e.toString());
+                        showFailed(msg: e.toString());
                       }
-
-
-
                     }
                   },
                   child: Text(LangEnum.sure.tr()),
@@ -150,22 +140,23 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
                         message: LangEnum.resendCodeDesc.tr(),
                         linkTitle: LangEnum.resendCodeBtn.tr(),
                         onPressed: () async {
-                          timerVerifyVM.updateTimer(currentStatus: true);
                           try {
                             closeKeyBoard();
                             showLoading();
-                            ref.read(taxiLoginProvider.notifier).bodyLoginModel.phoneNumber=
-                                phone;
-                            ref.read(taxiLoginProvider.notifier)
-                                .userLoginApi();
-                             await ref.read(
-                                ref.read(taxiLoginProvider.notifier)
-                                    .futureProvider);
+                            ref
+                                .read(taxiLoginProvider.notifier)
+                                .bodyLoginModel
+                                .phoneNumber = phone;
+                            ref.read(taxiLoginProvider.notifier).userLoginApi();
+                            await ref.read(ref
+                                .read(taxiLoginProvider.notifier)
+                                .futureProvider);
                             hideLoading();
-
+                            showSuccess(msg: LangEnum.codeSentSuccess.tr());
+                            timerVerifyVM.updateTimer(currentStatus: true);
                           } catch (e) {
                             hideLoading();
-                            showToast(e.toString());
+                            showFailed(msg: e.toString());
                           }
                         },
                       ),
@@ -178,13 +169,45 @@ class _VerifyViewState extends ConsumerState<VerifyView> {
   }
 
   void setDataModel() {
-    verifyVM.bodyVerifyModel.phoneNumber=
-        phone;
-    verifyVM.bodyVerifyModel.code=
-        codeController.text;
+    verifyVM.bodyVerifyModel.phoneNumber = phone;
+    verifyVM.bodyVerifyModel.code = codeController.text;
 
-    verifyVM.bodyVerifyModel.appEnum =
-        customAppFlavor.appEnum;
+    verifyVM.bodyVerifyModel.appEnum = customAppFlavor.appEnum;
+  }
+
+
+  void setLoginRoute({ResponseVerifyModel? response}) {
+
+    /// user come from register
+    if (pageType ==
+        customAppFlavor
+            .commonEnum.verifyTypeByEnum.register) {
+      Get.toNamed(TermsOfServiceRouting.config().path);
+    } else {
+      ///Happy scenario
+      if (response?.accountState ==
+          customAppFlavor
+              .commonEnum.accountStateEnum.approved &&
+          !(response?.isInTrip ?? false)) {
+        Get.offAllNamed(LayoutRouting.config().path);
+
+        ///In case data have problem
+      } else if(response?.accountState ==
+          customAppFlavor
+              .commonEnum.accountStateEnum.rejected){
+        Get.offAllNamed(DriverDataRouting.config().path);
+
+        ///In case order in pending
+      }else if(response?.accountState ==
+          customAppFlavor
+              .commonEnum.accountStateEnum.pending){
+        ///TODO go to order pending
+
+        /// In case user in trip
+      }else if((response?.isInTrip ?? false)){
+        ///TODO go to trip view
+      }
+    }
 
   }
 }

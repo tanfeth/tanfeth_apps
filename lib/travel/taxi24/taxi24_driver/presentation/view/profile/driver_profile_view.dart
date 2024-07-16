@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
@@ -20,6 +21,7 @@ import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/log_out_bottom_sheet_content.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/cars_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/earning_route.dart';
@@ -231,6 +233,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           Showcase(
                             key:seven,
                             description: LangEnum.shareOption.tr(),
+                            disposeOnTap: true,
                             onBarrierClick: ()async{
                               await   AppStorage.showProfileCase(false);
                             },
@@ -256,10 +259,12 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           ),
                           20.ph,
                           Center(
-                            child: GestureDetector(
-                                behavior: HitTestBehavior.translucent,
-                                onTap: () {
-                                  Get.offAllNamed(WelcomeRouting.config().path);
+                            child: InkWell(
+                                onTap: ()async {
+
+                                  showBottomSheetFunction(
+                                    content: const LogOutBottomSheetContent(),
+                                  );
                                 },
                                 child: Text(
                                   LangEnum.logout.tr(),

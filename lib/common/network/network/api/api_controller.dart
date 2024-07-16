@@ -26,6 +26,7 @@ import 'package:dio/src/options.dart';
 import 'package:dio/src/adapters/io_adapter.dart';
 import 'package:dio/src/interceptors/log.dart';
 import 'package:dio/src/response.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 
 
 class FileMultiPart {
@@ -97,7 +98,7 @@ class ApiController {
     Map<String, String> finalQueryParams = {};
     if (authorization == null) await Auth._getDefaultAuthToken();
     ApiController.staticHeaders["theme"] = AppMode.getThemeMode().toString().replaceAll("ThemeMode.", "");
-    ApiController.staticHeaders["Authorization-Token"] = authorization ?? "Not Auth";
+    ApiController.staticHeaders[customAppFlavor.commonEnum.authToken] = authorization ?? "Not Auth";
     if (ApiController.isCultureHeader) {
       staticHeaders["culture"] = AppMode.getLanguageMode();
     } else {
@@ -264,10 +265,10 @@ class ApiController {
               .toString()
               .replaceAll(commaDecode, ","),
         );
-        await Auth._setRefreshToken(response.headers
-            .value("Set-Refresh")
-            ?.replaceAll(commaDecode, ",") ??
-            "");
+        // await Auth._setRefreshToken(response.headers
+        //     .value("Set-Refresh")
+        //     ?.replaceAll(commaDecode, ",") ??
+        //     "");
       }
 
       var apiResponse = ApiResponse();
@@ -377,9 +378,9 @@ class Auth {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     ApiController.authorization = token;
     if (!kIsWeb) {
-      storage.write(key: "authorization-token", value: token);
+      storage.write(key: customAppFlavor.commonEnum.authToken, value: token);
     } else {
-      prefs.setString("authorization-token", token);
+      prefs.setString(customAppFlavor.commonEnum.authToken, token);
     }
 
     ApiController.authorizationExpired = expiration;
@@ -404,15 +405,17 @@ class Auth {
       const storage =  storage_secure.FlutterSecureStorage();
       try {
         expires = await storage.read(key: "authorization-timeout");
-        token = await storage.read(key: "authorization-token");
+        token = await storage.read(key: customAppFlavor.commonEnum.authToken);
       } catch (e) {
         log(e.toString());
       }
     } else {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       expires = prefs.getString("authorization-timeout");
-      token = prefs.getString("authorization-token");
+      token = prefs.getString(customAppFlavor.commonEnum.authToken);
     }
+
+
     if (expires != null &&
         _expirationFormat.parse(expires).isAfter(DateTime.now())) {
       ApiController.authorization = token;
@@ -465,7 +468,7 @@ class Auth {
         token = await storage.read(key: "RefreshToken");
         await storage.delete(key: "RefreshToken");
       } catch (e) {
-        print(e);
+        log(e.toString());
       }
     } else {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -474,25 +477,40 @@ class Auth {
     }
 
     bool isCleared = false;
-    body?["Token"] = token ?? "";
-    await ApiController(ApiController.revokeTokenUrl ?? "",
-        RequestTypeEnum.post)
-        .sendRequest(body: body)
-        .then((value) {
-      isCleared = true;
-      if (ApiController.staticHeaders.containsKey("Authorization-Token")) {
-        ApiController.staticHeaders.remove("Authorization-Token");
-      }
 
-      if (!kIsWeb) {
-        const storage =  storage_secure.FlutterSecureStorage();
-        storage.deleteAll();
-      } else {
-        SharedPreferences.getInstance().then((value) => value.clear());
-      }
-    }).onError((error, stackTrace) {
-      isCleared = false;
-    });
+
+    if (ApiController.staticHeaders.containsKey(customAppFlavor.commonEnum.authToken)) {
+      ApiController.staticHeaders.remove(customAppFlavor.commonEnum.authToken);
+    }
+
+    if (!kIsWeb) {
+      const storage =  storage_secure.FlutterSecureStorage();
+      storage.deleteAll();
+    } else {
+      SharedPreferences.getInstance().then((value) => value.clear());
+    }
+
+    isCleared = true;
+
+    // body?["Token"] = token ?? "";
+    // await ApiController(ApiController.revokeTokenUrl ?? "",
+    //     RequestTypeEnum.post)
+    //     .sendRequest(body: body)
+    //     .then((value) {
+    //   isCleared = true;
+    //   if (ApiController.staticHeaders.containsKey(customAppFlavor.commonEnum.authToken)) {
+    //     ApiController.staticHeaders.remove(customAppFlavor.commonEnum.authToken);
+    //   }
+    //
+    //   if (!kIsWeb) {
+    //     const storage =  storage_secure.FlutterSecureStorage();
+    //     storage.deleteAll();
+    //   } else {
+    //     SharedPreferences.getInstance().then((value) => value.clear());
+    //   }
+    // }).onError((error, stackTrace) {
+    //   isCleared = false;
+    // });
     return isCleared;
   }
 

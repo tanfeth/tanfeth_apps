@@ -47,7 +47,7 @@ class HelpWidget extends StatelessWidget {
                           function: () {
                             Get.offAllNamed(WelcomeRouting.config().path);
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                     ],
@@ -66,7 +66,7 @@ class HelpWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ]),
@@ -74,7 +74,7 @@ class HelpWidget extends StatelessWidget {
         );
       },
       child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 24,),
+        padding:  const EdgeInsets.symmetric(horizontal: 24,),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -88,7 +88,7 @@ class HelpWidget extends StatelessWidget {
                   BlendMode.srcIn),
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 8,),
+              padding:  const EdgeInsets.symmetric(horizontal: 8,),
               child:Text(
                 LangEnum.help.tr(),
                 style: context.text.titleMedium,

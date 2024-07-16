@@ -90,7 +90,7 @@ class _DestinationView extends ConsumerState<DestinationView>{
                       //       customAppFlavor.commonEnum.locationTypeEnum.pickUp
                       //     });
                     }else {
-                      showToast(LangEnum.selectDestination.tr());
+                      showFailed(msg: LangEnum.selectDestination.tr());
                     }
                   },
                   child: Text(LangEnum.confirm.tr()),

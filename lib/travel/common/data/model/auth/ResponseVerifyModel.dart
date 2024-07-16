@@ -5,14 +5,9 @@ part 'ResponseVerifyModel.g.dart';
 @JsonSerializable(explicitToJson: true)
 class ResponseVerifyModel{
 
-  @JsonKey(name: 'token',includeIfNull: false)
-  String ? token;
+  String? accountState;
 
-  @JsonKey(name: 'accountState')
-  String ? accountState;
-
-  @JsonKey(name: 'isInTrip')
-  bool ? isInTrip;
+  bool? isInTrip;
 
   ResponseVerifyModel();
 

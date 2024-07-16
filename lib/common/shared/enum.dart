@@ -1,5 +1,6 @@
 
 import 'package:flutter/foundation.dart';
+import 'package:tanfeth_apps/common/shared/enums/account_state_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/language_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/login_way_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/app_data_enum.dart';
@@ -60,11 +61,16 @@ class CommonEnum {
   CountryIosCodeEnum countryIosCodeEnum;
   LocationTypeEnum locationTypeEnum;
   PaymentMethodEnum paymentMethodEnum;
+  AccountStateEnum accountStateEnum;
+  String authToken;
+
 
   CommonEnum({
+    this.authToken ='authorization-token',
     this.loginWayEnum = const LoginWayEnum(),
     this.languageEnum = const LanguageEnum(),
     this.loginByEnum = const LoginByEnum(),
+    this.accountStateEnum = const AccountStateEnum(),
     this.verifyTypeByEnum = const VerifyTypeByEnum(),
     this.mapEnums = const MapEnums(),
     this.verifyEnum = const VerifyEnum(),

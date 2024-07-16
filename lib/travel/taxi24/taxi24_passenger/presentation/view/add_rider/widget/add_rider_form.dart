@@ -108,7 +108,7 @@ class _AddRiderForm extends ConsumerState<AddRiderForm>{
                       (contact?.phoneNumbers?.first??'').indexOf("5"));
                 }
                 else{
-                  showToast(LangEnum.selectAvalidMobileNumber.tr());
+                  showFailed(msg:LangEnum.selectAvalidMobileNumber.tr());
                 }
                 nameController.text=contact?.fullName??'';
               }

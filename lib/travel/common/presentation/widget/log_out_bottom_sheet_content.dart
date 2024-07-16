@@ -1,19 +1,21 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:flutter/material.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 
-
-
-class DeleteAccountBottomSheetContent extends ConsumerWidget{
-  const DeleteAccountBottomSheetContent({super.key});
+class LogOutBottomSheetContent extends StatelessWidget {
+  const LogOutBottomSheetContent({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
@@ -26,19 +28,9 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
           10.ph,
 
           Text(
-              LangEnum.areSureWantDeleteAccount.tr(),
+            LangEnum.areSureWantLogout.tr(),
             style: context.text.titleMedium,
           ),
-          const SizedBox(
-            height: 16,
-          ),
-
-
-          Text(
-            LangEnum.yourLoseAllData.tr(),
-          ),
-
-
           const SizedBox(
             height: 32,
           ),
@@ -51,10 +43,11 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
               child: ElevatedButton(
                 style: const ButtonStyle().MinErrorElevatedButton(context),
                 onPressed: () {
-
+                  Auth.clearToken();
+                  Get.offAllNamed(WelcomeRouting.config().path);
                 },
                 child: Text(
-                  LangEnum.deleteAccount.tr(),
+                  LangEnum.logout.tr(),
                   textScaler: TextScaler.noScaling,
                 ),
               ),
@@ -65,20 +58,18 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
             height: 10,
           ),
           Center(
-            child: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-               Get.back();
-              },
-              child: Text(
-                LangEnum.cancel.tr(),
-                style: context.text.titleMedium,
-              )
+            child: InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Text(
+                  LangEnum.cancel.tr(),
+                  style: context.text.titleMedium,
+                )
             ),
           ),
         ],
       ),
     );
   }
-
 }

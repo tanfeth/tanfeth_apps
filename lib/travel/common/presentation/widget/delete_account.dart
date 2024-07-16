@@ -12,7 +12,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/perso
 
 
 class DeleteAccount extends ConsumerWidget {
-  const DeleteAccount({Key? key}) : super(key: key);
+  const DeleteAccount({super.key});
 
   @override
   Widget build(BuildContext context,ref) {

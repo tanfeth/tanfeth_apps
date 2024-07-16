@@ -14,8 +14,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class LoginForm extends ConsumerStatefulWidget {
   final GlobalKey<FormState> loginKey;
  final TextEditingController controller;
+ final Function(Country) onSelect;
+ final Country selectedCountry;
   const LoginForm({super.key,required this.loginKey,
-  required this.controller});
+  required this.controller,
+  required this.onSelect,
+  required this.selectedCountry});
 
   @override
   ConsumerState<LoginForm> createState() => _LoginFormState();
@@ -23,7 +27,6 @@ class LoginForm extends ConsumerStatefulWidget {
 
 class _LoginFormState extends ConsumerState<LoginForm> {
 
-  Country selectedCountry = getCountry();
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +51,11 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 9:null,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 suffixWidget: CountryCodeWidget(
-                  onSelect: (Country country) {
-                    selectedCountry = country;
-                    setState(() {});
-                  },
-                  selectedPhoneCountry: selectedCountry,
+                  onSelect: widget.onSelect,
+                  selectedPhoneCountry: widget.selectedCountry,
                 ),
                 onChanged: (String value) {
                   if(value.length == 9){
-                    widget.controller.text =
-                    '${selectedCountry.phoneCode}$value';
                     closeKeyBoard();
                   }
                 }),

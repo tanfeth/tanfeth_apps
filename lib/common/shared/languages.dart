@@ -651,7 +651,7 @@ enum LangEnum {
   reorderListHint,
   tripHint,
   noTransaction,
-  transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data,
+  transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data, codeSentSuccess, areSureWantLogout,
 }
 
 class MyLanguages extends Translations {

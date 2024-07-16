@@ -978,10 +978,46 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
+      key: LangEnum.codeSentSuccess.name,
+      enValue: 'Verification code sent successfully',
+      arValue: 'تم إرسال رمز التحقق بنجاح',
+    );
+    addString(
+      key: LangEnum.areSureWantLogout.name,
+      enValue: 'Are your sure you want to make logout?',
+      arValue: 'هل أنت متأكد أنك تريد تسجيل الخروج؟',
+    );
+
+    addString(
       key: LangEnum.inWord.name,
       enValue: 'in',
       arValue: 'في',
     );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
+    addString(
+      key: LangEnum.inWord.name,
+      enValue: 'in',
+      arValue: 'في',
+    );
+
     addString(
       key: LangEnum.inWord.name,
       enValue: 'in',
