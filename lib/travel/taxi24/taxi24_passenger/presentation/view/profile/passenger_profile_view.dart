@@ -19,6 +19,7 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/app_version.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/language_bottom_sheet.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/log_out_bottom_sheet_content.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/favorite_place_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_trip_route.dart';
@@ -236,7 +237,9 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () {
                                   Scaffold.of(context).closeDrawer();
-                                  Get.offAllNamed(WelcomeRouting.config().path);
+                                  showBottomSheetFunction(
+                                    content: const LogOutBottomSheetContent(),
+                                  );
                                 },
                                 child: Text(
                                   LangEnum.logout.tr(),

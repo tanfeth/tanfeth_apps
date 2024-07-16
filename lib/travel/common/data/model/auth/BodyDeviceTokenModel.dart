@@ -6,6 +6,9 @@ part 'BodyDeviceTokenModel.g.dart';
 class BodyDeviceTokenModel{
 
   String? deviceToken;
+  @JsonKey(includeToJson: false,
+  includeFromJson: false)
+  String? appVersion;
   BodyDeviceTokenModel();
 
   factory BodyDeviceTokenModel.fromJson(Map<String, dynamic> json) => _$BodyDeviceTokenModelFromJson(json);

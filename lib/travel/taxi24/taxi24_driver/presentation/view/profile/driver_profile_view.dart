@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
@@ -15,7 +14,6 @@ import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
@@ -52,12 +50,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
   GlobalKey six = GlobalKey();
   GlobalKey seven = GlobalKey();
 
+  String appVersion = '';
+
   @override
   void initState() {
     if(AppStorage.getProfileCase() == true) {
       showCaseEvent(context: context,
           caseList: [one, two, three, four, five, six, seven]);
     }
+    appVersion = AppStorage.getAppVersion();
+
     super.initState();
   }
 
@@ -261,7 +263,6 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           Center(
                             child: InkWell(
                                 onTap: ()async {
-
                                   showBottomSheetFunction(
                                     content: const LogOutBottomSheetContent(),
                                   );
@@ -281,7 +282,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                             ),
                           ),
                           2.ph,
-                          const AppVersion(version: '1.0.0',),
+                           AppVersion(version: appVersion,),
                           15.ph,
                         ],
                       ),

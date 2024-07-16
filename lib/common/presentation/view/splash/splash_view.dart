@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
-import 'package:tanfeth_apps/common/data/model/notification/NotificationDeviceModel.dart';
-import 'package:tanfeth_apps/common/data/repo/user/user_repo.dart';
 import 'package:tanfeth_apps/common/presentation/view/splash/vm/splash_vm.dart';
 import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
@@ -19,6 +17,8 @@ import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/common/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:tanfeth_apps/travel/common/data/model/auth/BodyDeviceTokenModel.dart';
+import 'package:tanfeth_apps/travel/common/data/repo/auth/auth_repo.dart';
 
 
 class SplashView extends ConsumerStatefulWidget {
@@ -34,7 +34,6 @@ class _SplashViewState extends ConsumerState<SplashView> {
 
   @override
   void initState() {
-   // setUpInitState();
     super.initState();
   }
 
@@ -47,14 +46,15 @@ class _SplashViewState extends ConsumerState<SplashView> {
               await CustomNotification.initNotification();
           if((auth.value?.authToken??'').isNotEmpty){
             try {
+              String appVersion = await  getAppVersion();
+              AppStorage.saveAppVersion(appVersion);
+
               FirebaseMessaging.instance.getToken().then((value) {
-                NotificationDeviceModel notificationDeviceModel =
-                NotificationDeviceModel();
-                notificationDeviceModel.appVersion = "";
-                notificationDeviceModel.deviceModel = "";
-                notificationDeviceModel.deviceType = "";
-                notificationDeviceModel.notificationToken = value;
-               // addDeviceApi(notificationDeviceModel: notificationDeviceModel);
+                BodyDeviceTokenModel bodyDeviceTokenModel =
+                BodyDeviceTokenModel();
+                bodyDeviceTokenModel.deviceToken = value??'';
+                bodyDeviceTokenModel.appVersion = appVersion;
+                deviceTokenApi(model: bodyDeviceTokenModel);
               });
 
               WidgetsBinding.instance.addPostFrameCallback((_) {

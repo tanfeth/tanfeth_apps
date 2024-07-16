@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
@@ -250,3 +251,8 @@ void showFailed({required String msg}){
       backgroundColor: const Color(0xFFF84C4C));
 }
 
+
+Future<String> getAppVersion()async{
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  return packageInfo.version;
+}
