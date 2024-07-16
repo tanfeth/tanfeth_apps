@@ -651,6 +651,9 @@ enum LangEnum {
   reorderListHint,
   tripHint,
   noTransaction,
+  transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data,
+  rejectTitle,rejectMassage,pendingTitle,pendingMassage
+
   transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data, codeSentSuccess, areSureWantLogout,
 }
 

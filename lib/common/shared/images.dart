@@ -69,6 +69,7 @@ class Images {
   static String  userWithMessageSVG = '';
   static String  mastercardSVG = '';
   static String  successSVG = '';
+  static String  rejectSVG = '';
   static String  dotsSVG = '';
   static String  starIconSVG = '';
   static String  editIconSVG = '';
@@ -196,6 +197,7 @@ class Images {
      userWithMessageSVG = await checkImage( 'user_with_message.svg');
      mastercardSVG = await checkImage( 'Mastercard.svg');
      successSVG = await checkImage( 'Success.svg');
+     rejectSVG = await checkImage( 'reject.svg');
      dotsSVG = await checkImage( 'dots-icon.svg');
      starIconSVG = await checkImage( 'star-icon.svg');
      editIconSVG = await checkImage( 'edit-icon.svg');

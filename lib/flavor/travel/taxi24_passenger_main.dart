@@ -72,7 +72,7 @@ class Taxi24PassengerMain {
     );
     if (!(kReleaseMode || isStaging)) {
       Auth.init(
-        apiKey: "a2b63710-5b7d-4b58-8fc8-4a12724dfecc",
+        apiKey: "IzVqc7xBjNiYQS0Nl6QXIXSX8WBsd0Hwjfe9jVQs",
         appSecret: "d1e28279-ef34-4cf8-9c17-04fd1ff9a4e9",
         refreshTokenUrl: "/v1/Authentication/RefreshToken",
         revokeTokenUrl: "/v1/Authentication/RevokeToken",

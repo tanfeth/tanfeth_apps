@@ -56,8 +56,7 @@ class _DestinationView extends ConsumerState<DestinationView>{
          titleWidget: const DestinationHeader(),
           leadingWidget:  BackButtonWidget(
             onTap: (){
-              ref.read(chooseRideMapProvider.notifier)
-                  .handleMarkersAndPolyLines();
+              ref.read(chooseRideMapProvider.notifier).handleMarkersAndPolyLines();
               Get.back();
         
             },

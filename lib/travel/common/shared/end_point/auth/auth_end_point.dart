@@ -7,6 +7,7 @@ class AuthEndPoints {
   final String sendCode;
   final String verify;
   final String getProfile;
+  final String deviceToken;
 
   const AuthEndPoints({
     this.login="",
@@ -14,6 +15,7 @@ class AuthEndPoints {
     this.sendCode = "",
     this.verify = "",
     this.getProfile = "",
+    this.deviceToken = "",
 });
 
 }
