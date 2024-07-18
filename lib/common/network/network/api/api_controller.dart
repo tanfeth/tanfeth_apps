@@ -260,10 +260,10 @@ class ApiController {
               .value("authorization")
               ?.replaceAll(commaDecode, ",") ??
               "",
-          expiration: response.headers
-              .value("expires")
-              .toString()
-              .replaceAll(commaDecode, ","),
+          // expiration: response.headers
+          //     .value("expires")
+          //     .toString()
+          //     .replaceAll(commaDecode, ","),
         );
         // await Auth._setRefreshToken(response.headers
         //     .value("Set-Refresh")
@@ -372,7 +372,7 @@ class Auth {
 
   static _setBearerToken({
     required String token,
-    required String expiration,
+     String? expiration,
   }) async {
     const storage =  storage_secure.FlutterSecureStorage();
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -383,19 +383,24 @@ class Auth {
       prefs.setString(customAppFlavor.commonEnum.authToken, token);
     }
 
-    ApiController.authorizationExpired = expiration;
-    if (!kIsWeb) {
-      storage.write(key: "authorization-timeout", value: expiration);
-    } else {
-      prefs.setString("authorization-timeout", expiration);
+
+    if(expiration != null ||
+        (expiration??'').isNotEmpty){
+      ApiController.authorizationExpired = expiration;
+      if (!kIsWeb) {
+        storage.write(key: "authorization-timeout", value: expiration);
+      } else {
+        prefs.setString("authorization-timeout",  (expiration??''));
+      }
+
+      var expirationMin = _expirationFormat
+          .parse( (expiration??''))
+          .difference(DateTime.now())
+          .inMinutes -
+          5;
+      log("re in $expirationMin min");
     }
 
-    var expirationMin = _expirationFormat
-        .parse(expiration)
-        .difference(DateTime.now())
-        .inMinutes -
-        5;
-    log("re in $expirationMin min");
   }
 
   static Future<void> _getDefaultAuthToken() async {
@@ -415,11 +420,11 @@ class Auth {
       token = prefs.getString(customAppFlavor.commonEnum.authToken);
     }
 
-
-    if (expires != null &&
-        _expirationFormat.parse(expires).isAfter(DateTime.now())) {
-      ApiController.authorization = token;
-    }
+    ApiController.authorization = token;
+    // if (expires != null &&
+    //     _expirationFormat.parse(expires).isAfter(DateTime.now())) {
+    //   ApiController.authorization = token;
+    // }
   }
 
   static Future<ApiResponse?> reToken([bool retry = false]) async {

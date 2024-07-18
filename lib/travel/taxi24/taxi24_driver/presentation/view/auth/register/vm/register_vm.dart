@@ -11,6 +11,7 @@ import 'package:tanfeth_apps/travel/common/data/repo/auth/auth_repo.dart';
 final taxiDriverRegisterProvider =
 AutoDisposeStateNotifierProvider<TaxiDriverRegisterVM, ResponseRegisterModel?>(
         (ref) {
+          ref.keepAlive();
       return TaxiDriverRegisterVM(ref);
     });
 

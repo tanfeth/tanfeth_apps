@@ -37,9 +37,10 @@ class LogOutBottomSheetContent extends StatelessWidget {
 
 
           Center(
-            child: SizedBox(
+            child: Container(
               height: 40,
-              width: 200,
+              width: double.infinity,
+              margin:const  EdgeInsets.symmetric(horizontal: 15),
               child: ElevatedButton(
                 style: const ButtonStyle().MinErrorElevatedButton(context),
                 onPressed: () {

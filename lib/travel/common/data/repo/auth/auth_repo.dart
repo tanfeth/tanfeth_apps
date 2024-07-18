@@ -63,11 +63,13 @@ Future<ResponseRegisterModel> registerApi({required BodyRegisterModel model}) as
 
 /// Device token
 Future<ResponseDeviceTokenModel> deviceTokenApi({required BodyDeviceTokenModel model}) async {
+  var response = await ApiController(
+      customAppFlavor.endPoints.authEndPoints.deviceToken,
+      RequestTypeEnum.put).sendRequest(body:model.toJson());
+  return ResponseDeviceTokenModel.fromJson(response.objectResponse);
+
   try {
-    var response = await ApiController(
-        customAppFlavor.endPoints.authEndPoints.deviceToken,
-        RequestTypeEnum.put).sendRequest(body:model.toJson());
-    return ResponseDeviceTokenModel.fromJson(response.objectResponse);
+
   } catch (e) {
     throw e.toString();
   }

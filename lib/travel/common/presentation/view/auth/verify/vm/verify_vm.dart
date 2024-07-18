@@ -13,6 +13,7 @@ import 'package:tanfeth_apps/travel/common/data/repo/auth/auth_repo.dart';
 final verifyProvider =
 AutoDisposeStateNotifierProvider<VerifyVM, ResponseVerifyModel?>(
         (ref) {
+          ref.keepAlive();
       return VerifyVM(ref);
     });
 
