@@ -55,8 +55,8 @@ class Taxi24PassengerMain {
     bool isStaging = const String.fromEnvironment("staging").isNotEmpty;
 
     final String baseUrl = kReleaseMode || isStaging
-        ? "https://test.taxi24.app/api"
-        : "https://devapi.taxi24.app/api";
+        ? "https://test.taxi24.app"
+        : "https://devapi.taxi24.app";
 
     var flavor = FlavorConfig(
         baseUrl: baseUrl,

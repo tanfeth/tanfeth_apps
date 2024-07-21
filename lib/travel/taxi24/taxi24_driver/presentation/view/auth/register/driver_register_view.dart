@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
@@ -78,122 +77,131 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            LangEnum.enterDetails.tr(),
-                            style: context.text.titleMedium,
-                            textAlign: TextAlign.start,
+                    child:LayoutBuilder(builder: (context,constraints){
+                        return  SingleChildScrollView(
+                          physics: const BouncingScrollPhysics(),
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(minWidth: constraints.maxWidth,
+                                minHeight: constraints.maxHeight),
+                            child: IntrinsicHeight(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    LangEnum.enterDetails.tr(),
+                                    style: context.text.titleMedium,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  const SizedBox(height: 24,),
+                              
+                                  ///Full name
+                                  CustomTextFormField(
+                                      controller: userNameController,
+                                      keyboardType: TextInputType.text,
+                                      hintText: LangEnum.fullname.tr(),
+                                      textInputAction: TextInputAction.next,
+                                      validator: Validation.notEmpty,
+                                      onChanged: (String value) {}),
+                              
+                                  const SizedBox(height:16,),
+                              
+                              
+                                  ///Saudi ID
+                                  CustomTextFormField(
+                                      controller: iDController,
+                                      keyboardType: TextInputType.number,
+                                      hintText: LangEnum.saudiID.tr(),
+                                      textInputAction: TextInputAction.next,
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.digitsOnly,
+                                      ],
+                                      validator: Validation.notEmpty,
+                                      onChanged: (String value) {}),
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  ///Phone number
+                                  Directionality(
+                                    textDirection: TextDirection.rtl,
+                                    child: CustomTextFormField(
+                                        keyboardType: TextInputType.phone,
+                                        hintText: LangEnum.numPhone.tr(),
+                                        controller: phoneController,
+                                        textInputAction: TextInputAction.next,
+                                        validator: customAppFlavor.defaultCountryCode == 'SA'?
+                                        Validation.phone:Validation.notEmpty,
+                                        maxLength: customAppFlavor.defaultCountryCode == 'SA'?
+                                        9:null,
+                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                        suffixWidget: CountryCodeWidget(
+                                          onSelect: (Country country) {
+                                            selectedCountry = country;
+                                            setState(() {});
+                                          },
+                                          selectedPhoneCountry: selectedCountry,
+                                        ),
+                                        onChanged: (String value) {
+                                          if(value.length == 9){
+                                            closeKeyBoard();
+                                          }
+                                        }),
+                                  ),
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  ///City
+                                  SelectCityWidget(),
+                              
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  ///Email
+                                  CustomTextFormField(
+                                      controller: userEmailController,
+                                      keyboardType: TextInputType.text,
+                                      hintText: LangEnum.email.tr(),
+                                      textInputAction: TextInputAction.next,
+                                      validator: Validation.email,
+                                      onChanged: (String value) {}),
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  ///BirthdateHijri
+                                  CustomTextFormField(
+                                      controller: birthDatHijriController,
+                                      keyboardType: TextInputType.text,
+                                      hintText: LangEnum.birthdateHijri.tr(),
+                                      readOnly: true,
+                                      onTap: ()async{
+                                        await AppPicker.selectHijriDate(context,birthDatHijriController);
+                                      },
+                                      textInputAction: TextInputAction.next,
+                                      validator: Validation.notEmpty,
+                                      onChanged: (String value) {}),
+                              
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  ///Gender
+                              
+                                  Text(
+                                    LangEnum.gender.tr(),
+                                    style: context.text.titleMedium,
+                                    textAlign: TextAlign.start,
+                                  ),
+                              
+                                  const SizedBox(height:16,),
+                              
+                                  const  GenderWidget(),
+                              
+                              
+                                ],
+                              ),
+                            ),
                           ),
-                          const SizedBox(height: 24,),
-
-                          ///Full name
-                          CustomTextFormField(
-                              controller: userNameController,
-                              keyboardType: TextInputType.text,
-                              hintText: LangEnum.fullname.tr(),
-                              textInputAction: TextInputAction.next,
-                              validator: Validation.notEmpty,
-                              onChanged: (String value) {}),
-
-                          const SizedBox(height:16,),
-
-
-                          ///Saudi ID
-                          CustomTextFormField(
-                              controller: iDController,
-                              keyboardType: TextInputType.number,
-                              hintText: LangEnum.saudiID.tr(),
-                              textInputAction: TextInputAction.next,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly,
-                              ],
-                              validator: Validation.notEmpty,
-                              onChanged: (String value) {}),
-
-                          const SizedBox(height:16,),
-
-                          ///Phone number
-                          Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: CustomTextFormField(
-                                keyboardType: TextInputType.phone,
-                                hintText: LangEnum.numPhone.tr(),
-                                controller: phoneController,
-                                textInputAction: TextInputAction.next,
-                                validator: customAppFlavor.defaultCountryCode == 'SA'?
-                                Validation.phone:Validation.notEmpty,
-                                maxLength: customAppFlavor.defaultCountryCode == 'SA'?
-                                9:null,
-                                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                suffixWidget: CountryCodeWidget(
-                                  onSelect: (Country country) {
-                                    selectedCountry = country;
-                                    setState(() {});
-                                  },
-                                  selectedPhoneCountry: selectedCountry,
-                                ),
-                                onChanged: (String value) {
-                                  if(value.length == 9){
-                                    closeKeyBoard();
-                                  }
-                                }),
-                          ),
-
-                          const SizedBox(height:16,),
-
-                          ///City
-                          SelectCityWidget(),
-
-
-                          const SizedBox(height:16,),
-
-                          ///Email
-                          CustomTextFormField(
-                              controller: userEmailController,
-                              keyboardType: TextInputType.text,
-                              hintText: LangEnum.email.tr(),
-                              textInputAction: TextInputAction.next,
-                              validator: Validation.email,
-                              onChanged: (String value) {}),
-
-                          const SizedBox(height:16,),
-
-                          ///BirthdateHijri
-                          CustomTextFormField(
-                              controller: birthDatHijriController,
-                              keyboardType: TextInputType.text,
-                              hintText: LangEnum.birthdateHijri.tr(),
-                              readOnly: true,
-                              onTap: ()async{
-                                await AppPicker.selectHijriDate(context,birthDatHijriController);
-                              },
-                              textInputAction: TextInputAction.next,
-                              validator: Validation.notEmpty,
-                              onChanged: (String value) {}),
-
-
-                          const SizedBox(height:16,),
-
-                          ///Gender
-
-                          Text(
-                            LangEnum.gender.tr(),
-                            style: context.text.titleMedium,
-                            textAlign: TextAlign.start,
-                          ),
-
-                          const SizedBox(height:16,),
-
-                         const  GenderWidget(),
-
-
-                        ],
-                      ),
-                    ),
+                        );
+                    },)
                   ),
 
 

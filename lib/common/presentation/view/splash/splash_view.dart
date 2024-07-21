@@ -19,6 +19,7 @@ import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/data/model/auth/BodyDeviceTokenModel.dart';
 import 'package:tanfeth_apps/travel/common/data/repo/auth/auth_repo.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 
 
 class SplashView extends ConsumerStatefulWidget {
@@ -68,7 +69,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
               }
 
 
-              Get.offAllNamed(LayoutRouting.config().path);
+              Get.offAllNamed(DriverDataRouting.config().path);
             } catch (e) {
               Get.offAllNamed(WelcomeRouting.config().path);
             }

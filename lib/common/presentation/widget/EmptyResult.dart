@@ -21,8 +21,9 @@ class _EmptyResultState extends ConsumerState<EmptyResult> {
     return FutureBuilder(
       future: Future.delayed(const Duration(milliseconds:200)),
       builder: (_,snapshot) {
-        if(snapshot.connectionState == ConnectionState.waiting)
+        if(snapshot.connectionState == ConnectionState.waiting) {
           return const SizedBox();
+        }
         return Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

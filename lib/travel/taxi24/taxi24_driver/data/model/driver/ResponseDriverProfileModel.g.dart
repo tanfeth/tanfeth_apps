@@ -18,7 +18,11 @@ ResponseDriverProfileModel _$ResponseDriverProfileModelFromJson(
       ..dateOfBirthHijri = json['dateOfBirthHijri'] as String?
       ..dateOfBirth = json['dateOfBirth'] as String?
       ..gender = (json['gender'] as num?)?.toInt()
-      ..profileImage = json['profileImage'] as String?;
+      ..profileImage = json['profileImage'] as String?
+      ..isProfileImageEditied = json['isProfileImageEditied'] as bool?
+      ..profileImageEditedState = json['profileImageEditedState'] as String?
+      ..profileImageEditedStateNote =
+          json['profileImageEditedStateNote'] as String?;
 
 Map<String, dynamic> _$ResponseDriverProfileModelToJson(
         ResponseDriverProfileModel instance) =>
@@ -33,4 +37,7 @@ Map<String, dynamic> _$ResponseDriverProfileModelToJson(
       'dateOfBirth': instance.dateOfBirth,
       'gender': instance.gender,
       'profileImage': instance.profileImage,
+      'isProfileImageEditied': instance.isProfileImageEditied,
+      'profileImageEditedState': instance.profileImageEditedState,
+      'profileImageEditedStateNote': instance.profileImageEditedStateNote,
     };

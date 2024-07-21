@@ -10,6 +10,24 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/Respo
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseDriverStatusModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseUpdateDriverModel.dart';
 
+
+
+
+
+/// Driver
+Future<ResponseUpdateDriverModel> driverApi({required BodyUpdateDriverModel model}) async {
+  try {
+    var response = await ApiController(
+        customAppFlavor.endPoints.driverEndPoints.driver,
+        RequestTypeEnum.put)
+        .sendRequest();
+    return ResponseUpdateDriverModel.fromJson(response.objectResponse);
+  } catch (e) {
+    throw e.toString();
+  }
+}
+
+
 /// Upload driver attachment
 Future<ResponseDriverStatusModel> uploadDriverAttachmentApi({required BodyUploadDriverAttachmentModel model}) async {
   List<FileMultiPart> files = [];
@@ -74,18 +92,7 @@ Future<ResponseDriverProfileModel> driverProfileResponseApi() async {
 }
 
 
-/// Driver
-Future<ResponseUpdateDriverModel> driverApi({required BodyUpdateDriverModel model}) async {
-  try {
-    var response = await ApiController(
-        customAppFlavor.endPoints.driverEndPoints.driver,
-        RequestTypeEnum.put)
-        .sendRequest();
-    return ResponseUpdateDriverModel.fromJson(response.objectResponse);
-  } catch (e) {
-    throw e.toString();
-  }
-}
+
 
 
 

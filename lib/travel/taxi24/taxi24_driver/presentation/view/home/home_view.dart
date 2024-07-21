@@ -91,7 +91,7 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
 
           ///Header
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: HomeHeader(
                 one: one,
                 two: two,

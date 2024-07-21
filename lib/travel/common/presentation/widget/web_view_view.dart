@@ -10,7 +10,7 @@ import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 
 class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({Key? key}) : super(key: key);
+  const WebViewScreen({super.key});
 
   @override
   State<WebViewScreen> createState() => _WebViewScreenState();
@@ -97,7 +97,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
         leadingWidget: const BackButtonWidget(),
       ),
       body: pageLoading?
-          Center(child: const CircularProgressIndicator(),):
+          const Center(child: CircularProgressIndicator(),):
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: WebViewWidget(controller: webViewController),

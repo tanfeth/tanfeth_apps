@@ -6,7 +6,7 @@ part 'ParamBaseModel.g.dart';
 class ParamBaseModel {
   String? pageNumber = "1";
 
-  String? pageSize = "20";
+  String? pageSize = "10";
 
   @JsonKey(includeIfNull: false)
   String? name;

@@ -20,6 +20,10 @@ class ResponseDriverProfileModel {
   String? dateOfBirth;
   int? gender;
   String? profileImage;
+  bool? isProfileImageEditied;
+  String? profileImageEditedState;
+  String? profileImageEditedStateNote;
+
 
 
 

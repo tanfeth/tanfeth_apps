@@ -2302,7 +2302,11 @@ class MyLanguages extends Translations {
 
     addString(key: LangEnum.data.name, enValue: 'data', arValue: 'بيانات');
 
-
+    addString(
+      key: LangEnum.currentLocationHint.name,
+      enValue: 'Press here to get your current location',
+      arValue: 'اضغط هنا للحصول على موقعك الحالي',
+    );
 
     return {arKey: arStrings, enKey: enStrings};
   }
