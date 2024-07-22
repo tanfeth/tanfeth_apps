@@ -15,9 +15,9 @@ class AccountStatusRouting extends RoutingConfig {
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return RoutingConfig(path: _path, widget: const AccountStatusScreen());
+        return RoutingConfig(path: _path, widget: const AccountStatusView());
       default:
-        return RoutingConfig(path: _path, widget: const AccountStatusScreen());
+        return RoutingConfig(path: _path, widget: const AccountStatusView());
     }
   }
 }

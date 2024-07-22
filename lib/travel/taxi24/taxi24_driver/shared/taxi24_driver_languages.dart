@@ -989,39 +989,39 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.takePhotoYourself.name,
+      enValue: 'Take a photo for yourself',
+      arValue: 'التقط صورة لنفسك',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.needPhotoVerifyYou.name,
+      enValue: 'We need your photo to verify you and for passengers to recognize you.',
+      arValue: 'نحتاج إلى صورتك للتحقق منك ولكي يتعرف الركاب عليك.',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.faceCameraDirectlyWithEyes.name,
+      enValue: 'Face the camera directly with your eyes and mouth',
+      arValue: 'واجه الكاميرا مباشرةً بعينيك وفمك',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.photoFocusFreeGlare.name,
+      enValue: 'The photo is in focus and free of glare',
+      arValue: 'الصورة في التركيز وخالية من الوهج',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.uploadphotoSaudiID.name,
+      enValue: 'Upload a photo of your Saudi ID',
+      arValue: 'قم بتحميل صورة لبطاقة هويتك السعودية',
     );
 
     addString(
-      key: LangEnum.inWord.name,
-      enValue: 'in',
-      arValue: 'في',
+      key: LangEnum.sureIDValidNotExpired.name,
+      enValue: 'Make sure the ID is valid and not expired',
+      arValue: 'تأكد من أن الهوية صالحة وغير منتهية الصلاحية',
     );
     addString(
       key: LangEnum.rejectTitle.name,
@@ -1044,10 +1044,90 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'تم إستلام طلبك وسيتم الرد عليك خلال ٣ أيام عمل كحد أقصى',
     );
 
+    addString(
+      key: LangEnum.takePhoto.name,
+      enValue: "Take photo",
+      arValue: 'إلتقاط صورة',
+    );
 
 
 
+    addString(
+      key: LangEnum.photoNotBlurryInformationReadable.name,
+      enValue: 'The photo is not blurry and all information is clear and readable',
+      arValue: 'الصورة ليست ضبابية وجميع المعلومات واضحة وقابلة للقراءة',
+    );
+    addString(
+      key: LangEnum.saudiCitizenChildAgeNot20Years.name,
+      enValue: 'The owner of the ID must be a Saudi citizen or a child of a citizen and their age not less than 20 years old',
+      arValue: 'أن يكون صاحب البطاقة مواطناً سعودياً أو أحد أبناء المواطن وألا يقل عمره عن 20 عاماً',
+    );
+    addString(
+      key: LangEnum.uploadPhotoDrivingLicense.name,
+      enValue: 'Upload a photo of your driving license',
+      arValue: 'قم بتحميل صورة رخصة القيادة الخاصة بك',
+    );
+    addString(
+      key: LangEnum.uploadphotoVehicleRegistrationIstimara.name,
+      enValue: 'Upload a photo of your Vehicle Registration / Istimara',
+      arValue: 'قم بتحميل صورة تسجيل مركبتك / استمارة',
+    );
+    addString(
+      key: LangEnum.registerVehicleOwnerVehicle.name,
+      enValue: 'You can only register a vehicle that you are the owner of or a vehicle that you financed through a loan from one of the financing agencies authorized by the Saudi Arabian Monetary Agency',
+      arValue: 'يمكنك فقط تسجيل المركبة التي تمتلكها أو المركبة التي قمت بتمويلها عن طريق قرض من إحدى جهات التمويل المعتمدة من مؤسسة النقد العربي السعودي',
+    );
+    addString(
+      key: LangEnum.acceptAnyDocumenType.name,
+      enValue: 'We accept any document type (Original, Digital or a screenshot from the website or Absher app)',
+      arValue: 'نقبل أي نوع من المستندات (أصلية أو رقمية أو لقطة شاشة من الموقع الإلكتروني أو تطبيق أبشر)',
+    );
+    addString(
+      key: LangEnum.uploadPhotoVehicleInsurance.name,
+      enValue: 'Upload a photo of your Vehicle Insurance',
+      arValue: 'قم بتحميل صورة لتأمين سيارتك',
+    );
 
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
 
 
 

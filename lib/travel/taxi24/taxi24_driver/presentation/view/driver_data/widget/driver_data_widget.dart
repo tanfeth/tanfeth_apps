@@ -5,7 +5,6 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
-import 'package:tanfeth_apps/travel/common/shared/enum/driver_state_enum.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DriverDataWidget extends ConsumerWidget {
@@ -19,22 +18,23 @@ class DriverDataWidget extends ConsumerWidget {
 
 
   const DriverDataWidget({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     this.state,
     this.expireDate,
     this.isDocument=false,
 
-  required this.function}) : super(key: key);
+  required this.function});
 
 
   @override
   Widget build(BuildContext context,ref) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: state?.toLowerCase()== customAppFlavor.commonEnum.driverStateEnum.approved
-          ?(){}:function,
+    return InkWell(
+      onTap: function,
+      // state?.toLowerCase()==
+      //     customAppFlavor.commonEnum.driverStateEnum.approved
+      //     ?(){}:function,
       child: SizedBox(
         height: 56,
         child: Row(
@@ -48,7 +48,7 @@ class DriverDataWidget extends ConsumerWidget {
                         BlendMode.srcIn),
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Column(
@@ -66,7 +66,7 @@ class DriverDataWidget extends ConsumerWidget {
                         ),
                       ),
 
-                      SizedBox(height: 4,),
+                      const SizedBox(height: 4,),
                       if(isDocument)
                         Text(
                           expireDate??"",

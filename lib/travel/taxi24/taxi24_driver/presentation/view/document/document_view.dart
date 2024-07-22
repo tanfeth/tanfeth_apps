@@ -13,7 +13,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/docum
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
 
 class DocumentView extends ConsumerStatefulWidget{
-  const DocumentView();
+  const DocumentView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=> _DocumentView();
@@ -26,14 +26,14 @@ class _DocumentView extends ConsumerState<DocumentView>{
     return Scaffold(
         appBar: MainAppBar(
           title: LangEnum.document.tr(),
-          leadingWidget: BackButtonWidget(),
+          leadingWidget: const BackButtonWidget(),
         ),
         body: WebWidth(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
-                SizedBox(height: 28,),
+                const SizedBox(height: 28,),
                 DocumentCell(
                   image: Images.fileSVG,
                   title: LangEnum.saudiID.tr(),
@@ -50,8 +50,8 @@ class _DocumentView extends ConsumerState<DocumentView>{
                   expireDate: DateFormat("MMMM dd, yyyy").format(DateTime.parse("${DateTime.now()}")),
                 ),
 
-                SmallDivider(),
-                SizedBox(height: 10,),
+                const SmallDivider(),
+                const SizedBox(height: 10,),
                 DocumentCell(
                   image: Images.fileSVG,
                   title:  LangEnum.drivingLicense.tr(),

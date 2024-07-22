@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/custom_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/src/android_webview_controller.dart';
@@ -68,12 +66,7 @@ class _TermsServiceView extends ConsumerState<TermsServiceView>{
                     padding: const EdgeInsets.all(15.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        if(isTaxi24Driver){
-                          Get.offAllNamed(DriverDataRouting.config().path);
-                        }else {
-                          Get.offAllNamed(LayoutRouting.config().path);
-
-                        }
+                        Get.offAllNamed(LayoutRouting.config().path);
                       },
                       child: Text(LangEnum.iAgree.tr()),
                     ),

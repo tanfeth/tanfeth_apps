@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:searchable_paginated_dropdown/searchable_paginated_dropdown.dart';
 import 'package:tanfeth_apps/common/presentation/widget/loading_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/shimmer_widget.dart';
+import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
+import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -28,13 +30,15 @@ class _SelectCityWidget extends ConsumerState<SelectCityWidget> {
   late SelectedCityVM selectedCityVM;
   late List<EnumModel> cityList;
   late int selectedCity;
-
+  final searchController = TextEditingController();
+   ScrollController controller  =ScrollController();
 
   initBuild() {
     cityListVM = ref.watch(cityListProvider.notifier);
     selectedCityVM = ref.watch(selectedCityProvider.notifier);
     cityList = ref.watch(cityListProvider);
     selectedCity = ref.watch(selectedCityProvider);
+    cityListVM.initPagination(controller);
   }
 
 
@@ -52,7 +56,58 @@ class _SelectCityWidget extends ConsumerState<SelectCityWidget> {
         builder: (context, snapshot) {
           var isLoading = snapshot.connectionState ==
               ConnectionState.waiting;
-          return DropdownSearch<String>(
+
+          return Container(
+            height: 500,
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CustomTextFormField(
+                    controller: searchController,
+                    keyboardType: TextInputType.text,
+                    hintText: LangEnum.search.tr(),
+                    textInputAction: TextInputAction.next,
+                    onChanged: (String value) {}),
+
+                  15.ph,
+
+                Expanded(
+                  child: ListView.separated(
+                    controller: controller,
+                    physics: const BouncingScrollPhysics(),
+                    separatorBuilder: (context, index) => const  SizedBox(height: 10,),
+                    itemCount:(isLoading ? 10 : 0) + cityList.length,
+                    itemBuilder: (context,index){
+                      if (index >= cityList.length){
+                        return const ShimmerWidget(
+                          height: 35,
+                          width: double.infinity,
+                          borderRadius:  BorderRadius.all(Radius.circular(8)),
+                        );
+                      }else{
+                        return InkWell(
+                          onTap: (){
+                            selectedCityVM.setSelectedCity(index);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                                cityList[index].name ?? '',
+                              style: context.text.bodyLarge,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
+          );
+
+
+          /*return DropdownSearch<String>(
             selectedItem: selectedCity.isNegative ?
             "" : cityList[selectedCity].name ?? '',
             items: List.generate( (isLoading ? 1 : 0) + cityList.length,
@@ -87,7 +142,7 @@ class _SelectCityWidget extends ConsumerState<SelectCityWidget> {
               (item.name ?? '') == value);
               selectedCityVM.setSelectedCity(index);
             },
-          );
+          );*/
         }
     );
   }

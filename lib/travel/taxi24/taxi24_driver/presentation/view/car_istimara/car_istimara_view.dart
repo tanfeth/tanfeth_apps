@@ -15,7 +15,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_i
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
 
 class CarIstimaraView extends ConsumerStatefulWidget{
-  const CarIstimaraView();
+  const CarIstimaraView({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=> _CarIstimaraView();
 
@@ -42,14 +42,14 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
       body: WebWidth(
         child: SafeArea(
           child:Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 10),
             child: Column(
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
 
@@ -60,7 +60,7 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
                         style: context.text.titleMedium,
                         textAlign: TextAlign.start,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
@@ -68,15 +68,15 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
                         style: context.text.titleMedium,
                         textAlign: TextAlign.start,
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       PersonalInstructionInfo(
                           title:LangEnum.photoTakenGoodLight.tr()),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       PersonalInstructionInfo(
                           title: LangEnum.photoBlurry.tr()),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       PersonalInstructionInfo(title:LangEnum.registerVehicle.tr()),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       PersonalInstructionInfo(title: LangEnum.acceptDocumentType.tr()),
                     ],
                   ),
@@ -91,7 +91,7 @@ class _CarIstimaraView extends ConsumerState<CarIstimaraView>{
                        ),
                      );
                    }else {
-                     return null;
+                     return;
                    }
 
                   },

@@ -51,11 +51,11 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 28,
                 ),
                 Center(
@@ -74,12 +74,12 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                             base64String: driverModel.profileImage ?? "",
                           ))),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 const ChangePhotoWidget(),
 
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
 
@@ -92,7 +92,7 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                     }),
 
                 10.ph,
-                SmallDivider(),
+                const SmallDivider(),
                 10.ph,
                 PersonalInfoItemWidget(
                     title: LangEnum.mobile.tr(),
@@ -103,7 +103,7 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                     }),
 
                 10.ph,
-                SmallDivider(),
+                const SmallDivider(),
                 10.ph,
 
                 PersonalInfoItemWidget(
@@ -130,7 +130,7 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                       // Navigator.pushNamed(context, RoutePath.editEmailScreen);
                     }),
                 10.ph,
-                SmallDivider(),
+                const SmallDivider(),
                 10.ph,
                 PersonalInfoItemWidget(
                   title: LangEnum.birthDate.tr(),
@@ -140,7 +140,7 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                 ),
 
                 10.ph,
-                SmallDivider(),
+                const SmallDivider(),
                 10.ph,
                 PersonalInfoItemWidget(
                   title: LangEnum.gender.tr(),
@@ -150,7 +150,7 @@ class _PersonalInfoView extends ConsumerState<PersonalInfoView>{
                   LangEnum.female.tr(),
                 ),
                 const DeleteAccount(),
-                SizedBox(height: 49,),
+                const SizedBox(height: 49,),
               ],
             ),
           ),

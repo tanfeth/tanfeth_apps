@@ -12,12 +12,18 @@ class ResponseDriverStatusModel {
   String? carDetailsState;
   String? carRegistrationState;
   String? carInssuranceState;
+  String? carRegistrationStateNote;
+  String? carInssuranceStateNote;
   String? carEligibilty;
   int? carId;
   String? licenseImageState;
   String? saudiIdImageState;
   String? profileImageState;
   String? driverEligibilty;
+  String? licenseImageStateNote;
+  String? saudiIdImageStateNote;
+  String? profileImageStateNote;
+
 
   ResponseDriverStatusModel();
 

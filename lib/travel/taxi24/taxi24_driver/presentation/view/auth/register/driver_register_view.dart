@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
@@ -151,7 +152,24 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                   const SizedBox(height:16,),
                               
                                   ///City
-                                  SelectCityWidget(),
+                                  InkWell(
+                                    onTap: (){
+                                      showBottomSheetFunction(
+                                        content:  const SelectCityWidget(),
+                                      );
+                                    },
+                                    child: CustomTextFormField(
+                                        keyboardType: TextInputType.text,
+                                        hintText: LangEnum.city.tr(),
+                                        textInputAction: TextInputAction.next,
+                                        validator: Validation.notEmpty,
+                                        enabled: false,
+                                        suffixWidget: Icon(
+                                          Icons.arrow_forward,
+                                          color: context.color.onSurface,
+                                          size: 20,
+                                        ),),
+                                  ),
                               
                               
                                   const SizedBox(height:16,),

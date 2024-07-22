@@ -34,14 +34,14 @@ class _DocumentDetailsViewState extends State<DocumentDetailsView> {
     return Scaffold(
       appBar: MainAppBar(
         title: appBarTitle,
-        leadingWidget: BackButtonWidget(),
+        leadingWidget: const BackButtonWidget(),
       ),
       body:WebWidth(
         child:SafeArea(
           child:  Container(
             height: double.infinity,
             width: double.infinity,
-            padding:  EdgeInsets.symmetric(vertical: 24,horizontal: 24),
+            padding:  const EdgeInsets.symmetric(vertical: 24,horizontal: 24),
             child: WidgetZoom(
               heroAnimationTag:'tag',
               zoomWidget: CachedImageWidget(

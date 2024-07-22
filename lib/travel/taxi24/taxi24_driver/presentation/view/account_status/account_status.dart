@@ -8,9 +8,9 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/help_widget.dart';
 
 
-class AccountStatusScreen extends StatelessWidget {
+class AccountStatusView extends StatelessWidget {
   final String ? status;
-  const AccountStatusScreen({super.key, this.status});
+  const AccountStatusView({super.key, this.status});
 
   @override
   Widget build(BuildContext context) {
