@@ -13,8 +13,16 @@ BodyUploadDriverAttachmentModel _$BodyUploadDriverAttachmentModelFromJson(
       ..saudiIdExpiryDate = json['SaudiIdExpiryDate'] as String?;
 
 Map<String, dynamic> _$BodyUploadDriverAttachmentModelToJson(
-        BodyUploadDriverAttachmentModel instance) =>
-    <String, dynamic>{
-      'LicenceExpiryDate': instance.licenceExpiryDate,
-      'SaudiIdExpiryDate': instance.saudiIdExpiryDate,
-    };
+    BodyUploadDriverAttachmentModel instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('LicenceExpiryDate', instance.licenceExpiryDate);
+  writeNotNull('SaudiIdExpiryDate', instance.saudiIdExpiryDate);
+  return val;
+}

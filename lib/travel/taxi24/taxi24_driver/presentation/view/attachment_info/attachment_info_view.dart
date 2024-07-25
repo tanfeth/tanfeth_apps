@@ -6,14 +6,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/pick_image_bottom_sheet.dart';
+import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/attachment_info_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/AttachmentInfoModel.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/vm/driver_data_vm.dart';
 
 
 class AttachmentInfoView extends ConsumerStatefulWidget{
@@ -126,10 +131,30 @@ class _AttachmentInfoView extends ConsumerState<AttachmentInfoView>{
                 ),
 
                 ElevatedButton(
-                  onPressed: attachmentInfoModel.takePhotoFun??(){},
+                  onPressed:(){
+                    showBottomSheetFunction(
+                      content:  PickImageBottomSheetContent(
+                        pickImage: (image){
+                          if(image != null){
+                            var file =   convertFile(file: image);
+                            ref.read(taxiDriverDataProvider.notifier)
+                                .setDataModel(file: file,
+                                driverData: attachmentInfoModel.driverDataEnum??-1);
+                            Get.offNamed(ConfirmPhotoRouting.config().path,
+                                arguments: {
+                                  ConfirmPhotoRouting.driverData:
+                                  attachmentInfoModel.driverDataEnum??-1
+                                });
+                          }
+
+                        },
+                      ),
+                    );
+                  },
                   child: Text(LangEnum.takePhoto.tr()),
                 ),
 
+                20.ph,
               ],
             ),
           ),

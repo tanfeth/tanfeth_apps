@@ -21,7 +21,7 @@ class DeleteAccount extends ConsumerWidget {
       onTap: () {
 
         showBottomSheetFunction(
-          content: DeleteAccountBottomSheetContent(),
+          content:const  DeleteAccountBottomSheetContent(),
         );
       },
       child: SizedBox(

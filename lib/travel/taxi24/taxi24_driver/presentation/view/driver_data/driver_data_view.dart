@@ -5,19 +5,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
+import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/log_out_bottom_sheet_content.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/attachment_info_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/AttachmentInfoModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseDriverStatusModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/vm/driver_data_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/driver_data_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/help_widget.dart';
+
+
+
 
 class DriverDataView extends ConsumerStatefulWidget{
   const DriverDataView({super.key});
@@ -37,7 +44,10 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
   @override
   void initState() {
     taxiDriverDataVM = ref.read(taxiDriverDataProvider.notifier);
-    taxiDriverDataVM.getAccountStatus();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      taxiDriverDataVM.getAccountStatus();
+    });
+
     super.initState();
   }
 
@@ -66,7 +76,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
       },
       child: Scaffold(
         appBar: const MainAppBar(
-          trailingWidget:HelpWidget(),
+         // trailingWidget:HelpWidget(),
         ),
         body: WebWidth(
           child: SafeArea(
@@ -86,181 +96,223 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Padding(
-                              //   padding:  const EdgeInsets.symmetric(vertical: 8,),
-                              //   child: Text(
-                              //     "${LangEnum.welcome.tr()} ${'Abdelrhman'}",
-                              //     style: context.text.titleMedium,
-                              //     textAlign: TextAlign.start,
-                              //   )
-                              // ),
-
-                              10.ph,
-                              Text(
-                                LangEnum.completeStepsFinishEnrollment.tr(),
-                                textAlign: TextAlign.start,
-                              ),
-                              const SizedBox(height: 20,),
-
-                              /// Personal photo
-                              DriverDataWidget(
-                                image: Images.personSVG,
-                                title: LangEnum.personalPhoto.tr(),
-                                state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                function: () {
-                                  attachmentInfoModel = AttachmentInfoModel();
-
-                                  attachmentInfoModel.title=
-                                  LangEnum.takePhotoYourself.tr();
-
-                                  attachmentInfoModel.subTitle=
-                                      LangEnum.needPhotoVerifyYou.tr();
-
-                                  attachmentInfoModel.infoList = [
-                                    LangEnum.faceCameraDirectlyWithEyes.tr(),
-                                    LangEnum.photoTakenGoodLight.tr(),
-                                    LangEnum.photoFocusFreeGlare.tr()
-                                  ];
-                                  attachmentInfoModel.takePhotoFun = (){};
-
-                                  Get.toNamed(AttachmentInfoRouting.config().path,
-                                  arguments: {
-                                    AttachmentInfoRouting.attachmentInfoModel:
-                                    attachmentInfoModel
-                                  });
-                                },
-                              ),
-
-                              ///Saudi ID
-                              DriverDataWidget(
-                                image: Images.fileSVG,
-                                title: LangEnum.saudiID.tr(),
-                                state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                function: () {
-                                  attachmentInfoModel = AttachmentInfoModel();
-
-                                  attachmentInfoModel.title=
-                                      LangEnum.uploadphotoSaudiID.tr();
-
-                                  attachmentInfoModel.subTitle= '';
-
-                                  attachmentInfoModel.infoList = [
-                                    LangEnum.sureIDValidNotExpired.tr(),
-                                    LangEnum.photoNotBlurryInformationReadable.tr(),
-                                    LangEnum.saudiCitizenChildAgeNot20Years.tr()
-                                  ];
-                                  attachmentInfoModel.takePhotoFun = (){};
-
-                                  Get.toNamed(AttachmentInfoRouting.config().path,
-                                      arguments: {
-                                        AttachmentInfoRouting.attachmentInfoModel:
-                                        attachmentInfoModel
-                                      });
-                                },),
-
-                              /// Driving licence
-                              DriverDataWidget(
-                                image: Images.fileSVG,
-                                title: LangEnum.drivingLicence.tr(),
-                                state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                function: () {
-                                  attachmentInfoModel = AttachmentInfoModel();
-
-                                  attachmentInfoModel.title=
-                                      LangEnum.uploadPhotoDrivingLicense.tr();
-
-                                  attachmentInfoModel.subTitle= '';
-
-                                  attachmentInfoModel.infoList = [
-                                    LangEnum.photoTakenGoodLight.tr(),
-                                    LangEnum.photoNotBlurryInformationReadable.tr(),
-                                  ];
-                                  attachmentInfoModel.takePhotoFun = (){};
-
-                                  Get.toNamed(AttachmentInfoRouting.config().path,
-                                      arguments: {
-                                        AttachmentInfoRouting.attachmentInfoModel:
-                                        attachmentInfoModel
-                                      });
-                                },),
-
-                              /// Car details
-                              DriverDataWidget(
-                                image: Images.driverCarSVG,
-                                title: LangEnum.carDetails.tr(),
-                                state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                function: () {
-                                  Get.toNamed(CarDetailsRouting.config().path);
-                                },),
-
-                              ///Vehicle registration
-                              DriverDataWidget(
-                                  image: Images.fileSVG,
-                                  state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                  title: LangEnum.vehicleRegistration.tr(),
+                          child: SingleChildScrollView(
+                            physics: const BouncingScrollPhysics(),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Padding(
+                                //   padding:  const EdgeInsets.symmetric(vertical: 8,),
+                                //   child: Text(
+                                //     "${LangEnum.welcome.tr()} ${'Abdelrhman'}",
+                                //     style: context.text.titleMedium,
+                                //     textAlign: TextAlign.start,
+                                //   )
+                                // ),
+                            
+                                10.ph,
+                                Text(
+                                  LangEnum.completeStepsFinishEnrollment.tr(),
+                                  textAlign: TextAlign.start,
+                                  style: context.text.bodyLarge,
+                                ),
+                                const SizedBox(height: 20,),
+                            
+                                /// Personal photo
+                                DriverDataWidget(
+                                  image: Images.personSVG,
+                                  title: LangEnum.personalPhoto.tr(),
+                                  state: driverStatusModel?.profileImageState,
+                                  stateNote: driverStatusModel?.profileImageStateNote,
                                   function: () {
                                     attachmentInfoModel = AttachmentInfoModel();
-
+                            
                                     attachmentInfoModel.title=
-                                        LangEnum.uploadphotoVehicleRegistrationIstimara.tr();
-
-                                    attachmentInfoModel.subTitle= '';
-
+                                    LangEnum.takePhotoYourself.tr();
+                            
+                                    attachmentInfoModel.subTitle=
+                                        LangEnum.needPhotoVerifyYou.tr();
+                            
+                                    attachmentInfoModel.driverDataEnum =
+                                    customAppFlavor.commonEnum.driverDataEnum
+                                    .personalPic;
+                            
                                     attachmentInfoModel.infoList = [
+                                      LangEnum.faceCameraDirectlyWithEyes.tr(),
                                       LangEnum.photoTakenGoodLight.tr(),
+                                      LangEnum.photoFocusFreeGlare.tr()
+                                    ];
+                                    attachmentInfoModel.takePhotoFun = ()=>
+                                    Get.toNamed(ConfirmPhotoRouting.config().path,
+                                    arguments: {
+                                      ConfirmPhotoRouting.driverData:
+                                          customAppFlavor.commonEnum.driverDataEnum.personalPic
+                                    });
+                            
+                            
+                                    Get.toNamed(AttachmentInfoRouting.config().path,
+                                    arguments: {
+                                      AttachmentInfoRouting.attachmentInfoModel:
+                                      attachmentInfoModel
+                                    });
+                                  },
+                                ),
+                            
+                                ///Saudi ID
+                                DriverDataWidget(
+                                  image: Images.fileSVG,
+                                  title: LangEnum.saudiID.tr(),
+                                  state:  driverStatusModel?.saudiIdImageState,
+                                  stateNote: driverStatusModel?.saudiIdImageStateNote,
+                                  function: () {
+                                    attachmentInfoModel = AttachmentInfoModel();
+                            
+                                    attachmentInfoModel.title=
+                                        LangEnum.uploadphotoSaudiID.tr();
+                            
+                                    attachmentInfoModel.subTitle= '';
+                            
+                                    attachmentInfoModel.driverDataEnum =
+                                        customAppFlavor.commonEnum.driverDataEnum
+                                            .saudiID;
+                            
+                                    attachmentInfoModel.infoList = [
+                                      LangEnum.sureIDValidNotExpired.tr(),
                                       LangEnum.photoNotBlurryInformationReadable.tr(),
-                                      LangEnum.registerVehicleOwnerVehicle.tr(),
-                                      LangEnum.acceptAnyDocumenType.tr()
+                                      LangEnum.saudiCitizenChildAgeNot20Years.tr()
                                     ];
                                     attachmentInfoModel.takePhotoFun = (){};
-
+                            
                                     Get.toNamed(AttachmentInfoRouting.config().path,
                                         arguments: {
                                           AttachmentInfoRouting.attachmentInfoModel:
                                           attachmentInfoModel
                                         });
-                                  }),
-
-                              /// vehicle insurance
-                              DriverDataWidget(
+                                  },),
+                            
+                                /// Driving licence
+                                DriverDataWidget(
                                   image: Images.fileSVG,
-                                  state: customAppFlavor.commonEnum.driverStateEnum.approved,
-                                  title: LangEnum.vehicleInsurance.tr(),
+                                  title: LangEnum.drivingLicence.tr(),
+                                  state: driverStatusModel?.licenseImageState,
+                                  stateNote: driverStatusModel?.licenseImageStateNote,
                                   function: () {
                                     attachmentInfoModel = AttachmentInfoModel();
-
+                            
                                     attachmentInfoModel.title=
-                                        LangEnum.uploadPhotoVehicleInsurance.tr();
-
+                                        LangEnum.uploadPhotoDrivingLicense.tr();
+                            
                                     attachmentInfoModel.subTitle= '';
-
+                            
+                                    attachmentInfoModel.driverDataEnum =
+                                        customAppFlavor.commonEnum.driverDataEnum
+                                            .drivingLicence;
+                            
                                     attachmentInfoModel.infoList = [
                                       LangEnum.photoTakenGoodLight.tr(),
                                       LangEnum.photoNotBlurryInformationReadable.tr(),
-                                      LangEnum.acceptAnyDocumenType.tr(),
                                     ];
                                     attachmentInfoModel.takePhotoFun = (){};
-
+                            
                                     Get.toNamed(AttachmentInfoRouting.config().path,
                                         arguments: {
                                           AttachmentInfoRouting.attachmentInfoModel:
                                           attachmentInfoModel
                                         });
-
-                                  }),
-                            ],
+                                  },),
+                            
+                                /// Car details
+                                DriverDataWidget(
+                                  image: Images.driverCarSVG,
+                                  title: LangEnum.carDetails.tr(),
+                                  state: driverStatusModel?.carDetailsState,
+                                  stateNote: '',
+                                  function: () {
+                                    Get.toNamed(CarDetailsRouting.config().path);
+                                  },),
+                            
+                                ///Vehicle registration
+                                DriverDataWidget(
+                                    image: Images.fileSVG,
+                                    state:  driverStatusModel?.carRegistrationState,
+                                   stateNote: driverStatusModel?.carRegistrationStateNote,
+                                    title: LangEnum.vehicleRegistration.tr(),
+                                    function: () {
+                                      attachmentInfoModel = AttachmentInfoModel();
+                            
+                                      attachmentInfoModel.title=
+                                          LangEnum.uploadphotoVehicleRegistrationIstimara.tr();
+                            
+                                      attachmentInfoModel.subTitle= '';
+                                      attachmentInfoModel.driverDataEnum =
+                                          customAppFlavor.commonEnum.driverDataEnum
+                                              .vehicleRegistration;
+                            
+                                      attachmentInfoModel.infoList = [
+                                        LangEnum.photoTakenGoodLight.tr(),
+                                        LangEnum.photoNotBlurryInformationReadable.tr(),
+                                        LangEnum.registerVehicleOwnerVehicle.tr(),
+                                        LangEnum.acceptAnyDocumenType.tr()
+                                      ];
+                                      attachmentInfoModel.takePhotoFun = (){};
+                            
+                                      Get.toNamed(AttachmentInfoRouting.config().path,
+                                          arguments: {
+                                            AttachmentInfoRouting.attachmentInfoModel:
+                                            attachmentInfoModel
+                                          });
+                                    }),
+                            
+                                /// Vehicle insurance
+                                DriverDataWidget(
+                                    image: Images.fileSVG,
+                                    state: driverStatusModel?.carInssuranceState,
+                                    stateNote: driverStatusModel?.carInssuranceStateNote,
+                                    title: LangEnum.vehicleInsurance.tr(),
+                                    function: () {
+                                      attachmentInfoModel = AttachmentInfoModel();
+                            
+                                      attachmentInfoModel.title=
+                                          LangEnum.uploadPhotoVehicleInsurance.tr();
+                            
+                                      attachmentInfoModel.subTitle= '';
+                                      attachmentInfoModel.driverDataEnum =
+                                          customAppFlavor.commonEnum.driverDataEnum
+                                              .vehicleInsurance;
+                            
+                                      attachmentInfoModel.infoList = [
+                                        LangEnum.photoTakenGoodLight.tr(),
+                                        LangEnum.photoNotBlurryInformationReadable.tr(),
+                                        LangEnum.acceptAnyDocumenType.tr(),
+                                      ];
+                                      attachmentInfoModel.takePhotoFun = (){};
+                            
+                                      Get.toNamed(AttachmentInfoRouting.config().path,
+                                          arguments: {
+                                            AttachmentInfoRouting.attachmentInfoModel:
+                                            attachmentInfoModel
+                                          });
+                            
+                                    }),
+                              ],
+                            ),
                           ),
                         ),
 
 
-                        ElevatedButton(
-                          onPressed: () {
-
-                          },
-                          child: Text(LangEnum.send.tr()),
+                        Container(
+                          width: double.infinity,
+                          height: 48,
+                          margin:const  EdgeInsets.symmetric(horizontal: 15),
+                          child: ElevatedButton(
+                            style: const ButtonStyle().MinErrorElevatedButton(context),
+                            onPressed: () {
+                              showBottomSheetFunction(
+                                content: const LogOutBottomSheetContent(),
+                              );
+                            },
+                            child: Text(LangEnum.logout.tr()),
+                          ),
                         ),
                         20.ph
                       ],

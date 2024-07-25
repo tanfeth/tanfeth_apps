@@ -20,13 +20,14 @@ import 'package:tanfeth_apps/common/network/network/api/internet_connection.dart
 import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
-import 'package:dio/src/multipart_file.dart';
+import 'package:dio/src/multipart_file.dart' as dio_multi_part_file;
 import 'package:dio/src/dio.dart';
 import 'package:dio/src/options.dart';
 import 'package:dio/src/adapters/io_adapter.dart';
 import 'package:dio/src/interceptors/log.dart';
 import 'package:dio/src/response.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:dio/dio.dart' as dio_pkg;
 
 
 class FileMultiPart {
@@ -113,19 +114,20 @@ class ApiController {
     staticHeaders.addAll(header);
     var requestData;
     if (isMultiPart) {
-      requestData = FormData({});
+      requestData = dio_pkg.FormData();
       if (files.isNotEmpty) {
         await Future.forEach<FileMultiPart>(files, (file) async {
           var compressByte = kIsWeb ? file.platformFile.bytes : await compressFile(file.platformFile);
-          var fileName = file.platformFile.name;
+          var fileName = file.platformFile.name.split('/').last;
           var contentType =
           MediaType(lookupMimeType(file.platformFile.name) ?? "", "");
-          requestData.files.add(MapEntry(file.key,
-            MultipartFile.fromBytes(
-                compressByte!,
-                filename: fileName,
-                contentType: contentType,
-              )));
+          var dioMultiPartFile = dio_multi_part_file.MultipartFile.fromBytes(
+            compressByte!,
+            filename: fileName,
+            contentType: contentType,
+          );
+
+          requestData.files.add(MapEntry(file.key,dioMultiPartFile));
         });
       }
       if (listBody != null) {
@@ -144,7 +146,7 @@ class ApiController {
 
       if (!kReleaseMode && isMultiPart) {
         var printMultiPart = "";
-        for (var element in (requestData as FormData).fields) {
+        for (var element in (requestData as dio_pkg.FormData).fields) {
           printMultiPart += "${element.key}:${element.value}\n";
         }
         if (kDebugMode) {
@@ -301,6 +303,9 @@ class ApiController {
       throw serverErrorMessage;
     }
   }
+
+
+
 
   void fillMultiPart(dynamic requestData, String key, dynamic value, String root) {
     if (value is Map) {

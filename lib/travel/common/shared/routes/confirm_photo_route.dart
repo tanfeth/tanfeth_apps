@@ -8,7 +8,7 @@ class ConfirmPhotoRouting extends RoutingConfig {
   ConfirmPhotoRouting();
 
   static const String _path = '/ConfirmPhoto/';
-
+  static const String driverData = 'driverData';
 
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {

@@ -256,3 +256,12 @@ Future<String> getAppVersion()async{
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   return packageInfo.version;
 }
+
+
+PlatformFile convertFile({required File file}){
+  return  PlatformFile(
+      path: file.path,
+      bytes: file.readAsBytesSync(),
+      name: file.uri.pathSegments.last,
+      size: file.lengthSync());
+}

@@ -1,6 +1,8 @@
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/BodyUploadDriverAttachmentModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseDriverStatusModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/repo/driver/driver_repo.dart';
@@ -52,4 +54,27 @@ class TaxiDriverDataVM extends ReadNotifierVMA<ResponseDriverStatusModel,
   }
 
 
+
+  void setDataModel({required PlatformFile file,
+   required int driverData}) {
+
+    if(driverData ==
+        customAppFlavor.commonEnum.driverDataEnum.personalPic){
+      bodyUploadDriverAttachmentModel.profileImage = file;
+    }else if(driverData ==
+        customAppFlavor.commonEnum.driverDataEnum.saudiID){
+      bodyUploadDriverAttachmentModel.saudiId = file;
+    }else if(driverData ==
+        customAppFlavor.commonEnum.driverDataEnum.drivingLicence){
+      bodyUploadDriverAttachmentModel.license = file;
+    }else if(driverData ==
+        customAppFlavor.commonEnum.driverDataEnum.vehicleRegistration){
+
+    }else if(driverData ==
+        customAppFlavor.commonEnum.driverDataEnum.vehicleInsurance){
+
+    }
+  }
+  
+  
 }

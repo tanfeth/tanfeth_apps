@@ -11,22 +11,27 @@ part 'BodyUploadDriverAttachmentModel.g.dart';
 class BodyUploadDriverAttachmentModel {
 
   @JsonKey(name: 'ProfileImage',
-  includeFromJson: false,includeToJson: false)
+  includeFromJson: false,includeToJson: false,
+  includeIfNull: false)
   PlatformFile? profileImage;
 
   @JsonKey(name: 'License',
-      includeFromJson: false,includeToJson: false)
+      includeFromJson: false,includeToJson: false,
+      includeIfNull: false)
   PlatformFile? license;
 
-  @JsonKey(name: 'LicenceExpiryDate')
+  @JsonKey(name: 'LicenceExpiryDate',
+      includeIfNull: false)
   String? licenceExpiryDate;
 
 
   @JsonKey(name: 'SaudiId',
-      includeFromJson: false,includeToJson: false)
+      includeFromJson: false,includeToJson: false,
+      includeIfNull: false)
   PlatformFile? saudiId;
 
-  @JsonKey(name: 'SaudiIdExpiryDate')
+  @JsonKey(name: 'SaudiIdExpiryDate',
+      includeIfNull: false)
   String? saudiIdExpiryDate;
 
 
