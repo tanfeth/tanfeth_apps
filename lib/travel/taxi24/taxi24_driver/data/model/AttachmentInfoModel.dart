@@ -5,7 +5,6 @@ class AttachmentInfoModel {
   String? subTitle;
   int? driverDataEnum;
   List<String>? infoList;
-  Function()? takePhotoFun;
 
   AttachmentInfoModel();
 

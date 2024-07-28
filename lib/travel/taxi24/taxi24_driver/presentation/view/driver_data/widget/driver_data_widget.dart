@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
@@ -17,26 +18,25 @@ class DriverDataWidget extends ConsumerWidget {
   final String? expireDate;
   final VoidCallback function;
 
-  const DriverDataWidget(
-      {super.key,
-      required this.image,
-      required this.title,
-      this.state,
-      this.expireDate,
-      this.isDocument = false,
-      required this.stateNote,
-      required this.function});
+  const DriverDataWidget({super.key,
+    required this.image,
+    required this.title,
+    this.state,
+    this.expireDate,
+    this.isDocument = false,
+    required this.stateNote,
+    required this.function});
 
   @override
   Widget build(BuildContext context, ref) {
     return InkWell(
       onTap: function,
-      // state?.toLowerCase()==
+      // state==
       //     customAppFlavor.commonEnum.driverStateEnum.approved
       //     ?(){}:function,
       child: Container(
         height: 70,
-        margin:const  EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -61,9 +61,9 @@ class DriverDataWidget extends ConsumerWidget {
                           title,
                           textAlign: TextAlign.start,
                           style: context.text.bodyMedium?.copyWith(
-                              color: state?.toLowerCase() ==
-                                      customAppFlavor
-                                          .commonEnum.driverStateEnum.approved
+                              color: state ==
+                                  customAppFlavor
+                                      .commonEnum.driverStateEnum.approved
                                   ? context.color.surfaceContainerHighest
                                   : context.color.onSurface),
                         ),
@@ -83,7 +83,7 @@ class DriverDataWidget extends ConsumerWidget {
                           child: SizedBox(
                             width: 200,
                             child: Text(
-                              'slkfhgklshdfkghlkjflgjsldjfgl',
+                              stateNote ?? '',
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                   color: context.color.surfaceContainerHighest),
@@ -98,68 +98,93 @@ class DriverDataWidget extends ConsumerWidget {
             ),
 
 
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (state == null)
-                  SvgPicture.asset(
-                    ref.watch(languageProvider) == 'en'
-                        ? Images.arrowSVG
-                        : Images.arrowLeftSVG,
-                    width: 24,
-                    height: 24,
-                    colorFilter:
-                    ColorFilter.mode(context.color.onSurface, BlendMode.srcIn),
-                  ),
-                if (state?.toLowerCase() ==
-                    customAppFlavor.commonEnum.driverStateEnum.pending)
-                  SvgPicture.asset(
-                    Images.checkMarkCircleSVG,
-                  ),
-                if (state?.toLowerCase() ==
-                    customAppFlavor.commonEnum.driverStateEnum.approved)
-                  SvgPicture.asset(
-                    Images.checkMarkCircleSVG,
-                    colorFilter: ColorFilter.mode(
-                        context.color.tertiary, BlendMode.srcIn),
-                  ),
-                if (state?.toLowerCase() ==
-                    customAppFlavor.commonEnum.driverStateEnum.rejected)
-                  SvgPicture.asset(
-                    Images.errorSVG,
-                    colorFilter: ColorFilter.mode(
-                        context.color.error, BlendMode.srcIn),
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
 
-                5.ph,
-
-                if (state?.toLowerCase() ==
-                    customAppFlavor
-                        .commonEnum.driverStateEnum.pending ||
-                    state?.toLowerCase() ==
-                        customAppFlavor
-                            .commonEnum.driverStateEnum.approved)
-                  Text(
-                    LangEnum.completed.tr(),
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                        color: context.color.surfaceContainerHighest),
+                  Expanded(
+                    child: getImageState(ref:ref,
+                    context: context),
                   ),
-                if (state?.toLowerCase() ==
-                    customAppFlavor.commonEnum.driverStateEnum.rejected)
+                  5.ph,
+
                   Text(
-                    LangEnum.resubmit.tr(),
+                    getStateName(),
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: context.color.surfaceContainerHighest),
                   ),
 
-              ],
+                ],
+              ),
             ),
 
           ],
         ),
       ),
     );
+  }
+
+  String getStateName() {
+    if (state == null ||
+        state == customAppFlavor
+            .commonEnum.attachmentStateEnum.empty) {
+      return LangEnum.empty.tr();
+    } else if (state ==
+        customAppFlavor
+            .commonEnum.attachmentStateEnum.pending) {
+      return LangEnum.pending.tr();
+    } else if (state ==
+        customAppFlavor
+            .commonEnum.attachmentStateEnum.approved) {
+      return LangEnum.completed.tr();
+    } else {
+      return LangEnum.resubmit.tr();
+    }
+  }
+
+
+ Widget getImageState({required WidgetRef ref,
+ required BuildContext context}) {
+   if (state == null ||
+       state == customAppFlavor
+           .commonEnum.attachmentStateEnum.empty) {
+     return SvgPicture.asset(
+       ref.watch(languageProvider) == 'en'
+           ? Images.arrowSVG
+           : Images.arrowLeftSVG,
+       width: 24,
+       height: 24,
+       colorFilter:
+       ColorFilter.mode(context.color.onSurface,
+           BlendMode.srcIn),
+     );
+   } else if (state ==
+       customAppFlavor
+           .commonEnum.attachmentStateEnum.pending) {
+     return Image.asset(
+       Images.pending,
+       color: context.color.primary,
+       height: 24,
+       width: 24,
+     );
+   } else if (state ==
+       customAppFlavor
+           .commonEnum.attachmentStateEnum.approved) {
+     return SvgPicture.asset(
+       Images.checkMarkCircleSVG,
+       colorFilter: ColorFilter.mode(
+           context.color.tertiary, BlendMode.srcIn),
+     );
+   } else {
+     return SvgPicture.asset(
+       Images.errorSVG,
+       colorFilter: ColorFilter.mode(
+           context.color.error, BlendMode.srcIn),
+     );
+   }
   }
 }

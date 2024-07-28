@@ -195,8 +195,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                         await AppPicker.selectHijriDate(context,birthDatHijriController);
                                       },
                                       textInputAction: TextInputAction.next,
-                                      validator: Validation.notEmpty,
-                                      onChanged: (String value) {}),
+                                      validator: Validation.notEmpty),
                               
                               
                                   const SizedBox(height:16,),

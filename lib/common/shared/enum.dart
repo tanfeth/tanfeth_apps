@@ -4,6 +4,7 @@ import 'package:tanfeth_apps/common/shared/enums/account_state_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/language_enum.dart';
 import 'package:tanfeth_apps/common/shared/enums/login_way_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/app_data_enum.dart';
+import 'package:tanfeth_apps/travel/common/shared/enum/attachment_state_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/car_data_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/country_ios_code_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/driver_data_enum.dart';
@@ -65,6 +66,8 @@ class CommonEnum {
   AccountStateEnum accountStateEnum;
   String authToken;
   DriverDataEnum driverDataEnum;
+  AttachmentStateEnum attachmentStateEnum;
+
 
 
   CommonEnum({
@@ -75,6 +78,7 @@ class CommonEnum {
     this.accountStateEnum = const AccountStateEnum(),
     this.verifyTypeByEnum = const VerifyTypeByEnum(),
     this.driverDataEnum = const DriverDataEnum(),
+    this.attachmentStateEnum = const AttachmentStateEnum(),
     this.mapEnums = const MapEnums(),
     this.verifyEnum = const VerifyEnum(),
     this.followEnum = const FollowUserByEnum(),

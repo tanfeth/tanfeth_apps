@@ -1089,29 +1089,29 @@ class Taxi24DriverLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.empty.name,
+      enValue: 'Empty',
+      arValue: 'فارغ',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.imageUploadedSuccessfully.name,
+      enValue: 'Image uploaded successfully',
+      arValue: 'تم تحميل الصورة بنجاح',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.expiryWarning.name,
+      enValue: 'We use this date to warn you when the document is close to expiry',
+      arValue: 'نستخدم هذا التاريخ لتحذيرك عندما تكون الوثيقة على وشك الانتهاء',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.addExpireDate.name,
+      enValue: 'Add expiry date',
+      arValue: 'إضافة تاريخ انتهاء الصلاحية',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.pending.name,
+      enValue: 'Pending',
+      arValue: 'مراجعة',
     );
     addString(
       key: LangEnum.km.name,

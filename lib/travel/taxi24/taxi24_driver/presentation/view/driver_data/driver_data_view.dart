@@ -16,12 +16,10 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/log_out_bottom_sheet_content.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/attachment_info_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/car_detalis_route.dart';
-import 'package:tanfeth_apps/travel/common/shared/routes/confirm_photo_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/AttachmentInfoModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseDriverStatusModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/vm/driver_data_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/driver_data_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/help_widget.dart';
 
 
 
@@ -142,13 +140,6 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                       LangEnum.photoTakenGoodLight.tr(),
                                       LangEnum.photoFocusFreeGlare.tr()
                                     ];
-                                    attachmentInfoModel.takePhotoFun = ()=>
-                                    Get.toNamed(ConfirmPhotoRouting.config().path,
-                                    arguments: {
-                                      ConfirmPhotoRouting.driverData:
-                                          customAppFlavor.commonEnum.driverDataEnum.personalPic
-                                    });
-                            
                             
                                     Get.toNamed(AttachmentInfoRouting.config().path,
                                     arguments: {
@@ -181,7 +172,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                       LangEnum.photoNotBlurryInformationReadable.tr(),
                                       LangEnum.saudiCitizenChildAgeNot20Years.tr()
                                     ];
-                                    attachmentInfoModel.takePhotoFun = (){};
+
                             
                                     Get.toNamed(AttachmentInfoRouting.config().path,
                                         arguments: {
@@ -212,7 +203,6 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                       LangEnum.photoTakenGoodLight.tr(),
                                       LangEnum.photoNotBlurryInformationReadable.tr(),
                                     ];
-                                    attachmentInfoModel.takePhotoFun = (){};
                             
                                     Get.toNamed(AttachmentInfoRouting.config().path,
                                         arguments: {
@@ -254,7 +244,6 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                         LangEnum.registerVehicleOwnerVehicle.tr(),
                                         LangEnum.acceptAnyDocumenType.tr()
                                       ];
-                                      attachmentInfoModel.takePhotoFun = (){};
                             
                                       Get.toNamed(AttachmentInfoRouting.config().path,
                                           arguments: {
@@ -285,7 +274,6 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                         LangEnum.photoNotBlurryInformationReadable.tr(),
                                         LangEnum.acceptAnyDocumenType.tr(),
                                       ];
-                                      attachmentInfoModel.takePhotoFun = (){};
                             
                                       Get.toNamed(AttachmentInfoRouting.config().path,
                                           arguments: {

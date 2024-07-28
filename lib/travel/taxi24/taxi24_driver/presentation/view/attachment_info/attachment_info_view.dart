@@ -140,6 +140,7 @@ class _AttachmentInfoView extends ConsumerState<AttachmentInfoView>{
                             ref.read(taxiDriverDataProvider.notifier)
                                 .setDataModel(file: file,
                                 driverData: attachmentInfoModel.driverDataEnum??-1);
+
                             Get.offNamed(ConfirmPhotoRouting.config().path,
                                 arguments: {
                                   ConfirmPhotoRouting.driverData:
