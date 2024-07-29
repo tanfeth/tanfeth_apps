@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/CarModel.dart';
 

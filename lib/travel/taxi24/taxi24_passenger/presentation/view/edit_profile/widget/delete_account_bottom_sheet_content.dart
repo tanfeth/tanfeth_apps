@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:flutter/material.dart';
 

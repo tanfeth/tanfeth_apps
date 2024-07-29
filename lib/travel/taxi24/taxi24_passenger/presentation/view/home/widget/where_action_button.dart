@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/destination_route.dart';
 import 'package:animate_do/animate_do.dart';

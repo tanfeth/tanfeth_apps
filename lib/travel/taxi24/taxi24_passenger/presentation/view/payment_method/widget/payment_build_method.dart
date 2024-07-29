@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 
 class PaymentBuildMethod extends ConsumerWidget{
   final  String icon;

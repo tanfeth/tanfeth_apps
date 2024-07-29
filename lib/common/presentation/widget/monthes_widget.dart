@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
@@ -24,7 +24,7 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
   late FixedExtentScrollController controller;
 
   Timer? _debounce;
-  int _debounceTime = 500;
+  final int _debounceTime = 500;
 
   @override
   void initState() {

@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 
 class Item extends StatelessWidget {
   final String title;

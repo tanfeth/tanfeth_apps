@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/vm/langauge/langauge_vm.dart';
@@ -98,28 +98,25 @@ class DriverDataWidget extends ConsumerWidget {
             ),
 
 
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
 
-                  Expanded(
-                    child: getImageState(ref:ref,
-                    context: context),
-                  ),
-                  5.ph,
+                getImageState(ref:ref,
+                context: context),
 
-                  Text(
-                    getStateName(),
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                        color: context.color.surfaceContainerHighest),
-                  ),
 
-                ],
-              ),
+                5.ph,
+
+                Text(
+                  getStateName(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: context.color.surfaceContainerHighest),
+                ),
+
+              ],
             ),
 
           ],

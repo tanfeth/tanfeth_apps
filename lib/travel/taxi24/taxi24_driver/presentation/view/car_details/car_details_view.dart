@@ -1,7 +1,8 @@
+import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -45,6 +46,7 @@ class _CarDetailsView extends ConsumerState<CarDetailsView> {
                     },
                     child: Text(LangEnum.send.tr()),
                   ),
+                  10.ph
                 ],
               )),
         ),

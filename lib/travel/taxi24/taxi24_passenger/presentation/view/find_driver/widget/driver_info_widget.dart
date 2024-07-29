@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/profile/widget/rate_wadget.dart';

@@ -6,7 +6,8 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/country_code/country_code_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
@@ -16,8 +17,10 @@ import 'package:tanfeth_apps/travel/common/presentation/widget/select_city_widge
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
+
+
 class PassengerRegisterView extends ConsumerStatefulWidget {
-  const PassengerRegisterView();
+  const PassengerRegisterView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>

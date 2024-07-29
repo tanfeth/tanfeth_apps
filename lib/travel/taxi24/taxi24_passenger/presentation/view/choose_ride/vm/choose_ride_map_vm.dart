@@ -10,7 +10,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:api_controller/vm/langauge/langauge_vm.dart';
 import 'package:api_controller/vm/providers_vma/read_model_vma.dart';

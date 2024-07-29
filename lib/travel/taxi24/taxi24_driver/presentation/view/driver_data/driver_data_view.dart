@@ -1,4 +1,5 @@
 
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,8 +8,8 @@ import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
@@ -228,28 +229,39 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                    stateNote: driverStatusModel?.carRegistrationStateNote,
                                     title: LangEnum.vehicleRegistration.tr(),
                                     function: () {
-                                      attachmentInfoModel = AttachmentInfoModel();
-                            
-                                      attachmentInfoModel.title=
-                                          LangEnum.uploadphotoVehicleRegistrationIstimara.tr();
-                            
-                                      attachmentInfoModel.subTitle= '';
-                                      attachmentInfoModel.driverDataEnum =
-                                          customAppFlavor.commonEnum.driverDataEnum
-                                              .vehicleRegistration;
-                            
-                                      attachmentInfoModel.infoList = [
-                                        LangEnum.photoTakenGoodLight.tr(),
-                                        LangEnum.photoNotBlurryInformationReadable.tr(),
-                                        LangEnum.registerVehicleOwnerVehicle.tr(),
-                                        LangEnum.acceptAnyDocumenType.tr()
-                                      ];
-                            
-                                      Get.toNamed(AttachmentInfoRouting.config().path,
-                                          arguments: {
-                                            AttachmentInfoRouting.attachmentInfoModel:
-                                            attachmentInfoModel
-                                          });
+                                      if(driverStatusModel?.carDetailsState ==
+                                          customAppFlavor
+                                              .commonEnum.attachmentStateEnum.empty ||
+                                          driverStatusModel?.carDetailsState ==
+                                              customAppFlavor
+                                                  .commonEnum.attachmentStateEnum.rejected ){
+
+                                        attachmentInfoModel = AttachmentInfoModel();
+
+                                        attachmentInfoModel.title=
+                                            LangEnum.uploadphotoVehicleRegistrationIstimara.tr();
+
+                                        attachmentInfoModel.subTitle= '';
+                                        attachmentInfoModel.driverDataEnum =
+                                            customAppFlavor.commonEnum.driverDataEnum
+                                                .vehicleRegistration;
+
+                                        attachmentInfoModel.infoList = [
+                                          LangEnum.photoTakenGoodLight.tr(),
+                                          LangEnum.photoNotBlurryInformationReadable.tr(),
+                                          LangEnum.registerVehicleOwnerVehicle.tr(),
+                                          LangEnum.acceptAnyDocumenType.tr()
+                                        ];
+
+                                        Get.toNamed(AttachmentInfoRouting.config().path,
+                                            arguments: {
+                                              AttachmentInfoRouting.attachmentInfoModel:
+                                              attachmentInfoModel
+                                            });
+                                      }else{
+                                        showFailed(msg: LangEnum.fillCarDetials.tr());
+                                      }
+
                                     }),
                             
                                 /// Vehicle insurance
@@ -259,27 +271,39 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                     stateNote: driverStatusModel?.carInssuranceStateNote,
                                     title: LangEnum.vehicleInsurance.tr(),
                                     function: () {
-                                      attachmentInfoModel = AttachmentInfoModel();
-                            
-                                      attachmentInfoModel.title=
-                                          LangEnum.uploadPhotoVehicleInsurance.tr();
-                            
-                                      attachmentInfoModel.subTitle= '';
-                                      attachmentInfoModel.driverDataEnum =
-                                          customAppFlavor.commonEnum.driverDataEnum
-                                              .vehicleInsurance;
-                            
-                                      attachmentInfoModel.infoList = [
-                                        LangEnum.photoTakenGoodLight.tr(),
-                                        LangEnum.photoNotBlurryInformationReadable.tr(),
-                                        LangEnum.acceptAnyDocumenType.tr(),
-                                      ];
-                            
-                                      Get.toNamed(AttachmentInfoRouting.config().path,
-                                          arguments: {
-                                            AttachmentInfoRouting.attachmentInfoModel:
-                                            attachmentInfoModel
-                                          });
+
+                                      if(driverStatusModel?.carDetailsState ==
+                                          customAppFlavor
+                                              .commonEnum.attachmentStateEnum.empty ||
+                                          driverStatusModel?.carDetailsState ==
+                                              customAppFlavor
+                                                  .commonEnum.attachmentStateEnum.rejected ){
+
+                                        attachmentInfoModel = AttachmentInfoModel();
+
+                                        attachmentInfoModel.title=
+                                            LangEnum.uploadPhotoVehicleInsurance.tr();
+
+                                        attachmentInfoModel.subTitle= '';
+                                        attachmentInfoModel.driverDataEnum =
+                                            customAppFlavor.commonEnum.driverDataEnum
+                                                .vehicleInsurance;
+
+                                        attachmentInfoModel.infoList = [
+                                          LangEnum.photoTakenGoodLight.tr(),
+                                          LangEnum.photoNotBlurryInformationReadable.tr(),
+                                          LangEnum.acceptAnyDocumenType.tr(),
+                                        ];
+
+                                        Get.toNamed(AttachmentInfoRouting.config().path,
+                                            arguments: {
+                                              AttachmentInfoRouting.attachmentInfoModel:
+                                              attachmentInfoModel
+                                            });
+                                      }else{
+                                        showFailed(msg: LangEnum.fillCarDetials.tr());
+                                      }
+
                             
                                     }),
                               ],

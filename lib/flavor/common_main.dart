@@ -12,7 +12,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
 import 'package:api_controller/shared/custom_time_ago.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:api_controller/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';

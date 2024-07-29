@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extension.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/system_ui_overlay_extension.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/common/presentation/view/notification/widget/notification_cell.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';

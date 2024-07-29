@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';

@@ -2,8 +2,8 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';

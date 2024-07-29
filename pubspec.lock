@@ -51,7 +51,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "6e4f3c64bccc7f48a804ac7ff9225da97c0db727"
+      resolved-ref: "316eee3e8af625c99b6385e735ae3e6275bd0342"
       url: "git@github.com:abdomobarak/api_controller.git"
     source: git
     version: "1.0.0+1"

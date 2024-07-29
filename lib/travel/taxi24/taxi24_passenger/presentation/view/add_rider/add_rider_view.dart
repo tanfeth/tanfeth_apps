@@ -1,7 +1,7 @@
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -10,7 +10,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/ad
 
 
 class AddRiderView extends ConsumerStatefulWidget{
-  const AddRiderView();
+  const AddRiderView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _AddRiderView();
@@ -32,11 +32,11 @@ class _AddRiderView extends ConsumerState<AddRiderView>{
       body: WebWidth(
         child: SafeArea(
           child:  Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
 
                 Expanded(
                   child: SingleChildScrollView(
@@ -57,7 +57,7 @@ class _AddRiderView extends ConsumerState<AddRiderView>{
                   child: Text(LangEnum.addRider.tr()),
                 ),
 
-                SizedBox(height: 8)
+                const SizedBox(height: 8)
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:api_controller/shared/sizes.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/sizes.dart';
 
 

@@ -1,8 +1,8 @@
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
-import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_istimara/widget/CarIstimaraBottomSheetContent.dart';
@@ -21,7 +21,7 @@ class ChangePhotoWidget extends StatelessWidget {
             var checked = await  checkCameraPermission();
             if(checked??false){
               showBottomSheetFunction(
-                content: CaristimaraBottomSheetContent(
+                content: const CaristimaraBottomSheetContent(
                   pageType: '',
                 ),
               );
@@ -45,7 +45,7 @@ class ChangePhotoWidget extends StatelessWidget {
                     width: 15,
                     height: 15
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(

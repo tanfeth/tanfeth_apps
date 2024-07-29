@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:tanfeth_apps/common/shared/extensions/system_ui_overlay_extension.dart';
+import 'package:api_controller/shared/extensions/system_ui_overlay_extension.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';

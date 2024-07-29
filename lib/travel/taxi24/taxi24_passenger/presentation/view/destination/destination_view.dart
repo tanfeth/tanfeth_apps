@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -15,7 +14,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/de
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/home/widget/previous_trips.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/show_case.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
-
+import 'package:api_controller/shared/helper_methods.dart';
 
 class DestinationView extends ConsumerStatefulWidget{
   const DestinationView({super.key});

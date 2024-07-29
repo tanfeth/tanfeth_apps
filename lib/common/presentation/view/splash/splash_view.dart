@@ -1,13 +1,13 @@
 
 
 import 'package:api_controller/model/auth/AuthenticateResponseModel.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/view/splash/vm/splash_vm.dart';
 import 'package:api_controller/presentation/widget/progress_loading.dart';
-import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/notification/CustomNotification.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';

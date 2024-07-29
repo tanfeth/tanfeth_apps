@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/presentation/widget/monthes_widget.dart';
-import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';

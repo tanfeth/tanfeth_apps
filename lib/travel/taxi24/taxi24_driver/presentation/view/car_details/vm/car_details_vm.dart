@@ -9,8 +9,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/ParamCarDeta
 final carDetailsProvider =
 StateNotifierProvider.autoDispose<CarDetailsVM, ParamCarDetailsModel>((ref) {
   ref.keepAlive();
-  var vm = CarDetailsVM(ref);
-  return vm;
+  return CarDetailsVM(ref);
 });
 
 

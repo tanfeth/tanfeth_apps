@@ -1111,12 +1111,12 @@ class Taxi24DriverLanguages extends MyLanguages {
     addString(
       key: LangEnum.pending.name,
       enValue: 'Pending',
-      arValue: 'مراجعة',
+      arValue: 'قيد \n المراجعة',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.fillCarDetials.name,
+      enValue: 'Fill car details first',
+      arValue: 'املأ تفاصيل السيارة أولاً',
     );
     addString(
       key: LangEnum.km.name,
