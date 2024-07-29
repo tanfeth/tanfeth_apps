@@ -9,7 +9,7 @@ import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.d
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/select_city_widget.dart';

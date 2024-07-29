@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:api_controller/shared/globals.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -10,11 +11,10 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
-import 'package:tanfeth_apps/common/shared/custom_time_ago.dart';
+import 'package:api_controller/shared/custom_time_ago.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/globals.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
-import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
+import 'package:api_controller/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
@@ -30,8 +30,8 @@ import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dar
 import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
-import 'package:tanfeth_apps/common/shared/shareprefrances.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/shareprefrances.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:tanfeth_apps/firebase_options.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

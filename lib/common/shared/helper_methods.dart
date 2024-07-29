@@ -10,7 +10,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;

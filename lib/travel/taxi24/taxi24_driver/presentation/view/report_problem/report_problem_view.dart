@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+import 'package:api_controller/vm/files_vm/files_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,17 +13,16 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/picker_helper.dart';
+import 'package:api_controller/shared/picker_helper.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/report_problem_route.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
-import 'package:tanfeth_apps/common/vm/files_vm/files_vm.dart';
+import 'package:api_controller/shared/sizes.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 
 
 class ReportProblemView extends ConsumerStatefulWidget{
-  const ReportProblemView();
+  const ReportProblemView({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=> _ReportProblemView();
 
@@ -59,11 +59,11 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
 
     return Scaffold(
       appBar: MainAppBar(title: LangEnum.reportProblem.tr(),
-          leadingWidget: BackButtonWidget()),
+          leadingWidget: const BackButtonWidget()),
       body: WebWidth(
         child: Container(
           alignment: Alignment.topCenter,
-          padding: EdgeInsets.symmetric(horizontal:24),
+          padding: const EdgeInsets.symmetric(horizontal:24),
           child: GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: () {
@@ -80,7 +80,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
                           CustomTextFormField(
@@ -94,7 +94,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                           ),
 
 
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
                           SizedBox(
@@ -116,7 +116,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                                     child: Container(
                                       height: 72,
                                       width: 72,
-                                      margin: EdgeInsets.only(right: 16),
+                                      margin: const EdgeInsets.only(right: 16),
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                           border: Border.all(color:context.color.onSurface
@@ -135,7 +135,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                                   child: Container(
                                     height: 72,
                                     width: 72,
-                                    margin: EdgeInsets.only(right: 16),
+                                    margin: const EdgeInsets.only(right: 16),
                                     alignment: Alignment.topRight,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8),
@@ -144,7 +144,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                                     child: Container(
                                         height: 24,
                                         width: 24,
-                                        margin: EdgeInsets.all(4),
+                                        margin: const EdgeInsets.all(4),
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
                                           color: context.color.surface,
@@ -160,7 +160,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                               },
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
 
@@ -186,7 +186,7 @@ class _ReportProblemView extends ConsumerState<ReportProblemView>{
                     child: Text(LangEnum.send.tr()),
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                 ],

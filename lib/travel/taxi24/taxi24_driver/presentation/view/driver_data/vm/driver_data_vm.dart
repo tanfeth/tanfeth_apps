@@ -1,7 +1,7 @@
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
+import 'package:api_controller/vm/providers_vma/read_model_vma.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/car/BodyUploadCarAttachmentModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/BodyUploadDriverAttachmentModel.dart';

@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
 
 class BackButtonWidget extends ConsumerWidget {

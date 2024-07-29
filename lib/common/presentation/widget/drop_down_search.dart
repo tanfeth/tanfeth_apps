@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
+import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
@@ -29,8 +29,7 @@ class DropDownMenuSearch extends StatelessWidget {
       required this.radius,
       this.showSearchBox = false,
       this.isDisable = true,
-      Key? key})
-      : super(key: key);
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,27 +43,27 @@ class DropDownMenuSearch extends StatelessWidget {
             filled: true,
             fillColor: context.color.surface,
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(
                     color: context.color.surfaceContainerHighest, width: 2)),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(
                     color: context.color.surfaceContainerHighest, width: 2)),
             errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(
                     color: context.color.surfaceContainerHighest, width: 2)),
             focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(
                     color: context.color.surfaceContainerHighest, width: 2)),
             disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(color: context.color.surface, width: 2)),
             hintStyle: TextStyle(
                 color: context.color.surfaceContainerHighest, fontSize: 14),
-            contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
           ),
         ),
         compareFn: (item, sItem) => item == sItem,
@@ -86,7 +85,7 @@ class DropDownMenuSearch extends StatelessWidget {
                 if (title != null)
                   Padding(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                          const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                       child: Text(
                         title ?? '',
                         style: TextStyle(color: context.color.onSurface),
@@ -119,7 +118,7 @@ class DropDownMenuSearch extends StatelessWidget {
           itemBuilder: _customPopupItemBuilder,
           showSelectedItems: true,
           modalBottomSheetProps: ModalBottomSheetProps(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(24),
                     topLeft: Radius.circular(24))),
@@ -137,32 +136,32 @@ class DropDownMenuSearch extends StatelessWidget {
                 hintStyle: TextStyle(
                     color: context.color.surfaceContainerHighest, fontSize: 14),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                         color: context.color.surfaceContainerHighest,
                         width: 2)),
                 enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                         color: context.color.surfaceContainerHighest,
                         width: 2)),
                 errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                         color: context.color.surfaceContainerHighest,
                         width: 2)),
                 focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                         color: context.color.surfaceContainerHighest,
                         width: 2)),
                 focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                         color: context.color.surfaceContainerHighest,
                         width: 2)),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20)),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20)),
           ),
         ),
         items: items,
@@ -171,12 +170,12 @@ class DropDownMenuSearch extends StatelessWidget {
 
   Widget _customPopupItemBuilder(BuildContext context, item, bool isSelected) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
       child: Row(
         children: [
           Expanded(
             child: Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: const EdgeInsets.only(left: 8),
                 child: Text(
                   item,
                   style: TextStyle(color: context.color.onSurface),

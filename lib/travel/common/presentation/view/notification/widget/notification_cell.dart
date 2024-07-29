@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 
 
 class NotificationCell extends StatelessWidget {

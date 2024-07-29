@@ -1,6 +1,6 @@
+import 'package:api_controller/model/on_board/onBoard_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/data/model/on_board/onBoard_model.dart';
 import 'package:tanfeth_apps/common/presentation/view/onBoard/vm/onBoard_vm.dart';
 import 'package:tanfeth_apps/common/presentation/view/onBoard/widget/item.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
@@ -8,12 +8,12 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OnBoardingView extends ConsumerStatefulWidget {
-  const OnBoardingView({Key? key}) : super(key: key);
+  const OnBoardingView({super.key});
 
   @override
   ConsumerState<OnBoardingView> createState() => _OnBoardingViewState();

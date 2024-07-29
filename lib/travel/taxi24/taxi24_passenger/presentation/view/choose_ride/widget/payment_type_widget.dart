@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
 class PaymentTypeWidget extends ConsumerStatefulWidget{
 

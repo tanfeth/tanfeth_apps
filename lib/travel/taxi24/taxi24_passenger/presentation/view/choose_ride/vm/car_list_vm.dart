@@ -3,8 +3,8 @@
 
 
 
+import 'package:api_controller/vm/providers_vma/list_model_vma.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/vm/providers_vma/list_model_vma.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/CarTypeModel.dart';
 
 final carListProvider = StateNotifierProvider.autoDispose<

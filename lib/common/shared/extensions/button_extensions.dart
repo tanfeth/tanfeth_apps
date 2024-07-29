@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 
 extension ElevatedButtonEx on ButtonStyle {
   ButtonStyle? SecondaryElevatedButton(BuildContext context) {

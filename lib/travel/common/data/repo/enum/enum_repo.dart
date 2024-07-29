@@ -1,9 +1,9 @@
 
 
-import 'package:tanfeth_apps/common/data/model/base_model/ParamBaseModel.dart';
-import 'package:tanfeth_apps/common/data/model/pagination_model/PaginationModel.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
-import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
+import 'package:api_controller/model/base_model/ParamBaseModel.dart';
+import 'package:api_controller/model/pagination_model/PaginationModel.dart';
+import 'package:api_controller/api/api_controller.dart';
+import 'package:api_controller/api/api_enum.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
 

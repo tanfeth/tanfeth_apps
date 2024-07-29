@@ -1,11 +1,11 @@
 
 
 
+import 'package:api_controller/api/api_controller.dart';
+import 'package:api_controller/api/api_enum.dart';
+import 'package:api_controller/shared/grid_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
-import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
-import 'package:tanfeth_apps/common/shared/grid_helper.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/document_details_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/document_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
@@ -39,7 +39,7 @@ class Taxi24DriverMain {
   List<GetPage> screenPages = [];
 
   Taxi24DriverMain() {
-    MinusWebWidth = 400;
+    minusWebWidth = 400;
     bool isStaging = const String.fromEnvironment("staging").isNotEmpty;
 
     final String baseUrl = kReleaseMode || isStaging

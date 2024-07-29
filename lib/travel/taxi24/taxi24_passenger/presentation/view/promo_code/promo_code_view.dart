@@ -10,7 +10,7 @@ import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tanfeth_apps/common/shared/lottie.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 

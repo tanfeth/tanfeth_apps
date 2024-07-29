@@ -10,7 +10,7 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 
 class WelcomeView extends ConsumerStatefulWidget {
   const WelcomeView({super.key});

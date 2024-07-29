@@ -1,17 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:searchable_paginated_dropdown/searchable_paginated_dropdown.dart';
-import 'package:tanfeth_apps/common/presentation/widget/loading_widget.dart';
-import 'package:tanfeth_apps/common/presentation/widget/shimmer_widget.dart';
+import 'package:api_controller/presentation/widget/shimmer_widget.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:dropdown_search/dropdown_search.dart';
-import 'package:tanfeth_apps/common/vm/pagination/pagination_vm.dart';
 import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
-import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 import 'package:tanfeth_apps/travel/common/vm/city/city_list_vm.dart';
 import 'package:tanfeth_apps/travel/common/vm/city/selected_city_vm.dart';
 

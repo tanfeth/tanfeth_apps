@@ -1,7 +1,7 @@
 
 
 import 'package:tanfeth_apps/common/presentation/view/onBoard/onBoard_view.dart';
-import 'package:tanfeth_apps/common/shared/routing/routing_config.dart';
+import 'package:api_controller/route/routing_config.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 

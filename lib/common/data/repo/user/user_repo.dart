@@ -1,12 +1,12 @@
 
 
+import 'package:api_controller/api/api_controller.dart';
+import 'package:api_controller/api/api_enum.dart';
+import 'package:api_controller/model/auth/AccountModel.dart';
+import 'package:api_controller/model/auth/AuthenticateResponseModel.dart';
+import 'package:api_controller/model/notification/NotificationDeviceModel.dart';
 import 'package:get/get.dart';
 import 'package:signalr_core/signalr_core.dart';
-import 'package:tanfeth_apps/common/data/model/auth/AccountModel.dart';
-import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
-import 'package:tanfeth_apps/common/data/model/notification/NotificationDeviceModel.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
-import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 
 

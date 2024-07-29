@@ -6,7 +6,7 @@ import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 
 
 class CouponWidget extends ConsumerStatefulWidget {

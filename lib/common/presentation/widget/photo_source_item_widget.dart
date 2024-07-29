@@ -5,13 +5,13 @@ import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 
 class PhotoSourceItemWidget extends StatelessWidget {
   const PhotoSourceItemWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     required this.iconWidth,
     required this.iconHeight,
     required this.function,
-  }) : super(key: key);
+  });
   final String title;
   final String icon;
   final double iconWidth;
@@ -32,7 +32,7 @@ class PhotoSourceItemWidget extends StatelessWidget {
               width: iconWidth,
               height: iconHeight,
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Text(

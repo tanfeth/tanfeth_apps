@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
 
 class TripPoint extends ConsumerWidget {

@@ -1,10 +1,9 @@
 
+import 'package:api_controller/presentation/widget/progress_loading.dart';
+import 'package:api_controller/shared/flutter_package/flutter_package.dart';
+import 'package:api_controller/shared/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
-import 'package:tanfeth_apps/common/shared/flutter_package/flutter_package.dart';
-import 'package:tanfeth_apps/common/shared/globals.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/lottie.dart';
@@ -12,7 +11,7 @@ import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 
 class LoadingView extends StatelessWidget {
-  LoadingView({Key? key}) : super(key: key);
+  const LoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,8 @@ class LoadingView extends StatelessWidget {
                 Get.toNamed(SplashRouting.config().path);
               });
             }
-            return Center(child: ProgressLoading.showIndicator(context));
+            return Center(child:
+            ProgressLoading.showIndicator(context));
           }),
     );
   }

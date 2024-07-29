@@ -8,8 +8,8 @@ class CountryCodeWidget extends ConsumerWidget {
   final Function(Country country) onSelect;
   final Country selectedPhoneCountry;
 
-  CountryCodeWidget(
-      {required this.onSelect, required this.selectedPhoneCountry});
+  const CountryCodeWidget(
+      {super.key, required this.onSelect, required this.selectedPhoneCountry});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,7 +29,7 @@ class CountryCodeWidget extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Icon(
@@ -38,7 +38,7 @@ class CountryCodeWidget extends ConsumerWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
             Text(countryFlag(countryCode: selectedPhoneCountry.countryCode)),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Padding(
@@ -52,7 +52,7 @@ class CountryCodeWidget extends ConsumerWidget {
               height: 20,
               width: 0.3,
               color: Theme.of(context).colorScheme.primary,
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
             ),
           ],
         ),

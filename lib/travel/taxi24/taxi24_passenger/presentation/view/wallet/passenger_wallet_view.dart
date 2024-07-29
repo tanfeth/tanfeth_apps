@@ -6,7 +6,7 @@ import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/profile_item.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/add_funds_route.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';

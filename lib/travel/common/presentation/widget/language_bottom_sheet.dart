@@ -1,15 +1,16 @@
 
 
+import 'package:api_controller/presentation/widget/radio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
-import 'package:tanfeth_apps/common/presentation/widget/radio_widget.dart';
+import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:api_controller/mode/app_mode.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
 class LangBottomSheet extends ConsumerWidget {
   const LangBottomSheet({super.key});
@@ -60,7 +61,12 @@ class LangBottomSheet extends ConsumerWidget {
             onPressed: () async {
               Get.back();
               AppMode.changeLanguageMode(localeCode: ref.read(languageProvider),ref: ref);
-            },
+              ref
+                  .read(languageProvider.notifier)
+                  .update(locale:ref.read(languageProvider));
+              Get.offAllNamed(
+                  SplashRouting.config().path);
+              },
             child: Text(LangEnum.save.tr()),
           ),
           15.ph,

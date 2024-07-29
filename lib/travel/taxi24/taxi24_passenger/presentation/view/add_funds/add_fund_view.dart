@@ -3,21 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:path/path.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
-import 'package:tanfeth_apps/common/presentation/widget/divider.dart';
+import 'package:api_controller/presentation/widget/divider.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/add_funds/widget/static_list_amount.dart';
 
 class AddFunds extends StatefulWidget {
-  AddFunds({super.key});
+  const AddFunds({super.key});
 
   @override
   State<AddFunds> createState() => _AddFundsState();
@@ -30,7 +29,7 @@ class _AddFundsState extends State<AddFunds> {
   @override
   Widget build(BuildContext context,) {
     return Scaffold(
-      appBar: MainAppBar(title: LangEnum.wallet.tr(),leadingWidget:  BackButtonWidget()),
+      appBar: MainAppBar(title: LangEnum.wallet.tr(),leadingWidget:  const BackButtonWidget()),
       body: WebWidth(
         child: Padding(
           padding:(24,16).toSymmetric,
@@ -65,7 +64,7 @@ class _AddFundsState extends State<AddFunds> {
                   _amountController.text="${value}";
                 }
               }, ),
-              LargeDivider().vPadding(24),
+              const LargeDivider().vPadding(24),
               Text("Pay with",style: context.text.titleMedium,),
               24.ph,
               GestureDetector(
@@ -80,7 +79,7 @@ class _AddFundsState extends State<AddFunds> {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               ElevatedButton(
                 onPressed: ()async {},
                 child: Text(LangEnum.confirm.tr()),

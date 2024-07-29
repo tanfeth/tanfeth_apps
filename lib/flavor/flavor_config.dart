@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tanfeth_apps/common/shared/end_points.dart';
 import 'package:tanfeth_apps/common/shared/enum.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/theme/theme.dart';

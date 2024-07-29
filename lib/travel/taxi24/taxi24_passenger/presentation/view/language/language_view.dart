@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/mode/app_mode.dart';
+import 'package:api_controller/mode/app_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/splash_routing.dart';
+import 'package:api_controller/shared/web_width.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 
 
 class Taxi24PassengerLanguageView extends ConsumerWidget {
@@ -40,7 +42,12 @@ class Taxi24PassengerLanguageView extends ConsumerWidget {
                       style: const ButtonStyle().GreyElevatedButton(context),
                       onPressed: () {
                         AppMode.changeLanguageMode(localeCode: "en",ref: ref);
-                      },
+                        ref
+                            .read(languageProvider.notifier)
+                            .update(locale: "en");
+                        Get.offAllNamed(
+                            SplashRouting.config().path);
+                        },
                       child: Text(
                         LangEnum.english.tr(),
                         textScaler: TextScaler.noScaling,
@@ -56,6 +63,8 @@ class Taxi24PassengerLanguageView extends ConsumerWidget {
                         ref
                             .read(languageProvider.notifier)
                             .update(locale: "ar");
+                        Get.offAllNamed(
+                            SplashRouting.config().path);
                       },
                       child: Text(LangEnum.arabic.tr()),
                     ),

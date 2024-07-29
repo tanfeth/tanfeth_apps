@@ -1,22 +1,21 @@
 
 
+import 'package:api_controller/model/auth/AuthenticateResponseModel.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
 import 'package:tanfeth_apps/common/presentation/view/splash/vm/splash_vm.dart';
-import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
+import 'package:api_controller/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/notification/CustomNotification.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/onboard_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/data/model/auth/BodyDeviceTokenModel.dart';
 import 'package:tanfeth_apps/travel/common/data/repo/auth/auth_repo.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/driver_data_route.dart';

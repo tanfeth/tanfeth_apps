@@ -1,7 +1,7 @@
 
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/vm/providers_vma/read_model_vma.dart';
+import 'package:api_controller/vm/providers_vma/read_model_vma.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/data/model/LocationModel.dart';
 
 final pickUpLocationProvider = StateNotifierProvider.autoDispose<

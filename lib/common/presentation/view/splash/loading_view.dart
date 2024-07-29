@@ -1,9 +1,9 @@
 
+import 'package:api_controller/shared/flutter_package/flutter_package.dart';
+import 'package:api_controller/shared/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
-import 'package:tanfeth_apps/common/shared/flutter_package/flutter_package.dart';
-import 'package:tanfeth_apps/common/shared/globals.dart';
+import 'package:api_controller/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/lottie.dart';

@@ -1,6 +1,6 @@
 
+import 'package:api_controller/model/base_model/BaseModel.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tanfeth_apps/common/data/model/base_model/BaseModel.dart';
 
 part 'CarModel.g.dart';
 

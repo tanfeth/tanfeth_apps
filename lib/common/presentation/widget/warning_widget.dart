@@ -6,11 +6,10 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 
 class WarningWidget extends StatelessWidget {
   const WarningWidget(
-      {Key? key,
+      {super.key,
       required this.color,
       required this.borderColor,
-      required this.title})
-      : super(key: key);
+      required this.title});
   final Color color;
   final Color borderColor;
   final String title;
@@ -25,7 +24,7 @@ class WarningWidget extends StatelessWidget {
           color: color,
           border: Border.all(color: borderColor)),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
         child: Row(
           children: [
             SvgPicture.asset(
@@ -33,7 +32,7 @@ class WarningWidget extends StatelessWidget {
               height: 18,
               width: 18,
             ),
-            SizedBox(
+            const SizedBox(
               width: 14,
             ),
             Expanded(

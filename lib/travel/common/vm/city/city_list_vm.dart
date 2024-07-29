@@ -1,7 +1,7 @@
 
+import 'package:api_controller/model/base_model/ParamBaseModel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/data/model/base_model/ParamBaseModel.dart';
-import 'package:tanfeth_apps/common/vm/providers_vma/list_model_vma.dart';
+import 'package:api_controller/vm/providers_vma/list_model_vma.dart';
 import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
 import 'package:tanfeth_apps/travel/common/data/repo/city/city_repo.dart';
 

@@ -1,11 +1,11 @@
 
+import 'package:api_controller/model/notification/NotificationDeviceModel.dart';
+import 'package:api_controller/presentation/widget/progress_loading.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/data/model/notification/NotificationDeviceModel.dart';
-import 'package:tanfeth_apps/common/presentation/widget/progress_loading.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
@@ -14,15 +14,15 @@ import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_rou
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/onboard_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
-import 'package:tanfeth_apps/common/shared/web_width.dart';
+import 'package:api_controller/shared/web_width.dart';
 
 
 class TaxiPassengerSplashView extends ConsumerStatefulWidget {
   const TaxiPassengerSplashView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ConsumerState createState() => _SplashViewState();
@@ -99,10 +99,11 @@ class _SplashViewState extends ConsumerState<TaxiPassengerSplashView> {
           initURIHandler();
         });
 
-        if (Get.arguments != null)
+        if (Get.arguments != null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Get.toNamed(Get.arguments);
           });
+        }
 
         await CustomNotification.initNotification();
         Get.offAllNamed(LoginRouting.config().path);

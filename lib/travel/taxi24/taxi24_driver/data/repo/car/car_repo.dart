@@ -1,6 +1,6 @@
-import 'package:tanfeth_apps/common/data/model/pagination_model/PaginationModel.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
-import 'package:tanfeth_apps/common/network/network/enums/api_enum.dart';
+import 'package:api_controller/model/pagination_model/PaginationModel.dart';
+import 'package:api_controller/api/api_controller.dart';
+import 'package:api_controller/api/api_enum.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/data/model/enum/EnumModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/car/BodyInsertCarModel.dart';

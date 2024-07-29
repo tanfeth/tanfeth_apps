@@ -8,7 +8,7 @@ import 'package:tanfeth_apps/common/presentation/widget/drop_down_search.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/vm/langauge/langauge_vm.dart';
+import 'package:api_controller/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/app_data/car_classification.dart';
 import 'package:tanfeth_apps/travel/common/shared/app_data/cars.dart';

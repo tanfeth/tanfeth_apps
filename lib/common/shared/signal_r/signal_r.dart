@@ -7,7 +7,7 @@ class CustomSignalR {
     var flavorConfig = await customAppFlavor;
     final connection = HubConnectionBuilder()
         .withUrl(
-            flavorConfig.signalR + "/hub",
+            "${flavorConfig.signalR}/hub",
             HttpConnectionOptions(
               logging: (level, message) => print(message),
               transport: HttpTransportType.serverSentEvents,

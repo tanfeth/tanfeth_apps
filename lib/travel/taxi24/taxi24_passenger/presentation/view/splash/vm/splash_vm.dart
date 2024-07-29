@@ -1,7 +1,7 @@
 
+import 'package:api_controller/model/auth/AuthenticateResponseModel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tanfeth_apps/common/data/model/auth/AuthenticateResponseModel.dart';
-import 'package:tanfeth_apps/common/network/network/api/api_controller.dart';
+import 'package:api_controller/api/api_controller.dart';
 
 
 final splashProvider =

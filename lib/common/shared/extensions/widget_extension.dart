@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:tanfeth_apps/common/shared/extensions/padding_extension.dart';
 import 'package:tanfeth_apps/common/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/sizes.dart';
+import 'package:api_controller/shared/sizes.dart';
 
 extension AlertEx on (String string, BuildContext context) {
   Widget get alertDanger => Container(
