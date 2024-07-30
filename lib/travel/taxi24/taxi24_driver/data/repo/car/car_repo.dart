@@ -1,3 +1,4 @@
+import 'package:api_controller/model/base_model/ParamBaseModel.dart';
 import 'package:api_controller/model/pagination_model/PaginationModel.dart';
 import 'package:api_controller/api/api_controller.dart';
 import 'package:api_controller/api/api_enum.dart';
@@ -12,12 +13,15 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/Respo
 
 
 ///Get car types
-Future<PaginationModel<List<EnumModel>>> getCarTypesApi() async {
+Future<PaginationModel<List<EnumModel>>> getCarTypesApi(
+    {required ParamBaseModel model}
+    ) async {
   try {
+    var queryParameters = model.toJson();
     var response = await ApiController(
             customAppFlavor.endPoints.carEndPoints.getCarTypes,
             RequestTypeEnum.get)
-        .sendRequest();
+        .sendRequest(queryParameters: queryParameters);
     return PaginationModel(
         pagination: response.pagination,
         response: EnumModel.toList(response.objectResponse).toList());
@@ -43,8 +47,8 @@ Future<PaginationModel<List<EnumModel>>> getCarModelsApi(
   }
 }
 
-///Insert car
 
+///Insert car
 Future<ResponseDriverStatusModel> insertCarApi(
     {required BodyInsertCarModel model}) async {
   List<FileMultiPart> files = [];

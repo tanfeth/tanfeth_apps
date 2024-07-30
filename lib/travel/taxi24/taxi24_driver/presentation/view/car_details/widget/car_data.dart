@@ -1,4 +1,7 @@
 import 'dart:io';
+import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
+import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +19,9 @@ import 'package:tanfeth_apps/travel/common/shared/app_data/years.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/ParamCarDetailsModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/vm/car_details_vm.dart';
 import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/vm/car_type_list_vm.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/car_model_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/car_type_widget.dart';
 
 class CarData extends ConsumerStatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -29,6 +35,11 @@ class _CarData extends ConsumerState<CarData> {
   late List<File> fileList;
   late CarDetailsVM carDetailsVM;
   late ParamCarDetailsModel paramCarDetailsModel;
+
+  final carTypeController = TextEditingController();
+  final carModelController = TextEditingController();
+
+
 
   final TextEditingController plateNumberController = TextEditingController();
   final TextEditingController plateLetterRightController =
@@ -44,13 +55,21 @@ class _CarData extends ConsumerState<CarData> {
   @override
   void initState() {
     fileList = [];
+    carDetailsVM = ref.read(carDetailsProvider.notifier);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      carDetailsVM.setModel(ParamCarDetailsModel());
+    });
+
     super.initState();
   }
 
   initBuild() {
     carDetailsVM = ref.watch(carDetailsProvider.notifier);
     paramCarDetailsModel = ref.watch(carDetailsProvider);
+
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,57 +81,74 @@ class _CarData extends ConsumerState<CarData> {
         physics: const BouncingScrollPhysics(),
         children: [
 
-          /// Cars
-          DropDownMenuSearch(
-            items: cars
-                .map((value) =>
-                    value[customAppFlavor.commonEnum.carDataEnum.brand])
-                .toList(),
-            hint: LangEnum.carType.tr(),
-            title: LangEnum.carType.tr(),
-            radius: 8,
-            selectedItem: paramCarDetailsModel.carType,
-            showSearchBox: true,
-            validator: (value) =>
-                value == null ? LangEnum.selectCarType.tr() : null,
-            onChanged: (value) {
-              ParamCarDetailsModel model = ParamCarDetailsModel();
-              model.carType = value;
-              carDetailsVM.setModel(model);
+          /// Car types
+          InkWell(
+            onTap: (){
+              showBottomSheetFunction(
+                content:   CarTypeWidget(
+                  onSelected: (val){
+                    carTypeController.text = val;
+                    carDetailsVM.setDataModel(carType: val);
+                  },
+                ),
+              );
             },
+            child: CustomTextFormField(
+              keyboardType: TextInputType.text,
+              hintText: LangEnum.carType.tr(),
+              textInputAction: TextInputAction.next,
+              validator: Validation.notEmpty,
+              enabled: false,
+              controller: carTypeController,
+              suffixWidget: Icon(
+                Icons.arrow_forward,
+                color: context.color.onSurface,
+                size: 20,
+              ),),
           ),
-          const SizedBox(
-            height: 16,
-          ),
+
+
+
+          16.ph,
+
+
+          /// Car models
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ///Car model
-              DropDownMenuSearch(
-                selectedItem: paramCarDetailsModel.carModel,
-                title: LangEnum.carModel.tr(),
-                items: paramCarDetailsModel.carType != null
-                    ? cars
-                        .where((element) =>
-                            element[
-                                customAppFlavor.commonEnum.carDataEnum.brand] ==
-                            paramCarDetailsModel.carType)
-                        .map((e) =>
-                            e[customAppFlavor.commonEnum.carDataEnum.models])
-                        .first as List
-                    : [LangEnum.selectCarType.tr()],
-                hint: LangEnum.carModel.tr(),
-                isDisable: paramCarDetailsModel.carType != null,
-                radius: 8,
-                validator: (value) =>
-                    value == null ? LangEnum.selectCarType.tr() : null,
-                onChanged: (value) {
-                  ParamCarDetailsModel model = ParamCarDetailsModel();
-                  model.carModel = value;
-                  model.carType = paramCarDetailsModel.carType;
-                  carDetailsVM.setModel(model);
+
+              InkWell(
+                onTap: (){
+                  if(carTypeController.text.isNotEmpty){
+                    showBottomSheetFunction(
+                      content:   CarModelWidget(
+                        onSelected: (val){
+                          carModelController.text = val;
+                          carDetailsVM.setDataModel(carModel: val);
+                        },
+                        carTypeCode:getCarTypeCode(),
+
+                      ),
+                    );
+                  }else {
+                    showFailed(msg: LangEnum.selectCarTypeValidator.tr());
+                  }
+
                 },
+                child: CustomTextFormField(
+                  keyboardType: TextInputType.text,
+                  hintText: LangEnum.carModel.tr(),
+                  textInputAction: TextInputAction.next,
+                  validator: Validation.notEmpty,
+                  enabled: false,
+                  controller: carModelController,
+                  suffixWidget: Icon(
+                    Icons.arrow_forward,
+                    color: context.color.onSurface,
+                    size: 20,
+                  ),),
               ),
+
               paramCarDetailsModel.carType == null
                   ? Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 16),
@@ -127,6 +163,9 @@ class _CarData extends ConsumerState<CarData> {
                     ),
             ],
           ),
+
+
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -413,5 +452,14 @@ class _CarData extends ConsumerState<CarData> {
         ],
       ),
     );
+  }
+
+
+  getCarTypeCode() {
+    for(var type in ref.read(carTypeListProvider)){
+      if((type.name??'') == carTypeController.text){
+        return type.code??'';
+      }
+    }
   }
 }

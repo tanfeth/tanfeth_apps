@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:api_controller/vm/providers_vma/read_model_vma.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/car/BodyInsertCarModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/car/BodyUploadCarAttachmentModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/BodyUploadDriverAttachmentModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/driver/ResponseDriverStatusModel.dart';
@@ -32,6 +33,8 @@ class TaxiDriverDataVM extends ReadNotifierVMA<ResponseDriverStatusModel,
   BodyUploadCarAttachmentModel bodyUploadCarAttachmentModel =
       BodyUploadCarAttachmentModel();
 
+
+  BodyInsertCarModel bodyInsertCarModel = BodyInsertCarModel();
 
 
   TaxiDriverDataVM(this.ref) : super(null);
@@ -73,6 +76,17 @@ class TaxiDriverDataVM extends ReadNotifierVMA<ResponseDriverStatusModel,
 
   }
 
+
+  Future<void> insertCar() async {
+    var response  = await refresh(
+        ref: ref,
+        future: insertCarApi(model: bodyInsertCarModel),
+        isOnPress: true);
+    if(response != null){
+      setModel(response);
+    }
+
+  }
 
 
 

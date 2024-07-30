@@ -30,7 +30,7 @@ class CarTypeListVM
       paramBaseModel.pageNumber = pageNumber;
     }
     refresh(
-      future: getCarTypesApi(),
+      future: getCarTypesApi(model: paramBaseModel),
       ref: ref,
     );
   }

@@ -8,18 +8,19 @@ part of 'ParamCarDetailsModel.dart';
 
 ParamCarDetailsModel _$ParamCarDetailsModelFromJson(
         Map<String, dynamic> json) =>
-    ParamCarDetailsModel()
-      ..carType = json['carType'] as String?
-      ..carModel = json['carModel'] as String?
-      ..carYearModel = json['carYearModel'] as String?
-      ..carSeatType = json['carSeatType'] as String?
-      ..isDisable = json['isDisable'] as bool?
-      ..plateNumber = json['plateNumber'] as String?
-      ..plateLetterRight = json['plateLetterRight'] as String?
-      ..plateLetterMiddle = json['plateLetterMiddle'] as String?
-      ..plateLetterLeft = json['plateLetterLeft'] as String?
-      ..sequenceNumber = json['sequenceNumber'] as String?
-      ..color = json['color'] as String?;
+    ParamCarDetailsModel(
+      carType: json['carType'] as String?,
+      carModel: json['carModel'] as String?,
+      carYearModel: json['carYearModel'] as String?,
+      carSeatType: json['carSeatType'] as String?,
+      isDisable: json['isDisable'] as bool?,
+      plateNumber: json['plateNumber'] as String?,
+      plateLetterRight: json['plateLetterRight'] as String?,
+      plateLetterMiddle: json['plateLetterMiddle'] as String?,
+      plateLetterLeft: json['plateLetterLeft'] as String?,
+      sequenceNumber: json['sequenceNumber'] as String?,
+      color: json['color'] as String?,
+    );
 
 Map<String, dynamic> _$ParamCarDetailsModelToJson(
         ParamCarDetailsModel instance) =>

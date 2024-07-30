@@ -102,7 +102,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           counterText: '',
           label: Text(widget.hintText??''),
           labelStyle: context.text.bodySmall?.copyWith(
-            color: context.color.onSurface.withOpacity(0.3)
+            color: context.color.onSurface.withOpacity(0.6)
           ),
 
           fillColor: widget.fillColor,

@@ -21,4 +21,34 @@ ReadNotifierVMA<ParamCarDetailsModel, ParamCarDetailsModel, ParamCarDetailsModel
       : super(state ?? ParamCarDetailsModel());
 
 
+  void setDataModel({
+    String? carType,
+    String? carModel,
+    String? carYearModel,
+    String? carSeatType,
+    bool? isDisable,
+    String?  plateNumber,
+    String?  plateLetterRight,
+    String?  plateLetterMiddle,
+    String?  plateLetterLeft,
+    String?  sequenceNumber,
+    String?  color
+    }) {
+
+    state = state.copyWith(
+        carType:carType??state.carType,
+        carModel: carModel??state.carModel,
+      carYearModel:carYearModel??state.carYearModel,
+      carSeatType: carSeatType??state.carSeatType,
+      isDisable:isDisable??state.isDisable,
+      plateNumber: plateNumber??state.plateNumber,
+      plateLetterRight:plateLetterRight??state.plateLetterRight,
+      plateLetterMiddle: plateLetterMiddle??state.plateLetterMiddle,
+      plateLetterLeft:plateLetterLeft??state.plateLetterLeft,
+      sequenceNumber: sequenceNumber??state.sequenceNumber,
+      color:carType??state.color,
+    );
+
+  }
+
 }
