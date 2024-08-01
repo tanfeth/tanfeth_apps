@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 
 class DeleteAccountBottomSheetContent extends ConsumerWidget{
+  const DeleteAccountBottomSheetContent({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
@@ -27,7 +29,7 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
               LangEnum.areSureWantDeleteAccount.tr(),
             style: context.text.titleMedium,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
@@ -37,7 +39,7 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
           ),
 
 
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
 
@@ -59,7 +61,7 @@ class DeleteAccountBottomSheetContent extends ConsumerWidget{
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Center(
