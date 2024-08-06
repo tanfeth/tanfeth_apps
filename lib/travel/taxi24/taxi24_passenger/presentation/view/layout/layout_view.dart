@@ -19,7 +19,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/la
 
 
 class TaxiPassengerLayoutView extends ConsumerStatefulWidget{
-  const TaxiPassengerLayoutView({Key? key}) : super(key: key);
+  const TaxiPassengerLayoutView({super.key});
 
   @override
   ConsumerState<TaxiPassengerLayoutView> createState() => _LayoutViewState();
@@ -52,10 +52,6 @@ class _LayoutViewState extends ConsumerState<TaxiPassengerLayoutView>
   }
 
 
-@override
-  void dispose() {
-    super.dispose();
-  }
 
 
 

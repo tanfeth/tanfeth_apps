@@ -653,7 +653,7 @@ enum LangEnum {
   noTransaction,
   transactionHint, goOffline, decline, km, payYourExpenses, noResultsMoment, noResultsFound, noFound, forNow, now, data,
   rejectTitle,rejectMassage,pendingTitle,pendingMassage,
-   codeSentSuccess, areSureWantLogout, takePhotoYourself, needPhotoVerifyYou, faceCameraDirectlyWithEyes, photoFocusFreeGlare, uploadphotoSaudiID, sureIDValidNotExpired, photoNotBlurryInformationReadable, saudiCitizenChildAgeNot20Years, uploadPhotoDrivingLicense, uploadphotoVehicleRegistrationIstimara, registerVehicleOwnerVehicle, acceptAnyDocumenType, uploadPhotoVehicleInsurance, empty, imageUploadedSuccessfully, expiryWarning, addExpireDate, fillCarDetials,
+   codeSentSuccess, areSureWantLogout, takePhotoYourself, needPhotoVerifyYou, faceCameraDirectlyWithEyes, photoFocusFreeGlare, uploadphotoSaudiID, sureIDValidNotExpired, photoNotBlurryInformationReadable, saudiCitizenChildAgeNot20Years, uploadPhotoDrivingLicense, uploadphotoVehicleRegistrationIstimara, registerVehicleOwnerVehicle, acceptAnyDocumenType, uploadPhotoVehicleInsurance, empty, imageUploadedSuccessfully, expiryWarning, addExpireDate, fillCarDetials, sweets, cheese, italy, drinks, pizza, burger, sandwich, bety, shawarma, asia,
 }
 
 class MyLanguages extends Translations {

@@ -205,4 +205,6 @@ enum TabBarEnum {
   posts,
   menu,
   profile,
+  offers,
+
 }

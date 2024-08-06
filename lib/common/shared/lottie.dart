@@ -23,6 +23,8 @@ class LottieFiles {
         finalPath = "assets/taxi24Driver/lottie/$path";
       }else if(isTaxi24Passenger){
         finalPath = "assets/taxi24Client/lottie/$path";
+      }else if(isFeedMe){
+        finalPath = "assets/feedMe/lottie/$path";
       }
       await rootBundle.loadString(finalPath);
       return finalPath;

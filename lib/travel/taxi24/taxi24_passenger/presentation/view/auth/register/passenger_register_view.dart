@@ -77,7 +77,7 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                             height: 16,
                           ),
 
-                          SelectCityWidget(),
+                          const SelectCityWidget(),
 
                           const SizedBox(
                             height: 16,

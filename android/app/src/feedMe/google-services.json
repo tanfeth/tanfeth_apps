@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "537717460225",
+    "project_id": "tantawy-1b2d2",
+    "storage_bucket": "tantawy-1b2d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537717460225:android:0c7e6a66c198e98c9a1f00",
+        "android_client_info": {
+          "package_name": "com.tanatwy.feedMe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfH--MJ09246yC2yJrqCIBLWRCvrolSs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537717460225:android:d7d5aa3e943dd8879a1f00",
+        "android_client_info": {
+          "package_name": "com.tantawy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfH--MJ09246yC2yJrqCIBLWRCvrolSs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537717460225:android:ab0ddf001f03f4a89a1f00",
+        "android_client_info": {
+          "package_name": "com.tantawy.active"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfH--MJ09246yC2yJrqCIBLWRCvrolSs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,6 +12,8 @@ ParamCarModel _$ParamCarModelFromJson(Map<String, dynamic> json) =>
       ..pageSize = json['pageSize'] as String?
       ..name = json['name'] as String?
       ..orderBy = json['orderBy'] as String?
+      ..searchTerm = json['SearchTerm'] as String?
+      ..searchColumns = json['SearchColumns'] as String?
       ..carTypeCode = json['carTypeCode'] as String?;
 
 Map<String, dynamic> _$ParamCarModelToJson(ParamCarModel instance) {
@@ -28,6 +30,8 @@ Map<String, dynamic> _$ParamCarModelToJson(ParamCarModel instance) {
 
   writeNotNull('name', instance.name);
   writeNotNull('orderBy', instance.orderBy);
+  writeNotNull('SearchTerm', instance.searchTerm);
+  writeNotNull('SearchColumns', instance.searchColumns);
   val['carTypeCode'] = instance.carTypeCode;
   return val;
 }

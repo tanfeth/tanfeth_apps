@@ -129,7 +129,21 @@ class Images {
   static String familyCar = "";
   static String user = "";
   static String pending = "";
-
+  static String slide = "";
+  static String slide1 = "";
+  static String slide2 = "";
+  static String slide3 = "";
+  static String sutis =  "";
+  static String  cheese =  "";
+  static String italy =  "";
+  static String drinks =  "";
+  static String pizza =  "";
+  static String burger = "";
+  static String sandwich =  "";
+  static String bety =  "";
+  static String shawarma =  "";
+  static String asia =  "";
+  static String resturant =  "";
 
 
   static Future<void> initImages() async {
@@ -259,6 +273,21 @@ class Images {
      sedan = await checkImage("sedan.png");
      user = await checkImage("user_icon.png");
      pending = await checkImage("pending.png");
+     slide1 = await checkImage('slide1.png');
+     slide2 = await checkImage('slide2.png');
+     slide3 = await checkImage('slide3.png');
+     slide = await checkImage('slide.png');
+     sutis = await checkImage('sutis.png');
+     cheese = await checkImage('chees.png');
+     italy = await checkImage('itlya.png');
+     drinks = await checkImage('drinks.png');
+     pizza = await checkImage('pizza.png');
+     burger = await checkImage('burger.png');
+     sandwich = await checkImage('sandwitsh.png');
+     bety = await checkImage('bety.png');
+     shawarma = await checkImage('shawrma.png');
+     asia = await checkImage('asia.png');
+     resturant = await checkImage('resturant.png');
   }
 
 
@@ -270,6 +299,8 @@ class Images {
         finalPath = "assets/taxi24Driver/$path";
       }else if(isTaxi24Passenger){
         finalPath = "assets/taxi24Passenger/$path";
+      }else if(isFeedMe){
+        finalPath = "assets/feedMe/$path";
       }
       await services.rootBundle.loadString(finalPath);
       return finalPath;

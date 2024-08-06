@@ -43,7 +43,7 @@ class CustomNotification {
     await Firebase.initializeApp();
     CustomNotification.init(
         handleOpenNotification: handleOpenNotification,
-        defaultLogo: "logo",
+        defaultLogo: '@mipmap/ic_launcher',
         defaultSound: "notification",
         notificationGroups: notificationGroups);
   }
@@ -101,7 +101,7 @@ class CustomNotification {
 
     DarwinNotificationDetails iosNotificationDetails = DarwinNotificationDetails(
         threadIdentifier: notificationGroup.id,
-        sound: _defaultSound + ".wav",
+        sound: "$_defaultSound.wav",
         attachments: coverIcon.isEmpty
             ? null
             : <DarwinNotificationAttachment>[
@@ -181,7 +181,7 @@ class CustomNotification {
     AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings(_defaultLogo);
 
-    final DarwinInitializationSettings initializationSettingsIOS =
+    const DarwinInitializationSettings initializationSettingsIOS =
     DarwinInitializationSettings(
             onDidReceiveLocalNotification: _onDidReceiveLocalNotification,);
     final InitializationSettings initializationSettings =
