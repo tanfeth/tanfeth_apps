@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
@@ -14,8 +15,11 @@ class RestaurantListVM extends StateNotifier<bool>{
   RestaurantListVM() : super(true);
 
 
-  void  changeLoading({required bool loading}){
-    state = loading;
+    changeLoading({required bool loading}){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      state = loading;
+    });
+
   }
 
 

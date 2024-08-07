@@ -1,6 +1,5 @@
 
 
-import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +9,10 @@ import 'package:oktoast/oktoast.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/home/home_view.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/bottom_bar_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/appbar_notification_button.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/category_widget.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/filter_search_widget.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/resturant_list_widget.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/slide_show.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/widget/bottom_nav_bar.dart';
 
 class FeedMeLayoutView extends ConsumerStatefulWidget{
@@ -30,6 +28,15 @@ class _LayoutView extends ConsumerState<FeedMeLayoutView>{
 
   DateTime backPressDateTime = DateTime.now();
 
+  
+  List<Widget> screens = [
+    const HomeView(),
+    OffersRouting.config().widget,
+    const HomeView(),
+    const HomeView(),
+  ];
+  
+  
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -68,52 +75,12 @@ class _LayoutView extends ConsumerState<FeedMeLayoutView>{
         bottomNavigationBar:const  BottomNavBar(),
         body: WebWidth(
           child: SafeArea(
-            child: Column(
-              children: [
-
-                15.ph,
-                const SlideShow(),
-                15.ph,
-
-
-
-                const Expanded(
-                  child: CustomScrollView(
-                    slivers: [
-
-                      ///Search && filter
-                      SliverAppBar(
-                        flexibleSpace: FilterSearchWidget(),
-                        floating: true,
-                        expandedHeight: 70,
-                        stretch: true,
-                        toolbarHeight: 50,
-
-                      ),
-
-                      ///Category
-                      SliverAppBar(
-                        flexibleSpace: CategoryWidget(),
-                        floating: true,
-                        expandedHeight: 130,
-                        stretch: true,
-                        pinned:true,
-                        toolbarHeight: 110,
-
-                      ),
-
-                      RestaurantListWidget(),
-
-
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            child:screens[ref.watch(feedMeBottomBarProvider)]
           ),
         ),
       ),
     );
   }
+
 
 }

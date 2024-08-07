@@ -37,9 +37,16 @@ class _BottomNavBar extends ConsumerState<BottomNavBar>{
     ),
 
     TabData(
+      iconData: Icons.shopping_cart_rounded,
+      title: LangEnum.cart.tr(),
+    ),
+
+
+    TabData(
       iconData: Icons.menu_rounded,
       title: LangEnum.menu.tr(),
-    )
+    ),
+
   ];
 
 

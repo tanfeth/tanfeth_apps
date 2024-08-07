@@ -46,7 +46,10 @@ class _SlideShow extends ConsumerState<SlideShow>{
     return SizedBox(
         height: 200,
         child: isLoading
-            ? const ShimmerWidget()
+            ? const Padding(
+              padding:  EdgeInsets.all(8.0),
+              child:  ShimmerWidget(),
+            )
             :
         ClipRRect(
           borderRadius: MySizes.borderRadius,

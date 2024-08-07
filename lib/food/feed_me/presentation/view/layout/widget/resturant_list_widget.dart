@@ -34,6 +34,7 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
 
 
   initBuild(){
+
     isLoading  = ref.watch(restaurantListProvider);
   }
 
@@ -44,37 +45,38 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
     return  SliverList(
         delegate: SliverChildBuilderDelegate(
               (_, index) {
-            if (isLoading
-               // && index >= restaurantList.length
-            ) {
-              return  Container(
-                height: 130,
-                margin: const EdgeInsets.all(10),
-                child: const ShimmerWidget(),
-              );
-            } else if (isLoading &&
-                restaurantList.isEmpty) {
-              return const Center(
-                  child: EmptyResult());
-            } else {
-              return InkWell(
-                onTap: () {
-                },
-                child: Column(
-                  children: [
-                     RestaurantCell(
-                      model:restaurantList[index]
+                if (isLoading
+                // && index >= restaurantList.length
+                ) {
+                  return  Container(
+                    height: 130,
+                    margin: const EdgeInsets.all(10),
+                    child: const ShimmerWidget(),
+                  );
+                } else if (!isLoading &&
+                    restaurantList.isEmpty) {
+                  return const Center(
+                      child: EmptyResult());
+                } else {
+                  return InkWell(
+                    onTap: () {
+                    },
+                    child: Column(
+                      children: [
+                        RestaurantCell(
+                            model:restaurantList[index]
+                        ),
+                        10.ph,
+                      ],
                     ),
-                    10.ph,
-                  ],
-                ),
-              );
-            }
+                  );
+                }
+
           },
           childCount:
           (isLoading
               ? 7
-              : isLoading &&
+              : !isLoading &&
               restaurantList.isEmpty
               ? 1
               : 0) +
@@ -82,21 +84,26 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
         ));
   }
 
-  void setLoading() {
-    restaurantList.clear();
-    Future.delayed(const Duration(seconds: 1),(){
-     ref.read(restaurantListProvider.notifier)
-     .changeLoading(loading: false);
-      for(int i= 0 ; i < 10 ; i++){
-        RestaurantModel  model = RestaurantModel();
-        model.name = 'تورتيلا';
-        model.closeTime = '3.30 ص';
-        model.isFav = false;
-        model.rate = 4.9;
-        restaurantList.add(model);
-      }
+   setLoading() async{
+     WidgetsBinding.instance.addPostFrameCallback((_) async {
+       ref.read(restaurantListProvider.notifier)
+           .changeLoading(loading: true);
 
-    });
+       for(int i= 0 ; i < 10 ; i++){
+         RestaurantModel  model = RestaurantModel();
+         model.name = 'تورتيلا';
+         model.closeTime = '3.30 ص';
+         model.isFav = false;
+         model.rate = 4.9;
+         restaurantList.add(model);
+       }
+
+       Future.delayed(const Duration(seconds: 1),(){
+         ref.read(restaurantListProvider.notifier)
+             .changeLoading(loading: false);
+       });
+     });
+
  
   }
 

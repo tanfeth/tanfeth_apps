@@ -98,7 +98,7 @@ class _FilterSearchWidget extends ConsumerState<FilterSearchWidget>{
                   keyboardType: TextInputType.text,
                   hintText: LangEnum.search.tr(),
                   prefixIcon: Icons.search,
-                  textInputAction: TextInputAction.next,
+                  textInputAction: TextInputAction.search,
                   onChanged: (String value) {
                     ref.read(restaurantListProvider.notifier)
                         .changeLoading(loading: true);

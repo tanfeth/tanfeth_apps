@@ -6,6 +6,7 @@ import 'package:api_controller/api/api_enum.dart';
 import 'package:api_controller/shared/grid_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
@@ -62,6 +63,8 @@ class FeedMeMain {
     Get.put(flavor, permanent: true);
     customAppFlavor = flavor;
     screenPages.addAll([
+      OffersRouting.config().page,
+
     ]);
 
     mainCommon(

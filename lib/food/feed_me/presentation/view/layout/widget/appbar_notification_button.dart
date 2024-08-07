@@ -1,7 +1,6 @@
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/sizes.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
@@ -29,7 +28,7 @@ class AppbarNotification extends ConsumerWidget {
             const badges.BadgeAnimation.rotation(toAnimate: false),
             badgeStyle: badges.BadgeStyle(
               elevation: 0,
-              badgeColor: context.color.primary,
+              badgeColor: context.color.secondary,
               padding: const EdgeInsets.all(4),
             ),
             child:  Center(

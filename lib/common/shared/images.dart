@@ -144,7 +144,7 @@ class Images {
   static String shawarma =  "";
   static String asia =  "";
   static String resturant =  "";
-
+  static String offer =  "";
 
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
@@ -288,6 +288,7 @@ class Images {
      shawarma = await checkImage('shawrma.png');
      asia = await checkImage('asia.png');
      resturant = await checkImage('resturant.png');
+     offer = await checkImage('offer.png');
   }
 
 
