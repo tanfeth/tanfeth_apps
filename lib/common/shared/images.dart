@@ -146,6 +146,19 @@ class Images {
   static String resturant =  "";
   static String offer =  "";
 
+
+  static String fav =  "";
+  static String share = "";
+  static String support =  "";
+  static String complain =  "";
+  static String rate =  "";
+  static String condition =  "";
+  static String whatsApp =  "";
+  static String nightMode =  "";
+
+
+
+
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
      locationLottie = await checkImage('location.json');
@@ -289,6 +302,16 @@ class Images {
      asia = await checkImage('asia.png');
      resturant = await checkImage('resturant.png');
      offer = await checkImage('offer.png');
+
+     fav = await checkImage('fav.png');
+     support = await checkImage('support.png');
+     share = await checkImage('share.png');
+     complain = await checkImage('complain.png');
+     rate = await checkImage('rate.png');
+     condition = await checkImage('condition.png');
+     whatsApp = await checkImage('whats_app.png');
+     nightMode= await checkImage('night_mode.png');
+
   }
 
 

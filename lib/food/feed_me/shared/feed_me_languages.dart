@@ -1170,6 +1170,28 @@ class FeedMeLanguages extends MyLanguages {
       arValue: 'اكل اسيوى',
     );
     addString(
+      key: LangEnum.inviteFriends.name,
+      enValue: 'Invite friends',
+      arValue: 'دعوة أصدقاء',
+    );
+    addString(
+      key: LangEnum.complainAndSuggestion.name,
+      enValue: 'Complain And Suggestions',
+      arValue: 'الشكاوى والاقتراحات',
+    );
+
+    addString(
+      key: LangEnum.addStore.name,
+      enValue: 'Add Store',
+      arValue: 'إضافة متجر',
+    );
+    addString(
+      key: LangEnum.changeMode.name,
+      enValue: 'Change Mode',
+      arValue: 'تغيير الوضع',
+    );
+
+    addString(
       key: LangEnum.km.name,
       enValue: 'Km',
       arValue: 'كم',
@@ -1179,6 +1201,55 @@ class FeedMeLanguages extends MyLanguages {
       enValue: 'Km',
       arValue: 'كم',
     );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
+
+
+
+
 
 
 

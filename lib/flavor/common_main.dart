@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:api_controller/shared/globals.dart';
+import 'package:api_controller/shared/theme/theme_services.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -22,6 +23,7 @@ import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/more_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/onboard_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
@@ -106,6 +108,7 @@ class CommonMain extends ConsumerWidget {
       ReportProblemRouting.config().page,
       NotificationsRouting.config().page,
       RegisterRouting.config().page,
+      MoreRouting.config().page,
     ]);
   }
 
@@ -133,7 +136,7 @@ class CommonMain extends ConsumerWidget {
         initialRoute: InitRouting.config().path,
         theme: flavorConfig.myTheme.getTheme(Brightness.light),
         darkTheme: flavorConfig.myTheme.getTheme(Brightness.dark),
-        themeMode: AppMode.getThemeMode(),
+        themeMode: ThemeService().theme,
         locale: Locale(AppMode.getLanguageMode(initLang: "en")),
         fallbackLocale: flavorConfig.fallbackLocale,
         translations: flavorConfig.languages,

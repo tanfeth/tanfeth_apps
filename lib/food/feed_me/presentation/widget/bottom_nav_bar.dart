@@ -2,7 +2,6 @@
 
 
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
-import 'package:api_controller/shared/languages.dart';
 import 'package:cuberto_bottom_bar/cuberto_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +10,8 @@ import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/bottom_bar
 
 
 class BottomNavBar extends ConsumerStatefulWidget{
-  const BottomNavBar({super.key});
+  final List<TabData> tabs ;
+  const BottomNavBar({super.key,required this.tabs});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=>_BottomNavBar();
@@ -25,29 +25,6 @@ class _BottomNavBar extends ConsumerState<BottomNavBar>{
   late FeedMeBottomBarVM feedMeBottomBarVM;
   late int currentPage ;
   
-  List<TabData> tabs = [
-    TabData(
-      iconData: Icons.home,
-      title: LangEnum.home.tr(),
-    ),
-
-    TabData(
-      iconData: Icons.local_offer,
-      title: LangEnum.offers.tr(),
-    ),
-
-    TabData(
-      iconData: Icons.shopping_cart_rounded,
-      title: LangEnum.cart.tr(),
-    ),
-
-
-    TabData(
-      iconData: Icons.menu_rounded,
-      title: LangEnum.menu.tr(),
-    ),
-
-  ];
 
 
 
@@ -66,13 +43,13 @@ class _BottomNavBar extends ConsumerState<BottomNavBar>{
   @override
   Widget build(BuildContext context) {
     initBuild();
-    
     return CubertoBottomBar(
       key: const Key("BottomBar"),
       inactiveIconColor: context.color.primary,
       tabStyle: CubertoTabStyle.styleNormal,
       selectedTab: currentPage,
-      tabs: tabs
+      barBackgroundColor: context.color.surface,
+      tabs: widget.tabs
           .map(
             (value) => TabData(
           key: Key(value.title),

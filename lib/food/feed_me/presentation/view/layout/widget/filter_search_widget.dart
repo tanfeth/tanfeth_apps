@@ -95,11 +95,8 @@ class _FilterSearchWidget extends ConsumerState<FilterSearchWidget>{
               height: 50,
               child: CustomTextFormField(
                   controller: searchController,
-                  keyboardType: TextInputType.text,
-                  hintText: LangEnum.search.tr(),
-                  prefixIcon: Icons.search,
-                  textInputAction: TextInputAction.search,
-                  onChanged: (String value) {
+                  fillColor: context.color.surface,
+                  onFieldSubmitted: (val){
                     ref.read(restaurantListProvider.notifier)
                         .changeLoading(loading: true);
 
@@ -107,6 +104,20 @@ class _FilterSearchWidget extends ConsumerState<FilterSearchWidget>{
                       ref.read(restaurantListProvider.notifier)
                           .changeLoading(loading: false);
                     });
+                  },
+                  keyboardType: TextInputType.text,
+                  hintText: LangEnum.search.tr(),
+                  prefixIcon: Icons.search,
+                  textInputAction: TextInputAction.search,
+                  suffixIcon: searchController.text.isNotEmpty?
+                  Icons.clear:null,
+                  suffixOnTap: (){
+                    closeKeyBoard();
+                    searchController.clear();
+                    setState(() {});
+                  },
+                  onChanged: (String value) {
+
                   }),
             ),
           ),

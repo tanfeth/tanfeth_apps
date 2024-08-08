@@ -14,6 +14,7 @@ import 'package:tanfeth_apps/common/shared/notification/CustomNotification.dart'
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:api_controller/shared/sizes.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
 import 'package:tanfeth_apps/common/shared/storage.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/data/model/auth/BodyDeviceTokenModel.dart';
@@ -76,8 +77,9 @@ class _SplashViewState extends ConsumerState<FeedMeSplashView> {
             if (AppStorage.getIsSavedLocale().isEmpty){
               Get.offAllNamed(LanguageRouting.config().path);
             } else if (!AppStorage.getOnBoardStatus()) {
-              Get.offAllNamed(LoginRouting.config().path);
+              Get.offAllNamed(LayoutRouting.config().path);
             } else {
+              Get.offAllNamed(LayoutRouting.config().path);
              // Get.offAllNamed(WelcomeRouting.config().path);
             }
           }
