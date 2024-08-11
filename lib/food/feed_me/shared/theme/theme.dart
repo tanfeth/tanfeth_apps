@@ -88,20 +88,26 @@ class FeedMeTheme extends ITheme {
       ),
       timePickerTheme: TimePickerThemeData(
         backgroundColor: colorScheme.surface,
-        dayPeriodTextColor: colorScheme.onSurface,
+        dayPeriodTextColor: colorScheme.surface,
         hourMinuteColor: WidgetStateColor.resolveWith(
           (states) =>
-              states.contains(WidgetState.selected) ? colorScheme.primaryContainer : colorScheme.primaryContainer,
+              states.contains(WidgetState.selected) ?
+              colorScheme.onSurface :
+              colorScheme.onSurface,
         ),
         hourMinuteTextColor: WidgetStateColor.resolveWith(
-          (states) => states.contains(WidgetState.selected) ? colorScheme.onSurface : colorScheme.onSurface,
+          (states) => states.contains(WidgetState.selected) ?
+          colorScheme.surface : colorScheme.surface,
         ),
         dayPeriodShape: RoundedRectangleBorder(borderRadius: MySizes.borderRadius),
-        dayPeriodBorderSide: BorderSide(width: 1.5, color: colorScheme.primaryContainer),
+        dayPeriodBorderSide: BorderSide(width: 1.5, color:
+        colorScheme.onSurface),
         dayPeriodColor: WidgetStateColor.resolveWith(
-          (states) => states.contains(WidgetState.selected) ? colorScheme.secondary : colorScheme.primaryContainer,
+          (states) => states.contains(WidgetState.selected) ?
+          colorScheme.primary :
+          colorScheme.onSurface,
         ),
-        dialBackgroundColor: colorScheme.primaryContainer,
+        dialBackgroundColor: colorScheme.surface,
         hourMinuteTextStyle: textTheme.headlineSmall,
         helpTextStyle: textTheme.bodyLarge,
       ),

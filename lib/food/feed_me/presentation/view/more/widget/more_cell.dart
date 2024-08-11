@@ -25,6 +25,7 @@ class MoreCell extends ConsumerWidget{
 
     return InkWell(
       onTap: moreModel.onPress??(){},
+      splashColor: context.color.surface,
       child: Row(
         children: [
 

@@ -2,21 +2,26 @@
 
 
 
-import 'package:api_controller/mode/app_mode.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
+import 'package:api_controller/shared/helper_methods.dart';
 import 'package:api_controller/shared/theme/theme_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:tanfeth_apps/common/presentation/view/onBoard/onBoard_view.dart';
 import 'package:tanfeth_apps/common/presentation/widget/social_list.dart';
+import 'package:tanfeth_apps/common/shared/helper_methods.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/complain_and_suggest_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/favourite_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/more/MoreModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/more/widget/more_cell.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
+
 
 class MoreView extends ConsumerStatefulWidget{
   const MoreView({super.key});
@@ -107,46 +112,61 @@ class _MoreView extends ConsumerState<MoreView>{
     MoreModel(
       name: LangEnum.createAccount.tr(),
       icon: Images.user,
-      onPress: (){},
+      onPress: (){
+        Get.toNamed(RegisterRouting.config().path);
+      },
     ),
 
     MoreModel(
       name: LangEnum.favorites.tr(),
       icon: Images.fav,
-      onPress: (){},
+      onPress: (){
+        Get.toNamed(FavouriteRouting.config().path);
+      },
     ),
 
     MoreModel(
       name: LangEnum.addStore.tr(),
       icon: Images.whatsApp,
-      onPress: (){},
+      onPress: (){
+        openWhatsapp(whatsNumber: '966544646113');
+      },
     ),
 
 
     MoreModel(
       name: LangEnum.complainAndSuggestion.tr(),
       icon: Images.complain,
-      onPress: (){},
+      onPress: (){
+        openWhatsapp(whatsNumber: '966544646113');
+        // Get.toNamed(ComplainAndSuggestRouting.config().path);
+      },
     ),
 
     MoreModel(
       name: LangEnum.rateApp.tr(),
       icon: Images.rate,
-      onPress: (){},
+      onPress: (){
+        rateAppOnStore();
+      },
     ),
 
 
     MoreModel(
       name: LangEnum.inviteFriends.tr(),
       icon: Images.share,
-      onPress: (){},
+      onPress: (){
+        shareApp();
+      },
     ),
 
 
     MoreModel(
       name: LangEnum.termsAndConditions.tr(),
       icon: Images.condition,
-      onPress: (){},
+      onPress: (){
+        Get.toNamed(TermsOfServiceRouting.config().path);
+      },
     ),
 
     MoreModel(

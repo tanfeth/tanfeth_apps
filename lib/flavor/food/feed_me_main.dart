@@ -6,6 +6,8 @@ import 'package:api_controller/api/api_enum.dart';
 import 'package:api_controller/shared/grid_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/confirm_order_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/favourite_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/cart_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
@@ -15,6 +17,7 @@ import 'package:tanfeth_apps/food/feed_me/shared/end_points.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_enum.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_languages.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/theme/theme.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
 
 
 
@@ -66,6 +69,9 @@ class FeedMeMain {
     screenPages.addAll([
       OffersRouting.config().page,
       CartRouting.config().page,
+      FavouriteRouting.config().page,
+      ConfirmOrderRouting.config().page,
+      MyCardsRouting.config().page,
     ]);
 
     mainCommon(

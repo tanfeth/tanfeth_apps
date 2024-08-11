@@ -1192,20 +1192,93 @@ class FeedMeLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.firstName.name,
+      enValue: 'First name',
+      arValue: 'الاسم الاول',
     );
+    addString(
+      key: LangEnum.lastName.name,
+      enValue: 'Last name',
+      arValue: 'الاسم الاخير',
+    );
+    addString(
+      key: LangEnum.onlinePayment.name,
+      enValue: 'Online payment',
+      arValue: 'الدفع الالكتروني',
+    );
+
+    addString(
+      key: LangEnum.couponDiscount.name,
+      enValue: "Discount coupon (if available)",
+      arValue: 'كوبون خصم (إن وجد)',
+    );
+    addString(
+      key: LangEnum.couponHint.name,
+      enValue: "Enter the code here",
+      arValue: 'ادخل الكود هنا',
+    );
+    addString(
+      key: LangEnum.cash.name,
+      enValue: 'Cash',
+      arValue: 'نقدي عند الاستلام',
+    );
+    addString(
+      key: LangEnum.activate.name,
+      enValue: 'Activate',
+      arValue: 'تفعيل',
+    );
+
+
+    addString(
+      key: LangEnum.orderType.name,
+      enValue: 'Order type',
+      arValue: 'نوع الطلب',
+    );
+    addString(
+      key: LangEnum.fromRestaurant.name,
+      enValue: 'From restaurant',
+      arValue: 'من المطعم',
+    );
+
+    addString(
+      key: LangEnum.receivingTime.name,
+      enValue: 'Receiving time',
+      arValue: 'وقت الاستلام',
+    );
+    addString(
+      key: LangEnum.oncePrepared.name,
+      enValue: 'Once prepared',
+      arValue: 'فور التحضير',
+    );
+    addString(
+      key: LangEnum.delayed.name,
+      enValue: 'Delayed',
+      arValue: 'مؤجل',
+    );
+    addString(
+      key: LangEnum.pleaseSelectDateTime.name,
+      enValue: 'Please select date time ',
+      arValue: 'الرجاء تحديد التاريخ والوقت',
+    );
+
+    addString(
+      key: LangEnum.homeDelivery.name,
+      enValue: 'Delivery',
+      arValue: 'توصيل',
+    );
+
+    addString(
+      key: LangEnum.chooseDeliveryAddress.name,
+      enValue: 'Choose delivery address',
+      arValue: 'اختر عنوان التوصيل',
+    );
+
     addString(
       key: LangEnum.km.name,
       enValue: 'Km',
       arValue: 'كم',
     );
-    addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
-    );
+
     addString(
       key: LangEnum.km.name,
       enValue: 'Km',
@@ -1244,6 +1317,89 @@ class FeedMeLanguages extends MyLanguages {
       enValue: 'Km',
       arValue: 'كم',
     );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
 
 
 

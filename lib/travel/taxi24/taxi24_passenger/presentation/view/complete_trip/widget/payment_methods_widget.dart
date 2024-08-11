@@ -12,7 +12,11 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/co
 
 
 class PaymentMethodsWidget extends ConsumerStatefulWidget {
-  const PaymentMethodsWidget();
+ final  bool? isVisa;
+ final  bool? isWalletOption;
+  const PaymentMethodsWidget({super.key,
+  this.isVisa = true,
+  this.isWalletOption = false});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PaymentMethodsWidget();
@@ -43,25 +47,27 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
           LangEnum.paymentMethod.tr(),
           style: context.text.bodyLarge?.copyWith(
               fontWeight: FontWeight.bold,
-              color:context.color.primary
+             // color:context.color.primary
           ),
         ),
         10.ph,
 
         ///Wallet
         PaymentCell(
-          showCheckButton: false,
-          image: Images.bank,
+          showCheckButton:(widget.isWalletOption??false),
+          image: Images.cash,
           title: LangEnum.wallet.tr(),
           isSelected:
           selectedPayment ==
-              customAppFlavor.commonEnum.paymentMethodEnum.bankTransfer,
+              customAppFlavor.commonEnum.paymentMethodEnum.wallet,
           onTap: () {
             selectedPaymentMethodVM.setPayment(
-                customAppFlavor.commonEnum.paymentMethodEnum.bankTransfer
+                customAppFlavor.commonEnum.paymentMethodEnum.wallet
             );
           },
-          trailing: SizedBox(
+          trailing: (widget.isWalletOption??false)?
+              null:
+          SizedBox(
             height: 35,
             width: 50,
             child: FittedBox(
@@ -78,6 +84,7 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
             ),
           ),
         ),
+
         5.ph,
 
         PaymentCell(
@@ -95,57 +102,65 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
         5.ph,
 
 
-        InkWell(
-          onTap: (){
+        if(widget.isVisa??true)
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: (){
 
-            Get.toNamed(MyCardsRouting.config().path);
-            selectedPaymentMethodVM.setPayment(
-                customAppFlavor.commonEnum.paymentMethodEnum.visa
-            );
+                Get.toNamed(MyCardsRouting.config().path);
+                selectedPaymentMethodVM.setPayment(
+                    customAppFlavor.commonEnum.paymentMethodEnum.visa
+                );
 
-          },
-          child: PaymentCell(
-            image: Images.visa,
-            title: LangEnum.visa.tr(),
-            isSelected:
-            selectedPayment ==
-                customAppFlavor.commonEnum.paymentMethodEnum.visa,
-            onTap: () {
-              Get.toNamed(MyCardsRouting.config().path);
-              selectedPaymentMethodVM.setPayment(
-                  customAppFlavor.commonEnum.paymentMethodEnum.visa
-              );
+              },
+              child: PaymentCell(
+                image: Images.visa,
+                title: LangEnum.visa.tr(),
+                isSelected:
+                selectedPayment ==
+                    customAppFlavor.commonEnum.paymentMethodEnum.visa,
+                onTap: () {
+                  Get.toNamed(MyCardsRouting.config().path);
+                  selectedPaymentMethodVM.setPayment(
+                      customAppFlavor.commonEnum.paymentMethodEnum.visa
+                  );
 
-            },
-            trailing: Expanded(
-              child: Padding(
-                padding:const EdgeInsets.only(top: 10,
-                right: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: Text(
-                          '**** **** 1234',
-                          style: context.text.bodyLarge,
-                          maxLines: 1,
+                },
+                trailing: Expanded(
+                  child: Padding(
+                    padding:const EdgeInsets.only(top: 10,
+                    right: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              '**** **** 1234',
+                              style: context.text.bodyLarge,
+                              maxLines: 1,
+                            ),
+                          ),
                         ),
-                      ),
+                        5.pw,
+                        Image.asset(
+                          Images.visa,
+                        width: 30,)
+                      ],
                     ),
-                    5.pw,
-                    Image.asset(
-                      Images.visa,
-                    width: 30,)
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
+
+            5.ph,
+
+          ],
         ),
 
-        5.ph,
         PaymentCell(
           image: Images.cash,
           title: LangEnum.cash.tr(),

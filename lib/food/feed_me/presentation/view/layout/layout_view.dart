@@ -35,7 +35,7 @@ class _LayoutView extends ConsumerState<FeedMeLayoutView>{
 
   
   List<Widget> screens = [
-    const HomeView(),
+    const FeedMeHomeView(),
     OffersRouting.config().widget,
     CartRouting.config().widget,
     MoreRouting.config().widget,

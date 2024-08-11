@@ -6,14 +6,14 @@ import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/filter
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/resturant_list_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/slide_show.dart';
 
-class HomeView extends ConsumerStatefulWidget {
-  const HomeView({super.key});
+class FeedMeHomeView extends ConsumerStatefulWidget {
+  const FeedMeHomeView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _HomeView();
+  ConsumerState<ConsumerStatefulWidget> createState() => _FeedMeHomeView();
 }
 
-class _HomeView extends ConsumerState<HomeView> {
+class _FeedMeHomeView extends ConsumerState<FeedMeHomeView> {
   @override
   Widget build(BuildContext context) {
     return Column(

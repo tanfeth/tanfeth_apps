@@ -28,7 +28,7 @@ class _TaxiPassengerPaymentMethodView extends ConsumerState<TaxiPassengerPayment
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -38,7 +38,7 @@ class _TaxiPassengerPaymentMethodView extends ConsumerState<TaxiPassengerPayment
                   style: context.text.titleMedium,
                 ),
      
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 //

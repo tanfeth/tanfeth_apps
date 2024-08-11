@@ -79,6 +79,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       child: TextFormField(
         onTapOutside: (event) => FocusScope.of(context).unfocus(),
         controller: widget.controller,
+        autofocus: false,
         focusNode: _focusNode,
         keyboardType: widget.keyboardType,
         enabled: widget.enabled,
@@ -105,7 +106,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             color: context.color.onSurface.withOpacity(0.6)
           ),
 
-          fillColor: widget.fillColor,
+          fillColor: widget.fillColor??
+           context.color.surface,
           prefixIcon: widget.prefixIcon != null
               ? Container(
                   width: MySizes.buttonHeight,

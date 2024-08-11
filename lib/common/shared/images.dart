@@ -156,6 +156,8 @@ class Images {
   static String whatsApp =  "";
   static String nightMode =  "";
 
+  static String deliveryBike =  "";
+  static String takeAway =  "";
 
 
 
@@ -311,6 +313,8 @@ class Images {
      condition = await checkImage('condition.png');
      whatsApp = await checkImage('whats_app.png');
      nightMode= await checkImage('night_mode.png');
+     deliveryBike= await checkImage('delivery_bike.png');
+     takeAway= await checkImage('take_away.png');
 
   }
 

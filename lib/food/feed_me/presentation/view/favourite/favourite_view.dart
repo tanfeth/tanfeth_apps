@@ -1,30 +1,32 @@
 
 
-
-
-
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/web_width.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/presentation/widget/EmptyResult.dart';
+import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
+import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/layout/RestaurantModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/resturant_list_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/restaurant_cell.dart';
+import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 
-class RestaurantListWidget extends ConsumerStatefulWidget{
-  const RestaurantListWidget({super.key});
+class FavouriteView extends ConsumerStatefulWidget{
+  const FavouriteView({super.key});
+
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState()=>_RestaurantListWidget();
+  ConsumerState<ConsumerStatefulWidget> createState() =>_FavouriteView();
 
 }
 
-
-class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
+class _FavouriteView extends ConsumerState<FavouriteView>{
 
   late bool isLoading ;
   List<RestaurantModel> restaurantList = [];
+
 
   @override
   void initState() {
@@ -34,17 +36,24 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
 
 
   initBuild(){
-
     isLoading  = ref.watch(restaurantListProvider);
   }
+
+  
 
 
   @override
   Widget build(BuildContext context) {
     initBuild();
-    return  SliverList(
-        delegate: SliverChildBuilderDelegate(
-              (_, index) {
+    return Scaffold(
+      appBar: MainAppBar(
+        title: LangEnum.favourite.tr(),
+        leadingWidget: const BackButtonWidget(),
+      ),
+      body: WebWidth(
+        child: SafeArea(
+          child: ListView.separated(
+              itemBuilder: (context,index){
                 if (isLoading
                 // && index >= restaurantList.length
                 ) {
@@ -66,45 +75,48 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
                         RestaurantCell(
                             model:restaurantList[index]
                         ),
-                        10.ph,
                       ],
                     ),
                   );
                 }
-
-          },
-          childCount:
-          (isLoading
-              ? 7
-              : !isLoading &&
-              restaurantList.isEmpty
-              ? 1
-              : 0) +
-              restaurantList.length,
-        ));
+              },
+            separatorBuilder: (context, index) => 10.ph,
+              itemCount:    (isLoading
+                  ? 7
+                  : !isLoading &&
+                  restaurantList.isEmpty
+                  ? 1
+                  : 0) +
+                  restaurantList.length,),
+        ),
+      ),
+    );
   }
 
-   setLoading() async{
-     WidgetsBinding.instance.addPostFrameCallback((_) async {
-       ref.read(restaurantListProvider.notifier)
-           .changeLoading(loading: true);
 
-       for(int i= 0 ; i < 10 ; i++){
-         RestaurantModel  model = RestaurantModel();
-         model.name = 'تورتيلا';
-         model.closeTime = '3.30 ص';
-         model.isFav = false;
-         model.rate = 4.9;
-         restaurantList.add(model);
-       }
+  setLoading() async{
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      ref.read(restaurantListProvider.notifier)
+          .changeLoading(loading: true);
 
-       Future.delayed(const Duration(seconds: 1),(){
-         ref.read(restaurantListProvider.notifier)
-             .changeLoading(loading: false);
-       });
-     });
+      for(int i= 0 ; i < 10 ; i++){
+        RestaurantModel  model = RestaurantModel();
+        model.name = 'تورتيلا';
+        model.closeTime = '3.30 ص';
+        model.isFav = false;
+        model.rate = 4.9;
+        restaurantList.add(model);
+      }
 
- 
+      Future.delayed(const Duration(seconds: 1),(){
+        ref.read(restaurantListProvider.notifier)
+            .changeLoading(loading: false);
+      });
+    });
+
+
   }
-
+  
+  
+  
 }

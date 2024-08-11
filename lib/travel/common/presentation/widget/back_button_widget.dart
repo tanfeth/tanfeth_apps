@@ -24,12 +24,12 @@ class BackButtonWidget extends ConsumerWidget {
         onTap: onTap ?? () => Get.back(),
         child: CircleAvatar(
           radius: 20,
-          backgroundColor: bgColor ?? context.color.primaryContainer,
+          backgroundColor: bgColor ?? context.color.onSurface,
           child: Icon(
             ref.read(languageProvider) == 'ar'
                 ? LineIcons.arrowRight
                 : LineIcons.arrowLeft,
-            color: iconColor ?? context.color.onPrimaryContainer,
+            color: iconColor ?? context.color.surface,
             size: 20,
           ),
         ),

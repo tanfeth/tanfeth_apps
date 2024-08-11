@@ -17,7 +17,12 @@ class SocialRow extends StatelessWidget {
           icon: LineIcons.facebookF,
           color: Colors.blue,
           backgroundColor: context.color.primaryContainer,
-          onTap: () {},
+          onTap: () {
+            Uri uri = Uri.parse("https://www.facebook.com/");
+            urlLauncher(uri);
+
+
+          },
         ),
 
         15.pw,
@@ -25,7 +30,11 @@ class SocialRow extends StatelessWidget {
           icon: LineIcons.instagram,
           color: context.color.primary,
           backgroundColor: context.color.primaryContainer,
-          onTap: () {},
+          onTap: () {
+            Uri uri = Uri.parse("https://www.instagram.com/");
+            urlLauncher(uri);
+
+          },
         ),
         15.pw,
 
@@ -33,7 +42,10 @@ class SocialRow extends StatelessWidget {
           icon: LineIcons.twitter,
           color: Colors.blue,
           backgroundColor: context.color.primaryContainer,
-          onTap: () {},
+          onTap: () {
+            Uri uri = Uri.parse("https://x.com/home");
+            urlLauncher(uri);
+          },
         ),
         15.pw,
 

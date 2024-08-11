@@ -29,8 +29,10 @@ class _CouponWidget extends ConsumerState<CouponWidget>{
       children: [
         Text(
           LangEnum.couponDiscount.tr(),
-          style: context.text.bodyLarge?.copyWith(fontWeight: FontWeight.bold,
-              color: context.color.primary),
+          style: context.text.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+             // color: context.color.primary
+          ),
         ),
         10.ph,
         CustomTextFormField(
