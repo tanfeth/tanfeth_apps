@@ -7,10 +7,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/success_route.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/confirm_order/widget/order_time_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/confirm_order/widget/order_type_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/small_divider.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/coupon_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_methods_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_price_widget.dart';
@@ -78,8 +78,7 @@ class _ConfirmOrderView extends ConsumerState<ConfirmOrderView>{
 
                 ElevatedButton(
                   onPressed: () async {
-                    Get.back();
-                    // Get.offNamed(AddRiderRouting.config().path);
+                    Get.offNamed(SuccessRouting.config().path);
                   },
                   child: Text(LangEnum.confirm.tr()),
                 ),

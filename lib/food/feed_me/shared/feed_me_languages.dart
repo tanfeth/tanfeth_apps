@@ -79,7 +79,7 @@ class FeedMeLanguages extends MyLanguages {
     addString(
       key: LangEnum.continueWord.name,
       enValue: 'Continue',
-      arValue: 'استمر',
+      arValue: 'استمرار',
     );
 
     addString(
@@ -1274,36 +1274,42 @@ class FeedMeLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.selectLocation.name,
+      enValue: 'Select location',
+      arValue: 'حدد الموقع',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.buildingNumberOrName.name,
+      enValue: 'Building number or name (optional)',
+      arValue: 'رقم او اسم المبنى (اختيارى)',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.floorNumber.name,
+      enValue: 'Floor number (optional)',
+      arValue: 'رقم الطابق (اختيارى)',
+    );
+
+    addString(
+      key: LangEnum.apartmentNumber.name,
+      enValue: 'Apartment number (optional)',
+      arValue: 'رقم الشقة (اختيارى)',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.otherNotes.name,
+      enValue: 'Other notes (optional)',
+      arValue: 'ملاحظات اخرى (اختيارى)',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.successfullyOrdered.name,
+      enValue: 'Your request has been sent successfully.',
+      arValue: 'تم ارسال طلبك بنجاح',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.successfullyOrderedDes.name,
+      enValue: 'You can go to my requests to browse your request.',
+      arValue: 'يمكنك الذهاب الى طلباتى  لتصفح طلبك',
     );
 
     addString(

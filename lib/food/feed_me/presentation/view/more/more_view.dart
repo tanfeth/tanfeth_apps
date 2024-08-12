@@ -17,6 +17,7 @@ import 'package:tanfeth_apps/common/shared/routing/routes/complain_and_suggest_r
 import 'package:tanfeth_apps/common/shared/routing/routes/favourite_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/address_list_route.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/more/MoreModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/more/widget/more_cell.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
@@ -49,12 +50,12 @@ class _MoreView extends ConsumerState<MoreView>{
 
         Expanded(
           child: ListView.separated(
-            itemCount: moreList.length,
+            itemCount: userList.length,
             padding: const EdgeInsets.symmetric(vertical: 10),
             itemBuilder: (context,index){
               return MoreCell(
-                moreModel: moreList[index],
-                trailingWidget: index == moreList.lastIndexOf(moreList.last)?
+                moreModel: userList[index],
+                trailingWidget: index == userList.lastIndexOf(userList.last)?
                 Container(
                   height: 30,
                   width: 50,
@@ -100,15 +101,14 @@ class _MoreView extends ConsumerState<MoreView>{
           ],
         ),
 
-        60.ph,
-
+        30.ph
       ],
     );
   }
 
 
 
-  List<MoreModel> moreList = [
+  List<MoreModel> userList = [
     MoreModel(
       name: LangEnum.createAccount.tr(),
       icon: Images.user,
@@ -116,6 +116,16 @@ class _MoreView extends ConsumerState<MoreView>{
         Get.toNamed(RegisterRouting.config().path);
       },
     ),
+
+    MoreModel(
+      name: LangEnum.addresses.tr(),
+      icon: Images.address,
+      onPress: (){
+        Get.toNamed(AddressListRouting.config().path);
+      },
+    ),
+
+
 
     MoreModel(
       name: LangEnum.favorites.tr(),
@@ -182,6 +192,74 @@ class _MoreView extends ConsumerState<MoreView>{
 
 
   ];
+
+  List<MoreModel> guestList = [
+    MoreModel(
+      name: LangEnum.createAccount.tr(),
+      icon: Images.user,
+      onPress: (){
+        Get.toNamed(RegisterRouting.config().path);
+      },
+    ),
+
+    MoreModel(
+      name: LangEnum.addStore.tr(),
+      icon: Images.whatsApp,
+      onPress: (){
+        openWhatsapp(whatsNumber: '966544646113');
+      },
+    ),
+
+
+    MoreModel(
+      name: LangEnum.complainAndSuggestion.tr(),
+      icon: Images.complain,
+      onPress: (){
+        openWhatsapp(whatsNumber: '966544646113');
+        // Get.toNamed(ComplainAndSuggestRouting.config().path);
+      },
+    ),
+
+    MoreModel(
+      name: LangEnum.rateApp.tr(),
+      icon: Images.rate,
+      onPress: (){
+        rateAppOnStore();
+      },
+    ),
+
+
+    MoreModel(
+      name: LangEnum.inviteFriends.tr(),
+      icon: Images.share,
+      onPress: (){
+        shareApp();
+      },
+    ),
+
+
+    MoreModel(
+      name: LangEnum.termsAndConditions.tr(),
+      icon: Images.condition,
+      onPress: (){
+        Get.toNamed(TermsOfServiceRouting.config().path);
+      },
+    ),
+
+    MoreModel(
+      name: LangEnum.darkMode.tr(),
+      icon: Images.nightMode,
+      onPress: (){
+        ThemeService().switchTheme();
+        Get.offAllNamed(InitRouting.config().path);
+      },
+    ),
+
+
+
+
+  ];
+
 
 
 }

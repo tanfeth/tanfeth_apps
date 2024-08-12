@@ -101,8 +101,12 @@ class _RestaurantCell extends ConsumerState<RestaurantCell>{
                     ),
                     child: Center(
                       child: Icon(
-                        Icons.favorite_border,
-                        color: context.color.onPrimary,
+                        (widget.model.isFav??false)?
+                              Icons.favorite
+                            :Icons.favorite_border,
+                        color:  (widget.model.isFav??false)?
+                             context.color.surface
+                            : context.color.onPrimary,
                       ),
                     ),
                   ),

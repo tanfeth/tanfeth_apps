@@ -6,8 +6,10 @@ import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/complete_trip/widget/payment_cell.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/map_route.dart';
+
 
 class SelectAddressWidget extends ConsumerStatefulWidget{
   const SelectAddressWidget({super.key});
@@ -48,19 +50,25 @@ class _SelectAddressWidget extends ConsumerState<SelectAddressWidget>{
                 ),
               ),
 
-              Row(
-                children: [
-                  Icon(
-                    Icons.add,
-                    size: 25,
-                      color: context.color.primary,
-                  ),
+              InkWell(
+                splashColor: context.color.surface,
+                onTap: (){
+                  Get.toNamed(MapRouting.config().path);
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add,
+                      size: 25,
+                        color: context.color.primary,
+                    ),
 
-                  5.pw,
-                  Text(
-                    LangEnum.addNewAddress.tr()
-                  )
-                ],
+                    5.pw,
+                    Text(
+                      LangEnum.addNewAddress.tr()
+                    )
+                  ],
+                ),
               )
             ],
           ),

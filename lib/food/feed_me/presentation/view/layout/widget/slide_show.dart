@@ -1,17 +1,15 @@
 import 'package:api_controller/presentation/widget/cached_image_widget.dart';
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
-import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/helper_methods.dart';
 import 'package:api_controller/shared/sizes.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/layout/BannerModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/slide_vm.dart';
-
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 
 class SlideShow extends ConsumerStatefulWidget{
   const SlideShow({super.key});

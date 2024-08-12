@@ -103,7 +103,7 @@ class _FavouriteView extends ConsumerState<FavouriteView>{
         RestaurantModel  model = RestaurantModel();
         model.name = 'تورتيلا';
         model.closeTime = '3.30 ص';
-        model.isFav = false;
+        model.isFav = true;
         model.rate = 4.9;
         restaurantList.add(model);
       }

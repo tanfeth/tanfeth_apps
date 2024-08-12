@@ -45,11 +45,17 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
               Expanded(
                 child: Transform.translate(
                   offset: const Offset(0, 3),
-                  child: Text(
-                    title ?? '',
-                    textAlign: textAlign ?? TextAlign.center,
-                    style: context.text.titleMedium?.copyWith(
-                      color: appBarColor != null ? context.color.onPrimary : context.color.onPrimaryContainer,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 5
+                    ),
+                    child: Text(
+                      title ?? '',
+                      textAlign: textAlign ?? TextAlign.center,
+                      maxLines: 1,
+                      style: context.text.titleMedium?.copyWith(
+                        color: appBarColor != null ? context.color.onPrimary : context.color.onSurface,
+                      ),
                     ),
                   ),
                 ),

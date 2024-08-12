@@ -159,7 +159,11 @@ class Images {
   static String deliveryBike =  "";
   static String takeAway =  "";
 
-
+  static String address =  "";
+  static String sucess =  "";
+  static String offerSlide1 =  "";
+  static String offerSlide2 =  "";
+  static String offerSlide3 =  "";
 
   static Future<void> initImages() async {
      appLogo = await checkImage('logo.png');
@@ -315,7 +319,11 @@ class Images {
      nightMode= await checkImage('night_mode.png');
      deliveryBike= await checkImage('delivery_bike.png');
      takeAway= await checkImage('take_away.png');
-
+     address= await checkImage('address.png');
+     sucess= await checkImage('sucess.png');
+     offerSlide1= await checkImage('offer_slide1.png');
+     offerSlide2= await checkImage('offer_slide2.png');
+     offerSlide3= await checkImage('offer_slide3.png');
   }
 
 

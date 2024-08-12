@@ -9,10 +9,15 @@ import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/confirm_order_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/favourite_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/cart_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/offer_detalis_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/success_route.dart';
 import 'package:tanfeth_apps/flavor/common_main.dart';
 import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/add_address_route.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/address_list_route.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/map_route.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/end_points.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_enum.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_languages.dart';
@@ -72,6 +77,11 @@ class FeedMeMain {
       FavouriteRouting.config().page,
       ConfirmOrderRouting.config().page,
       MyCardsRouting.config().page,
+      MapRouting.config().page,
+      AddAddressRouting.config().page,
+      AddressListRouting.config().page,
+      SuccessRouting.config().page,
+      OfferDetailsRouting.config().page,
     ]);
 
     mainCommon(
