@@ -7,6 +7,7 @@ import 'package:api_controller/shared/grid_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/confirm_order_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/document_details_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/favourite_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/cart_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/offer_detalis_route.dart';
@@ -18,6 +19,7 @@ import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/add_address_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/address_list_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/map_route.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/restaurant_profile_route.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/end_points.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_enum.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_languages.dart';
@@ -82,6 +84,8 @@ class FeedMeMain {
       AddressListRouting.config().page,
       SuccessRouting.config().page,
       OfferDetailsRouting.config().page,
+      ImageZoomRouting.config().page,
+      RestaurantProfileRouting.config().page,
     ]);
 
     mainCommon(

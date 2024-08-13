@@ -5,9 +5,12 @@
 
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/EmptyResult.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/restaurant_profile_route.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/layout/RestaurantModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/resturant_list_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/restaurant_cell.dart';
@@ -59,7 +62,9 @@ class _RestaurantListWidget extends ConsumerState<RestaurantListWidget>{
                       child: EmptyResult());
                 } else {
                   return InkWell(
+                    splashColor: context.color.surface,
                     onTap: () {
+                      Get.toNamed(RestaurantProfileRouting.config().path);
                     },
                     child: Column(
                       children: [

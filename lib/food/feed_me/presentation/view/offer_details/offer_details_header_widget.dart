@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/document_details_route.dart';
+import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/slide_vm.dart';
 
 class OfferDetailsHeaderWidget extends ConsumerStatefulWidget{
@@ -50,7 +52,16 @@ ConsumerState<OfferDetailsHeaderWidget>{
                           },
                           child:  GestureDetector(
                             onTap: () {
-
+                              Get.toNamed(ImageZoomRouting.config().path,
+                              parameters: {
+                                ImageZoomRouting.image: index == 0 ?
+                                Images.offerSlide1:
+                                index == 1?
+                                Images.offerSlide2:
+                                Images.offerSlide3,
+                                ImageZoomRouting.imageType:
+                                    customAppFlavor.commonEnum.imageTypeEnum.assets
+                              });
                             },
                             child: SizedBox(
                                 width: double.infinity,

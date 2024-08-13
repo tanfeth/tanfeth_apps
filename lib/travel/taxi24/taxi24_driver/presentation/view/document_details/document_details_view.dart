@@ -21,8 +21,8 @@ class _DocumentDetailsViewState extends State<DocumentDetailsView> {
 
   @override
   void initState() {
-    appBarTitle = Get.parameters[DocumentDetailsRouting.pageTitle]??'';
-    image = Get.parameters[DocumentDetailsRouting.image]??'';
+    appBarTitle = Get.parameters[ImageZoomRouting.pageTitle]??'';
+    image = Get.parameters[ImageZoomRouting.image]??'';
 
     super.initState();
   }

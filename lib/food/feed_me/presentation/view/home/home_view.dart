@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/category_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/filter_search_widget.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/resturant_list_widget.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/restaurant_list_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/slide_show.dart';
 
 class FeedMeHomeView extends ConsumerStatefulWidget {

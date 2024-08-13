@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:store_redirect/store_redirect.dart';
-import 'package:showcaseview/showcaseview.dart';
+
 
 
 

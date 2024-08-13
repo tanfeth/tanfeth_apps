@@ -87,6 +87,7 @@ class _RestaurantCell extends ConsumerState<RestaurantCell>{
       
       
                 InkWell(
+                  splashColor: context.color.surface,
                   onTap: (){
       
                   },

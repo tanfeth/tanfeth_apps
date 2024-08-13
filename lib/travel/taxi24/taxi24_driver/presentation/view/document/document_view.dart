@@ -38,11 +38,11 @@ class _DocumentView extends ConsumerState<DocumentView>{
                   image: Images.fileSVG,
                   title: LangEnum.saudiID.tr(),
                   function: () {
-                    Get.toNamed(DocumentDetailsRouting.config().path,
+                    Get.toNamed(ImageZoomRouting.config().path,
                     parameters: {
-                      DocumentDetailsRouting.pageTitle:
+                      ImageZoomRouting.pageTitle:
                       LangEnum.saudiID.tr(),
-                      DocumentDetailsRouting.image:
+                      ImageZoomRouting.image:
                       'https://picsum.photos/id/1/200/300',
                     });
                   },
@@ -56,11 +56,11 @@ class _DocumentView extends ConsumerState<DocumentView>{
                   image: Images.fileSVG,
                   title:  LangEnum.drivingLicense.tr(),
                   function: () {
-                    Get.toNamed(DocumentDetailsRouting.config().path,
+                    Get.toNamed(ImageZoomRouting.config().path,
                         parameters: {
-                          DocumentDetailsRouting.pageTitle:
+                          ImageZoomRouting.pageTitle:
                           LangEnum.drivingLicense.tr(),
-                          DocumentDetailsRouting.image:
+                          ImageZoomRouting.image:
                           'https://picsum.photos/id/1/200/300',
                         });
                   },

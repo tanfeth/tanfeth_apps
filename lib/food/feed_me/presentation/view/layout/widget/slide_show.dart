@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/restaurant_profile_route.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/layout/BannerModel.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/slide_vm.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
@@ -64,19 +65,22 @@ class _SlideShow extends ConsumerState<SlideShow>{
                         )
                     ),
                     child: InkWell(
+                      splashColor: context.color.surface,
                       onTap: (){
-                        if (list[index].link != null) {
-                          urlLauncher(Uri.parse(list[index].link ?? ''));
-                        }
+                        Get.toNamed(RestaurantProfileRouting.config().path);
+                        // if (list[index].link != null) {
+                        //   urlLauncher(Uri.parse(list[index].link ?? ''));
+                        // }
                       },
                       child: Stack(
                         children: [
 
                           GestureDetector(
                             onTap: () {
-                              if (list[index].link != null) {
-                                urlLauncher(Uri.parse(list[index].link ?? ''));
-                              }
+                              Get.toNamed(RestaurantProfileRouting.config().path);
+                              // if (list[index].link != null) {
+                              //   urlLauncher(Uri.parse(list[index].link ?? ''));
+                              // }
                             },
                             child: SizedBox(
                               width: double.infinity,

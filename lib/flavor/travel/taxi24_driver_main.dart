@@ -81,7 +81,7 @@ class Taxi24DriverMain {
     customAppFlavor = flavor;
     screenPages.addAll([
       DocumentRouting.config().page,
-      DocumentDetailsRouting.config().page,
+      ImageZoomRouting.config().page,
       CarsRouting.config().page,
       AddCarRouting.config().page,
       CarDetailsRouting.config().page,

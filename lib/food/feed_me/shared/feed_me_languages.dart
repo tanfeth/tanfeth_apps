@@ -1313,16 +1313,24 @@ class FeedMeLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.follow.name,
+      enValue: 'Follow',
+      arValue: 'متابعة',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.availableDelivery .name,
+      enValue: 'Available delivery ',
+      arValue: 'متاح التوصيل',
     );
+
+    addString(
+      key: LangEnum.notAvailableDelivery .name,
+      enValue: 'Not available delivery ',
+      arValue: 'غير متاح التوصيل',
+    );
+
+
 
     addString(
       key: LangEnum.km.name,
