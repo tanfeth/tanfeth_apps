@@ -1333,21 +1333,21 @@ class FeedMeLanguages extends MyLanguages {
 
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.shoppingCart.name,
+      enValue: 'Shopping cart',
+      arValue: 'سلة المشتريات',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.clientRate.name,
+      enValue: 'Clients rate',
+      arValue: 'تقييم العملاء',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.branches.name,
+      enValue: 'Branches',
+      arValue: 'الفروع',
     );
 
     addString(

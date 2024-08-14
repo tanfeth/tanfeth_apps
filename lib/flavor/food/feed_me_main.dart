@@ -18,6 +18,7 @@ import 'package:tanfeth_apps/flavor/flavor_config.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/add_address_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/address_list_route.dart';
+import 'package:tanfeth_apps/food/common/shared/routes/clients_rate_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/map_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/restaurant_profile_route.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/end_points.dart';
@@ -86,6 +87,7 @@ class FeedMeMain {
       OfferDetailsRouting.config().page,
       ImageZoomRouting.config().page,
       RestaurantProfileRouting.config().page,
+      ClientsRateRouting.config().page,
     ]);
 
     mainCommon(
