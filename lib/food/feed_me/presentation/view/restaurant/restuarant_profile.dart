@@ -11,14 +11,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/clients_rate_route.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/branch/branch_list_view.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/bottom_bar_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/vm/profile_tabs_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/resaurant_profile_header.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_images-widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_menu_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_offer_widget.dart';
@@ -218,7 +215,6 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
                   itemBuilder: (context,index){
                     return pages[ref.watch(feedMeProfileTabsProvider)];
                   },
-                  physics: const NeverScrollableScrollPhysics(),
                   onPageChanged: (index){
                     ref.read(feedMeProfileTabsProvider.notifier)
                         .changeTabIndex(currentIndex: index);

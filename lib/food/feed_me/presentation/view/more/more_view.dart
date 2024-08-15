@@ -50,32 +50,49 @@ class _MoreView extends ConsumerState<MoreView>{
 
         Expanded(
           child: ListView.separated(
-            itemCount: userList.length,
+            itemCount: userList.length +1,
             padding: const EdgeInsets.symmetric(vertical: 10),
             itemBuilder: (context,index){
-              return MoreCell(
-                moreModel: userList[index],
-                trailingWidget: index == userList.lastIndexOf(userList.last)?
-                Container(
-                  height: 30,
-                  width: 50,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Switch(
-                      value: ThemeService().theme ==
-                          ThemeMode.dark?
-                       true:false,
-                      activeColor: context.color.onPrimary,
-                      activeTrackColor: context.color.primary,
-                      onChanged: (val) async {
-                        ThemeService().switchTheme();
-                        Get.offAllNamed(InitRouting.config().path);
-                      },
+              if(index == (userList.length )){
+                return         Column(
+                  children: [
+                    Text(
+                      LangEnum.followUsOnSocialS.tr(),
+                      style: context.text.bodyLarge,
                     ),
-                  ),
-                ):const SizedBox.shrink(),
-              );
+                    20.ph,
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [SocialRow()],
+                    ).hPadding(30),
+                  ],
+                );
+              }else {
+                return MoreCell(
+                  moreModel: userList[index],
+                  trailingWidget: index == userList.lastIndexOf(userList.last)?
+                  Container(
+                    height: 30,
+                    width: 50,
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: Switch(
+                        value: ThemeService().theme ==
+                            ThemeMode.dark?
+                        true:false,
+                        activeColor: context.color.onPrimary,
+                        activeTrackColor: context.color.primary,
+                        onChanged: (val) async {
+                          ThemeService().switchTheme();
+                          Get.offAllNamed(InitRouting.config().path);
+                        },
+                      ),
+                    ),
+                  ):const SizedBox.shrink(),
+                );
+              }
+
             },
             separatorBuilder: (context,index)=> Column(
               children: [
@@ -87,19 +104,6 @@ class _MoreView extends ConsumerState<MoreView>{
           ),
         ),
 
-        Column(
-          children: [
-            Text(
-              LangEnum.followUsOnSocialS.tr(),
-              style: context.text.bodyLarge,
-            ),
-            20.ph,
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [SocialRow()],
-            ).hPadding(30),
-          ],
-        ),
 
         30.ph
       ],

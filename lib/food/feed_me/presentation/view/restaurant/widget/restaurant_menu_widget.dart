@@ -37,6 +37,7 @@ class _RestaurantMenuWidget extends ConsumerState<RestaurantMenuWidget>{
                 expandedHeight: 70,
                 stretch: true,
                 toolbarHeight: 50,
+                pinned: false,
                 leading:  SizedBox.shrink(),
               ),
 
@@ -47,8 +48,8 @@ class _RestaurantMenuWidget extends ConsumerState<RestaurantMenuWidget>{
                 floating: true,
                 expandedHeight: 130,
                 stretch: true,
-                pinned: true,
                 toolbarHeight: 110,
+                pinned: false,
                 leading:  SizedBox.shrink(),
               ),
 
