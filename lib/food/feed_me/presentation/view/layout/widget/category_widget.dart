@@ -20,8 +20,6 @@ class CategoryWidget extends ConsumerStatefulWidget{
 
 class _CategoryWidget extends ConsumerState<CategoryWidget>{
 
-
-  List<CategoryModel> categoryList = [];
  List<String> categoryImage = [
    Images.bety,
    Images.pizza,

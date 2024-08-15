@@ -13,7 +13,7 @@ class OfferDetailsRouting extends RoutingConfig {
   OfferDetailsRouting();
 
   static const String _path = '/OfferDetails/';
-
+  static const String onFollowTap = 'onFollowTap';
 
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {

@@ -13,7 +13,9 @@ import 'package:tanfeth_apps/food/feed_me/data/model/offers/OfferModel.dart';
 
 class OfferCell extends ConsumerStatefulWidget{
   final OfferModel model;
-  const OfferCell({super.key,required this.model});
+  final Function()? onFollowTap;
+  const OfferCell({super.key,required this.model,
+   this.onFollowTap});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState()=>_OfferCell();
@@ -25,8 +27,12 @@ class _OfferCell extends ConsumerState<OfferCell>{
   Widget build(BuildContext context) {
    return InkWell(
      splashColor: context.color.surface,
-     onTap: (){
-       Get.toNamed(OfferDetailsRouting.config().path);
+     onTap:(){
+       Get.toNamed(OfferDetailsRouting.config().path,
+       arguments: {
+         OfferDetailsRouting.onFollowTap:
+             widget.onFollowTap
+       });
      },
      child: Container(
        height: 250,

@@ -23,6 +23,7 @@ class BackButtonWidget extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: InkWell(
+        splashColor: context.color.surface,
         onTap: onTap ?? () => Get.back(),
         child: CircleAvatar(
           radius: 20,

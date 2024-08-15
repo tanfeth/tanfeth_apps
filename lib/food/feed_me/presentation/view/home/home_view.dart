@@ -31,6 +31,7 @@ class _FeedMeHomeView extends ConsumerState<FeedMeHomeView> {
                 expandedHeight: 70,
                 stretch: true,
                 toolbarHeight: 50,
+                leading:  SizedBox.shrink(),
               ),
 
               ///Category
@@ -41,6 +42,7 @@ class _FeedMeHomeView extends ConsumerState<FeedMeHomeView> {
                 stretch: true,
                 pinned: true,
                 toolbarHeight: 110,
+                leading:  SizedBox.shrink(),
               ),
 
               RestaurantListWidget(),

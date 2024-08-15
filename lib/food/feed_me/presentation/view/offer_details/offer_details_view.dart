@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/offer_detalis_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/restaurant_profile_route.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/offer_details/offer_details_header_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
@@ -33,6 +34,19 @@ class _OfferDetailsView extends ConsumerState<OfferDetailsView>{
  " او فودافون كاش او اي محفظة 🤩 تيك اواي & دليفيري"
   "وبنوصل كمان لاي مكان داخل و خارج #الممكلة 😉"
   ;
+
+
+  Function()? onFollowTap;
+
+
+  @override
+  void initState() {
+    if(Get.arguments != null){
+      onFollowTap = Get.arguments[OfferDetailsRouting.onFollowTap];
+    }
+    super.initState();
+  }
+
 
 
   @override
@@ -117,7 +131,7 @@ class _OfferDetailsView extends ConsumerState<OfferDetailsView>{
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: ElevatedButton(
-                  onPressed: () async {
+                  onPressed: onFollowTap ?? () async {
                     Get.toNamed(RestaurantProfileRouting.config().path);
                   },
                   child: Text(LangEnum.follow.tr()),

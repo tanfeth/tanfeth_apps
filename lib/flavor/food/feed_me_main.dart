@@ -26,6 +26,7 @@ import 'package:tanfeth_apps/food/feed_me/shared/feed_me_enum.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/feed_me_languages.dart';
 import 'package:tanfeth_apps/food/feed_me/shared/theme/theme.dart';
 import 'package:tanfeth_apps/travel/common/shared/routes/my_cards_route.dart';
+import 'package:tanfeth_apps/travel/common/shared/routes/terms_service_route.dart';
 
 
 
@@ -88,6 +89,7 @@ class FeedMeMain {
       ImageZoomRouting.config().page,
       RestaurantProfileRouting.config().page,
       ClientsRateRouting.config().page,
+      TermsOfServiceRouting.config().page,
     ]);
 
     mainCommon(

@@ -12,11 +12,16 @@ import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
+import 'package:tanfeth_apps/common/shared/routing/routes/offers_route.dart';
 import 'package:tanfeth_apps/food/common/shared/routes/clients_rate_route.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/branch/branch_list_view.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/vm/bottom_bar_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/vm/profile_tabs_vm.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/resaurant_profile_header.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_images-widget.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_menu_widget.dart';
+import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_offer_widget.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/restaurant/widget/restaurant_tabs_widget.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 
@@ -35,21 +40,16 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
   PageController(viewportFraction: 1, keepPage: true);
 
   List<Widget> pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Colors.green,
-    ),
+    const RestaurantMenuWidget(),
+    const RestaurantOfferWidget(),
+    const RestaurantImagesWidget(),
+   const BranchListView(),
 
   ];
 
   @override
   void initState() {
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
 
@@ -66,7 +66,10 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
         child: SafeArea(
           child: Column(
             children: [
-              Expanded(
+
+
+              SizedBox(
+                height: 350,
                 child: CustomScrollView(slivers: [
                   ///Header
                   SliverAppBar(
@@ -188,8 +191,6 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
                     flexibleSpace: RestaurantTabsWidget(
                         tabController:tabController
                     ),
-                    expandedHeight: 80,
-                    toolbarHeight: 80,
                     pinned: true,
                     stretch: true,
                   ),
@@ -204,37 +205,31 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
                   //     );
                   //   },childCount: 20),
                   // ),
+
                 ]),
               ),
 
 
 
               Expanded(
-                child: TabBarView(
-                  controller: tabController,
-                  children: pages.map<Widget>((page) {
-                    return PageView.builder(
-                      itemBuilder: (context, index)
-                      {
-                        return pages[ref.watch(feedMeProfileTabsProvider)];
-                      },
-                      itemCount: pages.length,
-                      controller: pageController,
-                      reverse: false,
-                        physics: const ClampingScrollPhysics(),
-                      onPageChanged: (index){
-                        ref.read(feedMeProfileTabsProvider.notifier)
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount:  pages.length,
+                  itemBuilder: (context,index){
+                    return pages[ref.watch(feedMeProfileTabsProvider)];
+                  },
+                  physics: const NeverScrollableScrollPhysics(),
+                  onPageChanged: (index){
+                    ref.read(feedMeProfileTabsProvider.notifier)
                         .changeTabIndex(currentIndex: index);
-                        pageController.nextPage(
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.easeIn);
-                        tabController.animateTo(tabController.index + 1);
-                      },
-                    );
-                  }).toList(),
-                ),
+                    pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeIn);
+                    tabController.animateTo(index);
+                  },
+                )
               ),
-
 
               // Padding(
               //   padding: const EdgeInsets.all(15.0),

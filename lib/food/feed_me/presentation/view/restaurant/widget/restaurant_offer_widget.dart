@@ -1,27 +1,24 @@
 
 
-
-
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/offer_detalis_route.dart';
 import 'package:tanfeth_apps/food/feed_me/data/model/offers/OfferModel.dart';
-import 'package:tanfeth_apps/food/feed_me/presentation/view/layout/widget/slide_show.dart';
 import 'package:tanfeth_apps/food/feed_me/presentation/view/offers/widget/offer_cell.dart';
 
-class OffersView extends ConsumerStatefulWidget{
-  const OffersView({super.key});
+class RestaurantOfferWidget extends ConsumerStatefulWidget{
+  const RestaurantOfferWidget({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState()=>_OffersView();
+  ConsumerState<ConsumerStatefulWidget> createState() =>_RestaurantOfferWidget();
+
 
 }
 
-class _OffersView extends ConsumerState<OffersView>{
+class _RestaurantOfferWidget extends ConsumerState<RestaurantOfferWidget>{
 
   late bool isLoading ;
   List<OfferModel> offerList = [];
@@ -35,38 +32,33 @@ class _OffersView extends ConsumerState<OffersView>{
   }
 
 
+
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        15.ph,
-        const SlideShow(),
-        15.ph,
-
-        Expanded(
-          child: ListView.separated(
-              itemBuilder: (context,index){
-                if(isLoading){
-                  return  Container(
-                    height: 130,
-                    margin: const EdgeInsets.all(10),
-                    child: const ShimmerWidget(),
-                  );
-                }else {
-                  return OfferCell(
-                    model:offerList[index],
-                  );
-                }
+    return ListView.separated(
+        itemBuilder: (context,index){
+          if(isLoading){
+            return  Container(
+              height: 130,
+              margin: const EdgeInsets.all(10),
+              child: const ShimmerWidget(),
+            );
+          }else {
+            return OfferCell(
+                model:offerList[index],
+              onFollowTap: (){
+                  Get.back();
               },
-              separatorBuilder: (context, index) => 15.ph,
-              itemCount: isLoading?
-                   7:offerList.length
-          ),
-        ),
-
-      ],
+            );
+          }
+        },
+        separatorBuilder: (context, index) => 15.ph,
+        itemCount: isLoading?
+        7:offerList.length
     );
   }
+
 
   void setOfferList() {
     isLoading = true;
@@ -83,5 +75,7 @@ class _OffersView extends ConsumerState<OffersView>{
     isLoading = false;
     setState(() {});
   }
+
+
 
 }

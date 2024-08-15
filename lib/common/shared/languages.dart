@@ -661,7 +661,7 @@ enum LangEnum {
   saudiCitizenChildAgeNot20Years,
   uploadPhotoDrivingLicense,
   uploadphotoVehicleRegistrationIstimara, registerVehicleOwnerVehicle, acceptAnyDocumenType, uploadPhotoVehicleInsurance, empty, imageUploadedSuccessfully, expiryWarning, addExpireDate, fillCarDetials, sweets, cheese, italy, drinks, pizza, burger, sandwich, bety, shawarma, asia, inviteFriends,
-  complainAndSuggestion, addStore, changeMode, firstName, lastName, orderType, getFromRestaurant, fromRestaurant, receivingTime, oncePrepared, delayed, pleaseSelectDateTime, chooseDeliveryAddress, buildingNumberOrName, apartmentNumber, otherNotes, successfullyOrdered, successfullyOrderedDes, follow, availableDelivery, notAvailableDelivery, clientRate, branches,
+  complainAndSuggestion, addStore, changeMode, firstName, lastName, orderType, getFromRestaurant, fromRestaurant, receivingTime, oncePrepared, delayed, pleaseSelectDateTime, chooseDeliveryAddress, buildingNumberOrName, apartmentNumber, otherNotes, successfullyOrdered, successfullyOrderedDes, follow, availableDelivery, notAvailableDelivery, clientRate, branches, services, foodSections, images, addNotesOptions,
 }
 
 class MyLanguages extends Translations {

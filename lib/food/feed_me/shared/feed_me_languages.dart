@@ -1351,26 +1351,26 @@ class FeedMeLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.services.name,
+      enValue: 'Services',
+      arValue: 'الخدمات',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.foodSections.name,
+      enValue: 'Food sections',
+      arValue: 'أقسام الطعام',
     );
 
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.images.name,
+      enValue: 'Images',
+      arValue: 'الصور',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.addNotesOptions.name,
+      enValue: 'Would you like to add other notes? (Optional)',
+      arValue: 'هل تريد اضافة ملاحظات اخرى؟ (اختيارى)',
     );
     addString(
       key: LangEnum.km.name,

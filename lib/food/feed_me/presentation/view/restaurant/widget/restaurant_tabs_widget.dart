@@ -42,13 +42,15 @@ late FeedMeProfileTabsVM feedMeProfileTabsVM;
       unselectedLabelColor: context.color.onSurface,
       dividerHeight: 0.0,
       padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
       onTap: (index){
         feedMeProfileTabsVM.changeTabIndex(currentIndex: index);
       },
       tabs: [
         Tab(
-          text: LangEnum.menu.tr()),
+          text: LangEnum.menu.tr(),),
         Tab(text: LangEnum.offers.tr()),
+        Tab(text: LangEnum.images.tr()),
         Tab(text: LangEnum.branches.tr()),
       ],
     );
