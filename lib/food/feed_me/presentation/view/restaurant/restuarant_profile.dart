@@ -34,7 +34,8 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
   bool isFav = false;
   late TabController tabController;
   PageController pageController =
-  PageController(viewportFraction: 1, keepPage: true);
+  PageController(viewportFraction: 1, keepPage: false,
+  initialPage: 0);
 
   List<Widget> pages = [
     const RestaurantMenuWidget(),
@@ -46,7 +47,17 @@ ConsumerState<RestaurantProfileView> with SingleTickerProviderStateMixin{
 
   @override
   void initState() {
-    tabController = TabController(length: 4, vsync: this);
+    tabController = TabController(length: 4, vsync: this,
+    initialIndex: 0);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(feedMeProfileTabsProvider.notifier)
+          .changeTabIndex(currentIndex: 0);
+    });
+
+
+
+
     super.initState();
   }
 
