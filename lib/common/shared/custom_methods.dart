@@ -13,8 +13,6 @@ bool get isTaxi24Driver => customAppFlavor.appNameEnum ==
 bool get isTaxi24Passenger => customAppFlavor.appNameEnum ==
     AppNameEnum.taxi24Passenger;
 
-bool get isFeedMe => customAppFlavor.appNameEnum ==
-    AppNameEnum.feedMe;
 
 
 void checkCaseStatus({int? index}) {

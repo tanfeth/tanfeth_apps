@@ -27,7 +27,7 @@ class _CardViewState extends ConsumerState<CardView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: cardList.isNotEmpty
             ? SizedBox(
                 height: MediaQuery.of(context).size.height * 0.4,
@@ -46,11 +46,11 @@ class _CardViewState extends ConsumerState<CardView> {
                             },
                             child: Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.add,
                                   size: 24,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 16,
                                 ),
                                 Text(
@@ -64,7 +64,7 @@ class _CardViewState extends ConsumerState<CardView> {
                           );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
+                    return const SizedBox(
                       height: 40,
                     );
                   },
@@ -78,7 +78,7 @@ class _CardViewState extends ConsumerState<CardView> {
                     height: 14,
                     width: 20,
                   )),
-                  SizedBox(
+                  const SizedBox(
                     width: 18,
                   ),
                   Expanded(
@@ -92,7 +92,7 @@ class _CardViewState extends ConsumerState<CardView> {
                           style: context.text.bodyLarge
                               ?.copyWith(color: context.color.onSurface),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Text(LangEnum.usedReceiveMoney.tr(),
@@ -112,7 +112,7 @@ class _CardViewState extends ConsumerState<CardView> {
                       },
                       child: Center(
                         child: Container(
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               border: Border.all(
                                   color: context.color.surfaceContainerHighest,

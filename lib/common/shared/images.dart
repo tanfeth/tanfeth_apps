@@ -335,8 +335,6 @@ class Images {
         finalPath = "assets/taxi24Driver/$path";
       }else if(isTaxi24Passenger){
         finalPath = "assets/taxi24Passenger/$path";
-      }else if(isFeedMe){
-        finalPath = "assets/feedMe/$path";
       }
       await services.rootBundle.loadString(finalPath);
       return finalPath;

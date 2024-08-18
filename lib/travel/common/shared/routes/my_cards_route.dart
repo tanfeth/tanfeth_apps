@@ -15,11 +15,11 @@ class MyCardsRouting extends RoutingConfig {
   static RoutingConfig config() {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
-        return RoutingConfig(path: _path, widget:  MyCards());
+        return RoutingConfig(path: _path, widget:  const MyCards());
       case AppNameEnum.taxi24Passenger:
-        return RoutingConfig(path: _path, widget:  MyCards());
+        return RoutingConfig(path: _path, widget:  const MyCards());
       default:
-        return RoutingConfig(path: _path, widget:  MyCards());
+        return RoutingConfig(path: _path, widget:  const MyCards());
     }
   }
 }

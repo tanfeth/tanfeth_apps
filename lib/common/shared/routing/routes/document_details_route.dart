@@ -21,9 +21,6 @@ class ImageZoomRouting extends RoutingConfig {
     switch (customAppFlavor.appNameEnum) {
       case AppNameEnum.taxi24Driver:
         return RoutingConfig(path: _path, widget: const DocumentDetailsView());
-      case AppNameEnum.feedMe:
-        return RoutingConfig(path: _path, widget: const ImageZoomView());
-
       default:
         return RoutingConfig(path: _path, widget: const DocumentDetailsView());
     }

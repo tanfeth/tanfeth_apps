@@ -6,11 +6,11 @@ import 'package:tanfeth_apps/common/shared/images.dart';
 
 class CurrentLocationDetector  extends StatelessWidget {
   final VoidCallback onTap;
-  const CurrentLocationDetector ({required this.onTap,Key? key}) : super(key: key);
+  const CurrentLocationDetector ({required this.onTap,super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 16.0),
       child: InkWell(
         onTap: onTap,
         child: Container(

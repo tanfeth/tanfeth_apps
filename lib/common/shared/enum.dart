@@ -24,7 +24,6 @@ import 'package:api_controller/shared/enums/verify_enum.dart';
 import 'package:api_controller/shared/enums/verify_type_by_enum.dart';
 import 'package:api_controller/shared/enums/wallet_enum.dart';
 import 'package:flutter/foundation.dart';
-import 'package:tanfeth_apps/food/feed_me/shared/enum/image_type_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/app_data_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/attachment_state_enum.dart';
 import 'package:tanfeth_apps/travel/common/shared/enum/car_data_enum.dart';
@@ -69,7 +68,6 @@ class CommonEnum {
   String authToken;
   DriverDataEnum driverDataEnum;
   AttachmentStateEnum attachmentStateEnum;
-  ImageTypeEnum imageTypeEnum;
 
 
   CommonEnum({
@@ -77,7 +75,6 @@ class CommonEnum {
     this.loginWayEnum = const LoginWayEnum(),
     this.languageEnum = const LanguageEnum(),
     this.loginByEnum = const LoginByEnum(),
-    this.imageTypeEnum = const ImageTypeEnum(),
     this.accountStateEnum = const AccountStateEnum(),
     this.verifyTypeByEnum = const VerifyTypeByEnum(),
     this.driverDataEnum = const DriverDataEnum(),

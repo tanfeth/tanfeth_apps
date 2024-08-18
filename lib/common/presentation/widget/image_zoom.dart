@@ -46,12 +46,7 @@ class _ImageZoomViewState extends State<ImageZoomView> {
               padding:  const EdgeInsets.symmetric(vertical: 24,horizontal: 24),
               child: WidgetZoom(
                 heroAnimationTag:'tag',
-                zoomWidget: imageType ==
-                     customAppFlavor.commonEnum.imageTypeEnum.assets?
-                    Image.asset(
-                        image,
-                      fit: BoxFit.fill,
-                    ):
+                zoomWidget:
                 CachedImageWidget(
                   imageUrl: image,
                   errorImage: Images.appLogo,

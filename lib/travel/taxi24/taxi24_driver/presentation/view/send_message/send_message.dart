@@ -12,7 +12,7 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/sma
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/taxi24_driver_enum.dart';
 
 class SendMessageView extends ConsumerStatefulWidget{
-  const SendMessageView();
+  const SendMessageView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _SendMessageView();
@@ -24,11 +24,11 @@ class _SendMessageView extends ConsumerState<SendMessageView>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(title: LangEnum.sendMessage.tr(),
-          leadingWidget: BackButtonWidget()),
+          leadingWidget: const BackButtonWidget()),
       body: WebWidth(
         child: Container(
           alignment: Alignment.topCenter,
-          padding: EdgeInsets.symmetric(horizontal:24),
+          padding: const EdgeInsets.symmetric(horizontal:24),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(

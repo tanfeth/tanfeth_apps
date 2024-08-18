@@ -11,7 +11,7 @@ final selectedPaymentMethodProvider = StateNotifierProvider<SelectedPaymentMetho
 
 class SelectedPaymentMethodVM extends StateNotifier<String> {
 
-  SelectedPaymentMethodVM(String state) : super(state);
+  SelectedPaymentMethodVM(super.state);
 
 
   void setPayment(String payment) {

@@ -19,12 +19,10 @@ import 'package:api_controller/mode/app_mode.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/login_routing.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/register_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/auth_routing/verify_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/complain_and_suggest_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/home_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/init_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/language_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/layout_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/more_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/onboard_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/profile_routing.dart';
@@ -109,8 +107,6 @@ class CommonMain extends ConsumerWidget {
       ReportProblemRouting.config().page,
       NotificationsRouting.config().page,
       RegisterRouting.config().page,
-      MoreRouting.config().page,
-      ComplainAndSuggestRouting.config().page,
     ]);
   }
 

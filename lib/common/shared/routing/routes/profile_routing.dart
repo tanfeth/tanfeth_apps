@@ -16,9 +16,6 @@ class ProfileRouting extends RoutingConfig {
         return RoutingConfig(path: _path, widget: const TaxiDriverProfile());
         case AppNameEnum.taxi24Passenger:
           return RoutingConfig(path: _path, widget: const TaxiPassengerProfileView());
-      case AppNameEnum.feedMe:
-        return RoutingConfig(path: _path, widget: const TaxiPassengerProfileView());
-
       default:
         return RoutingConfig(path: _path, widget: const TaxiDriverProfile());
     }

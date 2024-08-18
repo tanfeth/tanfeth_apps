@@ -53,10 +53,8 @@ class FlavorConfig {
 enum AppNameEnum {
   taxi24Driver,
   taxi24Passenger,
-  feedMe
 }
 
 enum AppCategoryEnum {
   travel,
-  food
 }
