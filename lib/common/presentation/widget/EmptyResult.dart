@@ -12,7 +12,9 @@ class EmptyResult extends ConsumerStatefulWidget {
   const EmptyResult({super.key, this.text, this.subText});
 
   @override
-  _EmptyResultState createState() => _EmptyResultState();
+  _EmptyResultState createState() {
+    return _EmptyResultState();
+  }
 }
 
 class _EmptyResultState extends ConsumerState<EmptyResult> {
@@ -39,13 +41,15 @@ class _EmptyResultState extends ConsumerState<EmptyResult> {
                   ),
                 ),
               ),
-              Container(
-                  margin: const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding),
-                  child: Text(widget.text != null
-                      ? widget.text ?? ""
-                      : (LangEnum.noFound.tr() +
-                          (widget.subText ?? LangEnum.data.tr()) +
-                          LangEnum.forNow.tr()),textAlign: TextAlign.center,))
+              Expanded(
+                child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding),
+                    child: Text(widget.text != null
+                        ? widget.text ?? ""
+                        : (LangEnum.noFound.tr() +
+                            (widget.subText ?? LangEnum.data.tr()) +
+                            LangEnum.forNow.tr()),textAlign: TextAlign.center,)),
+              )
             ],
           ),
         );
