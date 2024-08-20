@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
@@ -25,6 +24,7 @@ class _FooterPayWayWidget extends ConsumerState<FooterPayWayWidget>{
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: context.color.surface,
       onTap: (){
         if(ref.read(destinationListProvider).isEmpty){
           showFailed(msg: LangEnum.selectDestination.tr());

@@ -1,8 +1,11 @@
 import 'dart:io';
+import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
+import 'package:api_controller/presentation/widget/shimmer_widget.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/helper_methods.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +17,6 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';
 import 'package:tanfeth_apps/travel/common/shared/app_data/car_classification.dart';
-import 'package:tanfeth_apps/travel/common/shared/app_data/cars.dart';
 import 'package:tanfeth_apps/travel/common/shared/app_data/years.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/ParamCarDetailsModel.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/vm/car_details_vm.dart';
@@ -22,6 +24,7 @@ import 'package:tanfeth_apps/travel/common/shared/form_validation.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/vm/car_type_list_vm.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/car_model_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/car_type_widget.dart';
+import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/car_details/widget/passenger_bottom_content.dart';
 
 class CarData extends ConsumerStatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -51,6 +54,9 @@ class _CarData extends ConsumerState<CarData> {
   final TextEditingController sequenceNumberController =
       TextEditingController();
   final TextEditingController colorController = TextEditingController();
+
+
+
 
   @override
   void initState() {
@@ -83,6 +89,7 @@ class _CarData extends ConsumerState<CarData> {
 
           /// Car types
           InkWell(
+            splashColor: context.color.surface,
             onTap: (){
               showBottomSheetFunction(
                 content:   CarTypeWidget(
@@ -118,6 +125,7 @@ class _CarData extends ConsumerState<CarData> {
             children: [
 
               InkWell(
+                splashColor: context.color.surface,
                 onTap: (){
                   if(carTypeController.text.isNotEmpty){
                     showBottomSheetFunction(
@@ -368,6 +376,35 @@ class _CarData extends ConsumerState<CarData> {
           const SizedBox(
             height: 16,
           ),
+
+          ///City
+          InkWell(
+            splashColor: context.color.surface,
+            onTap: (){
+              showBottomSheetFunction(
+                content:  const PassengerBottomContent()
+              );
+            },
+            child: CustomTextFormField(
+              keyboardType: TextInputType.text,
+              hintText: LangEnum.passengerCount.tr(),
+              textInputAction: TextInputAction.next,
+              validator: Validation.notEmpty,
+              enabled: false,
+              suffixWidget: Icon(
+                Icons.arrow_forward,
+                color: context.color.onSurface,
+                size: 20,
+              ),),
+          ),
+
+          const SizedBox(
+            height: 16,
+          ),
+
+
+
+
           Text(
             LangEnum.carPhotos.tr(),
             textAlign: TextAlign.start,

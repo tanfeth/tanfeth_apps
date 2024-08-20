@@ -94,6 +94,7 @@ class _CarTypeWidget extends ConsumerState<CarTypeWidget>{
                         );
                       }else{
                         return InkWell(
+                          splashColor: context.color.surface,
                           onTap: (){
                             widget.onSelected.call(
                                 carTypeList[index].name??''

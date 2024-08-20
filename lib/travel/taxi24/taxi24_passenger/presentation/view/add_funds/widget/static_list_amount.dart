@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class StaticListAmount extends StatefulWidget {
-  int? selectedAmount;
+
+class StaticListAmount extends ConsumerStatefulWidget{
+
+   int? selectedAmount;
   final ValueChanged<int?> onAmountSelected;
 
-   StaticListAmount({
-    required this.onAmountSelected,
-    required this.selectedAmount,
-    super.key,
-  });
+   StaticListAmount({super.key,
+  required this.onAmountSelected,
+  required this.selectedAmount});
+
 
   @override
-  _StaticListAmountState createState() => _StaticListAmountState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>_StaticListAmount();
+
+
 }
 
-class _StaticListAmountState extends State<StaticListAmount> {
+class _StaticListAmount extends ConsumerState<StaticListAmount>{
 
   final List<int> amountList = const [
     50,
@@ -26,6 +30,8 @@ class _StaticListAmountState extends State<StaticListAmount> {
     250,
     300,
   ];
+
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -67,4 +73,5 @@ class _StaticListAmountState extends State<StaticListAmount> {
       ),
     );
   }
+
 }

@@ -661,7 +661,7 @@ enum LangEnum {
   saudiCitizenChildAgeNot20Years,
   uploadPhotoDrivingLicense,
   uploadphotoVehicleRegistrationIstimara, registerVehicleOwnerVehicle, acceptAnyDocumenType, uploadPhotoVehicleInsurance, empty, imageUploadedSuccessfully, expiryWarning, addExpireDate, fillCarDetials, sweets, cheese, italy, drinks, pizza, burger, sandwich, bety, shawarma, asia, inviteFriends,
-  complainAndSuggestion, addStore, changeMode, firstName, lastName, orderType, getFromRestaurant, fromRestaurant, receivingTime, oncePrepared, delayed, pleaseSelectDateTime, chooseDeliveryAddress, buildingNumberOrName, apartmentNumber, otherNotes, successfullyOrdered, successfullyOrderedDes, follow, availableDelivery, notAvailableDelivery, clientRate, branches, services, foodSections, images, addNotesOptions,
+  complainAndSuggestion, addStore, changeMode, firstName, lastName, orderType, getFromRestaurant, fromRestaurant, receivingTime, oncePrepared, delayed, pleaseSelectDateTime, chooseDeliveryAddress, buildingNumberOrName, apartmentNumber, otherNotes, successfullyOrdered, successfullyOrderedDes, follow, availableDelivery, notAvailableDelivery, clientRate, branches, services, foodSections, images, addNotesOptions, invitationCode, payWith, passengerCount, passenger,
 }
 
 class MyLanguages extends Translations {
@@ -2315,6 +2315,13 @@ class MyLanguages extends Translations {
       enValue: 'Press here to get your current location',
       arValue: 'اضغط هنا للحصول على موقعك الحالي',
     );
+
+
+    addString(key: LangEnum.invitationCode.name,
+        enValue: 'Invitation code (if available)',
+        arValue: 'رمز الدعوة (إذا وجد)');
+
+
 
     return {arKey: arStrings, enKey: enStrings};
   }

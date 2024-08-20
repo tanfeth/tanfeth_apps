@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:api_controller/shared/helper_methods.dart';
@@ -66,6 +65,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                   key: showcaseKey3,
                   description: LangEnum.pickLocationCaseHint.tr(),
                   child: InkWell(
+                    splashColor: context.color.surface,
                     onTap: () {
                       ref.read(destinationListProvider.notifier).clearList();
                       ref
@@ -105,6 +105,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                   key: showcaseKey4,
                   description: LangEnum.destinationCaseHint.tr(),
                   child: InkWell(
+                    splashColor: context.color.surface,
                     onTap: () {
                       Get.toNamed(DestinationRouting.config().path);
                       // showBottomSheetFunction(
@@ -160,6 +161,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: context.color.surface,
                             onTap: () {
                               Get.toNamed(DestinationRouting.config().path);
 
@@ -227,6 +229,7 @@ class _FooterWidget extends ConsumerState<FooterWidget> {
                   children: [
                     10.pw,
                     InkWell(
+                      splashColor: context.color.surface,
                       onTap: () {
                         Get.toNamed(CompleteTripRouting.config().path);
 

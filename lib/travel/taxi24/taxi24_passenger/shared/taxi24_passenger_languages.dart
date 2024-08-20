@@ -1394,9 +1394,9 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
     addString(
-      key: LangEnum.route.name,
-      enValue: 'Route',
-      arValue: 'مسار',
+      key: LangEnum.payWith.name,
+      enValue: 'Pay with',
+      arValue: 'ادفع بـ',
     );
 
     addString(

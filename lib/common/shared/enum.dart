@@ -132,13 +132,13 @@ class WeekDaysEnum {
 }
 
 class SocialMediaLoginEnum {
-  static const int Facebook = 1;
-  static const int Google = 2;
-  static const int Twitter = 3;
-  static const int Apple = 4;
-  static const int LinkedIn = 5;
-  static const int Instagram = 6;
-  static const int Other = 7;
+  static const int facebook = 1;
+  static const int google = 2;
+  static const int twitter = 3;
+  static const int apple = 4;
+  static const int linkedIn = 5;
+  static const int instagram = 6;
+  static const int other = 7;
 }
 
 class FileTypeEnum {

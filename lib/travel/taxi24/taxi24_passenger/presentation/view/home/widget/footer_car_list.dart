@@ -81,6 +81,7 @@ late CarListVM carListVM;
           itemCount: carList.length,
           itemBuilder: (context,index){
             return   InkWell(
+              splashColor: context.color.surface,
               onTap: () {
                 carTypeVM.changeIndex(index);
               },

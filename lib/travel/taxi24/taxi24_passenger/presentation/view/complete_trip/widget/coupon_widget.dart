@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/presentation/widget/text_form_field_widget.dart';
-import 'package:tanfeth_apps/common/shared/extensions/button_extensions.dart';
 import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:api_controller/shared/sizes.dart';
 
 
 class CouponWidget extends ConsumerStatefulWidget {

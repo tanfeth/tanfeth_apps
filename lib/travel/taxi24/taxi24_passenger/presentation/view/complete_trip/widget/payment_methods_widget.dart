@@ -107,6 +107,7 @@ class _PaymentMethodsWidget extends ConsumerState<PaymentMethodsWidget>{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
+              splashColor: context.color.surface,
               onTap: (){
 
                 Get.toNamed(MyCardsRouting.config().path);

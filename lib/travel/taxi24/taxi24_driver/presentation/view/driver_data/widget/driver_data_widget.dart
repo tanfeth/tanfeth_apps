@@ -30,6 +30,7 @@ class DriverDataWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     return InkWell(
+      splashColor: context.color.surface,
       onTap: function,
       // state==
       //     customAppFlavor.commonEnum.driverStateEnum.approved

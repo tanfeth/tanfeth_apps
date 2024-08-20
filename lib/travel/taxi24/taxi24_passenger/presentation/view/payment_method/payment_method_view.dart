@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tanfeth_apps/common/presentation/widget/appbar.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
-import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/payment_method/widget/payment_build_method.dart';
 
 class TaxiPassengerPaymentMethodView extends ConsumerStatefulWidget{
   const TaxiPassengerPaymentMethodView();

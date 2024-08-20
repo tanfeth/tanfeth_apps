@@ -70,6 +70,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
             key: showcaseKey6,
             description: LangEnum.callDriverHint.tr(),
             child: InkWell(
+              splashColor: context.color.surface,
               onTap: (){
                 makePhoneCall(
                     phoneNumber: '0544646113'

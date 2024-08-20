@@ -57,15 +57,19 @@ class _AddFundsState extends State<AddFunds> {
                 ):null,
               ),
               24.ph,
-              StaticListAmount(selectedAmount: selectedAmount,onAmountSelected: (int? value) {
+              StaticListAmount(
+                selectedAmount: selectedAmount??-1,
+                onAmountSelected: (int? value) {
                 if(value==null){
                   _amountController.clear();
                 }else{
-                  _amountController.text="${value}";
+                  _amountController.text="$value";
                 }
               }, ),
               const LargeDivider().vPadding(24),
-              Text("Pay with",style: context.text.titleMedium,),
+              Text(
+                LangEnum.payWith.tr(),
+                style: context.text.titleMedium,),
               24.ph,
               GestureDetector(
                 behavior: HitTestBehavior.translucent,
@@ -74,7 +78,9 @@ class _AddFundsState extends State<AddFunds> {
                 },
                 child: Row(
                   children: [
-                      Expanded(child: Text("Choose payment method",style: context.text.titleSmall,)),
+                      Expanded(child: Text(
+                      LangEnum.choosePaymentMethod.tr(),
+                      style: context.text.titleSmall,)),
                       SvgPicture.asset(Images.arrowSVG)
                   ],
                 ),

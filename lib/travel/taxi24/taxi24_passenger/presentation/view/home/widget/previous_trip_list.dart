@@ -1,3 +1,4 @@
+import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -53,6 +54,7 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
             key: showcaseKey15,
             description: LangEnum.previousTripsHint.tr(),
             child: InkWell(
+              splashColor: context.color.surface,
               onTap: () async{
                 ref.read(destinationListProvider.notifier)
                     .addToList([tripList[index]]);
@@ -64,6 +66,7 @@ class _PreviousTripList extends ConsumerState<PreviousTripList>{
           );
         }else {
           return InkWell(
+            splashColor: context.color.surface,
             onTap: () async{
               ref.read(destinationListProvider.notifier)
                   .addToList([tripList[index]]);

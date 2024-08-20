@@ -13,7 +13,6 @@ import 'package:tanfeth_apps/common/shared/languages.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/notification_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/send_message_route.dart';
 import 'package:tanfeth_apps/common/shared/routing/routes/web_view_route.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:api_controller/shared/web_width.dart';
 import 'package:api_controller/vm/langauge/langauge_vm.dart';
 import 'package:tanfeth_apps/flavor/init_binding.dart';

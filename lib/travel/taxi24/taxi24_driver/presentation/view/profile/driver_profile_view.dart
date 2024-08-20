@@ -263,6 +263,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
                           20.ph,
                           Center(
                             child: InkWell(
+                                splashColor: context.color.surface,
                                 onTap: ()async {
                                   showBottomSheetFunction(
                                     content: const LogOutBottomSheetContent(),

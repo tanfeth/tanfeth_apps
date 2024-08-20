@@ -43,6 +43,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
   final phoneController = TextEditingController();
   final birthDatHijriController = TextEditingController();
   final iDController = TextEditingController();
+  final invitationCode = TextEditingController();
   final formKey = GlobalKey<FormState>();
   Country selectedCountry = getCountry();
   String deviceToken = '';
@@ -103,8 +104,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                       keyboardType: TextInputType.text,
                                       hintText: LangEnum.fullname.tr(),
                                       textInputAction: TextInputAction.next,
-                                      validator: Validation.notEmpty,
-                                      onChanged: (String value) {}),
+                                      validator: Validation.notEmpty),
                               
                                   const SizedBox(height:16,),
                               
@@ -118,8 +118,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                       inputFormatters: [
                                         FilteringTextInputFormatter.digitsOnly,
                                       ],
-                                      validator: Validation.notEmpty,
-                                      onChanged: (String value) {}),
+                                      validator: Validation.notEmpty),
                               
                                   const SizedBox(height:16,),
                               
@@ -154,6 +153,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               
                                   ///City
                                   InkWell(
+                                    splashColor: context.color.surface,
                                     onTap: (){
                                       showBottomSheetFunction(
                                         content:  const SelectCityWidget(),
@@ -181,8 +181,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                       keyboardType: TextInputType.text,
                                       hintText: LangEnum.email.tr(),
                                       textInputAction: TextInputAction.next,
-                                      validator: Validation.email,
-                                      onChanged: (String value) {}),
+                                      validator: Validation.email),
                               
                                   const SizedBox(height:16,),
                               
@@ -200,7 +199,20 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                               
                               
                                   const SizedBox(height:16,),
-                              
+
+
+
+                                  ///Invitation code
+                                  CustomTextFormField(
+                                      controller: invitationCode,
+                                      keyboardType: TextInputType.text,
+                                      hintText: LangEnum.invitationCode.tr(),
+                                      textInputAction: TextInputAction.next),
+
+                                  const SizedBox(height:16,),
+
+
+
                                   ///Gender
                               
                                   Text(

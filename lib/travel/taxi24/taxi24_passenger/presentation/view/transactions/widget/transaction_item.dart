@@ -17,6 +17,6 @@ class TransactionItem extends StatelessWidget {
         Expanded(child: Text(transaction['process'],style: context.text.titleSmall,)),
         Text( transaction['amount'],style: context.text.titleSmall,),
       ],
-    );;
+    );
   }
 }

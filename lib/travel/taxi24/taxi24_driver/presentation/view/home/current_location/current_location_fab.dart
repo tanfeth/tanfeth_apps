@@ -12,6 +12,7 @@ class CurrentLocationDetector  extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 16.0),
       child: InkWell(
+        splashColor: context.color.surface,
         onTap: onTap,
         child: Container(
           width: 48,

@@ -1119,15 +1119,74 @@ class Taxi24DriverLanguages extends MyLanguages {
       arValue: 'املأ تفاصيل السيارة أولاً',
     );
     addString(
-      key: LangEnum.km.name,
-      enValue: 'Km',
-      arValue: 'كم',
+      key: LangEnum.passengerCount.name,
+      enValue: 'Passengers count',
+      arValue: 'عدد الركاب',
     );
+    addString(
+      key: LangEnum.passenger.name,
+      enValue: 'Passenger',
+      arValue: 'راكب',
+    );
+
     addString(
       key: LangEnum.km.name,
       enValue: 'Km',
       arValue: 'كم',
     );
+
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
+    addString(
+      key: LangEnum.km.name,
+      enValue: 'Km',
+      arValue: 'كم',
+    );
+
+
+
+
+
+
+
 
 
 

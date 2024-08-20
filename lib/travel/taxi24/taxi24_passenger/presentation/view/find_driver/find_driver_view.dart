@@ -170,6 +170,7 @@ class _FindDriverView extends ConsumerState<FindDriverView>{
                           20.ph,
 
                           InkWell(
+                            splashColor: context.color.surface,
                             onTap: ()=> Get.back(),
                             child: Center(
                               child: Text(

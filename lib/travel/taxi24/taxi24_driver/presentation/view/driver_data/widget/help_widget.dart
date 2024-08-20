@@ -10,7 +10,6 @@ import 'package:api_controller/shared/extensions/padding_extension.dart';
 import 'package:api_controller/shared/extensions/theme_extensions.dart';
 import 'package:tanfeth_apps/common/shared/images.dart';
 import 'package:tanfeth_apps/common/shared/languages.dart';
-import 'package:tanfeth_apps/common/shared/routing/routes/welcome_route.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/log_out_bottom_sheet_content.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/driver_data/widget/help_driver_item_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/widget/log_out_widget.dart';

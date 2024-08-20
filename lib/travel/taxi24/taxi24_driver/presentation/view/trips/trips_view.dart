@@ -19,7 +19,6 @@ import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/data/model/TripsModel.d
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/analytics/widget/time_cell.dart';
 import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/trips/widget/info_item_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/presentation/view/trips/widget/trip_cell.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_driver/shared/helper_methods.dart';
 
 class TripsView extends ConsumerStatefulWidget{

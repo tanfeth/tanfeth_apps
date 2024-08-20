@@ -40,7 +40,7 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 70,
           width: double.infinity,
           child: RotatedBox(
@@ -50,7 +50,7 @@ class _MonthsWidgetState extends ConsumerState<MonthsWidget> {
               squeeze: 1,
               useMagnifier: true,
               controller: controller,
-              physics: FixedExtentScrollPhysics(),
+              physics: const FixedExtentScrollPhysics(),
               magnification: 1,
               onSelectedItemChanged: (index) {
                 _onMonthsChanged(index);

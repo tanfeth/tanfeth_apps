@@ -1,4 +1,5 @@
 
+import 'package:api_controller/presentation/widget/bottom_sheet/close_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:api_controller/presentation/widget/shimmer_widget.dart';
@@ -58,6 +59,12 @@ class _SelectCityWidget extends ConsumerState<SelectCityWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+
+                10.ph,
+                const Center(child: CloseBottomSheetWidget()),
+                10.ph,
+
+
                 CustomTextFormField(
                     controller: searchController,
                     keyboardType: TextInputType.text,
@@ -82,6 +89,7 @@ class _SelectCityWidget extends ConsumerState<SelectCityWidget> {
                         );
                       }else{
                         return InkWell(
+                          splashColor: context.color.surface,
                           onTap: (){
                             selectedCityVM.setSelectedCity(index);
                           },

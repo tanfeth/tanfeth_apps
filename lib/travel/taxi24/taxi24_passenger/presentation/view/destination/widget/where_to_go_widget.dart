@@ -123,6 +123,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
               mainAxisSize: MainAxisSize.min,
               children: [
                 InkWell(
+                  splashColor: context.color.surface,
                   onTap: (){
                     Get.toNamed(SetLocationOnMapRouting.config().path,
                         parameters: {
@@ -153,6 +154,7 @@ class _WhereToGoWidget extends ConsumerState<WhereToGoWidget>{
                         ),
 
                         InkWell(
+                          splashColor: context.color.surface,
                           onTap: (){
                             Get.toNamed(SetLocationOnMapRouting.config().path,
                                 parameters: {

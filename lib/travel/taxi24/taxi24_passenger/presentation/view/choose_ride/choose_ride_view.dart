@@ -9,11 +9,10 @@ import 'package:tanfeth_apps/travel/common/presentation/widget/back_button_widge
 import 'package:tanfeth_apps/travel/common/shared/routes/choose_ride_route.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/choose_ride_map_widget.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/choose_ride/widget/choose_ride_slide_widget.dart';
-import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/presentation/view/destination/vm/destination_list_vm.dart';
 
 
 class ChooseRideView extends ConsumerStatefulWidget{
-  const ChooseRideView();
+  const ChooseRideView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _ChooseRideView();

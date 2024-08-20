@@ -70,6 +70,7 @@ class _GenderWidget extends ConsumerState<GenderWidget>{
 
                     }else {
                       return InkWell(
+                        splashColor: context.color.surface,
                         onTap:(){
                           selectedGenderVM.setSelectedGender(index);
                         },

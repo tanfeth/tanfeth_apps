@@ -82,6 +82,7 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
                 horizontal: 20
             ),
             child: InkWell(
+              splashColor: context.color.surface,
               onTap: (){
                 Scaffold.of(context).openDrawer();
               },

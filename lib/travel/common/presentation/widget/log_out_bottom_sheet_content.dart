@@ -60,6 +60,7 @@ class LogOutBottomSheetContent extends StatelessWidget {
           ),
           Center(
             child: InkWell(
+                splashColor: context.color.surface,
                 onTap: () {
                   Get.back();
                 },

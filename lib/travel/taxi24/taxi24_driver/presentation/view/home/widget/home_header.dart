@@ -39,6 +39,7 @@ class _HomerHeader extends ConsumerState<HomeHeader>{
                    horizontal: 15
                ),
                child: InkWell(
+                 splashColor: context.color.surface,
                  onTap: (){
                    Scaffold.of(context).openDrawer();
                  },
@@ -117,6 +118,7 @@ class _HomerHeader extends ConsumerState<HomeHeader>{
        Align(
          alignment: Alignment.center,
          child: InkWell(
+           splashColor: context.color.surface,
            onTap: (){
              Get.toNamed(WalletRouting.config().path);
            },
