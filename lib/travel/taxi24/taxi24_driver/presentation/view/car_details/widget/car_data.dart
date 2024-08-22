@@ -108,7 +108,7 @@ class _CarData extends ConsumerState<CarData> {
               enabled: false,
               controller: carTypeController,
               suffixWidget: Icon(
-                Icons.arrow_forward,
+                Icons.arrow_drop_down,
                 color: context.color.onSurface,
                 size: 20,
               ),),
@@ -151,7 +151,7 @@ class _CarData extends ConsumerState<CarData> {
                   enabled: false,
                   controller: carModelController,
                   suffixWidget: Icon(
-                    Icons.arrow_forward,
+                    Icons.arrow_drop_down,
                     color: context.color.onSurface,
                     size: 20,
                   ),),
@@ -392,7 +392,7 @@ class _CarData extends ConsumerState<CarData> {
               validator: Validation.notEmpty,
               enabled: false,
               suffixWidget: Icon(
-                Icons.arrow_forward,
+                Icons.arrow_drop_down,
                 color: context.color.onSurface,
                 size: 20,
               ),),

@@ -1,3 +1,4 @@
+import 'package:api_controller/presentation/widget/bottom_sheet/show_bottom_sheet.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,6 +33,9 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
   final userEmailController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   Country selectedMobile = getCountry();
+  final invitationCode = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,13 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+                  const SizedBox(
+                    height: 24,
+                  ),
+
+
+
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -77,7 +88,29 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                             height: 16,
                           ),
 
-                          const SelectCityWidget(),
+                          ///City
+                          InkWell(
+                            splashColor: context.color.surface,
+                            onTap: (){
+                              showBottomSheetFunction(
+                                content:  const SelectCityWidget(),
+                              );
+                            },
+                            child: CustomTextFormField(
+                              keyboardType: TextInputType.text,
+                              hintText: LangEnum.city.tr(),
+                              textInputAction: TextInputAction.next,
+                              validator: Validation.notEmpty,
+                              enabled: false,
+                              suffixWidget: Icon(
+                                Icons.arrow_drop_down,
+                                color: context.color.onSurface,
+                                size: 20,
+                              ),),
+                          ),
+
+
+                          // const SelectCityWidget(),
 
                           const SizedBox(
                             height: 16,
@@ -130,6 +163,21 @@ class _PassengerRegisterView extends ConsumerState<PassengerRegisterView> {
                           const SizedBox(
                             height: 16,
                           ),
+
+
+
+                          ///Invitation code
+                          CustomTextFormField(
+                              controller: invitationCode,
+                              keyboardType: TextInputType.text,
+                              hintText: LangEnum.invitationCode.tr(),
+                              textInputAction: TextInputAction.next),
+
+                          const SizedBox(height:16,),
+
+
+
+
                         ],
                       ),
                     ),

@@ -32,10 +32,13 @@ class _DestinationView extends ConsumerState<DestinationView>{
   void initState() {
     if(TaxiPassengerAppStorage.getDestinationCase() == true){
       Future.delayed(const Duration(seconds: 1),(){
-        showCaseEvent(context: context,caseList: [
-          showcaseKey14,
-          showcaseKey15,
-        ]);
+        if(mounted){
+          showCaseEvent(context: context,caseList: [
+            showcaseKey14,
+            showcaseKey15,
+          ]);
+        }
+
       });
 
     }

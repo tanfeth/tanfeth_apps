@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 GlobalKey showcaseKey0 = GlobalKey();
+GlobalKey showcaseKey01 = GlobalKey();
 GlobalKey showcaseKey1= GlobalKey();
 GlobalKey showcaseKey2 = GlobalKey();
 GlobalKey showcaseKey3 = GlobalKey();

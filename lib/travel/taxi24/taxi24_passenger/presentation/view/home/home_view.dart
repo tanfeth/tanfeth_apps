@@ -26,7 +26,7 @@ import 'package:showcaseview/showcaseview.dart';
 import 'package:tanfeth_apps/travel/taxi24/taxi24_passenger/shared/storage.dart';
 
 class TaxiPassengerHomeView extends ConsumerStatefulWidget {
-  const TaxiPassengerHomeView({Key? key}) : super(key: key);
+  const TaxiPassengerHomeView({super.key});
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PassengerHomeView();
 }
@@ -51,7 +51,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
 
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) async {
+      onPopInvokedWithResult: (didPop,object) async {
         final timeGap = DateTime.now().difference(backPressDateTime);
         final cantExit = timeGap >= const Duration(seconds: 2);
         backPressDateTime = DateTime.now();
@@ -89,7 +89,7 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 100),
                       child: Showcase(
-                        key: showcaseKey1,
+                        key: showcaseKey01,
                         description: LangEnum.currentLocationHint.tr(),
                         onBarrierClick: (){
                           ref.read(setOnLocationMapProvider.notifier).getCurrentLocation();
@@ -103,6 +103,8 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                   ),
                 ),
               ),
+
+
                 ///Current location
                 Positioned.fill(
                   child: Align(
@@ -215,12 +217,15 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
 
                           if(TaxiPassengerAppStorage.getHomeTripFooterCase() == true){
                             Future.delayed(const Duration(milliseconds: 500),(){
-                              showCaseEvent(context: context,
-                                  caseList: [
-                                   showcaseKey2,
-                                   showcaseKey3,
-                                    showcaseKey4,
-                                    showcaseKey5]);
+                              if(mounted){
+                                showCaseEvent(context: context,
+                                    caseList: [
+                                      showcaseKey2,
+                                      showcaseKey3,
+                                      showcaseKey4,
+                                      showcaseKey5]);
+                              }
+
                             });
                           }
                         },

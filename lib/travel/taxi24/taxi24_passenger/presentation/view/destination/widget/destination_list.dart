@@ -33,9 +33,12 @@ class _DestinationList extends ConsumerState<DestinationList>{
   @override
   void initState() {
     if(TaxiPassengerAppStorage.getDestinationCase() == true){
-      showCaseEvent(context: context,caseList: [
-        showcaseKey16,
-      ]);
+      if(mounted){
+        showCaseEvent(context: context,caseList: [
+          showcaseKey16,
+        ]);
+
+      }
 
     }
     super.initState();

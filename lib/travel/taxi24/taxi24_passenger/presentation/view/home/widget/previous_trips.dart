@@ -41,7 +41,7 @@ class _PreviousTrips extends ConsumerState<PreviousTrips> {
              children: [
                25.ph,
                Text(
-                 LangEnum.previousTrips.tr(),
+                 LangEnum.favourite.tr(),
                  style: context.text.titleMedium,
                ),
                25.ph,

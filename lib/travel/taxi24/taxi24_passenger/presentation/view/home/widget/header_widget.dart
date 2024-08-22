@@ -32,10 +32,13 @@ class _HeaderWidget extends ConsumerState<HeaderWidget>{
   void initState() {
     if(TaxiPassengerAppStorage.getHomeCase() == true){
       Future.delayed(const Duration(seconds: 1),(){
-        showCaseEvent(context: context,caseList: [
-          showcaseKey0,
-          showcaseKey1,
-        ]);
+        if(mounted){
+          showCaseEvent(context: context,caseList: [
+            showcaseKey0,
+            showcaseKey1,
+          ]);
+        }
+
       });
 
     }

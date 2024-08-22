@@ -32,6 +32,7 @@ late CarListVM carListVM;
   void initState() {
     carListVM = ref.read(carListProvider.notifier);
     carList =ref.read(carListProvider);
+    carListVM.clearList();
     for(int i =0; i< 2 ; i ++){
       if(i == 0){
         CarTypeModel carTypeModel = CarTypeModel();

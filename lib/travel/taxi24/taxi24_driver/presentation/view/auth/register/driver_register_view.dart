@@ -79,6 +79,13 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+                  const SizedBox(
+                    height: 24,
+                  ),
+
+
+
                   Expanded(
                     child:LayoutBuilder(builder: (context,constraints){
                         return  SingleChildScrollView(
@@ -166,7 +173,7 @@ class _DriverRegisterView extends ConsumerState<DriverRegisterView>{
                                         validator: Validation.notEmpty,
                                         enabled: false,
                                         suffixWidget: Icon(
-                                          Icons.arrow_forward,
+                                          Icons.arrow_drop_down,
                                           color: context.color.onSurface,
                                           size: 20,
                                         ),),

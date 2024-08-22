@@ -24,11 +24,14 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
   @override
   void initState() {
     if(TaxiPassengerAppStorage.getHomeFindDriverCase() == true){
-      showCaseEvent(context: context,caseList: [
-        showcaseKey6,
-        showcaseKey7,
-        showcaseKey8,
-      ]);
+      if(mounted){
+        showCaseEvent(context: context,caseList: [
+          showcaseKey6,
+          showcaseKey7,
+          showcaseKey8,
+        ]);
+      }
+
     }
     super.initState();
   }

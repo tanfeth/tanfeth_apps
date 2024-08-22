@@ -32,13 +32,13 @@ class _EarningView extends ConsumerState<EarningView>{
       body: WebWidth(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   width: double.infinity,
-                  padding:  EdgeInsets.symmetric(horizontal:24),
+                  padding:  const EdgeInsets.symmetric(horizontal:24),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient:  LinearGradient(
@@ -51,24 +51,24 @@ class _EarningView extends ConsumerState<EarningView>{
                   child:Column(
                     crossAxisAlignment:CrossAxisAlignment.start ,
                     children: [
-                      SizedBox(height: 22,),
+                      const SizedBox(height: 22,),
                       Text(
                         formatMonthDay(DateTime.now().toLocal()),
                       ),
-                      SizedBox(height: 12,),
+                      const SizedBox(height: 12,),
                       Text(
                         "${LangEnum.sar.tr()} ${1000.toStringAsFixed(2)}",
                         style: context.text.titleMedium,
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       Text(
                         "${1000} ${LangEnum.trips.tr()} ${LangEnum.inWord.tr()} ${LangEnum.today.tr()}",
                       ),
-                      SizedBox(height: 24,),
+                      const SizedBox(height: 24,),
                     ],
                   ),
                 ),
-                SizedBox(height: 34,),
+                const SizedBox(height: 34,),
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
@@ -86,7 +86,7 @@ class _EarningView extends ConsumerState<EarningView>{
                               width: 24,
                               height: 24,
                             ),
-                            SizedBox(width: 18,),
+                            const SizedBox(width: 18,),
                             Text(
                               LangEnum.analytics.tr(),
                               textAlign: TextAlign.start,
@@ -97,11 +97,11 @@ class _EarningView extends ConsumerState<EarningView>{
                           ],
                         ),
                       ),
-                      Icon(Icons.arrow_forward_ios,size: 16,)
+                      const Icon(Icons.arrow_forward_ios,size: 16,)
                     ],
                   ),
                 ),
-                SizedBox(height: 40,),
+                const SizedBox(height: 40,),
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
@@ -119,7 +119,7 @@ class _EarningView extends ConsumerState<EarningView>{
                               width: 24,
                                 height: 24,
                             ),
-                            SizedBox(width: 18,),
+                            const SizedBox(width: 18,),
                             Text(
                               LangEnum.myTrips.tr(),
                               textAlign: TextAlign.start,
@@ -130,7 +130,7 @@ class _EarningView extends ConsumerState<EarningView>{
                           ],
                         ),
                       ),
-                      Icon(Icons.arrow_forward_ios,size: 16,)
+                      const Icon(Icons.arrow_forward_ios,size: 16,)
                     ],
                   ),
                 ),

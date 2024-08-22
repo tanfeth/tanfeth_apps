@@ -36,7 +36,10 @@ class _HomeViewState extends ConsumerState<TaxiDriverHomeView> {
   @override
   void initState() {
     if (AppStorage.getHomeCase() == true) {
-      showCaseEvent(context: context, caseList: [one, two, four, three]);
+      if(mounted){
+        showCaseEvent(context: context, caseList: [one, two, four, three]);
+      }
+
     }
 
 

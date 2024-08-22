@@ -56,8 +56,11 @@ class _TaxiDriverProfile extends ConsumerState<TaxiDriverProfile> {
   @override
   void initState() {
     if(AppStorage.getProfileCase() == true) {
-      showCaseEvent(context: context,
-          caseList: [one, two, three, four, five, six, seven]);
+      if(mounted){
+        showCaseEvent(context: context,
+            caseList: [one, two, three, four, five, six, seven]);
+      }
+
     }
     appVersion = AppStorage.getAppVersion();
 

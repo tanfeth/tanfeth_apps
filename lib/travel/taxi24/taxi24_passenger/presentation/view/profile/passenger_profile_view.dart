@@ -45,13 +45,16 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
   @override
   void initState() {
     if(TaxiPassengerAppStorage.getProfileCase() == true){
-      showCaseEvent(context: context,caseList: [
-        showcaseKey9,
-        showcaseKey10,
-        showcaseKey11,
-        showcaseKey12,
-        showcaseKey13
-      ]);
+      if(mounted){
+        showCaseEvent(context: context,caseList: [
+          showcaseKey9,
+          showcaseKey10,
+          showcaseKey11,
+          showcaseKey12,
+          showcaseKey13
+        ]);
+      }
+
     }
     super.initState();
   }

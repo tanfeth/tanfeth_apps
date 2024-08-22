@@ -34,7 +34,7 @@ class CreditCard extends ConsumerWidget {
           height: 24,
           width: 24,
         ),
-        SizedBox(width: 16,),
+        const SizedBox(width: 16,),
 
         Expanded(
           child: Column(
@@ -72,7 +72,7 @@ class CreditCard extends ConsumerWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: context.color.primary,width: 6)
           ),),
-        if(isArrow) Icon(Icons.arrow_forward_ios_outlined,size: 14,),
+        if(isArrow) const Icon(Icons.arrow_forward_ios_outlined,size: 14,),
         if(!isSelect)   GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: (){
