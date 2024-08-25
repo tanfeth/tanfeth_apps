@@ -1394,6 +1394,13 @@ class Taxi24PassengerLanguages extends MyLanguages {
     );
 
     addString(
+      key: LangEnum.areSureWantLogout.name,
+      enValue: 'Are your sure you want to make logout?',
+      arValue: 'هل أنت متأكد أنك تريد تسجيل الخروج؟',
+    );
+
+
+    addString(
       key: LangEnum.payWith.name,
       enValue: 'Pay with',
       arValue: 'ادفع بـ',

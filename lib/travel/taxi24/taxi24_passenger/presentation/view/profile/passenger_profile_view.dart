@@ -92,7 +92,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 title: LangEnum.editProfile.tr(),
                                 icon: Images.personInfoSVG,
                                 function: () {
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                   Get.toNamed(PersonalInfoRouting.config().path);
                                 }),
                           ),
@@ -105,7 +105,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 title: LangEnum.myTrips.tr(),
                                 icon: Images.fullClockSVG,
                                 function: () {
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                   Get.toNamed( MyTripRouting.config().path);
                                   //Get.toNamed(EarningRouting.config().path);
                                   Get.toNamed(MyTripRouting.config().path);
@@ -121,7 +121,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                 icon: Images.locationSVG,
                                 function: () {
                                   Get.toNamed(FavoritePlaceRouting.config().path);
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                  // Get.toNamed(WalletRouting.config().path);
                                 }),
                           ),
@@ -131,7 +131,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.notifications.tr(),
                               icon: Images.alertSVG,
                               function: () {
-                                Scaffold.of(context).closeDrawer();
+                               // Scaffold.of(context).closeDrawer();
                                 Get.toNamed(NotificationsRouting.config().path);
                               }),
                            const SmallDivider(),
@@ -140,7 +140,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.language.tr(),
                               icon: Images.languageSVG,
                               function: () {
-                                Scaffold.of(context).closeDrawer();
+                               // Scaffold.of(context).closeDrawer();
                                 showBottomSheetFunction(
                                 content: const LangBottomSheet(),
                               );
@@ -151,7 +151,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.help.tr(),
                               icon: Images.helpSVG,
                               function: () {
-                                Scaffold.of(context).closeDrawer();
+                                //Scaffold.of(context).closeDrawer();
                                 Get.toNamed(SendMessageRouting.config().path);
                               }),
                            const SmallDivider(),
@@ -187,7 +187,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   ),
                                 ),
                                 function: () {
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                   rateAppOnStore();
                                 }),
                           ),
@@ -214,7 +214,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                                   width: 25,
                                 ).hPadding(8),
                                 function: () {
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                   shareApp();
                                 }),
                           ),
@@ -224,7 +224,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                               title: LangEnum.becomeCaptain.tr(),
                               icon: Images.becomeCaptainSVG,
                               function: () {
-                                Scaffold.of(context).closeDrawer();
+                               // Scaffold.of(context).closeDrawer();
                                 Get.toNamed(
                                   WebViewRouting.config().path,
                                   parameters: {
@@ -239,7 +239,7 @@ class _TaxiDriverProfile extends ConsumerState<TaxiPassengerProfileView> {
                             child: GestureDetector(
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () {
-                                  Scaffold.of(context).closeDrawer();
+                                 // Scaffold.of(context).closeDrawer();
                                   showBottomSheetFunction(
                                     content: const LogOutBottomSheetContent(),
                                   );
