@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,31 +31,24 @@ class TaxiPassengerHomeView extends ConsumerStatefulWidget {
 }
 
 class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
-
-
-
   DateTime backPressDateTime = DateTime.now();
-
-
 
   @override
   void initState() {
     super.initState();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop,object) async {
+      onPopInvokedWithResult: (didPop, object) async {
         final timeGap = DateTime.now().difference(backPressDateTime);
         final cantExit = timeGap >= const Duration(seconds: 2);
         backPressDateTime = DateTime.now();
         if (cantExit) {
-          showToast(LangEnum.pressAgainToExit.tr(), position: ToastPosition.bottom);
+          showToast(LangEnum.pressAgainToExit.tr(),
+              position: ToastPosition.bottom);
         } else {
           SystemNavigator.pop();
         }
@@ -70,14 +62,13 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
           child: Stack(
             fit: StackFit.loose,
             children: [
-
               ///Map
-              if(ref.watch(destinationListProvider).isEmpty)...[
+              if (ref.watch(destinationListProvider).isEmpty) ...[
                 SetLocationMapWidget(
                   pageType: customAppFlavor.commonEnum.locationTypeEnum.pickUp,
                 ),
-              ]else...[
-               const  ChooseRideMapWidget(),
+              ] else ...[
+                const ChooseRideMapWidget(),
               ],
 
               ///Current location
@@ -85,18 +76,23 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: FadeInUp(
-                    animate: ref.watch(toggleAnimationProvider).confirmFooter??false,
+                    animate: ref.watch(toggleAnimationProvider).confirmFooter ??
+                        false,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 100),
                       child: Showcase(
                         key: showcaseKey01,
                         description: LangEnum.currentLocationHint.tr(),
-                        onBarrierClick: (){
-                          ref.read(setOnLocationMapProvider.notifier).getCurrentLocation();
+                        onBarrierClick: () {
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation();
                           TaxiPassengerAppStorage.showHomeCase(false);
                         },
                         child: CurrentLocationDetector(onTap: () async {
-                          ref.read(setOnLocationMapProvider.notifier).getCurrentLocation(setMakers: false);
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation(setMakers: false);
                         }),
                       ),
                     ),
@@ -104,147 +100,155 @@ class _PassengerHomeView extends ConsumerState<TaxiPassengerHomeView> {
                 ),
               ),
 
-
-                ///Current location
-                Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: FadeInUp(
-                      animate: ref.watch(toggleAnimationProvider).confirmFooter??false,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 100),
-                        child: Showcase(
-                          key: showcaseKey1,
-                          description: LangEnum.currentLocationHint.tr(),
-                          disposeOnTap: true,
-                          onBarrierClick: ()async{
-                               ref.read(setOnLocationMapProvider.notifier)
-                                .getCurrentLocation();
-                               await TaxiPassengerAppStorage.showHomeCase(false);
-                          },
-                          onToolTipClick: ()async{
-                            ref.read(setOnLocationMapProvider.notifier)
-                                .getCurrentLocation();
-                            await TaxiPassengerAppStorage.showHomeCase(false);
-                          },
-                          onTargetClick: ()async{
-                            ref.read(setOnLocationMapProvider.notifier)
-                                .getCurrentLocation();
-                            await TaxiPassengerAppStorage.showHomeCase(false);
-                          },
-                          child: CurrentLocationDetector(onTap: () async {
-                            ref.read(setOnLocationMapProvider.notifier)
-                                .getCurrentLocation(setMakers: false);
-                          }),
-                        ),
+              ///Current location
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: FadeInUp(
+                    animate: ref.watch(toggleAnimationProvider).confirmFooter ??
+                        false,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 100),
+                      child: Showcase(
+                        key: showcaseKey1,
+                        description: LangEnum.currentLocationHint.tr(),
+                        disposeOnTap: true,
+                        onBarrierClick: () async {
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation();
+                          await TaxiPassengerAppStorage.showHomeCase(false);
+                        },
+                        onToolTipClick: () async {
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation();
+                          await TaxiPassengerAppStorage.showHomeCase(false);
+                        },
+                        onTargetClick: () async {
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation();
+                          await TaxiPassengerAppStorage.showHomeCase(false);
+                        },
+                        child: CurrentLocationDetector(onTap: () async {
+                          ref
+                              .read(setOnLocationMapProvider.notifier)
+                              .getCurrentLocation(setMakers: false);
+                        }),
                       ),
                     ),
                   ),
                 ),
+              ),
 
               ///Marker
-              if(ref.watch(destinationListProvider).isEmpty)
-              Positioned(
-                bottom: (MediaQuery.sizeOf(context).height) / 2,
-                left: (MediaQuery.sizeOf(context).width - 45) / 2,
-                child: Image.asset(
-                  Images.pickUpImage,
-                  height: 45,
-                  width: 45,
-                  fit: BoxFit.contain,
+              if (ref.watch(destinationListProvider).isEmpty)
+                Positioned(
+                  bottom: (MediaQuery.sizeOf(context).height) / 2,
+                  left: (MediaQuery.sizeOf(context).width - 45) / 2,
+                  child: Image.asset(
+                    Images.pickUpImage,
+                    height: 45,
+                    width: 45,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
 
               ///Header
               const HeaderWidget(),
 
-
               ///Find Driver footer
               Positioned.fill(
                 child: IgnorePointer(
-                  ignoring: !(ref.watch(toggleAnimationProvider).findDriver??false),
+                  ignoring:
+                      !(ref.watch(toggleAnimationProvider).findDriver ?? false),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: FadeInUp(
-                      animate: ref.watch(toggleAnimationProvider).findDriver??false,
+                      animate: ref.watch(toggleAnimationProvider).findDriver ??
+                          false,
                       child: const FindDriverView(),
                     ),
                   ),
                 ),
               ),
 
-
               ///Trip footer
               Positioned.fill(
                 child: IgnorePointer(
-                  ignoring: !(ref.watch(toggleAnimationProvider).tripFooter??false),
+                  ignoring:
+                      !(ref.watch(toggleAnimationProvider).tripFooter ?? false),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: FadeInUp(
-                      animate: ref.watch(toggleAnimationProvider).tripFooter??false,
-                      child:  const FooterWidget(),
+                      animate: ref.watch(toggleAnimationProvider).tripFooter ??
+                          false,
+                      child: const FooterWidget(),
                     ),
                   ),
                 ),
               ),
-
-
-
-
 
               ///Confirm button
               Positioned.fill(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: FadeInUp(
-                    animate: ref.watch(toggleAnimationProvider).confirmFooter??false,
+                    animate: ref.watch(toggleAnimationProvider).confirmFooter ??
+                        false,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 15),
                       child: ElevatedButton(
                         onPressed: () async {
                           LocationModel model = LocationModel();
-                          model.description = ref.read(setOnLocationMapProvider).currentAddress;
-                          model.locationCity = ref.read(setOnLocationMapProvider).currentAddressName;
-                          model.isFavorite =true;
+                          model.description =
+                              ref.read(setOnLocationMapProvider).currentAddress;
+                          model.locationCity = ref
+                              .read(setOnLocationMapProvider)
+                              .currentAddressName;
+                          model.isFavorite = true;
                           model.placeId = '0';
-                          model.latLng = ref.read(setOnLocationMapProvider).currentLatLng;
+                          model.latLng =
+                              ref.read(setOnLocationMapProvider).currentLatLng;
 
-                          ref.read(pickUpLocationProvider.notifier).setModel(model);
+                          ref
+                              .read(pickUpLocationProvider.notifier)
+                              .setModel(model);
 
-                          ref.read(toggleAnimationProvider.notifier).toggleConfirmFooterAnimate(false);
-                          ref.read(toggleAnimationProvider.notifier).toggleTripFooterAnimate(true);
+                          ref
+                              .read(toggleAnimationProvider.notifier)
+                              .toggleConfirmFooterAnimate(false);
+                          ref
+                              .read(toggleAnimationProvider.notifier)
+                              .toggleTripFooterAnimate(true);
 
-
-                          if(TaxiPassengerAppStorage.getHomeTripFooterCase() == true){
-                            Future.delayed(const Duration(milliseconds: 500),(){
-                              if(mounted){
-                                showCaseEvent(context: context,
-                                    caseList: [
-                                      showcaseKey2,
-                                      showcaseKey3,
-                                      showcaseKey4,
-                                      showcaseKey5]);
+                          if (TaxiPassengerAppStorage.getHomeTripFooterCase() ==
+                              true) {
+                            Future.delayed(const Duration(milliseconds: 500),
+                                () {
+                              if (mounted) {
+                                showCaseEvent(context: context, caseList: [
+                                  showcaseKey2,
+                                  showcaseKey3,
+                                  showcaseKey4,
+                                  showcaseKey5
+                                ]);
                               }
-
                             });
                           }
                         },
-                        child: Text(
-                            LangEnum.confirm.tr()
-                        ),
+                        child: Text(LangEnum.confirm.tr()),
                       ),
                     ),
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),
       ),
     );
   }
-
-
 }
