@@ -150,7 +150,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                   },
                                 ),
                             
-                                ///Saudi ID
+                       /*         ///Saudi ID
                                 DriverDataWidget(
                                   image: Images.fileSVG,
                                   title: LangEnum.saudiID.tr(),
@@ -180,7 +180,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                           AttachmentInfoRouting.attachmentInfoModel:
                                           attachmentInfoModel
                                         });
-                                  },),
+                                  },),*/
                             
                                 /// Driving licence
                                 DriverDataWidget(
@@ -264,7 +264,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
 
                                     }),
                             
-                                /// Vehicle insurance
+                           /*     /// Vehicle insurance
                                 DriverDataWidget(
                                     image: Images.fileSVG,
                                     state: driverStatusModel?.carInssuranceState,
@@ -305,7 +305,9 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
                                       }
 
                             
-                                    }),
+                                    }),*/
+
+
                               ],
                             ),
                           ),
