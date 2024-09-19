@@ -62,7 +62,7 @@ class _DriverDataView extends ConsumerState<DriverDataView>{
 
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) async {
+      onPopInvokedWithResult: (didPop,val) async {
         final timeGap = DateTime.now().difference(backPressDateTime);
         final cantExit = timeGap >= const Duration(seconds: 2);
         backPressDateTime = DateTime.now();
